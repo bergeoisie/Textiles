@@ -137,7 +137,7 @@ int main(void)
     
     PrintFullTextileInfo(T);
     
-    Textile Tnonefour = CreateNMTextile(T,-1,4);
+    Textile Tnonefour = CreateNMTextile(T,-1,3);
     
     PrintFullTextileInfo(Tnonefour);
     

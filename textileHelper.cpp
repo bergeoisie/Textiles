@@ -468,9 +468,9 @@ Textile ProductTextile(Textile T, Textile S)
                 name=Tgamma_ename(currTEdge)+Sgamma_ename(currSEdge);	     
                 if(DEBUG)
                 {
-                    cout << "We have created an edge from " << currV << " to " << target(currSEdge,S.first)
-                    << " named " << name << " where p and q are " << pword << " and " << qword
-                    << " respectively." << endl;
+         //           cout << "We have created an edge from " << currV << " to " << target(currSEdge,S.first)
+         //           << " named " << name << " where p and q are " << pword << " and " << qword
+         //           << " respectively." << endl;
                 }
                 add_edge(currV,target(currSEdge,S.first),PQ_Homoms(pword,Q_Homom(qword,name)),GammaProd);
             }
@@ -1720,7 +1720,7 @@ int IspLeftDefinite(Textile T)
         
         types.push_back(gvname(*gvi));
         
-        cout << "We have inserted " << gvname(*gvi) << " into types." << endl;
+     //   cout << "We have inserted " << gvname(*gvi) << " into types." << endl;
         
         for(tie(goei,goei_end)=in_edges(*gvi,T.second); goei!=goei_end; goei++)
         {
@@ -1739,7 +1739,7 @@ int IspLeftDefinite(Textile T)
         vector<vColl*> *dummy = new vector<vColl*>(1);
         int M=0;
         
-        cout << "Looking at type: " << *it << endl;
+   //     cout << "Looking at type: " << *it << endl;
         
         
         // iterate through the upstairs vertices and find all those whose vertex homom matches
@@ -2159,6 +2159,7 @@ Textile RenameTextile(Textile T,map<string,string> names)
     graph_traits<GammaGraph>::edge_iterator ei,ei_end;
     graph_traits<GammaGraph>::vertex_iterator vi,vi_end,gi,gi_end;
     graph_traits<Graph>::edge_iterator gei,gei_end;
+    graph_traits<Graph>::vertex_iterator gvi,gvi_end,gwi,gwi_end;
     
     property_map<GammaGraph,edge_p_homom_t>::type
     p_homom = get(edge_p_homom,T.first);
@@ -2183,6 +2184,12 @@ Textile RenameTextile(Textile T,map<string,string> names)
     
     property_map<Graph,edge_name_t>::type
     bename = get(edge_name,B);
+    
+    property_map<Graph,vertex_name_t>::type
+    bvname = get(vertex_name,B);
+    
+    property_map<Graph,vertex_name_t>::type
+    gvname = get(vertex_name,T.second);
     
     property_map<Graph,edge_name_t>::type
     gename = get(edge_name,T.second);
@@ -2210,6 +2217,10 @@ Textile RenameTextile(Textile T,map<string,string> names)
         add_edge(source(*gei,T.second),target(*gei,T.second),names[gename(*gei)],B);
     }
     
+    for(tie(gvi,gvi_end)=vertices(T.second), tie(gwi,gwi_end)=vertices(B);gvi!=gvi_end;gvi++,gwi++)
+    {
+        put(bvname,*gwi,gvname(*gvi));
+    }
     
     return Textile(A,B);
     
@@ -2564,6 +2575,13 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
     
     VertexMap vmap;
     
+    cout << "Printing E, the state equivalences" << endl;
+    for(int i=0; i<E.size();i++)
+    {
+        printVVec(E[i]);
+        cout << endl;
+    }
+    
     // We need to check to make sure our equivalence relation E is actually a state equivalence    
      for(int i=0;i<E.size();i++)
      {
@@ -2606,6 +2624,9 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
                                  if(ea!=eb)
                                  {
                                      cerr << "NOT A STATE EQUIVALENCE" << endl;
+                                     printVVec(E[i]);
+                                     cout << endl;
+                                     PrintFullTextileInfo(T);
                                      return T;
                                  }
                              } // if
@@ -2613,6 +2634,9 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
                          if(!found)
                          {
                              cerr << "NOT A STATE EQUIVALENCE" << endl;
+                             printVVec(E[i]);
+                             cout << endl;
+                             PrintFullTextileInfo(T);
                              return T; 
                          } 
                      } // for oei
@@ -2631,6 +2655,9 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
                          if(!found)
                          {
                              cerr << "NOT A STATE EQUIVALENCE" << endl;
+                             printVVec(E[i]);
+                             cout << endl;
+                             PrintFullTextileInfo(T);
                              return T; 
                          } 
                      } // for oei
@@ -3904,6 +3931,8 @@ Textile CreateNMTextile(Textile T, int n, int m)
 }
 
 // This function will go through a textile, look for identical rows, then add all of those rows to the same equiv class.
+// The quotient function will check to make sure that this is actually a state equiv and if its not, it will just
+// return the original textile.
 Textile AutoHomom(Textile T)
 {
     // We need to check to see if we've already seen a vertex
