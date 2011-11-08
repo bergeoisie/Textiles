@@ -1,8 +1,8 @@
 //
-//  gmcube.cpp
+//  gmctwo.cpp
 //  
 //
-//  Created by Brendan Berg on 9/22/11.
+//  Created by Brendan Berg on 10/26/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -80,7 +80,7 @@ int main(void)
     add_edge(2, 1, PQ_Homoms(string("f"),Q_Homom(string("e"),string("11"))),G);
     add_edge(2, 1, PQ_Homoms(string("g"),Q_Homom(string("d"),string("12"))),G);
     add_edge(2, 2, PQ_Homoms(string("h"),Q_Homom(string("b"),string("13"))),G);
-
+    
     
     
     property_map<GammaGraph,vertex_p_vhomom_t>::type
@@ -137,18 +137,11 @@ int main(void)
     
     PrintFullTextileInfo(T);
     
-    for(i=-1; i>-4;i--)
-    {
-        for(j=1; j<5; j++)
-        {
-            Textile Tij = AutoHomom(CreateNMTextile(T,i,j));
-            Textile Tconj = LookForConjugacy(Tij,4);
-            ofstream os("conjugaciescube.txt",ios_base::app);
-            os << "PRINTING IJ CONJUGACY FOR " << i << j << endl;
-            PrintFullTextileInfo(Tij,os);
-            PrintFullTextileInfo(Tconj,os);
-        }
-    }
+    Textile Tnonefour = CreateNMTextile(T,-1,4);
+    
+    PrintFullTextileInfo(Tnonefour);
+    
+    LookForConjugacy(Tnonefour,5);
     
     return 0;
 }

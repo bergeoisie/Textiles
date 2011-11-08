@@ -2527,10 +2527,11 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
     GammaGraph Gamma(E.size());
     
     graph_traits<GammaGraph>::vertex_iterator vi,vi_end;
-    graph_traits<GammaGraph>::out_edge_iterator oei,oei_end;
+    graph_traits<GammaGraph>::out_edge_iterator oei,oei_end,ofi,ofi_end;
     vector<graph_traits<GammaGraph>::vertex_descriptor> currE;
-    int i,j,k,m;
-    bool done;
+    VD va,vb;
+    int i,j,k,m,l,ea,eb;
+    bool done,founda,foundb,found;
     string name;
     
     property_map<GammaGraph,vertex_name_t>::type
@@ -2563,13 +2564,82 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
     
     VertexMap vmap;
     
-    // We need to check to make sure our equivalence relation E is actually a state equivalence
-    
-    /*  for(int i=0;i<num_vertices(T.first);i++)
+    // We need to check to make sure our equivalence relation E is actually a state equivalence    
+     for(int i=0;i<E.size();i++)
      {
-     
+         if( (E[i]).size() > 1) // Our state equivalence actually contains more than one element. If it doesn't, we can move on
+         {
+             for(j=0; j< E[i].size()-1; j++)
+             {
+                 for(k=j; k<E[i].size(); k++)
+                 {
+                     // We want to check that we satisfy condition 1 of the definition of a state equiv.
+                     for(tie(oei,oei_end)=out_edges(E[i][j],T.first); oei != oei_end; oei++)
+                     {
+                         found = false;
+                         for(tie(ofi,ofi_end)=out_edges(E[i][k],T.first); ofi != ofi_end; ofi++)
+                         {
+                             if(Tf_p(*ofi)==Tf_p(*oei) && Tf_q(*ofi) == Tf_q(*oei))
+                             {
+                                 found = true;
+                                 va = target(*oei,T.first);
+                                 vb = target(*ofi,T.first);
+                                 founda = false; foundb = false;
+                                 // Iterate through the classes
+                                 for(m=0;m<E.size() && !(founda && foundb); m++)
+                                 {
+                                    // Iterate within the classes
+                                     for(l=0;l<E[m].size();l++)
+                                     {
+                                         if(E[m][l]==va) // We've found the class, set ea to it.
+                                         {
+                                             ea = m;
+                                             founda = true;
+                                         }
+                                         if(E[m][l]==vb)
+                                         {
+                                             eb = m;
+                                             foundb = true;
+                                         }
+                                     } // for l
+                                 } // for m
+                                 if(ea!=eb)
+                                 {
+                                     cerr << "NOT A STATE EQUIVALENCE" << endl;
+                                     return T;
+                                 }
+                             } // if
+                         } // for ofi
+                         if(!found)
+                         {
+                             cerr << "NOT A STATE EQUIVALENCE" << endl;
+                             return T; 
+                         } 
+                     } // for oei
+
+                     // We repeat the same check as above, but checking the other direction
+                     for(tie(oei,oei_end)=out_edges(E[i][k],T.first); oei != oei_end; oei++)
+                     {
+                         found = false;
+                         for(tie(ofi,ofi_end)=out_edges(E[i][j],T.first); ofi != ofi_end; ofi++)
+                         {
+                             if(Tf_p(*ofi)==Tf_p(*oei) && Tf_q(*ofi) == Tf_q(*oei))
+                             {
+                                 found = true;
+                             } // if
+                         } // for ofi
+                         if(!found)
+                         {
+                             cerr << "NOT A STATE EQUIVALENCE" << endl;
+                             return T; 
+                         } 
+                     } // for oei
+
+                 } // for k
+             } // for j
+         } // if size > 1
      }
-     */
+     
     
     for(tie(vi,vi_end)=vertices(Gamma),i=0; vi!=vi_end; vi++, i++)
     {
