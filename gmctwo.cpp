@@ -141,7 +141,9 @@ int main(void)
     
     PrintFullTextileInfo(Tnonefour);
     
-    LookForConjugacy(Tnonefour,5);
+    Textile conj = LookForConjugacy(Tnonefour,5);
+
+	PrintFullTextileInfo(conj);
     
     return 0;
 }

@@ -1725,7 +1725,7 @@ int IspLeftDefinite(Textile T)
         for(tie(goei,goei_end)=in_edges(*gvi,T.second); goei!=goei_end; goei++)
         {
             currSColl.push_back(gename(*goei));
-            cout << "We have pushed " << gename(*goei) << " onto the current string collection" << endl;
+     //       cout << "We have pushed " << gename(*goei) << " onto the current string collection" << endl;
         } // inner for
         productionRules.push_back(currSColl);
     } // outer for
@@ -1757,7 +1757,7 @@ int IspLeftDefinite(Textile T)
    //         cout << "We are done checking vertex: " << *vi << endl;
         } // inner for
         
-        cout << "Out of for loop" << endl;
+   //     cout << "Out of for loop" << endl;
         if(M>maxM) {
     //        cout << "New maxM is " << M << endl;
             typeMatrix.resize(M,typeNumber,true);
@@ -3298,6 +3298,7 @@ Textile inducedLq(Textile T)
     return CreateInverse(inducedLp(Tinv));
 }
 
+// Checks if a Textile is 1-1 by looking at its induced left and right homomorphisms and checking if they are definite.
 bool is1to1(Textile T)
 {
     Textile irq=inducedRq(T),ilp=inducedLp(T),irp=inducedRp(T),ilq=inducedLq(T);
@@ -3334,7 +3335,7 @@ bool is1to1(Textile T)
   }
 
 
-
+// Checks to see if one VVec (vector of vertex descriptors) is a subset of another
 bool VVecSubset(VVec a, VVec b)
 {
     VVec::iterator ait,bit;
@@ -3377,6 +3378,7 @@ void printVVec(VVec a)
     cout << *it << "}";
 }
 
+// Makes a VVec (a vector of vertex descriptors) into a stringstream
 string ssVVec(VVec a)
 {
     stringstream ss;
@@ -3776,6 +3778,8 @@ Textile Composition(Textile S, Textile T)
     return CreateDual(ProductTextile(CreateDual(S),CreateDual(T)));
 }
 
+// Looks for a conjugacy to a given textile system. MAX indicates how large of higher block
+// shifts to make. Making MAX larger than 4 or 5 will take a really long time.
 Textile LookForConjugacy(Textile T, int MAX)
 {
     bool TND,TOO,NND,NOO,DOO,DND;
@@ -3842,6 +3846,7 @@ Textile LookForConjugacy(Textile T, int MAX)
     
 }
 
+// Recursively creates the composition power of a textile system
 Textile CompositionPower(Textile T, int n)
 {
     cout << "Composition power " << n << endl;
@@ -3992,6 +3997,8 @@ Textile AutoHomom(Textile T)
     return Quotient(T,classes);
 }
 
+// Useful when making compositions and powers of textiles, this will shorten all
+// of the names of the edges and p,q homoms. 
 Textile AutoRenamer(Textile T)
 {
     GammaEI ei,ei_end;
@@ -4027,6 +4034,9 @@ Textile AutoRenamer(Textile T)
     return RenameTextile(T,GedgeMap);
 }
 
+
+// This is a helper function that produces shortened strings based on
+// a given length. You can also change the starting point.
 string Namer(int i, int len, int start)
 {
     int div,j,curr;
@@ -4050,6 +4060,8 @@ string Namer(int i, int len, int start)
     return name;
 }
 
+// This function finds the Peron Frobenius Eigenvalue of the input matrix. We use JAMA for this as
+// I would definitely screw it up.
 double PFEigenvalue(Graph G)
 {
     // We use the graph G to create an adjacency matrix, then we make a JAMA Eigen class for it
