@@ -4041,7 +4041,7 @@ string Namer(int i, int len, int start)
 {
     int div,j,curr;
     string name;
-    char * temp = new char[len];
+    char * temp = new char[len+1];
     
     for(j=0;j<len;j++)
     {
@@ -4055,6 +4055,7 @@ string Namer(int i, int len, int start)
         }
         temp[j]= (char) (start + curr);
     }
+	temp[len] = '\0';
     name.append(temp);
     
     return name;
