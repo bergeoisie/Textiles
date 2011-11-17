@@ -148,5 +148,6 @@ Textile AutoHomom(Textile);
 Textile AutoRenamer(Textile);
 string Namer(int,int,int=65);
 double PFEigenvalue(Graph);
+void OctaveOutput(Textile,string);
 
 #endif

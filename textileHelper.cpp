@@ -103,6 +103,7 @@ typedef pair<GammaGraph,Graph> Textile;
 typedef vector<graph_traits<GammaGraph>::vertex_descriptor> VVec;
 typedef graph_traits<GammaGraph>::vertex_iterator GammaVI;
 typedef graph_traits<GammaGraph>::out_edge_iterator GammaOEI;
+typedef graph_traits<Graph>::out_edge_iterator GOEI;
 typedef graph_traits<GammaGraph>::edge_iterator GammaEI;
 typedef graph_traits<Graph>::vertex_iterator GVI;
 typedef graph_traits<Graph>::edge_iterator GEI;
@@ -4092,4 +4093,59 @@ double PFEigenvalue(Graph G)
     
     return max;
     
+}
+
+// This function is really designed for outputting the G graph of a textile so that you input
+// the matrix into Octave and 
+void OctaveOutput(Textile T,string filename)
+{
+	ofstream os(filename.c_str(),ios_base::trunc);
+	
+	os << "[" ;
+	
+	GVI vi,vi_end,wi,wi_end;
+	GOEI oei,oei_end;
+	int i,N = num_vertices(T.second);
+	
+	for(tie(vi,vi_end)=vertices(T.second); vi!=vi_end; vi++)
+	{
+		// degStor stores a vertex of G and an integer representing the degree of the edges
+		// between *vi and the GVD.
+		map<GVD,int> degStor;
+		for(tie(oei,oei_end)=out_edges(*vi,T.second); oei!=oei_end; oei++)
+		{
+			GVD t=target(*oei,T.second);
+			if(degStor.find(t)==degStor.end()) // we didn't find it
+			{
+				degStor[t] = 1;
+			}
+			else
+			{
+				degStor[t] = degStor[t]+1;
+			}
+		}
+		
+		for(tie(wi,wi_end)=vertices(T.second), i=0; wi!=wi_end; wi++, i++)
+		{
+			if(degStor.find(*wi)==degStor.end())
+			{
+				os << "0";
+			}
+			else
+			{
+				os << degStor[*wi];
+			}
+			if(i!=N-1)
+			{
+				os << ", ";
+			}
+			else
+			{
+				os << ";";
+			}
+		}
+		
+	}
+	
+	os << "]";
 }

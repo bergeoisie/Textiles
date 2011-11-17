@@ -45,6 +45,7 @@ typedef pair<GammaGraph,Graph> Textile;
 typedef vector<graph_traits<GammaGraph>::vertex_descriptor> VVec;
 typedef graph_traits<GammaGraph>::vertex_iterator GammaVI;
 typedef graph_traits<GammaGraph>::out_edge_iterator GammaOEI;
+typedef graph_traits<Graph>::out_edge_iterator GOEI;
 typedef graph_traits<GammaGraph>::edge_iterator GammaEI;
 typedef graph_traits<Graph>::vertex_iterator GVI;
 typedef graph_traits<Graph>::edge_iterator GEI;
@@ -137,13 +138,15 @@ int main(void)
     
     PrintFullTextileInfo(T);
     
-    Textile Tnonefour = CreateNMTextile(T,-1,4);
+    Textile Tnonefour = CreateNMTextile(T,-1,3);
     
     PrintFullTextileInfo(Tnonefour);
     
     Textile conj = LookForConjugacy(Tnonefour,5);
 
 	PrintFullTextileInfo(conj);
+	
+	OctaveOutput(conj,string("NegativeOneThree.mat"));
     
     return 0;
 }
