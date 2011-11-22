@@ -629,6 +629,8 @@ Textile Trim(Textile T)
     
     stack<VD> toCheck;  
 
+	cout << "Our starting graph has " << num_edges(Trimmed.first) << " edges and " << num_vertices(Trimmed.first) << " vertices." << endl; 
+
     time(&start);
     do{
         j++;

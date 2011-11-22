@@ -138,7 +138,7 @@ int main(void)
     
     PrintFullTextileInfo(T);
     
-    Textile Tntwoseven = AutoHomom(CreateNMTextile(T,-2,7));
+	Textile Tntwoseven = AutoRenamer(AutoHomom(CreateNMTextile(T,-2,7)));
     
     PrintFullTextileInfo(Tntwoseven);
     
