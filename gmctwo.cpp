@@ -138,15 +138,15 @@ int main(void)
     
     PrintFullTextileInfo(T);
     
-    Textile Tnonefour = CreateNMTextile(T,-1,3);
+    Textile Tntwoseven = AutoHomom(CreateNMTextile(T,-2,7));
     
-    PrintFullTextileInfo(Tnonefour);
+    PrintFullTextileInfo(Tntwoseven);
     
-    Textile conj = LookForConjugacy(Tnonefour,5);
+    Textile conj = LookForConjugacy(Tntwoseven,4);
 
 	PrintFullTextileInfo(conj);
 	
-	OctaveOutput(conj,string("NegativeOneThree.mat"));
+	OctaveOutput(conj,string("NegativeTwoSeven.mat"));
     
     return 0;
 }

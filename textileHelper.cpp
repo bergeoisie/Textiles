@@ -4141,7 +4141,7 @@ void OctaveOutput(Textile T,string filename)
 			}
 			else
 			{
-				os << ";";
+				os << ";" << endl;
 			}
 		}
 		
