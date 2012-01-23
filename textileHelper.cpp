@@ -37,6 +37,8 @@
 #include <boost/graph/graphviz.hpp>
 #include <boost/numeric/ublas/matrix.hpp>
 #include <boost/numeric/ublas/io.hpp>
+#include <boost/random/mersenne_twister.hpp>
+#include <boost/random/uniform_int_distribution.hpp>
 
 using namespace std;
 using namespace TNT;
@@ -118,6 +120,7 @@ typedef tuple<int,int,int> PQOEIElement;
 
 //enum colors { White, Gray, Black };
 
+random::mt19937 gen(time(0));
 
 class pqcomparison
 {
@@ -625,7 +628,7 @@ Textile Trim(Textile T)
     graph_traits<Graph>::edge_iterator gei,gei_end;
     //  graph_traits<GammaGraph>::edge_descriptor e;
     GVI gvi,gvi_end;
-    bool needToCheckVhoms=false,found=false;
+	bool needToCheckVhoms=false,found=false,topStart=true;;
     
     stack<VD> toCheck;  
 
@@ -3873,9 +3876,9 @@ Textile CreateNMTextile(Textile T, int n, int m)
     
     Textile Toneone = CreateOneOneTextile(T);
   
-    cout << "Printing 1,1 textile" << endl;
+ //   cout << "Printing 1,1 textile" << endl;
     
-    PrintFullTextileInfo(Toneone);
+ //   PrintFullTextileInfo(Toneone);
     
     
     Textile N,M;
@@ -3933,6 +3936,10 @@ Textile CreateNMTextile(Textile T, int n, int m)
         PrintFullTextileInfo(M);
 
     }
+
+//	cout << "Using old , we get" << endl;
+	
+//	PrintFullTextileInfo(Trim(Composition(N,M)));
     
     return Trim(Composition(N,M));
     
@@ -4150,4 +4157,628 @@ void OctaveOutput(Textile T,string filename)
 	}
 	
 	os << "]";
+}
+/*
+Textile RandomTrim(Textile T)
+{
+    Textile Trimmed=T;
+    bool isEndIT=true,isEndTI=true,isEndPQ=true,isEndQP=true;
+    unsigned int i,j=0,delcount=0,N,rint;
+    //  vector<graph_traits<GammaGraph>::edge_descriptor> toDelete;
+    vector<int> vertToDelete;
+    bool done,stable,needToCheckVhoms=false,found=false,rdone,rmax;
+    time_t start,end;
+    double dif,average=0;
+    
+    property_map<GammaGraph,edge_p_homom_t>::type
+    p_homom = get(edge_p_homom,Trimmed.first);
+    property_map<GammaGraph,edge_q_homom_t>::type
+    q_homom = get(edge_q_homom,Trimmed.first);
+    property_map<GammaGraph,edge_name_t>::type
+    ename = get(edge_name,Trimmed.first);
+    property_map<GammaGraph,vertex_name_t>::type
+    vname = get(vertex_name,Trimmed.first);
+    
+    property_map<GammaGraph,vertex_p_vhomom_t>::type
+    p_vhom = get(vertex_p_vhomom,Trimmed.first);
+    
+    property_map<GammaGraph,vertex_q_vhomom_t>::type
+    q_vhom = get(vertex_q_vhomom,Trimmed.first);
+    
+    property_map<Graph,edge_name_t>::type
+    gename = get(edge_name,Trimmed.second);
+    
+    graph_traits<GammaGraph>::edge_iterator ei, ei_end, fi, fi_end;
+    graph_traits<GammaGraph>::vertex_iterator vi,vi_end;
+    graph_traits<GammaGraph>::out_edge_iterator oei,oei_end;
+    graph_traits<Graph>::edge_iterator gei,gei_end;
+    //  graph_traits<GammaGraph>::edge_descriptor e;
+    GVI gvi,gvi_end;
+	
+    stack<VD> toCheck;  
+
+	cout << "Our starting graph has " << num_edges(Trimmed.first) << " edges and " << num_vertices(Trimmed.first) << " vertices." << endl; 
+
+    time(&start);
+    
+	// We will randomly check all of the edges (might change this to half). 
+	rmax = num_edges(T.first);
+
+	do{
+        j++;
+       if(j % 100 == 0)
+       {
+           time(&end);
+           dif = difftime(end,start);
+           time(&start);
+           N = j/100;
+           average = (((N-1)*average)+dif)/N;
+           cout << "On round " << j << " deleted at least " << delcount << " edges so far. The last round took " << dif << " seconds, and the average time is " << average << " seconds." <<  '\r';
+           cout.flush();
+       } 
+        stable = true;
+        done = false;
+		if(rint >= rmax){ 
+			rdone = true;
+        }
+		else{
+			rdone = false;
+		}
+
+        // Check for sinks 
+        for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end && !done; vi++)
+        {
+            //	cout << "We are checking " << vname(*vi) << endl;
+            if(out_degree(*vi,Trimmed.first)==0 || in_degree(*vi,Trimmed.first)==0)
+            {
+                //   cout << "The vertex " << vname(*vi) << "is a sink or a source" << endl;
+                clear_vertex(*vi,Trimmed.first);
+                remove_vertex(*vi,Trimmed.first);
+                stable = false;
+                done=true;
+				rdone=true;
+                break;
+            }
+            //	cout << "It's not." << endl;
+        }
+
+        if(!rdone)
+        {
+			rint++;
+            //	cout << "Starting ends loop" << endl;
+            for(tie(ei,ei_end)=edges(Trimmed.first); ei != ei_end && !rdone; ++ei) {
+				random::uniform_int_distribution<> dist(1, num_edges(Trimmed.first));
+				ei = ei+dist(gen);
+                //  cout << "Checking " << ename(*ei) << " for ends" << endl;
+                for(tie(fi,fi_end)=edges(Trimmed.first); fi != fi_end; ++fi) {
+                    
+                    if(source(*ei,Trimmed.first)==target(*fi,Trimmed.first)) {
+                        isEndIT=false;
+                    }
+                    
+                    if(target(*ei,Trimmed.first)==source(*fi,Trimmed.first)) {
+                        isEndTI=false;
+                    }
+                    
+                    if(p_homom(*ei)==q_homom(*fi)) {
+                        isEndPQ=false;
+                    }
+                    
+                    if(q_homom(*ei)==p_homom(*fi)) {
+                        isEndQP=false;
+                    }
+                }
+                if(isEndIT || isEndTI || isEndPQ || isEndQP) {
+                    VD s=source(*ei,Trimmed.first),t=target(*ei,Trimmed.first);
+                    toCheck.push(s);
+                    toCheck.push(t);
+                  //            cout << "Removed Edge (" << s << ", "
+                  //            << t << ")" << " named " << ename(*ei) << endl;
+                    remove_edge(*ei,Trimmed.first);
+                    delcount++;
+                    rdone = true;
+					done = true;
+                    stable = false;
+                    // the goal of this inner while loop is to check to see if we've just created a dead end for the surrounding vertices.
+                    while(!toCheck.empty())
+                    {
+                        VD currv = toCheck.top();
+                        toCheck.pop();
+                        
+                        if(out_degree(currv,Trimmed.first)==0 ^ in_degree(currv,Trimmed.first)==0 )
+                        {
+                            //                  cout << "Clearing " << currv << endl;
+                            clear_vertex(currv,Trimmed.first);
+                        }
+                        
+                    }
+                }
+                isEndIT=true;
+                isEndTI=true;
+                isEndPQ=true;
+                isEndQP=true;
+            }
+            //	cout << "Done with the ends, checking for empty vertices" << endl;
+            if(!done)
+            {
+                for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end && !done; vi++)
+                {
+                    if(out_degree(*vi,Trimmed.first)==0 && in_degree(*vi,Trimmed.first)==0)
+                    {
+                        remove_vertex(*vi,Trimmed.first);
+                        done = true;
+                        stable = false;
+                    }
+                } // for vi
+            } // if not done
+        } // if not rdone
+
+       if(rdone) // if we're done with randomly checking, we want to do more passes to double check
+        {
+            //	cout << "Starting ends loop" << endl;
+            for(tie(ei,ei_end)=edges(Trimmed.first); ei != ei_end && !done; ++ei) {
+                //  cout << "Checking " << ename(*ei) << " for ends" << endl;
+                for(tie(fi,fi_end)=edges(Trimmed.first); fi != fi_end; ++fi) {
+
+                    if(source(*ei,Trimmed.first)==target(*fi,Trimmed.first)) {
+                        isEndIT=false;
+                    }
+
+                    if(target(*ei,Trimmed.first)==source(*fi,Trimmed.first)) {
+                        isEndTI=false;
+                    }
+
+                    if(p_homom(*ei)==q_homom(*fi)) {
+                        isEndPQ=false;
+                    }
+
+                    if(q_homom(*ei)==p_homom(*fi)) {
+                        isEndQP=false;
+                    }
+                }
+                if(isEndIT || isEndTI || isEndPQ || isEndQP) {
+                    VD s=source(*ei,Trimmed.first),t=target(*ei,Trimmed.first);
+                    toCheck.push(s);
+                    toCheck.push(t);
+                  //            cout << "Removed Edge (" << s << ", "
+                  //            << t << ")" << " named " << ename(*ei) << endl;
+                    remove_edge(*ei,Trimmed.first);
+                    delcount++;
+                    done = true;
+                    stable = false;
+                    // the goal of this inner while loop is to check to see if we've just created a dead end for the surrounding vertices.
+                    while(!toCheck.empty())
+                    {
+                        VD currv = toCheck.top();
+                        toCheck.pop();
+
+                        if(out_degree(currv,Trimmed.first)==0 ^ in_degree(currv,Trimmed.first)==0 )
+                        {
+                            //                  cout << "Clearing " << currv << endl;
+                            clear_vertex(currv,Trimmed.first);
+                        }
+
+                    }
+                }
+                isEndIT=true;
+                isEndTI=true;
+                isEndPQ=true;
+                isEndQP=true;
+            }
+            //	cout << "Done with the ends, checking for empty vertices" << endl;
+            if(!done)
+            {
+                for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end && !done; vi++)
+                {
+                    if(out_degree(*vi,Trimmed.first)==0 && in_degree(*vi,Trimmed.first)==0)
+                    {
+                        remove_vertex(*vi,Trimmed.first);
+                        done = true;
+                        stable = false;
+                    }
+                }
+            }
+        }		
+        
+    } while(!stable); // do while statement (don't panic)
+    
+    // Now that we have trimmed the GammaGraph, we need to check the downstairs Graph
+    // First, we check for dead edges
+    stable = false;
+    while(!stable)
+    {
+        for(tie(gei,gei_end)=edges(Trimmed.second);gei!=gei_end; gei++)
+        {
+            found = false;
+            for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
+            {
+                if(p_homom(*ei) == gename(*gei) || q_homom(*ei) == gename(*gei))
+                {
+                    found = true;
+                    break;
+                } // if
+            } // for ei
+            if(!found)
+            {
+                remove_edge(*gei,Trimmed.second);
+                break;
+            } // if found 
+        } // for gei
+        if(gei==gei_end)
+        {
+            stable = true;
+        }
+    }
+    
+    // Now we check for dead vertices
+    stack<GVD> toDel;
+    
+    for(tie(gvi,gvi_end)=vertices(Trimmed.second); gvi!=gvi_end; gvi++)
+    {
+        bool found=false;
+        
+        for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end; vi++)
+        {
+            if(p_vhom(*vi) == *gvi || q_vhom(*vi) == *gvi)
+            {
+                found = true;
+                break;
+            }
+        }
+        if(!found)
+        {
+            toDel.push(*gvi);
+        }
+        
+    }
+    
+    if(!toDel.empty()) {
+        needToCheckVhoms = true;
+    }
+    
+    while(!toDel.empty())
+    {
+        GVD u = toDel.top();
+        toDel.pop();
+        
+        clear_vertex(u,Trimmed.second);
+        remove_vertex(u,Trimmed.second);
+        
+     //   cout << "We have deleted " << u << " from G" << endl;
+    }
+    
+    
+    if(needToCheckVhoms)
+    {
+        for(tie(vi,vi_end)=vertices(Trimmed.first);vi!=vi_end;vi++)
+        {
+            tie(oei,oei_end)=out_edges(*vi,Trimmed.first);
+            found = false;
+            tie(gei,gei_end)=edges(Trimmed.second);
+            while(!found)
+            {
+                if(gei==gei_end)
+                {
+                    cout << "WE DIDN'T FIND A MATCH FOR A HOMOM AND AN G EDGE. THIS IS A BIG PROBLEM" << endl;
+                    return T;
+                }
+                
+                if(p_homom(*oei)==gename(*gei))
+                {
+                    found = true;
+                    put(p_vhom,*vi,source(*gei,Trimmed.second));
+                }
+                else {
+                    gei++;
+                }
+            }
+            
+            found = false;
+            
+            tie(gei,gei_end)=edges(Trimmed.second);
+            while(!found)
+            {
+                if(gei==gei_end)
+                {
+                    cout << "WE DIDN'T FIND A MATCH FOR A HOMOM AND AN G EDGE. THIS IS A BIG PROBLEM" << endl;
+                    return T;
+                }
+                
+                if(q_homom(*oei)==gename(*gei))
+                {
+                    found = true;
+                    put(q_vhom,*vi,source(*gei,Trimmed.second));
+                }
+                else {
+                    gei++;
+                }
+            }
+            
+        }
+        
+    }
+    
+    cout << "Original T.first had " << num_edges(T.first) << " edges and " << num_vertices(T.first)
+    << " vertices, now has " << num_edges(Trimmed.first) << " edges and " << num_vertices(Trimmed.first) << endl;
+    
+    cout << "Original T.second had " << num_edges(T.second) << " edges and " << num_vertices(T.second)
+    << " vertices, now has " << num_edges(Trimmed.second) << " edges and " << num_vertices(Trimmed.second) << endl;
+    
+    return Trimmed;
+}
+*/
+
+
+// This version of trim creates four sets for t(A_Gamma),i(A_Gamma),p(A_Gamma), and q(A_Gamma)
+Textile ArrayTrim(Textile T)
+{
+	set<VD> iAGamma,tAGamma;
+	set<string> pAGamma,qAGamma;
+	Textile Trimmed = T;
+	
+	GammaEI ei,ei_end;
+	GEI gei,gei_end;
+	GVI gvi,gvi_end;
+	GammaVI vi,vi_end;
+	GammaOEI oei,oei_end;
+	
+	bool done=false,removed=true,needToCheckVhoms,stable,found;
+	int roundcount = 0,vertcount=0;
+	
+	property_map<GammaGraph,edge_p_homom_t>::type
+    p_homom = get(edge_p_homom,Trimmed.first);
+    property_map<GammaGraph,edge_q_homom_t>::type
+    q_homom = get(edge_q_homom,Trimmed.first);
+    property_map<GammaGraph,edge_name_t>::type
+    ename = get(edge_name,Trimmed.first);
+    property_map<GammaGraph,vertex_name_t>::type
+    vname = get(vertex_name,Trimmed.first);
+	property_map<Graph,edge_name_t>::type
+	gename = get(edge_name,Trimmed.second);
+	property_map<GammaGraph,vertex_p_vhomom_t>::type
+	p_vhom = get(vertex_p_vhomom,Trimmed.first);
+  	property_map<GammaGraph,vertex_q_vhomom_t>::type
+    q_vhom = get(vertex_q_vhomom,Trimmed.first);
+	
+	cout << "Original T.first had " << num_edges(T.first) << " edges and " << num_vertices(T.first) << endl;
+	
+	do {
+		
+		// checking for dead vertices
+		do
+		{
+			vertcount=0;
+			for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end; vi++)
+			{
+				if(out_degree(*vi,Trimmed.first)==0 || in_degree(*vi,Trimmed.first)==0)
+				{
+		//					cout << "Deleting vertex " << *vi << endl;
+					clear_vertex(*vi,Trimmed.first);
+					remove_vertex(*vi,Trimmed.first);
+					vertcount++;
+					break;
+				}
+			} // for vi
+		} while(vertcount>0);
+
+
+		roundcount = 0;
+	// First we'll populate the sets with the current version of Trimmed.	
+		cout << "Creating the sets" << endl;
+		for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
+		{
+
+			iAGamma.insert(source(*ei,Trimmed.first));
+			tAGamma.insert(target(*ei,Trimmed.first));
+			pAGamma.insert(p_homom(*ei));
+			qAGamma.insert(q_homom(*ei));
+		}
+		
+		cout << "iAGamma size is " << iAGamma.size() << endl;
+		cout << "Sets created, moving on to removed while loop" << endl;	
+		
+	// Now that we've populated the sets, we can go through the edges and check their properties.
+	while(removed) {
+//		cout << "Back in removed while loop" << endl; 
+		removed = false;
+		for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
+		{
+			if(iAGamma.find(target(*ei,Trimmed.first))==iAGamma.end())
+			{
+//				cout << "Deleting edge from " << source(*ei,Trimmed.first) << " to " << target(*ei,Trimmed.first) << endl;
+				roundcount++;
+				removed = true;
+				remove_edge(*ei,Trimmed.first);
+				break;
+			}
+			if(tAGamma.find(source(*ei,Trimmed.first))==tAGamma.end())
+			{
+//				cout << "Deleting edge from " << source(*ei,Trimmed.first) << " to " << target(*ei,Trimmed.first) << endl;
+				roundcount++;
+				removed = true;
+				remove_edge(*ei,Trimmed.first);
+				break;
+			}
+			if(pAGamma.find(q_homom(*ei))==pAGamma.end())
+			{
+//				cout << "Deleting edge from " << source(*ei,Trimmed.first) << " to " << target(*ei,Trimmed.first) << endl;
+				roundcount++;
+				removed = true;
+				remove_edge(*ei,Trimmed.first);
+				break;
+			}
+			if(qAGamma.find(p_homom(*ei))==qAGamma.end())
+			{
+//				cout << "Deleting edge from " << source(*ei,Trimmed.first) << " to " << target(*ei,Trimmed.first) << endl;
+				roundcount++;
+				removed = true;
+				remove_edge(*ei,Trimmed.first);
+				break;
+			}
+		} // for ei
+	} // while
+
+	cout << "Done with removed while loop." << endl;
+
+		// checking for dead vertices
+		do
+		{
+			vertcount=0;
+			for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end; vi++)
+			{
+				if(out_degree(*vi,Trimmed.first)==0 || in_degree(*vi,Trimmed.first)==0)
+				{
+//					cout << "Deleting vertex " << *vi << endl;
+					clear_vertex(*vi,Trimmed.first);
+					remove_vertex(*vi,Trimmed.first);
+					vertcount++;
+					break;
+				}
+			} // for vi
+		} while(vertcount>0);
+		cout << "Roundcount is " << roundcount << endl;
+	//	cout << "Clearing sets" << endl;
+		
+		iAGamma.clear();
+		tAGamma.clear();
+		pAGamma.clear();
+		qAGamma.clear();
+		
+		
+	} while(roundcount > 0);
+
+   // Now that we have trimmed the GammaGraph, we need to check the downstairs Graph
+    // First, we check for dead edges
+    while(!stable)
+    {
+		stable = true;
+        for(tie(gei,gei_end)=edges(Trimmed.second);gei!=gei_end; gei++)
+        {
+            found = false;
+            for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
+            {
+                if(p_homom(*ei) == gename(*gei) || q_homom(*ei) == gename(*gei))
+                {
+                    found = true;
+                    break;
+                } // if
+            } // for ei
+            if(!found)
+            {
+				stable = false;
+                remove_edge(*gei,Trimmed.second);
+                break;
+            } // if found 
+        } // for gei
+    }
+
+	cout << "Done removing downstairs edges" << endl;
+    
+    // Now we check for dead vertices
+    stack<GVD> toDel;
+    
+    for(tie(gvi,gvi_end)=vertices(Trimmed.second); gvi!=gvi_end; gvi++)
+    {
+        bool found=false;
+        
+        for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end; vi++)
+        {
+            if(p_vhom(*vi) == *gvi || q_vhom(*vi) == *gvi)
+            {
+                found = true;
+                break;
+            } 
+        } // for vi
+        if(!found)
+        {
+            toDel.push(*gvi);
+        } // if !found
+    }
+    
+    if(!toDel.empty()) {
+        needToCheckVhoms = true;
+    }
+    
+    while(!toDel.empty())
+    {
+        GVD u = toDel.top();
+        toDel.pop();
+        
+        clear_vertex(u,Trimmed.second);
+        remove_vertex(u,Trimmed.second);
+        
+     //   cout << "We have deleted " << u << " from G" << endl;
+    }
+    
+	cout << "Do we need to check vHoms? :" << needToCheckVhoms << endl;
+	
+	cout << "Original T.first had " << num_edges(T.first) << " edges and " << num_vertices(T.first)
+    << " vertices, now has " << num_edges(Trimmed.first) << " edges and " << num_vertices(Trimmed.first) << endl;
+
+    cout << "Original T.second had " << num_edges(T.second) << " edges and " << num_vertices(T.second)
+    << " vertices, now has " << num_edges(Trimmed.second) << " edges and " << num_vertices(Trimmed.second) << endl;
+   
+	
+    if(needToCheckVhoms)
+    {
+        for(tie(vi,vi_end)=vertices(Trimmed.first);vi!=vi_end;vi++)
+        {
+			cout << "Out degree of vi is " << out_degree(*vi,Trimmed.first) << " and in degree is " << in_degree(*vi,Trimmed.first) << endl;
+            tie(oei,oei_end)=out_edges(*vi,Trimmed.first);
+            found = false;
+            tie(gei,gei_end)=edges(Trimmed.second);
+            while(!found)
+            {
+                if(gei==gei_end)
+                {
+                    cout << "WE DIDN'T FIND A MATCH FOR A HOMOM AND AN G EDGE. THIS IS A BIG PROBLEM" << endl;
+                    return T;
+                }
+                
+                if(p_homom(*oei)==gename(*gei))
+                {
+                    found = true;
+                    put(p_vhom,*vi,source(*gei,Trimmed.second));
+					cout << "Assigned " << source(*gei,Trimmed.second) << "as the p_vhom for " << *vi << endl;
+                }
+                else {
+                    gei++;
+                }
+            }
+            
+            found = false;
+            
+            tie(gei,gei_end)=edges(Trimmed.second);
+            while(!found)
+            {
+                if(gei==gei_end)
+                {
+                    cout << "WE DIDN'T FIND A MATCH FOR A HOMOM AND AN G EDGE. THIS IS A BIG PROBLEM" << endl;
+                    return T;
+                }
+                
+                if(q_homom(*oei)==gename(*gei))
+                {
+                    found = true;
+                    put(q_vhom,*vi,source(*gei,Trimmed.second));
+					cout << "Assigned " << source(*gei,Trimmed.second) << "as the q_vhom for " << *vi << endl;
+
+                }
+                else {
+                    gei++;
+                }
+            }
+            
+        }
+        
+    }
+    
+    cout << "Original T.first had " << num_edges(T.first) << " edges and " << num_vertices(T.first)
+    << " vertices, now has " << num_edges(Trimmed.first) << " edges and " << num_vertices(Trimmed.first) << endl;
+    
+    cout << "Original T.second had " << num_edges(T.second) << " edges and " << num_vertices(T.second)
+    << " vertices, now has " << num_edges(Trimmed.second) << " edges and " << num_vertices(Trimmed.second) << endl;
+    
+    return Trimmed;
+
 }

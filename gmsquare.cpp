@@ -130,10 +130,12 @@ int main(void)
     
     PrintFullTextileInfo(T);
     
-    Textile Tone = CreateNMTextile(T,-1,2);
+    Textile Tone = ArrayTrim(AutoHomom(CreateNMTextile(T,-1,2)));
     
     PrintFullTextileInfo(Tone);
-    
+
+/*
+  
     vector<vector<graph_traits<GammaGraph>::vertex_descriptor> > E(4);
     
     graph_traits<GammaGraph>::vertex_descriptor EAi[] = {0,5};
@@ -170,6 +172,6 @@ int main(void)
             PrintFullTextileInfo(T,os);
         }
     }
-    
+    */
     return 0;
 }
