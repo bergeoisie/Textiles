@@ -1,0 +1,618 @@
+  {slide= MATH 003 (Developmental Mathematics)|closed} Stuff in slide {/slides}
+  {slide= MATH 010 (Algebra for MATH 110)|closed} 
+	<b>Text(s):</b>
+	<ul>
+	  <li>Intermediate Algebra Review, a Small Group Approach,
+	by Debra Gray
+	Franklin.
+	Custom Published by Thomson, 2002. <span style="font-weight: bold;">ISBN:
+	0759336245 (Current) </span>(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+	 style="font-weight: bold;"> </span>(F07)<span
+	 style="font-weight: bold;"> </span>(Sp08) (F08)<span
+	 style="font-weight: bold;"> </span>(Sp09)<span
+	 style="font-weight: bold;"> </span>(F09) (Sp10)<b> </b>(F10)<b> </b>(Sp11)<b> 
+		(F11)</b></li>
+	  <li>Finite Mathematics , <span style="font-weight: bold;"></span> by
+	Waner and
+	Costenoble.
+	Published by Thomson Learning, 2004. <span style="font-weight: bold;">ISBN:
+		111629447 (New Custom Edition - Fall 2010) (Current) </span>(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+	 style="font-weight: bold;"> </span>(F07)<span
+	 style="font-weight: bold;"> </span>(Sp08) (F08)<span
+	 style="font-weight: bold;"> </span>(Sp09) (F09) (Sp10)<span
+	 style="font-weight: bold;"> </span>(F10)<span
+	 style="font-weight: bold;"> </span>(Sp11)<span
+	 style="font-weight: bold;"> (F11)</span><br>
+	  </li>
+	</ul>
+ {/slides}
+  {slide= MATH 011 (Algebra for MATH 111)|closed} 
+<b>Text(s):</b>
+<ul>
+  <li>Intermediate Algebra Review, a Small Group Approach,
+by Debra Gray
+Franklin.
+Custom Published by Thomson, 2002. <span style="font-weight: bold;">ISBN:
+0759336245 (Current) </span>(F06)
+(Sp07)<span style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (F08)<span
+ style="font-weight: bold;"> </span>(Sp09) (F09)<span
+ style="font-weight: bold;"> </span>(Sp 10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<span
+ style="font-weight: bold;"> (F11)</span><br>
+  </li>
+  <li>Introduction to Probability,<span style="font-weight: bold;"> </span>by
+S.T. Tan. Custom
+Published by
+CENGAGE Learning. <span style="font-weight: bold;">ISBN: 1133397514 (New
+Custom Edition Fall 2011)
+(Current) </span>(F06)<span style="font-weight: bold;"> </span>(Sp07)
+(F07)<span style="font-weight: bold;"> </span>(Sp08) (F08)<span
+ style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> </span>(F09)<span
+ style="font-weight: bold;"> </span>(Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<span
+ style="font-weight: bold;"> (F11)</span><br>
+  </li>
+</ul> {/slides}
+  {slide= MATH 013 (Algebra for MATH 113)|closed} 
+<b>Text(s):</b>
+<ul>
+  <li>Intermediate Algebra Review, a Small Group Approach,
+by Debra Gray
+Franklin.
+Custom Published by Thomson, 2002. <span style="font-weight: bold;">ISBN:
+0759336245 (Current) </span>(F06) (Sp07)<span
+ style="font-weight: bold;"> </span>(F07) (Sp08) (F08) (Sp09)<span
+ style="font-weight: bold;"> </span>(F09) (Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11) <span
+ style="font-weight: bold;"> (F11)</span><br>
+  </li>
+  <li>College Algebra, by Robert Blitzer.
+Published by Prentice
+Hall. <span style="font-weight: bold;">ISBN: </span><span
+ style="font-weight: bold;">05558470114 (New Custom Bundle Set) (Current) </span>(F06)<span
+ style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (F08)<span
+ style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> 
+    </span>(F09)<span
+ style="font-weight: bold;"> 
+    </span>(Sp10)<span
+ style="font-weight: bold;"> 
+    </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<span
+ style="font-weight: bold;"> (F11)</span></li>
+  <li>Supplement: Resource Manual, MATH 113, College
+Algebra with
+Applications,
+3rd Edition, by J. Stone. Published by Kendall Hunt. ISBN: 9780757541582 (F06) (Sp07) (F07) (Sp08) (F08) (Sp09) (F09) (Sp10) (F10) (Sp11)<br>
+  </li>
+</ul>
+ {/slides}
+  {slide= MATH 015 (Algebra for MATH 115)|closed} 
+<b>Text(s):</b>
+<ul>
+  <li>Intermediate Algebra Review, a Small Group Approach,
+by Debra Gray
+Franklin.
+Custom Published by Thomson, 2002. <span style="font-weight: bold;">ISBN:
+0759336245 (Current) </span>(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (F08)<span
+ style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> </span>(F09)<span
+ style="font-weight: bold;"> </span>(Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<span
+ style="font-weight: bold;"> (F11)</span><br>
+  </li>
+  <li>Pre-Calculus: Mathematics for Calculus,
+by J. Stewart, L.
+Redlin and S. Watson. Published by Brooks/Cole. <span
+ style="font-weight: bold;">ISBN: 1133393845 (New Custom Bundle Set Fall 2011) </span><span
+ style="font-weight: bold;">(Current) </span>(F06)
+(Sp07) (F07)<span style="font-weight: bold;"> </span>(Sp08) (F08)<span
+ style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> </span>(F09)<span
+ style="font-weight: bold;"> </span>(Sp10)<span
+ style="font-weight: bold;"> </span>(F10) (Sp11)<span
+ style="font-weight: bold;"> (F11)</span><br>
+  </li>
+</ul>
+{/slides}
+  {slide= MATH 110 (Elementary Mathematical Models)|closed} 
+<b>Text(s):</b>
+<ul>
+  <li>Finite Mathematics -<span style="font-weight: bold;"></span> by
+Waner and
+Costenoble.
+Published by Thomson Learning, 2004. <span style="font-weight: bold;">ISBN:
+	111629447 </span><span style="font-weight: bold;">(New
+Custom Edition - Fall 2010) (Current) </span>(F06)<span style="font-weight: bold;"> </span>(Sp07)
+(F07)<span style="font-weight: bold;"> </span>(Sp08)<span
+ style="font-weight: bold;"> </span>(Sum08)<span
+ style="font-weight: bold;"> </span>(F08)<span
+ style="font-weight: bold;"> </span>(Sp09) (Sum09)<span
+ style="font-weight: bold;"> </span>(F09)<span
+ style="font-weight: bold;"> </span>(Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<span
+ style="font-weight: bold;"> (F11)</span><br>
+  </li>
+</ul>
+ {/slides}
+  {slide= MATH 111 (Introduction to Probability)|closed} 
+<b>Text(s):</b>
+<ul>
+  <li>Introduction to Probability, by S.T. Tan. Custom
+Published by
+CENGAGE Learning. ISBN: 0495214442<span style="font-weight: bold;"> </span>&nbsp;(F06)<span style="font-weight: bold;"> </span>(Sp07)
+(F07)<span style="font-weight: bold;"> </span>(Sp08) (Sum08) (Sp09) (Sum09)</li>
+  <li>Introduction to Probability, by S.T. Tan.&nbsp; Custom Published
+by CENGAGE Learning.&nbsp; <span style="font-weight: bold;">ISBN: 1133397514 
+	(New Custom Edition Fall 2011)(Current) </span>(F09) (Sp10) (F10) (Sp11)<span style="font-weight: bold;"> 
+	(F11)</span></li>
+  <li>Finite Mathematics Student Solution Manual, by S.T. Tan.&nbsp;
+Published by CENGAGE Learning.&nbsp; <span style="font-weight: bold;">ISBN: 
+	1133363075(New Custom Edition 2011 (Current) </span>(F09)<span style="font-weight: bold;"> 
+    </span>(Sp10)<span style="font-weight: bold;"> 
+    </span>(F10) (Sp11)<span style="font-weight: bold;"> (F11)</span></li>
+</ul>
+ {/slides}
+  {slide= MATH 112 (College Algebra with Applications and Trigonometry)|closed} <b>Text(s):</b>
+<ul>
+  <li>Algebra &amp; Trigonometry, <span style="font-weight: bold;">(New
+Custom Bundle Set Edition)</span> by Robert
+Blitzer. Published
+by
+Prentice Hall.&nbsp; <span style="font-weight: bold;">ISBN:
+0558216447&nbsp; (Current) </span>(F06) (F07) (F08)<span
+ style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> </span>(F09) (Sp10) (F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<span
+ style="font-weight: bold;"> (F11)</span><br>
+  </li>
+  <li>Supplement: Resource Manual, MATH 113, College
+Algebra with
+Applications,
+3rd Edition, by J. Stone. Published by Kendall Hunt. <span
+ style="font-weight: bold;">ISBN: 9780757541582 (Current) </span>(F06) (F07)<span
+ style="font-weight: bold;"> </span>(F08)<span
+ style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> </span>(F09)<span
+ style="font-weight: bold;"> </span>(Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<br>
+  </li>
+</ul>
+ {/slides}
+  {slide= MATH 113 (College Algebra with Applications)|closed} <b>Text(s):</b>
+<ul>
+  <li>College Algebra, 4th Edition, by Robert Blitzer.
+Published by Prentice
+Hall. ISBN: 978-0536502094<span style="font-weight: bold;"> </span>(Bundle Set)<span style="font-weight: bold;">&nbsp; </span>(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08) (F08)<span
+ style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> </span>(Sum09)</li>
+  <li>College Algebra,<span style="font-weight: bold;"> </span>by Robert Blitzer.&nbsp; Published by
+Prentice Hall.&nbsp; <span style="font-weight: bold;">ISBN: 0558470114 (New Custom
+Bundle Set Edition)( Current)
+    </span>(F09)<span style="font-weight: bold;"> 
+    </span>(Sp10) (F10)<span style="font-weight: bold;"> 
+    </span>(Sp11)<span style="font-weight: bold;"> (F11)</span></li>
+  <li>Supplement: Resource Manual, MATH 113, College
+Algebra with
+Applications,
+3rd Edition, by J. Stone. Published by Kendall Hunt. ISBN: 9780757541582<span
+ style="font-weight: bold;"> </span>(F06) (Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08)<span
+ style="font-weight: bold;"> </span>(F08)<span
+ style="font-weight: bold;"> </span>(Sp09) (Sum09)<span
+ style="font-weight: bold;"> </span>(F09)<span
+ style="font-weight: bold;"> </span>(Sp10) (F10) (Sp11)<br>
+  </li>
+</ul>
+ {/slides}
+  {slide= MATH 115 (Pre-Calculus)|closed} <ul>
+  <li>Pre-Calculus: Mathematics for Calculus,&nbsp;<span
+ style="font-weight: bold;"></span>
+by J. Stewart, L.
+Redlin and S. Watson. Published by Brooks/Cole.&nbsp; <span
+ style="font-weight: bold;">ISBN: 1133393845 (New Custom Bundle Set Fall 2011)</span><span
+ style="font-weight: bold;">&nbsp;(Current) </span>(F06)<span
+ style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08)<span
+ style="font-weight: bold;"> </span>(Sum08)<span
+ style="font-weight: bold;"> </span>(F08) (Sp09)<span
+ style="font-weight: bold;"> 
+    </span>(Sum09)<span
+ style="font-weight: bold;"> 
+    </span>(F09)<span
+ style="font-weight: bold;"> 
+    </span>(Sp10) (F10)<span
+ style="font-weight: bold;"> 
+    </span>(Sp11)<span
+ style="font-weight: bold;"> (F11)</span></li>
+</ul>
+ {/slides}
+  {slide= MATH 130 (Calculus for Life Sciences I)|closed} 
+<b>Text(s):</b>
+<ul>
+</ul>
+<ul>
+  <li>Calculus with Applications for the Life Sciences, by R.
+Greenwell, N. Ritchey, M. Lial.&nbsp; Published by Addison
+Wesley.&nbsp; <span style="font-weight: bold;">ISBN: 
+	0201745828 (Current)</span> (Sp09)<span style="font-weight: bold;"> 
+	</span>(F09)<span style="font-weight: bold;"> 
+    </span>(Sp10) (F10) (Sp11)<span style="font-weight: bold;"> (F11)</span></li>
+  <li>Solutions Manual for Calculus for the Life Sciences - <span
+ style="font-weight: bold;">(OPTIONAL)</span> by R. Greenwell, N.
+Ritchey, M. Lial.&nbsp; Published by Addison Wesley.&nbsp; <span
+ style="font-weight: bold;">ISBN: 0201770172 (Current)&nbsp; </span>(Sp09)<span
+ style="font-weight: bold;"> 
+    </span>(F09) (Sp10)<span
+ style="font-weight: bold;"> 
+    </span>(F10)<span
+ style="font-weight: bold;"> 
+    </span>(Sp11)<span
+ style="font-weight: bold;"> (F11)</span></li>
+  <li>Modeling
+the Dynamics of Life, by Frederick R. Adler.&nbsp; Published by CENGAGE
+Learning.&nbsp; ISBN: 0534404863<span style="font-weight: bold;">&nbsp;</span> (Sp08) (F08)</li>
+</ul> {/slides}
+  {slide= MATH 131 (Calculus for Life Sciences II)|closed} 
+<b>Text(s):</b>
+<ul>
+  <li>Calculus with Applications for the Life Sciences, by R.
+Greenwell, N. Ritchey, M. Lial.&nbsp; Published by Addison
+Wesley.&nbsp; <span style="font-weight: bold;">ISBN: 0201745828
+(Current)</span> (Sp09)<span style="font-weight: bold;"> 
+    </span>(F09) (Sp10)<span style="font-weight: bold;"> 
+    </span>(F10)<span style="font-weight: bold;"> </span>(Sp11)<span style="font-weight: bold;"> 
+	(F11)</span></li>
+  <li>Solutions Manual for Calculus for the Life Sciences - <span
+ style="font-weight: bold;">(OPTIONAL)</span> by R. Greenwell, N.
+Ritchey, M. Lial.&nbsp; Published by Addison Wesley.&nbsp; <span
+ style="font-weight: bold;">ISBN: 0201770172 (Current)&nbsp; </span>(Sp09)<span
+ style="font-weight: bold;"> </span>(F09) (Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11) <span
+ style="font-weight: bold;"> (F11)</span></li>
+  <li>Modeling
+the Dynamics of Life, by Frederick R. Adler.&nbsp; Published by CENGAGE
+Learning.&nbsp; ISBN:
+0534404863&nbsp;<span style="font-weight: bold;"> </span>(F08) (Sp09)<span style="font-weight: bold;"><br>
+    </span></li>
+</ul> 
+{/slides}
+  {slide= MATH 140 (Calculus I)|closed} 
+<b>Text(s):</b>
+<ul>
+	<li>Calculus, by R. Ellis and D. Gulick.&nbsp; Published by CENGAGE 
+	Learning.&nbsp; <b>ISBN: 978-1-1-3343675-1 (New Custom Edition Fall 2011) (Current) 
+	(F11)</b></li>
+	<li>Calculus Student Solutions Manual, by R. Ellis and D. Gulick.&nbsp; 
+	Published by CENGAGE Learning. <b>&nbsp;ISBN: 
+	<font face="arial,helvetica" size="-1">978-0-7-5933177-8</font> (OPTIONAL) 
+	(Current) </b></li>
+  <li>(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08) (F08)<span style="font-weight: bold;">
+	</span>(Sp09)<span
+ style="font-weight: bold;"> </span>(Sum09) (F09) (Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<b> (F11)</b></li>
+	<li>Calculus, 6th Edition, by R. Ellis and D. Gulick.
+Published by Thomson
+Learning.&nbsp; ISBN: 978-0-7-5931379-8<span style="font-weight: bold;"> </span>(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08) (F08)<span style="font-weight: bold;">
+	</span>(Sp09)<span
+ style="font-weight: bold;"> </span>(Sum09) (F09) (Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)</li>
+</ul>
+ {/slides}
+{slide= MATH 140H (Calculus I Honors)|closed} 
+<b>Text(s):</b>
+<ul>
+	<li>Calculus, by R. Ellis and D. Gulick.&nbsp; Published by CENGAGE 
+	Learning.&nbsp; <b>ISBN: 978-1-1-3343675-1 (New Custom Edition Fall 2011) (Current) 
+	(F11)</b></li>
+	<li>Calculus Student Solutions Manual, by R. Ellis and D. Gulick.&nbsp; 
+	Published by CENGAGE Learning. <b>&nbsp;ISBN: 
+	<font face="arial,helvetica" size="-1">978-0-7-5933177-8</font> (OPTIONAL) 
+	(Current) </b></li>
+  <li>(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08) (F08)<span style="font-weight: bold;">
+	</span>(Sp09)<span
+ style="font-weight: bold;"> </span>(Sum09) (F09) (Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<b> (F11)</b></li>
+	<li>Calculus, 6th Edition, by R. Ellis and D. Gulick.
+Published by Thomson
+Learning.&nbsp; ISBN: 978-0-7-5931379-8<span style="font-weight: bold;"> </span>(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08) (F08)<span style="font-weight: bold;">
+	</span>(Sp09)<span
+ style="font-weight: bold;"> </span>(Sum09) (F09) (Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)</li>
+</ul>
+ {/slides}
+  {slide= MATH 141 (Calculus II)|closed} <b>Text(s):</b>
+<ul>
+	<li>Calculus, by R. Ellis and D. Gulick.&nbsp; Published by CENGAGE 
+	Learning.&nbsp; <b>ISBN: 978-1-1-3343675-1 (New Custom Edition Fall 2011) (Current) 
+	(F11)</b></li>
+	<li>Calculus Student Solutions Manual, by R. Ellis and D. Gulick.&nbsp; 
+	Published by CENGAGE Learning. <b>&nbsp;ISBN: 
+	<font face="arial,helvetica" size="-1">978-0-7-5933177-8</font>&nbsp; (OPTIONAL) 
+	(Current) </b></li>
+  <li>(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08) (F08)<span style="font-weight: bold;">
+	</span>(Sp09)<span
+ style="font-weight: bold;"> </span>(Sum09) (F09) (Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<b> (F11)</b></li>
+  <li>Calculus, 6th Edition, by R. Ellis and D. Gulick.
+Published by Thomson Learning. ISBN:
+	978-0-7-5931379-8<span style="font-weight: bold;"> </span>&nbsp;(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08)</li>
+  <li>(F08)<span style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> 
+    </span>(Sum09) (F09)<span
+ style="font-weight: bold;"> 
+    </span>(Sp10)<span
+ style="font-weight: bold;"> 
+    </span>(F10)<span
+ style="font-weight: bold;"> 
+    </span>(Sp11)</li>
+</ul> {/slides}
+  {slide= MATH 141H (Calculus II Honors)|closed} <b>Text(s):</b>
+<ul>
+	<li>Calculus, by R. Ellis and D. Gulick.&nbsp; Published by CENGAGE 
+	Learning.&nbsp; <b>ISBN: 978-1-1-3343675-1 (New Custom Edition Fall 2011) (Current) 
+	(F11)</b></li>
+	<li>Calculus Student Solutions Manual, by R. Ellis and D. Gulick.&nbsp; 
+	Published by CENGAGE Learning. <b>&nbsp;ISBN: 
+	<font face="arial,helvetica" size="-1">978-0-7-5933177-8</font>&nbsp; (OPTIONAL) 
+	(Current) </b></li>
+  <li>(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08) (F08)<span style="font-weight: bold;">
+	</span>(Sp09)<span
+ style="font-weight: bold;"> </span>(Sum09) (F09) (Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<b> (F11)</b></li>
+  <li>Calculus, 6th Edition, by R. Ellis and D. Gulick.
+Published by Thomson Learning. ISBN:
+	978-0-7-5931379-8<span style="font-weight: bold;"> </span>&nbsp;(F06)<span style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08)</li>
+  <li>(F08)<span style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> 
+    </span>(Sum09) (F09)<span
+ style="font-weight: bold;"> 
+    </span>(Sp10)<span
+ style="font-weight: bold;"> 
+    </span>(F10)<span
+ style="font-weight: bold;"> 
+    </span>(Sp11)</li>
+</ul> {/slides}
+  {slide= MATH 206 (Introduction to MATLAB)|closed} Stuff in slide {/slides}
+  {slide= MATH 212 (Elements of Numbers and Operations)|closed} 
+<b>Text(s):</b>
+<ul>
+  <li>Mathematics for Elementary School Teachers, <b>(New Custom 3rd Edition)
+	</b>by Beckmann, Published by Addison Wesley.&nbsp; <b>ISBN: 0321654277 
+	(New Custom 3rd Edition Bundle Set) (Current) </b>(F10) (Sp11)<b> (F11)</b></li>
+	<li>Mathematics for Elementary School Teachers, (Bundle Set) by
+Beckmann, Published by Addison Wesley.&nbsp; ISBN: 0321447174&nbsp; (F06)<span
+ style="font-weight: bold;"> </span>(Sp07) (F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08)<span
+ style="font-weight: bold;"> </span>(F08)<span
+ style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> </span>(Sum09) (F09)<span
+ style="font-weight: bold;"> </span>(Sp10)<br></li>
+</ul> 
+{/slides}
+  {slide= MATH 213 (Elements of Geometry and Measurement)|closed}
+<b>Text(s):</b>
+<ul>
+  <li>Mathematics for Elementary School Teachers, <b>(New Custom 3rd Edition)
+	</b>by Beckmann, Published by Addison Wesley.&nbsp; <b>ISBN: 0321646967 
+	(Current) </b>(Sp11)<b> (F11)</b></li>
+	<li>Mathematics for Elementary School Teachers, (Bundle Set) by
+Beckmann, Published by Addison Wesley.&nbsp; ISBN: 0321447174 <span
+ style="font-weight: bold;">&nbsp;</span>(F06)
+(Sp07)<span style="font-weight: bold;"> </span>(F07) (Sp08) (Sum08)<span
+ style="font-weight: bold;"> </span>(F08)<span
+ style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> </span>(Sum09) (F09)<span
+ style="font-weight: bold;"> </span>(Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<br>
+  </li>
+</ul>
+ {/slides}
+  {slide= MATH 214 (Elements of Probability and Statistics)|closed} 
+<b>Text(s):</b>
+<ul>
+  <li>Intro Stats, 3rd Ed., by Deveaux, Velleman &amp; Bock.&nbsp;
+Published by Addison Wesley.&nbsp; <span style="font-weight: bold;">ISBN:
+0321500458 (New Custom Ed.) (Current) </span>(F08)&nbsp; (Sp09)<span
+ style="font-weight: bold;"> </span>(F09)<span
+ style="font-weight: bold;"> </span>(Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11) <span
+ style="font-weight: bold;"> (F11)</span></li>
+	<li>Mathematics for Elementary Teachers Activities Manual, <span
+ style="font-weight: bold;">(New Custom 3rd Edition)</span> by
+Beckmann.&nbsp; Published by Addison Wesley.&nbsp; <span
+ style="font-weight: bold;">ISBN: 0321449762 (Current) </span>(Sp11) <span
+ style="font-weight: bold;">(F11)</span><br>
+  </li>
+  <li></li>
+	<li>Mathematics for Elementary Teachers Activities Manual, 
+	(New Custom Edition) by
+Beckmann.&nbsp; Published by Addison Wesley.&nbsp; ISBN: 0321449762 (F06)<span
+ style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (F08)<span
+ style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> </span>(F09)<span
+ style="font-weight: bold;"> </span>(Sp10)<span
+ style="font-weight: bold;"> </span>(F10)</li>
+	<li>Statistical Reasoning for Everyday Life, 2nd Ed., by Bennett,
+Briggs, Triola.&nbsp; Published by Addison Wesley.&nbsp; ISBN: 0201771284<span
+ style="font-weight: bold;"> </span><span
+ style="font-weight: bold;"></span>(F06)
+(Sp07)<span style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08)<br></li>
+	<li>Student Solutions Manual for Statistical Reasoning, etc. ISBN: 020183846X (F06)<span style="font-weight: bold;">
+	</span>(Sp07) (F07) (Sp08)</li>
+</ul>
+ {/slides}
+  {slide= MATH 220 (Elementary Calculus I)|closed} 
+<b>Text(s):</b>
+<ul>
+  <li>Calculus and its Applications, <span style="font-weight: bold;">(New
+12th Edition Bundle Set)</span> by Goldstein, D. Lay and D.
+Schneider.&nbsp; Published by Prentice Hall.&nbsp; <span
+ style="font-weight: bold;">ISBN: 0321643658 (Current)
+    </span>(F09) (Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<span
+ style="font-weight: bold;"> (F11)</span></li>
+	<li></li>
+	<li>Calculus and its Applications, 11th Edition, by
+Goldstein, D. Lay, and
+D. Schneider. Published by Prentice Hall, 2004. ISBN: 0131746251 (Current)<span
+ style="font-weight: bold;"> </span>(F06)<span
+ style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07)<span
+ style="font-weight: bold;"> </span>(Sp08) (Sum08)<span
+ style="font-weight: bold;"> </span>(F08) (Sp09) (Sum09) </li>
+  <li>Study Guide with Selected Applications and Visual
+Calculus, 11th
+Edition,
+by D. Lay and D. Schneider. Published by Prentice-Hall, 2004. (bundle with textbook) (Current)<span
+ style="font-weight: bold;"> </span>(F06)<span
+ style="font-weight: bold;"> </span>(Sp07)<span
+ style="font-weight: bold;"> </span>(F07) (Sp08) (Sum08)<span
+ style="font-weight: bold;"> </span>(F08)<span
+ style="font-weight: bold;"> </span>(Sp09) (Sum09)</li>
+</ul>
+ {/slides}
+  {slide= MATH 221 (Elementary Calculus II)|closed} 
+<b>Text(s):</b>
+<ul>
+  <li>Calculus and its Applications, <span style="font-weight: bold;">(New
+12th Edition Bundle Set)</span> by Goldstein, D. Lay and D.
+Schneider.&nbsp; Published by Prentice Hall.&nbsp; <span
+ style="font-weight: bold;">ISBN: 0321643658 (Current) </span>(Sp10)<span
+ style="font-weight: bold;"> </span>(F10)<span
+ style="font-weight: bold;"> </span>(Sp11)<span
+ style="font-weight: bold;"> (F11)</span></li>
+	<li></li>
+	<li>Calculus and its Applications, 11th
+Edition, by
+Goldstein, D. Lay, and
+D. Schneider. Published by Prentice-Hall, 2004. ISBN: 0131746251&nbsp; (Sp07)<span
+ style="font-weight: bold;"> </span>(F07) (Sp08) (Sum08)<span
+ style="font-weight: bold;"> </span>(F08)<span
+ style="font-weight: bold;"> </span>(Sp09)<span
+ style="font-weight: bold;"> 
+    </span>(Sum09) (F09)</li>
+  <li>Study Guide with Selected Applications and Visual
+Calculus, 11th
+Edition,
+by D. Lay and D. Schneider. Published by Prentice-Hall, 2004. (bundle with textbook) (Sp07) (F07) (Sp08) (Sum08) (F08) (Sp09) (Sum09) (F09)<span
+ style="font-weight: bold;"><br>
+    </span></li>
+</ul> {/slides}
+  {slide= MATH 240 (Introduction to Linear Algebra)|closed} Stuff in slide {/slides}
+  {slide= MATH 241 (Calculus III)|closed} Stuff in slide {/slides}
+  {slide= MATH 241H (Calculus III)|closed} Stuff in slide {/slides}
+  {slide= MATH 242 (Numerical Techniques in Engineering)[No longer offered]|closed} Stuff in slide {/slides}
+  {slide= MATH 246 (Differential Equations for Scientists and Engineers)|closed} Stuff in slide {/slides}
+  {slide= MATH 274 (History of Mathematics)|closed} Stuff in slide {/slides}
+  {slide= MATH 307 (A Condensed Introduction to Analysis)|closed} Stuff in slide {/slides}
+  {slide= MATH 310 (Introduction to Analysis )|closed} Stuff in slide {/slides}
+  {slide= MATH 340 (Multivariable Calculus, Linear Algebra &amp; Differential
+Equations
+I: Honors)|closed} Stuff in slide {/slides}
+  {slide= MATH 341
+(Multivariable Calculus, Linear Algebra &amp; Differential Equations
+II:
+Honors)|closed} Stuff in slide {/slides}
+  {slide= MATH 350 and 351 (Honors Analysis I and II)[No longer offered]|closed} Stuff in slide {/slides}
+  {slide= MATH 400 (Vectors and Matrices)[No longer offered]|closed} Stuff in slide {/slides}
+  {slide= MATH 401 (Applications of Linear Algebra)|closed} Stuff in slide {/slides}
+  {slide= MATH 402 (Algebraic Structures)|closed} Stuff in slide {/slides}
+  {slide= MATH 403 (Abstract Algebra)|closed} Stuff in slide {/slides}
+  {slide= MATH 404 (Field Theory)|closed} Stuff in slide {/slides}
+  {slide= MATH 405 (Linear Algebra)|closed} Stuff in slide {/slides}
+  {slide= MATH 406 (Introduction to Number Theory)|closed} Stuff in slide {/slides}
+  {slide= MATH 410 (Advanced Calculus I)|closed} Stuff in slide {/slides}
+  {slide= MATH 411 (Advanced Calculus II)|closed} Stuff in slide {/slides}
+  {slide= MATH 412 (Advanced Calculus with Applications)|closed} Stuff in slide {/slides}
+  {slide= MATH 414 (Ordinary Differential Equations)|closed} Stuff in slide {/slides}
+  {slide= MATH 416 (Applied Harmonic Analysis: An Introduction to Signal Processing)|closed} Stuff in slide {/slides}
+  {slide= MATH/AMSC 420 (Mathematical Modeling)|closed} Stuff in slide {/slides}
+  {slide= MATH 424 (Introduction to the Mathematics of Finance)|closed} Stuff in slide {/slides}
+  {slide= MATH 430 (Euclidean and Non-Euclidean Geometries)|closed} Stuff in slide {/slides}
+  {slide= MATH 431 (Geometry for Computer Graphics)|closed} Stuff in slide {/slides}
+  {slide= MATH 432 (Introduction to Topology)|closed} Stuff in slide {/slides}
+  {slide= MATH 436 (Differential Geometry of Curves and Surfaces I)|closed} Stuff in slide {/slides}
+  {slide= MATH 437 (Diffential Forms and their Applications) (previously "Differential
+Geometry of Curves and Surfaces II")|closed} Stuff in slide {/slides}
+  {slide= MATH 445 (Elementary Mathematical Logic)|closed} Stuff in slide {/slides}
+  {slide= MATH 446 (Axiomatic Set Theory)|closed} Stuff in slide {/slides}
+  {slide= MATH 447 (Introduction to Mathematical Logic)[No longer offered]|closed} Stuff in slide {/slides}
+  {slide= MATH 450 (Logic for Computer Science)[No longer offered]|closed} Stuff in slide {/slides}
+  {slide= MATH/AMSC 452 (Introduction to Dynamics and Chaos)|closed} Stuff in slide {/slides}
+  {slide= MATH 456 (Cryptology)|closed} Stuff in slide {/slides}
+  {slide= MATH 461 (Linear Algebra for Scientists and Engineers)|closed} Stuff in slide {/slides}
+  {slide= MATH 462 (Partial Differential Equations for Scientists and Engineers)|closed} Stuff in slide {/slides}
+  {slide= MATH 463 (Complex Variables for Scientists and Engineers)|closed} Stuff in slide {/slides}
+  {slide= MATH 464 (Transform Methods for Scientists and Engineers)|closed} Stuff in slide {/slides}
+  {slide= MATH 470 (Mathematics for Secondary Education)|closed} Stuff in slide {/slides}
+  {slide= MATH 475 (Combinatorics and Graph Theory)|closed} Stuff in slide {/slides}
+  {slide= MATH 489 (Research Interactions in Mathematics)|closed} Stuff in slide {/slides}
+</ul>
+<h2>
+STAT (Probability/Statistics) Courses</h2>
+<ul>
+  {slide= STAT 100 (Elementary Statistics and Probability)|closed} Stuff in slide {/slides}
+  {slide= STAT 400 (Applied Probability and Statistics I)|closed} Stuff in slide {/slides}
+  {slide= STAT 401 (Applied Probability and Statistics II)|closed} Stuff in slide {/slides}
+  {slide= STAT 405 (Stochastic Models for Queues and Networks)[No longer offered]|closed} Stuff in slide {/slides}
+  {slide= STAT 410 (Introduction to Probability Theory)|closed} Stuff in slide {/slides}
+  {slide= STAT 420 (Introduction to Statistics)|closed} Stuff in slide {/slides}
+  {slide= STAT 430 (Introduction to Statistical Computing with SAS)|closed} Stuff in slide {/slides}
+  {slide= STAT 440 (Sampling Theory)|closed} Stuff in slide {/slides}
+  {slide= STAT 450 (Regression and Variance Analysis)[No longer offered]|closed} Stuff in slide {/slides}
+  {slide= STAT 464 (Introduction to Biostatistics)|closed} Stuff in slide {/slides}
+  {slide= STAT 470 (Actuarial Mathematics)|closed} Stuff in slide {/slides}
+</ul>
+<h2>
+AMSC (Applied Math) Courses</h2>
+<ul>
+  {slide= MATH/AMSC 420 (Mathematical Modeling)|closed} Stuff in slide {/slides}
+  {slide= MATH/AMSC 452 (Introduction to Dynamics and Chaos)|closed} Stuff in slide {/slides}
+  {slide= AMSC 460 (Computational Methods)|closed} Stuff in slide {/slides}
+  {slide= AMSC 466 (Introduction to Numerical Analysis)|closed} Stuff in slide {/slides}
+  {slide= AMSC 477 (Optimization)[No longer offered]|closed} Stuff in slide {/slides}
