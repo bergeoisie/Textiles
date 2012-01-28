@@ -151,6 +151,13 @@ int main(void)
     
     PrintFullTextileInfo(T);
     
+	if(is1to1(T))
+	{
+		cout << "T is 1-1" << endl;
+		Textile Td = CreateDual(T);
+		cout << "Is Td 1-1?" << is1to1(Td) << endl;
+	}
+
     for(i=-1; i>-4;i--)
     {
         for(j=1; j<5; j++)

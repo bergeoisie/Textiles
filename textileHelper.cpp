@@ -153,7 +153,7 @@ Textile CreateDual(Textile T)
     
     //  vector<bool> visited(sizeOfVG,false);
     
-    
+//	cout << "Creating Dual" << endl;
     
     // Set up access for the vertex names, indices, etc
     // for G
@@ -220,6 +220,7 @@ Textile CreateDual(Textile T)
     
     
     // We add the edges to GT
+//	cout << "Adding Edges to GT" << endl;
     graph_traits<GammaGraph>::vertex_iterator vi, vi_end;
     for(tie(vi,vi_end)=vertices(T.first); vi != vi_end; ++vi)
     {
@@ -229,6 +230,7 @@ Textile CreateDual(Textile T)
     
     
     // Add the names to the vertices of GammaT
+//	cout << "Adding names to verts of GammaT" << endl;
     graph_traits<Graph>::edge_iterator ei, ei_end;
     for(tie(ei,ei_end)=edges(T.second), i=0; ei != ei_end; ++ei, i++)
     {
@@ -242,11 +244,12 @@ Textile CreateDual(Textile T)
         vmap.insert(VertexMap::value_type(g_name(*ei),i));
         
     }
-    
     // Add the edges to GammaT
+//	cout << "Adding Edges to GammaT" << endl;
     graph_traits<GammaGraph>::edge_iterator fi, fi_end;
     for(tie(fi,fi_end)=edges(T.first),i=0; fi != fi_end; ++fi, i++)
     {
+	//	cout << i<< endl;
         p=p_homom(*fi);
         q=q_homom(*fi);
         
@@ -2154,6 +2157,27 @@ void PrintFullTextileInfo(Textile T,ostream& os)
     
 }
 
+void PrintBasicTextileInfo(Textile T,ostream& os)
+{
+	
+	os << "Gamma Graph has " << num_vertices(T.first) << " vertices and " << num_edges(T.first) << " edges." << endl;
+	os << "G Graph which has " << num_vertices(T.second) << " vertices and " << num_edges(T.second) << " edges." << endl;
+    
+}
+
+void SmartPrintTextileInfo(Textile T, ostream& os)
+{
+	if(num_edges(T.first) > 500)
+	{
+		cout << "Textile is large, just printing the basic info." << endl;
+		PrintBasicTextileInfo(T,os);
+	}
+	else{
+		PrintFullTextileInfo(T,os);
+	}
+}
+
+
 // This will rename the edges of the G graph and the p,q maps in Gamma with whatever
 // you fed in as a map of strings
 Textile RenameTextile(Textile T,map<string,string> names)
@@ -3128,64 +3152,67 @@ Textile inducedRp(Textile T)
     set<VVec> seen;
     vector<string> codex;
     
-    for(tie(vi,vi_end)=vertices(T.first);vi!=vi_end;vi++)
-    {
-        VVec v(1,*vi);
-        toInv.push(v);
-        seen.insert(v);
-    }
-    
-    for(tie(gei,gei_end)=edges(T.second);gei!=gei_end;gei++)
-    {
-        string s = tsename(*gei);
-        codex.push_back(s);
-    }
-    
-    while(!toInv.empty())
-    {
-        vector<string>::iterator sit;
-        VVec::iterator it;
-        VVec v = toInv.top();
-        toInv.pop();
-        
-        /*      cout << "Look at {";
-         
-         for(it = v.begin(); it < v.end(); it++)
-         {
-         cout << *it << " ";
-         }
-         
-         cout << "}" << endl; */
-        
-        for(sit=codex.begin(); sit < codex.end(); sit++)
-        {
-            VVec S = compatibleSet(T,1,v,*sit);
-            if(S.size() > 0)
-            {
-                /*	        cout << "S is of size " << S.size() << endl << "It is {";
-                 for(it = S.begin(); it < S.end(); it++)
-                 {
-                 cout << *it << " ";
-                 }
-                 cout << "}" << endl;*/
-                
-                if(seen.find(S)==seen.end())
-                {
-                    seen.insert(S);
-                    toInv.push(S);
-                }
-            }
-        }
-        
-    }
-    
+	for(tie(vi,vi_end)=vertices(T.first);vi!=vi_end;vi++)
+	{
+		VVec v(1,*vi);
+		toInv.push(v);
+		seen.insert(v);
+	}
+
+	for(tie(gei,gei_end)=edges(T.second);gei!=gei_end;gei++)
+	{
+		string s = tsename(*gei);
+		codex.push_back(s);
+	}
+
+	while(!toInv.empty())
+	{
+		vector<string>::iterator sit;
+		VVec::iterator it;
+		VVec v = toInv.top();
+		toInv.pop();
+
+	/*	cout << "Look at {";
+
+		for(it = v.begin(); it < v.end(); it++)
+		{
+			cout << *it << " ";
+		}
+
+		cout << "}" << endl; */
+
+		for(sit=codex.begin(); sit < codex.end(); sit++)
+		{
+			VVec S = compatibleSet(T,1,v,*sit);
+			if(S.size() > 0)
+			{
+	/*			cout << "S is of size " << S.size() << endl << "It is {";
+				for(it = S.begin(); it < S.end(); it++)
+				{
+					cout << *it << " ";
+				}
+				cout << "}" << endl; */
+
+				if(seen.find(S)==seen.end())
+				{
+					seen.insert(S);
+					toInv.push(S);
+				}
+				else{
+		//			cout << "We've already seen it, not inserting." << endl;
+				}
+			}
+		}
+
+	}
+
     
     
     // Before we create the actual graph, we need to trim our seen set. We need to check if we have non-maximal
     // VVecs in there and if so, get rid of them.
     set<VVec>::iterator si,ti;
-    vector<VVec> toDelete;
-    vector<VVec>::iterator tdi;
+    set<VVec> toDelete;
+    set<VVec>::iterator tdi;
     bool done=false,fdone=false,found=false;
     VertexMap vmap;
     
@@ -3194,23 +3221,26 @@ Textile inducedRp(Textile T)
         for(ti=seen.begin(); ti!=seen.end(); ti++)
         {
             VVec a=*si,b=*ti;
-            if(VVecSubset(a,b))
+			if(VVecSubset(a,b) && toDelete.find(a) == toDelete.end())
             {
-                //         cout << "We are planning to erase";
-                //            printVVec(a); cout << endl;
-                toDelete.push_back(a);
+				
+       //         cout << "We are planning to erase";
+       //         printVVec(a); cout << endl;
+                toDelete.insert(a);
             }
         }
     }
+
+	cout << "We have " << toDelete.size() << " vectors to delete" << endl;
     
     for(tdi=toDelete.begin(); tdi!=toDelete.end(); tdi++)
     {
-        //    cout << "We are actually erasing "; printVVec(*tdi); cout << endl;
+         //   cout << "We are actually erasing "; printVVec(*tdi); cout << endl;
         seen.erase(*tdi);
     }
     
     
-    //  cout << "Our final Seen consists of:";
+     cout << "Our final Seen consists of:";
     
     for(si=seen.begin(); si != seen.end(); si++)
     {
@@ -3220,14 +3250,14 @@ Textile inducedRp(Textile T)
         string vname;
         VVec curr=*si;
         
-        //       printVVec(curr);
+               printVVec(curr);
         vname = ssVVec(curr);
         put(gamma_vname,v,vname);
         
         //We need to create a VMap so we can add edges later
         vmap.insert(VertexMap::value_type(vname,v));
     }
- //   cout << endl;
+    cout << endl;
     
     for(si=seen.begin(); si != seen.end(); si++)
     {
@@ -3340,6 +3370,28 @@ bool is1to1(Textile T)
 */
   }
 
+// Checks if a Textile is one sided 1-1 by looking at its induced left and right homomorphisms and checking if they are definite.
+bool isOneSided1to1(Textile T)
+{
+    Textile ilp=inducedLp(T),irp=inducedRp(T);
+    
+
+      	bool lp,rp;
+        cout << "In One sided 1-1 function for textile " << endl;
+        PrintFullTextileInfo(T);
+        
+        cout << "Printing IRP" << endl;
+        PrintFullTextileInfo(irp);
+        rp = IspRightDefinite(irp);
+        
+        cout << "Printing ILP" << endl;
+        PrintFullTextileInfo(ilp);
+        lp = IspLeftDefinite(ilp);
+        
+        return rp && lp;
+        
+  }
+
 
 // Checks to see if one VVec (vector of vertex descriptors) is a subset of another
 bool VVecSubset(VVec a, VVec b)
@@ -3420,7 +3472,7 @@ void Analyzer(Textile T)
 bool NewIsomLanguages(Textile T)
 {
     cout << "Checking to see that T has isom languages" << endl;
-    PrintFullTextileInfo(T);
+    SmartPrintTextileInfo(T);
     // We first construct the induced right resolving representations of the two maps. This essentially
     // makes them DFAs that we can minimize then test their equality.
     Textile irp = inducedRp(T), irq = CreateInverse(inducedRq(T));
@@ -3792,7 +3844,7 @@ Textile LookForConjugacy(Textile T, int MAX)
     int i;
     // We first check that T is nondegenerate
     cout << "We are looking for conjugacy and so are going to print T" << endl;
-    PrintFullTextileInfo(T);
+    SmartPrintTextileInfo(T);
     
     cout << "Checking to see if T is nondegenerate" << endl;
     TND = NewIsomLanguages(T);
@@ -3807,7 +3859,7 @@ Textile LookForConjugacy(Textile T, int MAX)
         {
             Textile TD = CreateDual(T);
             cout << " T is 1-1, created T* and now checking if it's nondegen after printing it" << endl;
-            PrintFullTextileInfo(TD);
+            SmartPrintTextileInfo(TD);
             DND = NewIsomLanguages(TD);
             
             if(DND)
@@ -3971,7 +4023,10 @@ Textile AutoHomom(Textile T)
     property_map<GammaGraph,edge_q_homom_t>::type
     q_hom = get(edge_q_homom,T.first);
     
-    
+	cout << "We are going to AutoHomom the following textile:" << endl;
+	SmartPrintTextileInfo(T);
+
+
     for(tie(vi,vi_end)=vertices(T.first); vi!=vi_end; vi++)
     {
         found = false;

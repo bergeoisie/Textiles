@@ -16,11 +16,8 @@ gmNew21: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNew21 gmNew21.cpp
 	
 allNew: $(OBJS)
-	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNew21 gmNew21.cpp
-	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNew231 gmNew231.cpp
-	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNew2341 gmNew2341.cpp
-	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNew2143 gmNew2143.cpp	
- 
+	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNewa21d231 gmNewa21d231.cpp
+
 junk: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o junk junk.cpp
 

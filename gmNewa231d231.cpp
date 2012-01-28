@@ -80,11 +80,11 @@ int main(void)
     add_edge(3, 6, PQ_Homoms(string("c"),Q_Homom(string("e"),string("K"))),G);
     add_edge(4, 0, PQ_Homoms(string("d"),Q_Homom(string("a"),string("L"))),G);
     add_edge(4, 1, PQ_Homoms(string("d"),Q_Homom(string("b"),string("M"))),G);
-    add_edge(5, 2, PQ_Homoms(string("d"),Q_Homom(string("d"),string("M"))),G);
-    add_edge(6, 4, PQ_Homoms(string("e"),Q_Homom(string("d"),string("M"))),G);
-    add_edge(4, 3, PQ_Homoms(string("d"),Q_Homom(string("c"),string("M"))),G);
-    add_edge(5, 5, PQ_Homoms(string("e"),Q_Homom(string("e"),string("M"))),G);
-    add_edge(6, 6, PQ_Homoms(string("e"),Q_Homom(string("e"),string("M"))),G);
+    add_edge(5, 2, PQ_Homoms(string("d"),Q_Homom(string("d"),string("N"))),G);
+    add_edge(6, 4, PQ_Homoms(string("e"),Q_Homom(string("d"),string("O"))),G);
+    add_edge(5, 3, PQ_Homoms(string("d"),Q_Homom(string("e"),string("P"))),G);
+    add_edge(5, 5, PQ_Homoms(string("e"),Q_Homom(string("e"),string("Q"))),G);
+    add_edge(4, 6, PQ_Homoms(string("e"),Q_Homom(string("c"),string("R"))),G);
 
     
     
@@ -124,7 +124,7 @@ int main(void)
 
     
     // Set up a file to put the graphviz data in.
-    ofstream gviz("gviz21.dat");
+    ofstream gviz("gviza231d231.dat");
     write_graphviz(gviz, G, make_label_writer(vname),make_label_writer(name));
     
     cout << "Defining a Graph " << endl;
@@ -151,9 +151,9 @@ int main(void)
     
     PrintFullTextileInfo(T);
 
-	if(is1to1(T))
+	if(isOneSided1to1(T))
 	{
-		cout << "T is 1-1" << endl;
+		cout << "T is onesided 1-1" << endl;
 		Textile Td = CreateDual(T);
 		if(is1to1(Td)) 
 		{
@@ -165,23 +165,23 @@ int main(void)
 	}
 	else
 	{
-		cout << "T is NOT 1-1" << endl;
+		cout << "T is NOT one sided 1-1" << endl;
 	}
 
-/*    
-    for(i=-1; i>-4;i--)
+    
+    for(i=1; i<4;i++)
     {
-        for(j=1; j<5; j++)
+        for(j=-1; j>-5; j--)
         {
             Textile Tij = AutoHomom(CreateNMTextile(T,i,j));
-            Textile Tconj = LookForConjugacy(Tij,4);
-            ofstream os("conjugacies21.txt",ios_base::app);
+            Textile Tconj = LookForConjugacy(Tij,3);
+            ofstream os("conjugaciesa231d231.txt",ios_base::app);
             os << "PRINTING IJ CONJUGACY FOR " << i << j << endl;
             PrintFullTextileInfo(Tij,os);
             PrintFullTextileInfo(Tconj,os);
         }
     }
-*/
+
     
     return 0;
 }
