@@ -173,7 +173,7 @@ int main(void)
     {
         for(j=-1; j>-5; j--)
         {
-            Textile Tij = AutoHomom(CreateNMTextile(T,i,j));
+            Textile Tij = AutoHomomLite(CreateNMTextile(T,i,j));
             Textile Tconj = LookForConjugacy(Tij,4);
             ofstream os("conjugaciesa21d231.txt",ios_base::app);
             os << "PRINTING IJ CONJUGACY FOR " << i << j << endl;

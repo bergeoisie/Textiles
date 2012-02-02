@@ -17,6 +17,8 @@ gmNew21: $(OBJS)
 	
 allNew: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNewa21d231 gmNewa21d231.cpp
+	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNewa231d231 gmNewa231d231.cpp
+
 
 junk: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o junk junk.cpp

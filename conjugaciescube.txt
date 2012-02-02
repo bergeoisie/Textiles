@@ -1622,3 +1622,700 @@ Jwz 1 1
 Printing G Graph which has 2 vertices and 5 edges.
 Y a + b c 
 Z d e 
+PRINTING IJ CONJUGACY FOR -11
+Printing Gamma Graph which has 5 vertices and 21 edges.
+01uu 01uuc/a 01uua/a 01uub/d 01uue/d 01uud/a 
+02uu 02uuc/c 02uua/c 02uub/e 02uue/e 02uud/c 
+05uv 05uvc/g 05uva/g 05uvb/h 05uve/h 05uvd/g 
+03uv 06vwg/f 06vwf/f 0 0 06vwh/f 
+04uu 08vwg/b 08vwf/b 0 0 08vwh/b 
+Printing Representation Matrix
+c/a a/a b/d e/d d/a 
+c/c a/c b/e e/e d/c 
+c/g a/g b/h e/h d/g 
+g/f f/f 0 0 h/f 
+g/b f/b 0 0 h/b 
+Printing vertex homoms
+01uu 0 0
+02uu 0 0
+05uv 0 1
+03uv 1 1
+04uu 1 0
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+Printing Gamma Graph which has 5 vertices and 21 edges.
+01uu 01uuc/a 01uua/a 01uub/d 01uue/d 01uud/a 
+02uu 02uuc/c 02uua/c 02uub/e 02uue/e 02uud/c 
+05uv 05uvc/g 05uva/g 05uvb/h 05uve/h 05uvd/g 
+03uv 06vwg/f 06vwf/f 0 0 06vwh/f 
+04uu 08vwg/b 08vwf/b 0 0 08vwh/b 
+Printing Representation Matrix
+c/a a/a b/d e/d d/a 
+c/c a/c b/e e/e d/c 
+c/g a/g b/h e/h d/g 
+g/f f/f 0 0 h/f 
+g/b f/b 0 0 h/b 
+Printing vertex homoms
+01uu 0 0
+02uu 0 0
+05uv 0 1
+03uv 1 1
+04uu 1 0
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+PRINTING IJ CONJUGACY FOR -11
+Printing Gamma Graph which has 5 vertices and 21 edges.
+01uu 01uuc/a 01uua/a 01uub/d 01uue/d 01uud/a 
+02uu 02uuc/c 02uua/c 02uub/e 02uue/e 02uud/c 
+05uv 05uvc/g 05uva/g 05uvb/h 05uve/h 05uvd/g 
+03uv 06vwg/f 06vwf/f 0 0 06vwh/f 
+04uu 08vwg/b 08vwf/b 0 0 08vwh/b 
+Printing Representation Matrix
+c/a a/a b/d e/d d/a 
+c/c a/c b/e e/e d/c 
+c/g a/g b/h e/h d/g 
+g/f f/f 0 0 h/f 
+g/b f/b 0 0 h/b 
+Printing vertex homoms
+01uu 0 0
+02uu 0 0
+05uv 0 1
+03uv 1 1
+04uu 1 0
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+Printing Gamma Graph which has 5 vertices and 21 edges.
+01uu 01uuc/a 01uua/a 01uub/d 01uue/d 01uud/a 
+02uu 02uuc/c 02uua/c 02uub/e 02uue/e 02uud/c 
+05uv 05uvc/g 05uva/g 05uvb/h 05uve/h 05uvd/g 
+03uv 06vwg/f 06vwf/f 0 0 06vwh/f 
+04uu 08vwg/b 08vwf/b 0 0 08vwh/b 
+Printing Representation Matrix
+c/a a/a b/d e/d d/a 
+c/c a/c b/e e/e d/c 
+c/g a/g b/h e/h d/g 
+g/f f/f 0 0 h/f 
+g/b f/b 0 0 h/b 
+Printing vertex homoms
+01uu 0 0
+02uu 0 0
+05uv 0 1
+03uv 1 1
+04uu 1 0
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+PRINTING IJ CONJUGACY FOR -11
+Printing Gamma Graph which has 5 vertices and 21 edges.
+01uu 01uuc/a 01uua/a 01uub/d 01uue/d 01uud/a 
+02uu 02uuc/c 02uua/c 02uub/e 02uue/e 02uud/c 
+05uv 05uvc/g 05uva/g 05uvb/h 05uve/h 05uvd/g 
+03uv 06vwg/f 06vwf/f 0 0 06vwh/f 
+04uu 08vwg/b 08vwf/b 0 0 08vwh/b 
+Printing Representation Matrix
+c/a a/a b/d e/d d/a 
+c/c a/c b/e e/e d/c 
+c/g a/g b/h e/h d/g 
+g/f f/f 0 0 h/f 
+g/b f/b 0 0 h/b 
+Printing vertex homoms
+01uu 0 0
+02uu 0 0
+05uv 0 1
+03uv 1 1
+04uu 1 0
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+Printing Gamma Graph which has 5 vertices and 21 edges.
+01uu 01uuc/a 01uua/a 01uub/d 01uue/d 01uud/a 
+02uu 02uuc/c 02uua/c 02uub/e 02uue/e 02uud/c 
+05uv 05uvc/g 05uva/g 05uvb/h 05uve/h 05uvd/g 
+03uv 06vwg/f 06vwf/f 0 0 06vwh/f 
+04uu 08vwg/b 08vwf/b 0 0 08vwh/b 
+Printing Representation Matrix
+c/a a/a b/d e/d d/a 
+c/c a/c b/e e/e d/c 
+c/g a/g b/h e/h d/g 
+g/f f/f 0 0 h/f 
+g/b f/b 0 0 h/b 
+Printing vertex homoms
+01uu 0 0
+02uu 0 0
+05uv 0 1
+03uv 1 1
+04uu 1 0
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+PRINTING IJ CONJUGACY FOR -11
+Printing Gamma Graph which has 6 vertices and 26 edges.
+01uu 01uuc/a 01uua/a 01uub/d 0 01uue/d 01uud/a 
+02uu 02uuc/c 02uua/c 02uub/e 0 02uue/e 02uud/c 
+05uv 05uvc/g 05uva/g 05uvb/h 0 05uve/h 05uvd/g 
+08vw 06vwc/c 06vwa/c 06vwb/e 0 06vwe/e 06vwd/c 
+03uv 08vwg/f 0 0 08vwf/f 0 08vwh/f 
+04uu 09wug/b 0 0 09wuf/b 0 09wuh/b 
+Printing Representation Matrix
+c/a a/a b/d 0 e/d d/a 
+c/c a/c b/e 0 e/e d/c 
+c/g a/g b/h 0 e/h d/g 
+c/c a/c b/e 0 e/e d/c 
+g/f 0 0 f/f 0 h/f 
+g/b 0 0 f/b 0 h/b 
+Printing vertex homoms
+01uu 0 0
+02uu 0 0
+05uv 0 1
+08vw 0 0
+03uv 1 1
+04uu 1 0
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+Printing Gamma Graph which has 6 vertices and 26 edges.
+01uu 01uuc/a 01uua/a 01uub/d 0 01uue/d 01uud/a 
+02uu 02uuc/c 02uua/c 02uub/e 0 02uue/e 02uud/c 
+05uv 05uvc/g 05uva/g 05uvb/h 0 05uve/h 05uvd/g 
+08vw 06vwc/c 06vwa/c 06vwb/e 0 06vwe/e 06vwd/c 
+03uv 08vwg/f 0 0 08vwf/f 0 08vwh/f 
+04uu 09wug/b 0 0 09wuf/b 0 09wuh/b 
+Printing Representation Matrix
+c/a a/a b/d 0 e/d d/a 
+c/c a/c b/e 0 e/e d/c 
+c/g a/g b/h 0 e/h d/g 
+c/c a/c b/e 0 e/e d/c 
+g/f 0 0 f/f 0 h/f 
+g/b 0 0 f/b 0 h/b 
+Printing vertex homoms
+01uu 0 0
+02uu 0 0
+05uv 0 1
+08vw 0 0
+03uv 1 1
+04uu 1 0
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+PRINTING IJ CONJUGACY FOR -11
+Printing Gamma Graph which has 6 vertices and 26 edges.
+01uu 01uuc/a 01uua/a 01uub/d 0 01uue/d 01uud/a 
+02uu 02uuc/c 02uua/c 02uub/e 0 02uue/e 02uud/c 
+05uv 05uvc/g 05uva/g 05uvb/h 0 05uve/h 05uvd/g 
+08vw 06vwc/c 06vwa/c 06vwb/e 0 06vwe/e 06vwd/c 
+03uv 08vwg/f 0 0 08vwf/f 0 08vwh/f 
+04uu 09wug/b 0 0 09wuf/b 0 09wuh/b 
+Printing Representation Matrix
+c/a a/a b/d 0 e/d d/a 
+c/c a/c b/e 0 e/e d/c 
+c/g a/g b/h 0 e/h d/g 
+c/c a/c b/e 0 e/e d/c 
+g/f 0 0 f/f 0 h/f 
+g/b 0 0 f/b 0 h/b 
+Printing vertex homoms
+01uu 0 0
+02uu 0 0
+05uv 0 1
+08vw 0 0
+03uv 1 1
+04uu 1 0
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+Printing Gamma Graph which has 6 vertices and 26 edges.
+01uu 01uuc/a 01uua/a 01uub/d 0 01uue/d 01uud/a 
+02uu 02uuc/c 02uua/c 02uub/e 0 02uue/e 02uud/c 
+05uv 05uvc/g 05uva/g 05uvb/h 0 05uve/h 05uvd/g 
+08vw 06vwc/c 06vwa/c 06vwb/e 0 06vwe/e 06vwd/c 
+03uv 08vwg/f 0 0 08vwf/f 0 08vwh/f 
+04uu 09wug/b 0 0 09wuf/b 0 09wuh/b 
+Printing Representation Matrix
+c/a a/a b/d 0 e/d d/a 
+c/c a/c b/e 0 e/e d/c 
+c/g a/g b/h 0 e/h d/g 
+c/c a/c b/e 0 e/e d/c 
+g/f 0 0 f/f 0 h/f 
+g/b 0 0 f/b 0 h/b 
+Printing vertex homoms
+01uu 0 0
+02uu 0 0
+05uv 0 1
+08vw 0 0
+03uv 1 1
+04uu 1 0
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+PRINTING IJ CONJUGACY FOR -12
+Printing Gamma Graph which has 8 vertices and 32 edges.
+01uuu 01uuuc/c 01uuua/c 01uuua/e 01uuub/b 0 0 01uuue/b 01uuud/e 
+02uuu 02uuuc/a 02uuua/a 02uuua/d 0 0 0 0 02uuud/d 
+02uuv 0 0 0 02uuvb/f 0 0 02uuve/f 0 
+05uvw 05uvwc/a 05uvwa/a 05uvwa/d 05uvwb/b 0 0 05uvwe/b 05uvwd/d 
+08vwu 06vwuc/a 06vwua/a 06vwua/d 0 0 0 0 06vwud/d 
+08vwv 0 0 0 08vwub/f 0 0 08vwue/f 0 
+03uvw 08vwvg/c 0 0 0 08vwvf/c 08vwvf/e 0 08vwvh/e 
+04uuv 09wuug/g 0 0 0 09wuuf/g 09wuuf/h 0 09wuuh/h 
+Printing Representation Matrix
+c/c a/c a/e b/b 0 0 e/b d/e 
+c/a a/a a/d 0 0 0 0 d/d 
+0 0 0 b/f 0 0 e/f 0 
+c/a a/a a/d b/b 0 0 e/b d/d 
+c/a a/a a/d 0 0 0 0 d/d 
+0 0 0 b/f 0 0 e/f 0 
+g/c 0 0 0 f/c f/e 0 h/e 
+g/g 0 0 0 f/g f/h 0 h/h 
+Printing vertex homoms
+01uuu 0 0
+02uuu 0 0
+02uuv 0 1
+05uvw 0 0
+08vwu 0 0
+08vwv 0 1
+03uvw 1 0
+04uuv 1 1
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+Printing Gamma Graph which has 8 vertices and 32 edges.
+01uuu 01uuuc/c 01uuua/c 01uuua/e 01uuub/b 0 0 01uuue/b 01uuud/e 
+02uuu 02uuuc/a 02uuua/a 02uuua/d 0 0 0 0 02uuud/d 
+02uuv 0 0 0 02uuvb/f 0 0 02uuve/f 0 
+05uvw 05uvwc/a 05uvwa/a 05uvwa/d 05uvwb/b 0 0 05uvwe/b 05uvwd/d 
+08vwu 06vwuc/a 06vwua/a 06vwua/d 0 0 0 0 06vwud/d 
+08vwv 0 0 0 08vwub/f 0 0 08vwue/f 0 
+03uvw 08vwvg/c 0 0 0 08vwvf/c 08vwvf/e 0 08vwvh/e 
+04uuv 09wuug/g 0 0 0 09wuuf/g 09wuuf/h 0 09wuuh/h 
+Printing Representation Matrix
+c/c a/c a/e b/b 0 0 e/b d/e 
+c/a a/a a/d 0 0 0 0 d/d 
+0 0 0 b/f 0 0 e/f 0 
+c/a a/a a/d b/b 0 0 e/b d/d 
+c/a a/a a/d 0 0 0 0 d/d 
+0 0 0 b/f 0 0 e/f 0 
+g/c 0 0 0 f/c f/e 0 h/e 
+g/g 0 0 0 f/g f/h 0 h/h 
+Printing vertex homoms
+01uuu 0 0
+02uuu 0 0
+02uuv 0 1
+05uvw 0 0
+08vwu 0 0
+08vwv 0 1
+03uvw 1 0
+04uuv 1 1
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+PRINTING IJ CONJUGACY FOR -13
+Printing Gamma Graph which has 10 vertices and 41 edges.
+01uuuu 01uuuuc/a 01uuuuc/d 01uuuua/a 0 0 0 0 0 0 0 
+01uuuv 0 0 0 01uuuva/f 01uuuvb/g 01uuuvb/h 0 01uuuve/g 01uuuve/h 01uuuvd/f 
+02uuuu 02uuuuc/c 02uuuuc/e 02uuuua/c 02uuuua/b 0 0 0 0 0 02uuuud/b 
+02uuvw 0 0 0 0 02uuvwb/c 02uuvwb/e 0 02uuvwe/c 02uuvwe/e 0 
+05uvwu 05uvwuc/c 05uvwuc/e 05uvwua/c 05uvwua/b 0 0 0 0 0 05uvwud/b 
+05uvwv 0 0 0 0 05uvwvb/g 05uvwvb/h 0 05uvwve/g 05uvwve/h 0 
+08vwvw 0 0 0 0 06vwuub/c 06vwuub/e 0 06vwuue/c 06vwuue/e 0 
+03uvwu 06vwuvg/a 06vwuvg/d 0 0 06vwuvf/a 0 0 0 0 0 
+03uvwv 0 0 0 0 0 0 08vwuuf/f 0 0 08vwuuh/f 
+04uuvw 08vwvwg/a 08vwvwg/d 0 0 08vwvwf/a 0 08vwvwf/b 0 0 08vwvwh/b 
+Printing Representation Matrix
+c/a c/d a/a 0 0 0 0 0 0 0 
+0 0 0 a/f b/g b/h 0 e/g e/h d/f 
+c/c c/e a/c a/b 0 0 0 0 0 d/b 
+0 0 0 0 b/c b/e 0 e/c e/e 0 
+c/c c/e a/c a/b 0 0 0 0 0 d/b 
+0 0 0 0 b/g b/h 0 e/g e/h 0 
+0 0 0 0 b/c b/e 0 e/c e/e 0 
+g/a g/d 0 0 f/a 0 0 0 0 0 
+0 0 0 0 0 0 f/f 0 0 h/f 
+g/a g/d 0 0 f/a 0 f/b 0 0 h/b 
+Printing vertex homoms
+01uuuu 0 0
+01uuuv 0 1
+02uuuu 0 0
+02uuvw 0 0
+05uvwu 0 0
+05uvwv 0 1
+08vwvw 0 0
+03uvwu 1 0
+03uvwv 1 1
+04uuvw 1 0
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+Printing Gamma Graph which has 41 vertices and 128 edges.
+aa 01uuuua/a01uuuu01uuuu/02uuuu02uuuu 01uuuua/a01uuuu01uuuv/02uuuu02uuvw 01uuuua/a01uuuu02uuuu/02uuuu02uuuu 01uuuua/a01uuuu02uuuu/02uuuu02uuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ba 0 0 0 0 0 0 01uuuva/f01uuuv03uvwu/02uuvw05uvwu 01uuuva/f01uuuv03uvwv/02uuvw08vwvw 01uuuva/f01uuuv04uuvw/02uuvw05uvwu 01uuuva/f01uuuv04uuvw/02uuvw08vwvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ca 0 0 0 0 0 0 0 0 0 0 02uuuua/c02uuuu01uuuu/02uuuu01uuuu 02uuuua/c02uuuu01uuuu/02uuuu01uuuv 02uuuua/c02uuuu02uuuu/02uuuu01uuuu 02uuuua/c02uuuu02uuuu/02uuuu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+da 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuuua/b02uuuu01uuuv/02uuvw05uvwu 02uuuua/b02uuuu01uuuv/02uuvw05uvwv 02uuuua/b02uuuu02uuvw/02uuvw05uvwu 02uuuua/b02uuuu02uuvw/02uuvw05uvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ea 0 0 0 0 0 0 0 0 0 0 05uvwua/c05uvwu01uuuu/02uuuu01uuuu 05uvwua/c05uvwu01uuuu/02uuuu01uuuv 05uvwua/c05uvwu02uuuu/02uuuu01uuuu 05uvwua/c05uvwu02uuuu/02uuuu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+fa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwua/b05uvwu01uuuv/02uuvw05uvwu 05uvwua/b05uvwu01uuuv/02uuvw05uvwv 05uvwua/b05uvwu02uuvw/02uuvw05uvwu 05uvwua/b05uvwu02uuvw/02uuvw05uvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ga 06vwuvf/a03uvwu01uuuu/05uvwu02uuuu 06vwuvf/a03uvwu01uuuv/05uvwu02uuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ha 0 0 0 0 0 0 08vwuuf/f03uvwv03uvwu/08vwvw05uvwu 08vwuuf/f03uvwv03uvwv/08vwvw08vwvw 08vwuuf/f03uvwv04uuvw/08vwvw05uvwu 08vwuuf/f03uvwv04uuvw/08vwvw08vwvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ia 0 0 0 0 08vwvwf/a04uuvw05uvwu/05uvwu02uuuu 08vwvwf/a04uuvw05uvwu/05uvwu02uuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ja 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 08vwvwf/b04uuvw05uvwv/08vwvw05uvwu 08vwvwf/b04uuvw05uvwv/08vwvw05uvwv 08vwvwf/b04uuvw08vwvw/08vwvw05uvwu 08vwvwf/b04uuvw08vwvw/08vwvw05uvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ka 01uuuuc/a01uuuu01uuuu/01uuuu02uuuu 0 01uuuuc/a01uuuu02uuuu/01uuuu02uuuu 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+la 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 01uuuuc/d01uuuu01uuuv/01uuuv04uuvw 01uuuuc/d01uuuu02uuuu/01uuuv04uuvw 0 
+ma 0 0 0 0 0 0 0 0 0 0 02uuuuc/c02uuuu01uuuu/01uuuu01uuuu 02uuuuc/c02uuuu01uuuu/01uuuu01uuuv 02uuuuc/c02uuuu02uuuu/01uuuu01uuuu 02uuuuc/c02uuuu02uuuu/01uuuu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+na 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuuuc/e02uuuu01uuuv/01uuuv03uvwu 02uuuuc/e02uuuu01uuuv/01uuuv03uvwv 02uuuuc/e02uuuu02uuvw/01uuuv03uvwu 02uuuuc/e02uuuu02uuvw/01uuuv03uvwv 0 0 0 0 0 0 0 
+oa 0 0 0 0 0 0 0 0 0 0 05uvwuc/c05uvwu01uuuu/01uuuu01uuuu 05uvwuc/c05uvwu01uuuu/01uuuu01uuuv 05uvwuc/c05uvwu02uuuu/01uuuu01uuuu 05uvwuc/c05uvwu02uuuu/01uuuu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+pa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwuc/e05uvwu01uuuv/01uuuv03uvwu 05uvwuc/e05uvwu01uuuv/01uuuv03uvwv 05uvwuc/e05uvwu02uuvw/01uuuv03uvwu 05uvwuc/e05uvwu02uuvw/01uuuv03uvwv 0 0 0 0 0 0 0 
+qa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 01uuuvb/g01uuuv03uvwu/05uvwu01uuuu 01uuuvb/g01uuuv03uvwu/05uvwu01uuuv 01uuuvb/g01uuuv04uuvw/05uvwu01uuuu 01uuuvb/g01uuuv04uuvw/05uvwu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ra 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 01uuuvb/h01uuuv03uvwv/05uvwv04uuvw 01uuuvb/h01uuuv04uuvw/05uvwv04uuvw 0 0 0 0 0 0 0 0 0 0 0 
+sa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuvwb/c02uuvw05uvwu/05uvwu01uuuu 02uuvwb/c02uuvw05uvwu/05uvwu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ta 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuvwb/e02uuvw05uvwv/05uvwv03uvwu 02uuvwb/e02uuvw05uvwv/05uvwv03uvwv 02uuvwb/e02uuvw08vwvw/05uvwv03uvwu 02uuvwb/e02uuvw08vwvw/05uvwv03uvwv 0 0 0 
+ua 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwvb/g05uvwv03uvwu/05uvwu01uuuu 05uvwvb/g05uvwv03uvwu/05uvwu01uuuv 05uvwvb/g05uvwv04uuvw/05uvwu01uuuu 05uvwvb/g05uvwv04uuvw/05uvwu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 
+va 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwvb/h05uvwv03uvwv/05uvwv04uuvw 05uvwvb/h05uvwv04uuvw/05uvwv04uuvw 0 0 0 0 0 0 0 0 0 0 0 
+wa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 06vwuub/c08vwvw05uvwu/05uvwu01uuuu 06vwuub/c08vwvw05uvwu/05uvwu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+xa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 06vwuub/e08vwvw05uvwv/05uvwv03uvwu 06vwuub/e08vwvw05uvwv/05uvwv03uvwv 06vwuub/e08vwvw08vwvw/05uvwv03uvwu 06vwuub/e08vwvw08vwvw/05uvwv03uvwv 0 0 0 
+ya 06vwuvg/a03uvwu01uuuu/01uuuu02uuuu 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+za 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 06vwuvg/d03uvwu01uuuv/01uuuv04uuvw 0 0 
+ab 0 0 0 0 08vwvwg/a04uuvw05uvwu/01uuuu02uuuu 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+bb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 08vwvwg/d04uuvw05uvwu/01uuuv04uuvw 
+cb 0 0 0 0 0 0 08vwuuh/f03uvwv03uvwu/04uuvw05uvwu 08vwuuh/f03uvwv03uvwv/04uuvw08vwvw 08vwuuh/f03uvwv04uuvw/04uuvw05uvwu 08vwuuh/f03uvwv04uuvw/04uuvw08vwvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+db 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 08vwvwh/b04uuvw05uvwv/04uuvw05uvwu 08vwvwh/b04uuvw05uvwv/04uuvw05uvwv 08vwvwh/b04uuvw08vwvw/04uuvw05uvwu 08vwvwh/b04uuvw08vwvw/04uuvw05uvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+eb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 01uuuve/g01uuuv03uvwu/03uvwu01uuuu 01uuuve/g01uuuv03uvwu/03uvwu01uuuv 01uuuve/g01uuuv04uuvw/03uvwu01uuuu 01uuuve/g01uuuv04uuvw/03uvwu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 
+fb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 01uuuve/h01uuuv03uvwv/03uvwv04uuvw 01uuuve/h01uuuv04uuvw/03uvwv04uuvw 0 0 0 0 0 0 0 0 0 0 0 
+gb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuvwe/c02uuvw05uvwu/03uvwu01uuuu 02uuvwe/c02uuvw05uvwu/03uvwu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+hb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuvwe/e02uuvw05uvwv/03uvwv03uvwu 02uuvwe/e02uuvw05uvwv/03uvwv03uvwv 02uuvwe/e02uuvw08vwvw/03uvwv03uvwu 02uuvwe/e02uuvw08vwvw/03uvwv03uvwv 0 0 0 
+ib 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwve/g05uvwv03uvwu/03uvwu01uuuu 05uvwve/g05uvwv03uvwu/03uvwu01uuuv 05uvwve/g05uvwv04uuvw/03uvwu01uuuu 05uvwve/g05uvwv04uuvw/03uvwu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 
+jb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwve/h05uvwv03uvwv/03uvwv04uuvw 05uvwve/h05uvwv04uuvw/03uvwv04uuvw 0 0 0 0 0 0 0 0 0 0 0 
+kb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 06vwuue/c08vwvw05uvwu/03uvwu01uuuu 06vwuue/c08vwvw05uvwu/03uvwu01uuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+lb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 06vwuue/e08vwvw05uvwv/03uvwv03uvwu 06vwuue/e08vwvw05uvwv/03uvwv03uvwv 06vwuue/e08vwvw08vwvw/03uvwv03uvwu 06vwuue/e08vwvw08vwvw/03uvwv03uvwv 0 0 0 
+mb 0 0 0 0 0 0 01uuuvd/f01uuuv03uvwu/04uuvw05uvwu 01uuuvd/f01uuuv03uvwv/04uuvw08vwvw 01uuuvd/f01uuuv04uuvw/04uuvw05uvwu 01uuuvd/f01uuuv04uuvw/04uuvw08vwvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+nb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuuud/b02uuuu01uuuv/04uuvw05uvwu 02uuuud/b02uuuu01uuuv/04uuvw05uvwv 02uuuud/b02uuuu02uuvw/04uuvw05uvwu 02uuuud/b02uuuu02uuvw/04uuvw05uvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ob 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwud/b05uvwu01uuuv/04uuvw05uvwu 05uvwud/b05uvwu01uuuv/04uuvw05uvwv 05uvwud/b05uvwu02uuvw/04uuvw05uvwu 05uvwud/b05uvwu02uuvw/04uuvw05uvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Printing Representation Matrix
+AA/IA BA/JA CA/IA CA/JA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 DA/KA EA/MA FA/KA FA/MA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 GA/GA GA/HA IA/GA IA/HA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 HA/KA HA/LA JA/KA JA/LA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 NA/GA NA/HA PA/GA PA/HA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 OA/KA OA/LA QA/KA QA/LA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+XA/PA YA/QA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 ZA/UA AB/WA BB/UA BB/WA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 CB/PA CB/QA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 DB/UA DB/VA EB/UA EB/VA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+AA/CA 0 CA/CA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 BA/FA CA/FA 0 
+0 0 0 0 0 0 0 0 0 0 GA/AA GA/BA IA/AA IA/BA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 HA/DA HA/EA JA/DA JA/EA 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 NA/AA NA/BA PA/AA PA/BA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 OA/DA OA/EA QA/DA QA/EA 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 DA/NA DA/OA FA/NA FA/OA 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 EA/TA FA/TA 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 KA/NA KA/OA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 LA/RA LA/SA MA/RA MA/SA 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 RA/NA RA/OA TA/NA TA/OA 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 SA/TA TA/TA 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 UA/NA UA/OA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 VA/RA VA/SA WA/RA WA/SA 0 0 0 
+XA/CA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 YA/FA 0 0 
+0 0 0 0 CB/CA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 CB/FA 
+0 0 0 0 0 0 ZA/CB AB/EB BB/CB BB/EB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 DB/CB DB/DB EB/CB EB/DB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 DA/XA DA/YA FA/XA FA/YA 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 EA/BB FA/BB 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 KA/XA KA/YA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 LA/ZA LA/AB MA/ZA MA/AB 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 RA/XA RA/YA TA/XA TA/YA 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 SA/BB TA/BB 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 UA/XA UA/YA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 VA/ZA VA/AB WA/ZA WA/AB 0 0 0 
+0 0 0 0 0 0 DA/CB EA/EB FA/CB FA/EB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 HA/CB HA/DB JA/CB JA/DB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 OA/CB OA/DB QA/CB QA/DB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Printing vertex homoms
+aa 0 2
+ba 1 3
+ca 2 2
+da 2 3
+ea 4 2
+fa 4 3
+ga 7 4
+ha 8 6
+ia 9 4
+ja 9 6
+ka 0 0
+la 0 1
+ma 2 0
+na 2 1
+oa 4 0
+pa 4 1
+qa 1 4
+ra 1 5
+sa 3 4
+ta 3 5
+ua 5 4
+va 5 5
+wa 6 4
+xa 6 5
+ya 7 0
+za 7 1
+ab 9 0
+bb 9 1
+cb 8 9
+db 9 9
+eb 1 7
+fb 1 8
+gb 3 7
+hb 3 8
+ib 5 7
+jb 5 8
+kb 6 7
+lb 6 8
+mb 1 9
+nb 2 9
+ob 4 9
+Printing G Graph which has 10 vertices and 31 edges.
+01uuuu AA BA CA 0 0 0 0 0 0 0 
+01uuuv 0 0 0 0 0 0 0 DA EA FA 
+02uuuu GA HA IA JA 0 0 0 0 0 0 
+02uuvw 0 0 0 0 KA LA MA 0 0 0 
+05uvwu NA OA PA QA 0 0 0 0 0 0 
+05uvwv 0 0 0 0 0 0 0 RA SA TA 
+08vwvw 0 0 0 0 UA VA WA 0 0 0 
+03uvwu XA YA 0 0 0 0 0 0 0 0 
+03uvwv 0 0 0 0 0 0 0 ZA AB BB 
+04uuvw 0 0 0 0 CB DB EB 0 0 0 
+PRINTING IJ CONJUGACY FOR -14
+Printing Gamma Graph which has 14 vertices and 56 edges.
+01uuuuu 01uuuuuc/c 01uuuuuc/b 01uuuuua/c 01uuuuua/e 0 0 0 0 0 0 0 0 0 0 
+01uuuvw 0 0 0 0 01uuuvwa/c 01uuuvwa/e 01uuuvwb/a 01uuuvwb/d 01uuuvwb/b 0 0 01uuuvwd/c + 01uuuvwe/a 01uuuvwe/b 01uuuvwd/e 
+02uuuuu 02uuuuuc/a 0 02uuuuua/a 02uuuuua/d 0 0 0 0 0 0 0 0 0 0 
+02uuuuv 0 02uuuuvc/f 0 0 02uuuuva/g 02uuuuva/h 0 0 0 0 0 02uuuuvd/g 0 02uuuuvd/h 
+02uuvwu 0 0 0 0 0 0 02uuvwub/a 02uuvwub/d 0 0 0 02uuvwue/a 0 0 
+02uuvwv 0 0 0 0 0 0 0 0 02uuvwvb/f 0 0 0 02uuvwve/f 0 
+05uvwuu 05uvwuuc/a 0 05uvwuua/a 05uvwuua/d 0 0 0 0 0 0 0 0 0 0 
+05uvwuv 0 05uvwuvc/f 0 0 05uvwuva/g 05uvwuva/h 0 0 0 0 0 05uvwuvd/g 0 05uvwuvd/h 
+05uvwvw 0 0 0 0 0 0 05uvwvwb/a 05uvwvwb/d 05uvwvwb/b 0 0 05uvwvwe/a 05uvwvwe/b 0 
+08vwvwu 0 0 0 0 0 0 06vwuuub/a 06vwuuub/d 0 0 0 06vwuuue/a 0 0 
+08vwvwv 0 0 0 0 0 0 0 0 06vwuvwb/f 0 0 0 06vwuvwe/f 0 
+03uvwuu 08vwuuug/c 08vwuuug/b 0 0 0 0 08vwuuuf/c 08vwuuuf/e 0 0 0 0 0 0 
+03uvwvw 0 0 0 0 0 0 0 0 0 08vwuuvf/c 08vwuuvf/e 08vwuuvh/c 0 08vwuuvh/e 
+04uuvwv 0 0 0 0 0 0 0 0 0 08vwvwuf/g 08vwvwuf/h 08vwvwuh/g 0 08vwvwuh/h 
+Printing Representation Matrix
+c/c c/b a/c a/e 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 a/c a/e b/a b/d b/b 0 0 d/c + e/a e/b d/e 
+c/a 0 a/a a/d 0 0 0 0 0 0 0 0 0 0 
+0 c/f 0 0 a/g a/h 0 0 0 0 0 d/g 0 d/h 
+0 0 0 0 0 0 b/a b/d 0 0 0 e/a 0 0 
+0 0 0 0 0 0 0 0 b/f 0 0 0 e/f 0 
+c/a 0 a/a a/d 0 0 0 0 0 0 0 0 0 0 
+0 c/f 0 0 a/g a/h 0 0 0 0 0 d/g 0 d/h 
+0 0 0 0 0 0 b/a b/d b/b 0 0 e/a e/b 0 
+0 0 0 0 0 0 b/a b/d 0 0 0 e/a 0 0 
+0 0 0 0 0 0 0 0 b/f 0 0 0 e/f 0 
+g/c g/b 0 0 0 0 f/c f/e 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 f/c f/e h/c 0 h/e 
+0 0 0 0 0 0 0 0 0 f/g f/h h/g 0 h/h 
+Printing vertex homoms
+01uuuuu 0 0
+01uuuvw 0 0
+02uuuuu 0 0
+02uuuuv 0 1
+02uuvwu 0 0
+02uuvwv 0 1
+05uvwuu 0 0
+05uvwuv 0 1
+05uvwvw 0 0
+08vwvwu 0 0
+08vwvwv 0 1
+03uvwuu 1 0
+03uvwvw 1 0
+04uuvwv 1 1
+Printing G Graph which has 2 vertices and 8 edges.
+D a + b + c d + e 
+E f + g h 
+Printing Gamma Graph which has 56 vertices and 220 edges.
+aa 0 01uuuuua/c01uuuuu01uuuuu/02uuuuu01uuuuu 01uuuuua/c01uuuuu01uuuuu/02uuuuu01uuuvw 01uuuuua/c01uuuuu02uuuuu/02uuuuu01uuuuu 01uuuuua/c01uuuuu02uuuuv/02uuuuu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ba 0 01uuuuuc/c01uuuuu01uuuuu/01uuuuu01uuuuu 01uuuuuc/c01uuuuu01uuuuu/01uuuuu01uuuvw 01uuuuuc/c01uuuuu02uuuuu/01uuuuu01uuuuu 01uuuuuc/c01uuuuu02uuuuv/01uuuuu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ca 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 01uuuuuc/b01uuuuu01uuuvw/01uuuvw05uvwuu 01uuuuuc/b01uuuuu01uuuvw/01uuuvw05uvwuv 01uuuuuc/b01uuuuu01uuuvw/01uuuvw05uvwvw 01uuuuuc/b01uuuuu02uuvwu/01uuuvw05uvwuu 01uuuuuc/b01uuuuu02uuvwu/01uuuvw05uvwuv 01uuuuuc/b01uuuuu02uuvwv/01uuuvw05uvwvw 0 0 0 0 0 0 0 0 0 0 0 0 
+da 02uuuuuc/a02uuuuu01uuuuu/01uuuuu02uuuuu 0 0 0 0 0 0 02uuuuuc/a02uuuuu01uuuuu/01uuuuu02uuuuv 0 0 0 0 0 0 0 0 02uuuuuc/a02uuuuu01uuuvw/01uuuuu02uuvwu 02uuuuuc/a02uuuuu01uuuvw/01uuuuu02uuvwv 02uuuuuc/a02uuuuu02uuuuu/01uuuuu02uuuuu 02uuuuuc/a02uuuuu02uuuuu/01uuuuu02uuuuv 02uuuuuc/a02uuuuu02uuuuv/01uuuuu02uuvwu 02uuuuuc/a02uuuuu02uuuuv/01uuuuu02uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ea 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuuuvc/f02uuuuv03uvwuu/01uuuvw05uvwuu 02uuuuvc/f02uuuuv03uvwuu/01uuuvw05uvwuv 02uuuuvc/f02uuuuv03uvwvw/01uuuvw08vwvwu 02uuuuvc/f02uuuuv03uvwvw/01uuuvw08vwvwv 02uuuuvc/f02uuuuv04uuvwv/01uuuvw08vwvwu 02uuuuvc/f02uuuuv04uuvwv/01uuuvw08vwvwv 
+fa 05uvwuuc/a05uvwuu01uuuuu/01uuuuu02uuuuu 0 0 0 0 0 0 05uvwuuc/a05uvwuu01uuuuu/01uuuuu02uuuuv 0 0 0 0 0 0 0 0 05uvwuuc/a05uvwuu01uuuvw/01uuuuu02uuvwu 05uvwuuc/a05uvwuu01uuuvw/01uuuuu02uuvwv 05uvwuuc/a05uvwuu02uuuuu/01uuuuu02uuuuu 05uvwuuc/a05uvwuu02uuuuu/01uuuuu02uuuuv 05uvwuuc/a05uvwuu02uuuuv/01uuuuu02uuvwu 05uvwuuc/a05uvwuu02uuuuv/01uuuuu02uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ga 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwuvc/f05uvwuv03uvwuu/01uuuvw05uvwuu 05uvwuvc/f05uvwuv03uvwuu/01uuuvw05uvwuv 05uvwuvc/f05uvwuv03uvwvw/01uuuvw08vwvwu 05uvwuvc/f05uvwuv03uvwvw/01uuuvw08vwvwv 05uvwuvc/f05uvwuv04uuvwv/01uuuvw08vwvwu 05uvwuvc/f05uvwuv04uuvwv/01uuuvw08vwvwv 
+ha 0 0 0 0 0 0 0 0 01uuuuua/e01uuuuu01uuuvw/02uuuuv03uvwuu 01uuuuua/e01uuuuu01uuuvw/02uuuuv03uvwvw 01uuuuua/e01uuuuu02uuvwu/02uuuuv03uvwuu 01uuuuua/e01uuuuu02uuvwv/02uuuuv03uvwvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ia 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 01uuuvwe/a01uuuvw05uvwuu/03uvwuu02uuuuu 01uuuvwe/a01uuuvw05uvwuu/03uvwuu02uuuuv 01uuuvwe/a01uuuvw05uvwuv/03uvwuu02uuvwu 01uuuvwe/a01uuuvw05uvwuv/03uvwuu02uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ja 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 01uuuvwe/b01uuuvw05uvwvw/03uvwvw05uvwuu 01uuuvwe/b01uuuvw05uvwvw/03uvwvw05uvwuv 01uuuvwe/b01uuuvw05uvwvw/03uvwvw05uvwvw 01uuuvwe/b01uuuvw08vwvwu/03uvwvw05uvwuu 01uuuvwe/b01uuuvw08vwvwu/03uvwvw05uvwuv 01uuuvwe/b01uuuvw08vwvwv/03uvwvw05uvwvw 0 0 0 0 0 0 
+ka 02uuvwue/a02uuvwu01uuuuu/03uvwuu02uuuuu 0 0 0 0 0 0 02uuvwue/a02uuvwu01uuuuu/03uvwuu02uuuuv 0 0 0 0 0 0 0 0 02uuvwue/a02uuvwu01uuuvw/03uvwuu02uuvwu 02uuvwue/a02uuvwu01uuuvw/03uvwuu02uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+la 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuvwve/f02uuvwv03uvwuu/03uvwvw05uvwuu 02uuvwve/f02uuvwv03uvwuu/03uvwvw05uvwuv 02uuvwve/f02uuvwv03uvwvw/03uvwvw08vwvwu 02uuvwve/f02uuvwv03uvwvw/03uvwvw08vwvwv 02uuvwve/f02uuvwv04uuvwv/03uvwvw08vwvwu 02uuvwve/f02uuvwv04uuvwv/03uvwvw08vwvwv 
+ma 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwvwe/a05uvwvw05uvwuu/03uvwuu02uuuuu 05uvwvwe/a05uvwvw05uvwuu/03uvwuu02uuuuv 05uvwvwe/a05uvwvw05uvwuv/03uvwuu02uuvwu 05uvwvwe/a05uvwvw05uvwuv/03uvwuu02uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+na 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwvwe/b05uvwvw05uvwvw/03uvwvw05uvwuu 05uvwvwe/b05uvwvw05uvwvw/03uvwvw05uvwuv 05uvwvwe/b05uvwvw05uvwvw/03uvwvw05uvwvw 05uvwvwe/b05uvwvw08vwvwu/03uvwvw05uvwuu 05uvwvwe/b05uvwvw08vwvwu/03uvwvw05uvwuv 05uvwvwe/b05uvwvw08vwvwv/03uvwvw05uvwvw 0 0 0 0 0 0 
+oa 06vwuuue/a08vwvwu01uuuuu/03uvwuu02uuuuu 0 0 0 0 0 0 06vwuuue/a08vwvwu01uuuuu/03uvwuu02uuuuv 0 0 0 0 0 0 0 0 06vwuuue/a08vwvwu01uuuvw/03uvwuu02uuvwu 06vwuuue/a08vwvwu01uuuvw/03uvwuu02uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+pa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 06vwuvwe/f08vwvwv03uvwuu/03uvwvw05uvwuu 06vwuvwe/f08vwvwv03uvwuu/03uvwvw05uvwuv 06vwuvwe/f08vwvwv03uvwvw/03uvwvw08vwvwu 06vwuvwe/f08vwvwv03uvwvw/03uvwvw08vwvwv 06vwuvwe/f08vwvwv04uuvwv/03uvwvw08vwvwu 06vwuvwe/f08vwvwv04uuvwv/03uvwvw08vwvwv 
+qa 0 0 0 0 0 01uuuvwa/c01uuuvw05uvwuu/02uuvwu01uuuuu 01uuuvwa/c01uuuvw05uvwuv/02uuvwu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ra 0 0 0 0 0 0 0 0 0 0 0 0 01uuuvwa/e01uuuvw05uvwvw/02uuvwv03uvwuu 01uuuvwa/e01uuuvw05uvwvw/02uuvwv03uvwvw 01uuuvwa/e01uuuvw08vwvwu/02uuvwv03uvwuu 01uuuvwa/e01uuuvw08vwvwv/02uuvwv03uvwvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+sa 02uuuuua/a02uuuuu01uuuuu/02uuuuu02uuuuu 0 0 0 0 0 0 02uuuuua/a02uuuuu01uuuuu/02uuuuu02uuuuv 0 0 0 0 0 0 0 0 0 0 02uuuuua/a02uuuuu02uuuuu/02uuuuu02uuuuu 02uuuuua/a02uuuuu02uuuuu/02uuuuu02uuuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ta 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuuuua/d02uuuuu01uuuvw/02uuuuv03uvwuu 02uuuuua/d02uuuuu01uuuvw/02uuuuv04uuvwv 02uuuuua/d02uuuuu02uuuuv/02uuuuv03uvwuu 02uuuuua/d02uuuuu02uuuuv/02uuuuv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ua 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuuuva/g02uuuuv03uvwuu/02uuvwu01uuuuu 02uuuuva/g02uuuuv03uvwuu/02uuvwu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+va 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuuuva/h02uuuuv03uvwvw/02uuvwv03uvwuu 02uuuuva/h02uuuuv03uvwvw/02uuvwv04uuvwv 02uuuuva/h02uuuuv04uuvwv/02uuvwv03uvwuu 02uuuuva/h02uuuuv04uuvwv/02uuvwv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+wa 05uvwuua/a05uvwuu01uuuuu/02uuuuu02uuuuu 0 0 0 0 0 0 05uvwuua/a05uvwuu01uuuuu/02uuuuu02uuuuv 0 0 0 0 0 0 0 0 0 0 05uvwuua/a05uvwuu02uuuuu/02uuuuu02uuuuu 05uvwuua/a05uvwuu02uuuuu/02uuuuu02uuuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+xa 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwuua/d05uvwuu01uuuvw/02uuuuv03uvwuu 05uvwuua/d05uvwuu01uuuvw/02uuuuv04uuvwv 05uvwuua/d05uvwuu02uuuuv/02uuuuv03uvwuu 05uvwuua/d05uvwuu02uuuuv/02uuuuv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ya 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwuva/g05uvwuv03uvwuu/02uuvwu01uuuuu 05uvwuva/g05uvwuv03uvwuu/02uuvwu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+za 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwuva/h05uvwuv03uvwvw/02uuvwv03uvwuu 05uvwuva/h05uvwuv03uvwvw/02uuvwv04uuvwv 05uvwuva/h05uvwuv04uuvwv/02uuvwv03uvwuu 05uvwuva/h05uvwuv04uuvwv/02uuvwv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ab 0 0 0 0 0 01uuuvwd/c01uuuvw05uvwuu/03uvwuu01uuuuu 01uuuvwd/c01uuuvw05uvwuv/03uvwuu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+bb 0 0 0 0 0 0 0 0 0 0 0 0 01uuuvwd/e01uuuvw05uvwvw/04uuvwv03uvwuu 01uuuvwd/e01uuuvw05uvwvw/04uuvwv03uvwvw 01uuuvwd/e01uuuvw08vwvwu/04uuvwv03uvwuu 01uuuvwd/e01uuuvw08vwvwv/04uuvwv03uvwvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+cb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuuuvd/g02uuuuv03uvwuu/03uvwuu01uuuuu 02uuuuvd/g02uuuuv03uvwuu/03uvwuu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+db 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuuuvd/h02uuuuv03uvwvw/04uuvwv03uvwuu 02uuuuvd/h02uuuuv03uvwvw/04uuvwv04uuvwv 02uuuuvd/h02uuuuv04uuvwv/04uuvwv03uvwuu 02uuuuvd/h02uuuuv04uuvwv/04uuvwv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+eb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwuvd/g05uvwuv03uvwuu/03uvwuu01uuuuu 05uvwuvd/g05uvwuv03uvwuu/03uvwuu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+fb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwuvd/h05uvwuv03uvwvw/04uuvwv03uvwuu 05uvwuvd/h05uvwuv03uvwvw/04uuvwv04uuvwv 05uvwuvd/h05uvwuv04uuvwv/04uuvwv03uvwuu 05uvwuvd/h05uvwuv04uuvwv/04uuvwv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+gb 0 08vwuuug/c03uvwuu01uuuuu/01uuuuu01uuuuu 08vwuuug/c03uvwuu01uuuuu/01uuuuu01uuuvw 08vwuuug/c03uvwuu02uuuuu/01uuuuu01uuuuu 08vwuuug/c03uvwuu02uuuuv/01uuuuu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+hb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 08vwuuug/b03uvwuu01uuuvw/01uuuvw05uvwuu 08vwuuug/b03uvwuu01uuuvw/01uuuvw05uvwuv 08vwuuug/b03uvwuu01uuuvw/01uuuvw05uvwvw 08vwuuug/b03uvwuu02uuvwu/01uuuvw05uvwuu 08vwuuug/b03uvwuu02uuvwu/01uuuvw05uvwuv 08vwuuug/b03uvwuu02uuvwv/01uuuvw05uvwvw 0 0 0 0 0 0 0 0 0 0 0 0 
+ib 0 0 0 0 0 08vwuuvh/c03uvwvw05uvwuu/03uvwuu01uuuuu 08vwuuvh/c03uvwvw05uvwuv/03uvwuu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+jb 0 0 0 0 0 0 0 0 0 0 0 0 08vwuuvh/e03uvwvw05uvwvw/04uuvwv03uvwuu 08vwuuvh/e03uvwvw05uvwvw/04uuvwv03uvwvw 08vwuuvh/e03uvwvw08vwvwu/04uuvwv03uvwuu 08vwuuvh/e03uvwvw08vwvwv/04uuvwv03uvwvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+kb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 08vwvwuh/g04uuvwv03uvwuu/03uvwuu01uuuuu 08vwvwuh/g04uuvwv03uvwuu/03uvwuu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+lb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 08vwvwuh/h04uuvwv03uvwvw/04uuvwv03uvwuu 08vwvwuh/h04uuvwv03uvwvw/04uuvwv04uuvwv 08vwvwuh/h04uuvwv04uuvwv/04uuvwv03uvwuu 08vwvwuh/h04uuvwv04uuvwv/04uuvwv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+mb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 01uuuvwb/a01uuuvw05uvwuu/05uvwuu02uuuuu 01uuuvwb/a01uuuvw05uvwuu/05uvwuu02uuuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+nb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 01uuuvwb/d01uuuvw05uvwuv/05uvwuv03uvwuu 01uuuvwb/d01uuuvw05uvwuv/05uvwuv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ob 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 01uuuvwb/b01uuuvw05uvwvw/05uvwvw05uvwuu 01uuuvwb/b01uuuvw05uvwvw/05uvwvw05uvwuv 01uuuvwb/b01uuuvw05uvwvw/05uvwvw05uvwvw 01uuuvwb/b01uuuvw08vwvwu/05uvwvw05uvwuu 01uuuvwb/b01uuuvw08vwvwu/05uvwvw05uvwuv 01uuuvwb/b01uuuvw08vwvwv/05uvwvw05uvwvw 0 0 0 0 0 0 
+pb 02uuvwub/a02uuvwu01uuuuu/05uvwuu02uuuuu 0 0 0 0 0 0 02uuvwub/a02uuvwu01uuuuu/05uvwuu02uuuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+qb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuvwub/d02uuvwu01uuuvw/05uvwuv03uvwuu 02uuvwub/d02uuvwu01uuuvw/05uvwuv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+rb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 02uuvwvb/f02uuvwv03uvwuu/05uvwvw05uvwuu 02uuvwvb/f02uuvwv03uvwuu/05uvwvw05uvwuv 02uuvwvb/f02uuvwv03uvwvw/05uvwvw08vwvwu 02uuvwvb/f02uuvwv03uvwvw/05uvwvw08vwvwv 02uuvwvb/f02uuvwv04uuvwv/05uvwvw08vwvwu 02uuvwvb/f02uuvwv04uuvwv/05uvwvw08vwvwv 
+sb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwvwb/a05uvwvw05uvwuu/05uvwuu02uuuuu 05uvwvwb/a05uvwvw05uvwuu/05uvwuu02uuuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+tb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwvwb/d05uvwvw05uvwuv/05uvwuv03uvwuu 05uvwvwb/d05uvwvw05uvwuv/05uvwuv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ub 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 05uvwvwb/b05uvwvw05uvwvw/05uvwvw05uvwuu 05uvwvwb/b05uvwvw05uvwvw/05uvwvw05uvwuv 05uvwvwb/b05uvwvw05uvwvw/05uvwvw05uvwvw 05uvwvwb/b05uvwvw08vwvwu/05uvwvw05uvwuu 05uvwvwb/b05uvwvw08vwvwu/05uvwvw05uvwuv 05uvwvwb/b05uvwvw08vwvwv/05uvwvw05uvwvw 0 0 0 0 0 0 
+vb 06vwuuub/a08vwvwu01uuuuu/05uvwuu02uuuuu 0 0 0 0 0 0 06vwuuub/a08vwvwu01uuuuu/05uvwuu02uuuuv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+wb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 06vwuuub/d08vwvwu01uuuvw/05uvwuv03uvwuu 06vwuuub/d08vwvwu01uuuvw/05uvwuv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+xb 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 06vwuvwb/f08vwvwv03uvwuu/05uvwvw05uvwuu 06vwuvwb/f08vwvwv03uvwuu/05uvwvw05uvwuv 06vwuvwb/f08vwvwv03uvwvw/05uvwvw08vwvwu 06vwuvwb/f08vwvwv03uvwvw/05uvwvw08vwvwv 06vwuvwb/f08vwvwv04uuvwv/05uvwvw08vwvwu 06vwuvwb/f08vwvwv04uuvwv/05uvwvw08vwvwv 
+yb 0 08vwuuuf/c03uvwuu01uuuuu/05uvwuu01uuuuu 08vwuuuf/c03uvwuu01uuuuu/05uvwuu01uuuvw 08vwuuuf/c03uvwuu02uuuuu/05uvwuu01uuuuu 08vwuuuf/c03uvwuu02uuuuv/05uvwuu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+zb 0 0 0 0 0 0 0 0 08vwuuuf/e03uvwuu01uuuvw/05uvwuv03uvwuu 08vwuuuf/e03uvwuu01uuuvw/05uvwuv03uvwvw 08vwuuuf/e03uvwuu02uuvwu/05uvwuv03uvwuu 08vwuuuf/e03uvwuu02uuvwv/05uvwuv03uvwvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+ac 0 0 0 0 0 08vwuuvf/c03uvwvw05uvwuu/08vwvwu01uuuuu 08vwuuvf/c03uvwvw05uvwuv/08vwvwu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+bc 0 0 0 0 0 0 0 0 0 0 0 0 08vwuuvf/e03uvwvw05uvwvw/08vwvwv03uvwuu 08vwuuvf/e03uvwvw05uvwvw/08vwvwv03uvwvw 08vwuuvf/e03uvwvw08vwvwu/08vwvwv03uvwuu 08vwuuvf/e03uvwvw08vwvwv/08vwvwv03uvwvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+cc 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 08vwvwuf/g04uuvwv03uvwuu/08vwvwu01uuuuu 08vwvwuf/g04uuvwv03uvwuu/08vwvwu01uuuvw 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+dc 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 08vwvwuf/h04uuvwv03uvwvw/08vwvwv03uvwuu 08vwvwuf/h04uuvwv03uvwvw/08vwvwv04uuvwv 08vwvwuf/h04uuvwv04uuvwv/08vwvwv03uvwuu 08vwvwuf/h04uuvwv04uuvwv/08vwvwv04uuvwv 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Printing Representation Matrix
+0 AA/LA AA/MA CA/LA DA/MA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 AA/AA AA/BA CA/AA DA/BA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 BA/GA BA/HA BA/IA EA/GA EA/HA FA/IA 0 0 0 0 0 0 0 0 0 0 0 0 
+LA/CA 0 0 0 0 0 0 LA/DA 0 0 0 0 0 0 0 0 MA/EA MA/FA NA/CA NA/DA OA/EA OA/FA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 PA/GA PA/HA QA/JA QA/KA RA/JA RA/KA 
+XA/CA 0 0 0 0 0 0 XA/DA 0 0 0 0 0 0 0 0 YA/EA YA/FA ZA/CA ZA/DA AB/EA AB/FA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 BB/GA BB/HA CB/JA CB/KA DB/JA DB/KA 
+0 0 0 0 0 0 0 0 BA/PA BA/QA EA/PA FA/QA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 GA/QB GA/RB HA/SB HA/TB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 IA/UB IA/VB IA/WB JA/UB JA/VB KA/WB 0 0 0 0 0 0 
+SA/QB 0 0 0 0 0 0 SA/RB 0 0 0 0 0 0 0 0 TA/SB TA/TB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 UA/UB UA/VB VA/XB VA/YB WA/XB WA/YB 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 EB/QB EB/RB FB/SB FB/TB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 GB/UB GB/VB GB/WB HB/UB HB/VB IB/WB 0 0 0 0 0 0 
+JB/QB 0 0 0 0 0 0 JB/RB 0 0 0 0 0 0 0 0 KB/SB KB/TB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 LB/UB LB/VB MB/XB MB/YB NB/XB NB/YB 
+0 0 0 0 0 GA/SA HA/TA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 IA/UA IA/VA JA/UA KA/VA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+LA/NA 0 0 0 0 0 0 LA/OA 0 0 0 0 0 0 0 0 0 0 NA/NA NA/OA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 MA/PA MA/RA OA/PA OA/RA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 PA/SA PA/TA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 QA/UA QA/WA RA/UA RA/WA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+XA/NA 0 0 0 0 0 0 XA/OA 0 0 0 0 0 0 0 0 0 0 ZA/NA ZA/OA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 YA/PA YA/RA AB/PA AB/RA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 BB/SA BB/TA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 CB/UA CB/WA DB/UA DB/WA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 GA/OB HA/PB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 IA/ZB IA/AC JA/ZB KA/AC 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 PA/OB PA/PB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 QA/ZB QA/BC RA/ZB RA/BC 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 BB/OB BB/PB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 CB/ZB CB/BC DB/ZB DB/BC 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 OB/AA OB/BA QB/AA RB/BA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 PB/GA PB/HA PB/IA SB/GA SB/HA TB/IA 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 UB/OB VB/PB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 WB/ZB WB/AC XB/ZB YB/AC 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ZB/OB ZB/PB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 AC/ZB AC/BC BC/ZB BC/BC 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 GA/ZA GA/AB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 HA/BB HA/DB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 IA/EB IA/FB IA/GB JA/EB JA/FB KA/GB 0 0 0 0 0 0 
+SA/ZA 0 0 0 0 0 0 SA/AB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 TA/BB TA/DB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 UA/EB UA/FB VA/HB VA/IB WA/HB WA/IB 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 EB/ZA EB/AB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 FB/BB FB/DB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 GB/EB GB/FB GB/GB HB/EB HB/FB IB/GB 0 0 0 0 0 0 
+JB/ZA 0 0 0 0 0 0 JB/AB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 KB/BB KB/DB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 LB/EB LB/FB MB/HB MB/IB NB/HB NB/IB 
+0 OB/XA OB/YA QB/XA RB/YA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 PB/BB PB/CB SB/BB TB/CB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 UB/JB VB/KB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 WB/LB WB/MB XB/LB YB/MB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ZB/JB ZB/KB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 AC/LB AC/NB BC/LB BC/NB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Printing vertex homoms
+aa 0 2
+ba 0 0
+ca 0 1
+da 2 0
+ea 3 1
+fa 6 0
+ga 7 1
+ha 0 3
+ia 1 11
+ja 1 12
+ka 4 11
+la 5 12
+ma 8 11
+na 8 12
+oa 9 11
+pa 10 12
+qa 1 4
+ra 1 5
+sa 2 2
+ta 2 3
+ua 3 4
+va 3 5
+wa 6 2
+xa 6 3
+ya 7 4
+za 7 5
+ab 1 11
+bb 1 13
+cb 3 11
+db 3 13
+eb 7 11
+fb 7 13
+gb 11 0
+hb 11 1
+ib 12 11
+jb 12 13
+kb 13 11
+lb 13 13
+mb 1 6
+nb 1 7
+ob 1 8
+pb 4 6
+qb 4 7
+rb 5 8
+sb 8 6
+tb 8 7
+ub 8 8
+vb 9 6
+wb 9 7
+xb 10 8
+yb 11 6
+zb 11 7
+ac 12 9
+bc 12 10
+cc 13 9
+dc 13 10
+Printing G Graph which has 14 vertices and 54 edges.
+01uuuuu AA BA CA DA EA FA 0 0 0 0 0 0 0 0 
+01uuuvw 0 0 0 0 0 0 GA HA IA JA KA 0 0 0 
+02uuuuu LA MA NA OA 0 0 0 0 0 0 0 0 0 0 
+02uuuuv 0 0 0 0 0 0 0 0 0 0 0 PA QA RA 
+02uuvwu SA TA 0 0 0 0 0 0 0 0 0 0 0 0 
+02uuvwv 0 0 0 0 0 0 0 0 0 0 0 UA VA WA 
+05uvwuu XA YA ZA AB 0 0 0 0 0 0 0 0 0 0 
+05uvwuv 0 0 0 0 0 0 0 0 0 0 0 BB CB DB 
+05uvwvw 0 0 0 0 0 0 EB FB GB HB IB 0 0 0 
+08vwvwu JB KB 0 0 0 0 0 0 0 0 0 0 0 0 
+08vwvwv 0 0 0 0 0 0 0 0 0 0 0 LB MB NB 
+03uvwuu OB PB QB RB SB TB 0 0 0 0 0 0 0 0 
+03uvwvw 0 0 0 0 0 0 UB VB WB XB YB 0 0 0 
+04uuvwv 0 0 0 0 0 0 0 0 0 0 0 ZB AC BC 

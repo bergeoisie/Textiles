@@ -148,6 +148,7 @@ Textile LookForConjugacy(Textile,int);
 Textile CompositionPower(Textile, int);
 Textile CreateNMTextile(Textile,int,int);
 Textile AutoHomom(Textile);
+Textile AutoHomomLite(Textile);
 Textile AutoRenamer(Textile);
 string Namer(int,int,int=65);
 double PFEigenvalue(Graph);

@@ -3875,7 +3875,7 @@ Textile LookForConjugacy(Textile T, int MAX)
                 for(i=2;i<MAX;i++)
                 {
                     cout << "We are starting to look at trim((T*)^[" << i << "])*" << endl;
-                    Textile TiD = AutoRenamer(AutoHomom(Trim(HigherNBlock(TD,i))));
+                    Textile TiD = AutoRenamer(AutoHomomLite(Trim(HigherNBlock(TD,i))));
                     cout << "TiD has been created, starting to check if nondegen" << endl;
                     NND = NewIsomLanguages(TiD);
                     if(NND)
@@ -4041,6 +4041,7 @@ Textile AutoHomom(Textile T)
             multiset<string> * currData = new multiset<string>;
             for(tie(oei,oei_end)=out_edges(*vi,T.first); oei!=oei_end; oei++)
             {
+				cout << "Checking for the edge "<< source(*oei,T.first) << "," << target(*oei,T.first) << endl;
                 currData->insert(p_hom(*oei) + "/" + q_hom(*oei));
             }
             for(ci = classData.begin(), i=0; ci < classData.end() && !found; ci++, i++)
@@ -4060,6 +4061,104 @@ Textile AutoHomom(Textile T)
     }
     
     return Quotient(T,classes);
+}
+
+// This function is for if Autohomom doesn't work. It is a little more demanding than autohomom.
+// It cares about the target edge and the p/q homoms, as opposed to just the p/q homoms.
+Textile AutoHomomLite(Textile T)
+{
+	property_map<GammaGraph,edge_p_homom_t>::type
+		p_hom = get(edge_p_homom,T.first);
+
+	property_map<GammaGraph,edge_q_homom_t>::type
+		q_hom = get(edge_q_homom,T.first);
+		
+	property_map<GammaGraph,edge_name_t>::type
+		ename = get(edge_name,T.first);
+
+	property_map<GammaGraph,vertex_name_t>::type
+		vname = get(vertex_name,T.first);
+
+	GammaVI vi,vi_end,wi,wi_end;
+	GammaOEI oei,oei_end,ofi,ofi_end;
+	
+	vector<vector<VD> > classes;
+	vector<vector<VD> >::iterator ci;
+	
+	vector<VD>::iterator si;
+	
+	bool found,seen;
+
+	cout << "We are going to AutoHomomLite(tm) the following textile:" << endl;
+	SmartPrintTextileInfo(T);
+
+	for(tie(vi,vi_end)=vertices(T.first);vi!=vi_end;vi++)
+	{
+		seen=false;
+		for(ci=classes.begin(); ci!= classes.end(); ci++)
+		{
+			for(si=(*ci).begin(); si!=(*ci).end() && !seen; si++)
+			{
+				if(*si==*vi)
+				{
+					seen=true;
+					cout << "We have seen " << *si << endl;
+				}
+			}
+		} 
+
+		if(!seen)
+		{
+			VD v = *vi;
+			vector<VD> vivec = vector<VD>(1,v); 
+
+			for(tie(wi,wi_end)=vertices(T.first),wi=vi,wi++;wi!=wi_end;wi++)
+			{
+				cout << "Checking vertex " << vname(*wi) << " for compatibility" << endl;
+				if(out_degree(*vi,T.first)==out_degree(*wi,T.first))
+				{
+					for(tie(oei,oei_end)=out_edges(*vi,T.first);oei!=oei_end;oei++)
+					{
+				//		cout << "Looking at the edge from " << *vi << " to " << target(*oei,T.first) <<  " with p q " << p_hom(*oei) << " / " << q_hom(*oei) << endl;
+						tie(ofi,ofi_end)=out_edges(*wi,T.first);
+						found = false;
+						while(!found && ofi!=ofi_end)
+						{
+				//			cout << "Comparing to edge from " << *wi << " to " << target(*ofi,T.first) <<  " with p q " << p_hom(*ofi) << " / " << q_hom(*ofi) << endl;
+							if(target(*ofi,T.first)==target(*oei,T.first) && p_hom(*ofi)==p_hom(*oei) && q_hom(*ofi)==q_hom(*oei))
+							{
+								found = true;
+							}
+							else{
+								cout << "Didn't find it" << endl;
+								ofi++;
+							}
+						}
+						if(ofi==ofi_end)
+						{
+							cout << "No match" << endl;
+							break;
+						}
+					}
+					if(oei==oei_end) // We made it all the way through the oei iterator, meaning all the out_edges found a match
+					{
+						VD w=*wi;
+						vivec.push_back(w);
+					}
+
+				}
+				else{
+					cout << "Different out degrees" << endl;
+				}
+
+			} // wi
+
+			classes.push_back(vivec);
+		}
+	} // vi 
+
+
+	return Quotient(T,classes);
 }
 
 // Useful when making compositions and powers of textiles, this will shorten all
