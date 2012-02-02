@@ -68,8 +68,8 @@ int main(void)
     GammaGraph G(7);
     
     add_edge(0, 0, PQ_Homoms(string("a"),Q_Homom(string("b"),string("A"))),G);
-    add_edge(0, 1, PQ_Homoms(string("a"),Q_Homom(string("a"),string("B"))),G);
-    add_edge(1, 2, PQ_Homoms(string("a"),Q_Homom(string("a"),string("C"))),G);
+    add_edge(1, 1, PQ_Homoms(string("a"),Q_Homom(string("a"),string("B"))),G);
+    add_edge(0, 2, PQ_Homoms(string("a"),Q_Homom(string("a"),string("C"))),G);
     add_edge(1, 0, PQ_Homoms(string("b"),Q_Homom(string("b"),string("D"))),G);
     add_edge(2, 1, PQ_Homoms(string("b"),Q_Homom(string("a"),string("E"))),G);
     add_edge(2, 2, PQ_Homoms(string("b"),Q_Homom(string("b"),string("F"))),G);
