@@ -12,8 +12,8 @@ gmsquare: $(OBJS)
 gmctwo: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmctwo gmctwo.cpp
 	
-gmNew21: $(OBJS)
-	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNew21 gmNew21.cpp
+gmNewa231d231: $(OBJS)
+	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNewa231d231 gmNewa231d231.cpp
 	
 allNew: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNewa21d231 gmNewa21d231.cpp
