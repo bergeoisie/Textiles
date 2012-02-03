@@ -4119,12 +4119,12 @@ Textile AutoHomomLite(Textile T)
 				{
 					for(tie(oei,oei_end)=out_edges(*vi,T.first);oei!=oei_end;oei++)
 					{
-				//		cout << "Looking at the edge from " << *vi << " to " << target(*oei,T.first) <<  " with p q " << p_hom(*oei) << " / " << q_hom(*oei) << endl;
+						cout << "Looking at the edge from " << *vi << " to " << target(*oei,T.first) <<  " with p q " << p_hom(*oei) << " / " << q_hom(*oei) << endl;
 						tie(ofi,ofi_end)=out_edges(*wi,T.first);
 						found = false;
 						while(!found && ofi!=ofi_end)
 						{
-				//			cout << "Comparing to edge from " << *wi << " to " << target(*ofi,T.first) <<  " with p q " << p_hom(*ofi) << " / " << q_hom(*ofi) << endl;
+							cout << "Comparing to edge from " << *wi << " to " << target(*ofi,T.first) <<  " with p q " << p_hom(*ofi) << " / " << q_hom(*ofi) << endl;
 							if(target(*ofi,T.first)==target(*oei,T.first) && p_hom(*ofi)==p_hom(*oei) && q_hom(*ofi)==q_hom(*oei))
 							{
 								found = true;
