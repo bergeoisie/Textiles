@@ -628,6 +628,7 @@ Textile Trim(Textile T)
     graph_traits<GammaGraph>::edge_iterator ei, ei_end, fi, fi_end;
     graph_traits<GammaGraph>::vertex_iterator vi,vi_end;
     graph_traits<GammaGraph>::out_edge_iterator oei,oei_end;
+    graph_traits<GammaGraph>::in_edge_iterator iei,iei_end;
     graph_traits<Graph>::edge_iterator gei,gei_end;
     //  graph_traits<GammaGraph>::edge_descriptor e;
     GVI gvi,gvi_end;
@@ -707,11 +708,28 @@ Textile Trim(Textile T)
                         VD currv = toCheck.top();
                         toCheck.pop();
                         
-                        if(out_degree(currv,Trimmed.first)==0 ^ in_degree(currv,Trimmed.first)==0 )
+                        if(out_degree(currv,Trimmed.first)==0 && in_degree(currv,Trimmed.first)!=0)
                         {
+							for(tie(iei,iei_end)=in_edges(currv,Trimmed.first);iei!=iei_end;iei++)
+							{
+								VD sour = source(*iei,Trimmed.first);
+								toCheck.push(sour);
+							}
+							delcount += in_degree(currv,Trimmed.first);
                             //                  cout << "Clearing " << currv << endl;
                             clear_vertex(currv,Trimmed.first);
                         }
+						else if(out_degree(currv,Trimmed.first)!=0 && in_degree(currv,Trimmed.first)==0)
+						{
+								for(tie(oei,oei_end)=out_edges(currv,Trimmed.first);oei!=oei_end;oei++)
+								{
+									VD tar = target(*oei,Trimmed.first);
+									toCheck.push(tar);
+								}
+								delcount += out_degree(currv,Trimmed.first);
+	                            //                  cout << "Clearing " << currv << endl;
+	                            clear_vertex(currv,Trimmed.first);
+						}
                         
                     }
                 }
@@ -3838,7 +3856,7 @@ Textile Composition(Textile S, Textile T)
 
 // Looks for a conjugacy to a given textile system. MAX indicates how large of higher block
 // shifts to make. Making MAX larger than 4 or 5 will take a really long time.
-Textile LookForConjugacy(Textile T, int MAX)
+Textile LookForConjugacy(Textile T, int MAX, int start)
 {
     bool TND,TOO,NND,NOO,DOO,DND;
     int i;
@@ -3872,10 +3890,10 @@ Textile LookForConjugacy(Textile T, int MAX)
             }
             else{
                 cout << "TD is not nondegenerate" << endl;
-                for(i=2;i<MAX;i++)
+                for(i=start;i<MAX;i++)
                 {
                     cout << "We are starting to look at trim((T*)^[" << i << "])*" << endl;
-                    Textile TiD = AutoRenamer(AutoHomomLite(Trim(HigherNBlock(TD,i))));
+                    Textile TiD = AutoRenamer(AutoHomomLite(Trim(AutoHomomLite(HigherNBlock(TD,i)))));
                     cout << "TiD has been created, starting to check if nondegen" << endl;
                     NND = NewIsomLanguages(TiD);
                     if(NND)
@@ -3993,7 +4011,7 @@ Textile CreateNMTextile(Textile T, int n, int m)
 	
 //	PrintFullTextileInfo(Trim(Composition(N,M)));
     
-    return Trim(Composition(N,M));
+    return Trim(AutoHomomLite(Composition(N,M)));
     
 }
 
@@ -4114,29 +4132,29 @@ Textile AutoHomomLite(Textile T)
 
 			for(tie(wi,wi_end)=vertices(T.first),wi=vi,wi++;wi!=wi_end;wi++)
 			{
-				cout << "Checking vertex " << vname(*wi) << " for compatibility" << endl;
+	//			cout << "Checking vertex " << vname(*wi) << " for compatibility" << endl;
 				if(out_degree(*vi,T.first)==out_degree(*wi,T.first))
 				{
 					for(tie(oei,oei_end)=out_edges(*vi,T.first);oei!=oei_end;oei++)
 					{
-						cout << "Looking at the edge from " << *vi << " to " << target(*oei,T.first) <<  " with p q " << p_hom(*oei) << " / " << q_hom(*oei) << endl;
+		//				cout << "Looking at the edge from " << *vi << " to " << target(*oei,T.first) <<  " with p q " << p_hom(*oei) << " / " << q_hom(*oei) << endl;
 						tie(ofi,ofi_end)=out_edges(*wi,T.first);
 						found = false;
 						while(!found && ofi!=ofi_end)
 						{
-							cout << "Comparing to edge from " << *wi << " to " << target(*ofi,T.first) <<  " with p q " << p_hom(*ofi) << " / " << q_hom(*ofi) << endl;
+				//			cout << "Comparing to edge from " << *wi << " to " << target(*ofi,T.first) <<  " with p q " << p_hom(*ofi) << " / " << q_hom(*ofi) << endl;
 							if(target(*ofi,T.first)==target(*oei,T.first) && p_hom(*ofi)==p_hom(*oei) && q_hom(*ofi)==q_hom(*oei))
 							{
 								found = true;
 							}
 							else{
-								cout << "Didn't find it" << endl;
+				//				cout << "Didn't find it" << endl;
 								ofi++;
 							}
 						}
 						if(ofi==ofi_end)
 						{
-							cout << "No match" << endl;
+				//			cout << "No match" << endl;
 							break;
 						}
 					}
@@ -4148,7 +4166,7 @@ Textile AutoHomomLite(Textile T)
 
 				}
 				else{
-					cout << "Different out degrees" << endl;
+			//		cout << "Different out degrees" << endl;
 				}
 
 			} // wi
