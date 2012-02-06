@@ -124,7 +124,7 @@ Textile Quotient(Textile,vector<VVec>);
 Textile HomomComp(Textile, Graph,map<string,string>);
 Textile CreateTranspose(Textile);
 Textile CreateOneOneTextile(Textile);
-VVec compatibleSet(Textile,
+VVec compatibleSet(Textile&,
                    bool,
                    VVec,
                    string);
@@ -136,7 +136,7 @@ Textile inducedLq(Textile);
 bool is1to1(Textile);
 bool isOneSided1to1(Textile);
 void printVVec(VVec);
-bool VVecSubset(VVec,VVec);
+bool VVecSubset(VVec&,VVec&);
 string ssVVec(VVec);
 bool hasCycleHelper(Graph&,GVD,colors*);
 void Analyzer(Textile);
@@ -155,5 +155,6 @@ double PFEigenvalue(Graph);
 void OctaveOutput(Textile,string);
 //Textile RandomTrim(Textile);
 Textile ArrayTrim(Textile);
+Textile NewInducedRp(Textile);
 
 #endif

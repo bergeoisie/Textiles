@@ -3013,7 +3013,7 @@ Textile CreateOneOneTextile(Textile T)
 }
 
 
-VVec compatibleSet(Textile T, bool porq, VVec U, string s)
+VVec compatibleSet(Textile & T, bool porq, VVec U, string s)
 {
     VVec C;
     
@@ -3412,7 +3412,7 @@ bool isOneSided1to1(Textile T)
 
 
 // Checks to see if one VVec (vector of vertex descriptors) is a subset of another
-bool VVecSubset(VVec a, VVec b)
+bool VVecSubset(VVec& a, VVec& b)
 {
     VVec::iterator ait,bit;
     for(ait = a.begin(); ait < a.end(); ait++)
@@ -4192,7 +4192,7 @@ Textile AutoRenamer(Textile T)
     len = (int) ceil(log(numGedges)/log(26));
     vlen = (int) ceil(log(num_vertices(T.first))/log(26));
     
-    cout << "Length is " << len << " while numGedges is " << numGedges << endl;
+//    cout << "Length is " << len << " while numGedges is " << numGedges << endl;
     
     property_map<Graph,edge_name_t>::type
     gename = get(edge_name,T.second);
@@ -4953,4 +4953,91 @@ Textile ArrayTrim(Textile T)
     
     return Trimmed;
 
+}
+
+
+Textile NewInducedRp(Textile T)
+{
+	GammaVI vi,vi_end;
+	GEI gei,gei_end;
+	
+	vector<vector<VVec> > cSets;
+	
+	stack<VVec> toExamine;
+	
+	vector<string> codex;
+	vector<string>::iterator sit;
+	
+	property_map<Graph,edge_name_t>::type
+    tsename = get(edge_name,T.second);
+
+	VVec::iterator si;
+
+	int i;
+	bool add,isSubset;
+	
+	for(tie(vi,vi_end)=vertices(T.first);vi!=vi_end;vi++)
+	{
+		VD v = *vi;
+		VVec singleton(1,v);
+		toExamine.push(singleton);
+		cSets[v]=vector<VVec>(1,singleton);
+	}
+	
+	for(tie(gei,gei_end)=edges(T.second);gei!=gei_end;gei++)
+	{
+		string s = tsename(*gei);
+		codex.push_back(s);
+	}
+	
+	while(!toExamine.empty())
+	{
+		VVec currv = toExamine.top();
+		toExamine.pop();
+		
+		for(sit=codex.begin(); sit < codex.end(); sit++)
+		{
+			VVec S = compatibleSet(T,1,currv,*sit);
+			if(S.size() > 0)
+			{
+				// We have a (sorted) compatible set, we want to check if its a superset
+				VD first = S[0];
+				isSubset = false;
+				add = false;
+				for(i=0;i<cSets[first].size() && !isSubset;i++)
+				{
+					if(VVecSubset(cSets[first][i],S))
+					{
+						cSets[first].erase(cSets[first].begin()+i);
+						add = true;
+					}
+					else if(VVecSubset(S,cSets[first][i]))
+					{
+						isSubset = true;
+					}
+				}
+				if(add && !isSubset)
+				{
+					cSets[first].push_back(S);
+					toExamine.push(S);
+					// We now need to search for subsets in the other places.
+					for(si=S.begin()+1;si!=S.end();si++)
+					{
+						for(i=0;i<cSets[*si].size();i++)
+						{
+							if(VVecSubset(cSets[*si][i],S))
+							{
+								cSets[*si].erase(cSets[*si].begin()+i);
+							}
+						}
+						
+					}
+				}
+			}
+		}
+		
+	}
+	
+	return T;
+	
 }
