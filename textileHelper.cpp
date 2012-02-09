@@ -3336,14 +3336,14 @@ Textile inducedRp(Textile T)
 Textile inducedRq(Textile T)
 {
     Textile Tinv = CreateInverse(T);
-    return CreateInverse(inducedRp(Tinv));
+    return CreateInverse(NewInducedRp(Tinv));
     
 }
 
 Textile inducedLp(Textile T)
 {
     Textile Ttrans = CreateTranspose(T);
-    return CreateTranspose(inducedRp(Ttrans));
+    return CreateTranspose(NewInducedRp(Ttrans));
 }
 
 Textile inducedLq(Textile T)
@@ -4958,10 +4958,32 @@ Textile ArrayTrim(Textile T)
 
 Textile NewInducedRp(Textile T)
 {
+	GammaGraph Gamma;
+    Graph G=T.second;
+
+ 
+    property_map<GammaGraph,edge_p_homom_t>::type
+    pe = get(edge_p_homom,Gamma);
+
+   	property_map<GammaGraph,edge_name_t>::type
+    gamma_ename = get(edge_name,Gamma);
+
+    property_map<GammaGraph,vertex_name_t>::type
+    gamma_vname = get(vertex_name,Gamma);
+
+    property_map<Graph,edge_name_t>::type
+    gename = get(edge_name,G);
+
+    property_map<GammaGraph,vertex_p_vhomom_t>::type
+    pvgamma = get(vertex_p_vhomom, Gamma);
+  
+	
 	GammaVI vi,vi_end;
 	GEI gei,gei_end;
+	GammaOEI oei,oei_end;
 	
-	vector<vector<VVec> > cSets;
+	list<VVec> cSets;
+	list<VVec>::iterator li;
 	
 	stack<VVec> toExamine;
 	
@@ -4973,15 +4995,15 @@ Textile NewInducedRp(Textile T)
 
 	VVec::iterator si;
 
-	int i;
-	bool add,isSubset;
+	bool added,isSubset,found;
 	
 	for(tie(vi,vi_end)=vertices(T.first);vi!=vi_end;vi++)
 	{
 		VD v = *vi;
 		VVec singleton(1,v);
+		cout << "Pushing" << v << endl;
 		toExamine.push(singleton);
-		cSets[v]=vector<VVec>(1,singleton);
+		cSets.push_back(singleton);
 	}
 	
 	for(tie(gei,gei_end)=edges(T.second);gei!=gei_end;gei++)
@@ -5000,37 +5022,28 @@ Textile NewInducedRp(Textile T)
 			VVec S = compatibleSet(T,1,currv,*sit);
 			if(S.size() > 0)
 			{
+				cout << "Looking at CS " << ssVVec(S) << endl;
 				// We have a (sorted) compatible set, we want to check if its a superset
-				VD first = S[0];
+				added = false;
 				isSubset = false;
-				add = false;
-				for(i=0;i<cSets[first].size() && !isSubset;i++)
+				for(li = cSets.begin(); !isSubset && li!=cSets.end();li++)
 				{
-					if(VVecSubset(cSets[first][i],S))
+					cout << "Comparing it to " << ssVVec(*li) << endl;
+					if(VVecSubset(*li,S))
 					{
-						cSets[first].erase(cSets[first].begin()+i);
-						add = true;
-					}
-					else if(VVecSubset(S,cSets[first][i]))
-					{
-						isSubset = true;
-					}
-				}
-				if(add && !isSubset)
-				{
-					cSets[first].push_back(S);
-					toExamine.push(S);
-					// We now need to search for subsets in the other places.
-					for(si=S.begin()+1;si!=S.end();si++)
-					{
-						for(i=0;i<cSets[*si].size();i++)
+						cout << "*li is a subset" << endl;
+						li = cSets.erase(li);
+						li--;
+						if(!added)
 						{
-							if(VVecSubset(cSets[*si][i],S))
-							{
-								cSets[*si].erase(cSets[*si].begin()+i);
-							}
+						cSets.push_back(S);
+						added = true;
 						}
-						
+					}
+					else if(VVecSubset(S,*li))
+					{
+						cout << "S is a subset" << endl;
+						isSubset = true;
 					}
 				}
 			}
@@ -5038,6 +5051,69 @@ Textile NewInducedRp(Textile T)
 		
 	}
 	
-	return T;
+	
+	VertexMap vmap;
+    
+	
+	cout << "Our final Seen consists of:";
+    
+    for(li=cSets.begin(); li != cSets.end(); li++)
+    {
+        
+        graph_traits<GammaGraph>::vertex_descriptor v = add_vertex(Gamma);
+        VVec::iterator it;
+        string vname;
+        VVec curr=*li;
+        
+        printVVec(curr);
+        vname = ssVVec(curr);
+        put(gamma_vname,v,vname);
+        
+        //We need to create a VMap so we can add edges later
+        vmap.insert(VertexMap::value_type(vname,v));
+    }
+    cout << endl;
+    
+    for(li=cSets.begin(); li != cSets.end(); li++)
+    {
+        string s=ssVVec(*li),t;
+        graph_traits<GammaGraph>::vertex_descriptor v=vmap[s],w;
+        vector<string>::iterator cit;
+        VVec S;
+        
+        for(cit = codex.begin(); cit < codex.end(); cit++)
+        {
+            S = compatibleSet(T,1,(*li),(*cit));
+            if(S.size() > 0) {
+                t = ssVVec(S);
+                w = vmap[t];
+                add_edge(v,w,PQ_Homoms((*cit),Q_Homom(string(""),string("(" + s + "," + (*cit) + ")"))),Gamma);
+            }  
+        }
+        
+        
+    }
+
+   // We now need to fill in the vertex homomorphisms
+    for(tie(vi,vi_end)=vertices(Gamma); vi!=vi_end; vi++)
+    {
+        string currPE;
+        tie(oei,oei_end)=out_edges(*vi,Gamma);
+        
+        currPE = pe(*oei);
+        tie(gei,gei_end)=edges(G);
+        while(!found)
+        {
+            if(currPE == gename(*gei))
+            {
+                put(pvgamma,*vi,source(*gei,G));
+                found = true;
+            }
+            gei++;
+        } // while not found
+        found = false;
+    } // for vi
+	
+	return Textile(Gamma,G);
 	
 }
