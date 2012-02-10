@@ -144,7 +144,7 @@ bool NewIsomLanguages(Textile);
 Textile DirectSum(Textile,Textile);
 Textile DFAMinimization(Textile);
 Textile Composition(Textile,Textile);
-Textile LookForConjugacy(Textile,int, int start = 2);
+Textile LookForConjugacy(Textile,int, bool*, int start = 2);
 Textile CompositionPower(Textile, int);
 Textile CreateNMTextile(Textile,int,int);
 Textile AutoHomom(Textile);

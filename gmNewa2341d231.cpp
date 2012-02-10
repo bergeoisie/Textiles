@@ -61,6 +61,8 @@ typedef tuple<int,int,int> PQOEIElement;
 
 int main(void)
 {
+	bool a = false;
+	bool * found = &a;
     int i,j;
     cout << "Defining a GammaGraph" << endl;
     
@@ -124,7 +126,7 @@ int main(void)
 
     
     // Set up a file to put the graphviz data in.
-    ofstream gviz("gviza231d231.dat");
+    ofstream gviz("gviza2341d231.dat");
     write_graphviz(gviz, G, make_label_writer(vname),make_label_writer(name));
     
     cout << "Defining a Graph " << endl;
@@ -169,19 +171,22 @@ int main(void)
 	}
 
     
-    for(i=1; i<4;i++)
+    for(i=-1; i>-4;i--)
     {
-        for(j=-1; j>-5; j--)
-        {
-            Textile Tij = AutoHomom(CreateNMTextile(T,i,j));
-            Textile Tconj = LookForConjugacy(Tij,3);
-            ofstream os("conjugaciesa231d231.txt",ios_base::app);
-            os << "PRINTING IJ CONJUGACY FOR " << i << j << endl;
-            PrintFullTextileInfo(Tij,os);
-            PrintFullTextileInfo(Tconj,os);
-        }
-    }
+		for(j=1; j<5; j++)
+		{
+			Textile Tij = AutoHomom(CreateNMTextile(T,i,j));
+			Textile Tconj = LookForConjugacy(Tij,5,found);
+			if(*found)
+			{
+				ofstream os("conjugaciesa2341d231.txt",ios_base::app);
+				os << "PRINTING IJ CONJUGACY FOR " << i << j << endl;
+				PrintFullTextileInfo(Tij,os);
+				PrintFullTextileInfo(Tconj,os);
+			}
+		}
+	}
 
-    
+
     return 0;
 }

@@ -62,6 +62,8 @@ typedef tuple<int,int,int> PQOEIElement;
 int main(void)
 {
     int i,j;
+	bool a = false;
+	bool * found = &a;
     cout << "Defining a GammaGraph" << endl;
     
     
@@ -169,18 +171,21 @@ int main(void)
 	}
 
     
-    for(i=1; i<4;i++)
+    for(i=-1; i>-4;i--)
     {
-        for(j=-1; j>-5; j--)
-        {
-            Textile Tij = AutoHomomLite(CreateNMTextile(T,i,j));
-            Textile Tconj = LookForConjugacy(Tij,4);
-            ofstream os("conjugaciesa21d231.txt",ios_base::app);
-            os << "PRINTING IJ CONJUGACY FOR " << i << j << endl;
-            PrintFullTextileInfo(Tij,os);
-            PrintFullTextileInfo(Tconj,os);
-        }
-    }
+		for(j=1; j<5; j++)
+		{
+			Textile Tij = AutoHomomLite(CreateNMTextile(T,i,j));
+			Textile Tconj = LookForConjugacy(Tij,4,found);
+			if(*found)
+			{
+				ofstream os("conjugaciesa21d231.txt",ios_base::app);
+				os << "PRINTING IJ CONJUGACY FOR " << i << j << endl;
+				PrintFullTextileInfo(Tij,os);
+				PrintFullTextileInfo(Tconj,os);
+			}        
+		}
+	}
 
     
     return 0;

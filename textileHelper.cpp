@@ -3355,7 +3355,7 @@ Textile inducedLq(Textile T)
 // Checks if a Textile is 1-1 by looking at its induced left and right homomorphisms and checking if they are definite.
 bool is1to1(Textile T)
 {
-    Textile irq=inducedRq(T),ilp=inducedLp(T),irp=inducedRp(T),ilq=inducedLq(T);
+    Textile irq=inducedRq(T),ilp=inducedLp(T),irp=NewInducedRp(T),ilq=inducedLq(T);
     
   //  if(true)
   //  {
@@ -3391,7 +3391,7 @@ bool is1to1(Textile T)
 // Checks if a Textile is one sided 1-1 by looking at its induced left and right homomorphisms and checking if they are definite.
 bool isOneSided1to1(Textile T)
 {
-    Textile ilp=inducedLp(T),irp=inducedRp(T);
+    Textile ilp=inducedLp(T),irp=NewInducedRp(T);
     
 
       	bool lp,rp;
@@ -3493,7 +3493,7 @@ bool NewIsomLanguages(Textile T)
     SmartPrintTextileInfo(T);
     // We first construct the induced right resolving representations of the two maps. This essentially
     // makes them DFAs that we can minimize then test their equality.
-    Textile irp = inducedRp(T), irq = CreateInverse(inducedRq(T));
+    Textile irp = NewInducedRp(T), irq = CreateInverse(inducedRq(T));
     
     cout << "Printing the induced p and q graphs" << endl;
   //  PrintFullTextileInfo(irp);
@@ -3856,7 +3856,7 @@ Textile Composition(Textile S, Textile T)
 
 // Looks for a conjugacy to a given textile system. MAX indicates how large of higher block
 // shifts to make. Making MAX larger than 4 or 5 will take a really long time.
-Textile LookForConjugacy(Textile T, int MAX, int start)
+Textile LookForConjugacy(Textile T, int MAX, bool* found, int start)
 {
     bool TND,TOO,NND,NOO,DOO,DND;
     int i;
@@ -3902,6 +3902,7 @@ Textile LookForConjugacy(Textile T, int MAX, int start)
                         NOO = is1to1(TiD);
                         if(NOO)
                         {
+							*found = true;
                             cout << endl << endl << "FOUND CONJUGACY!!!!!!" << endl << endl;
                             cout << "TiD is also 1-1 at level " << i << endl;
                             cout << "P-F Eigenvalue is " << PFEigenvalue(TiD.second) << endl;
@@ -3918,6 +3919,7 @@ Textile LookForConjugacy(Textile T, int MAX, int start)
         
     } // TND
     cout << "Could not find a conjugacy, return the original" << endl;
+	*found = false;
     return T;
     
 }
