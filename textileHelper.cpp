@@ -2674,7 +2674,7 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
                                      cerr << "NOT A STATE EQUIVALENCE" << endl;
                                      printVVec(E[i]);
                                      cout << endl;
-                                     PrintFullTextileInfo(T);
+                                     SmartPrintTextileInfo(T);
                                      return T;
                                  }
                              } // if
@@ -2684,7 +2684,7 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
                              cerr << "NOT A STATE EQUIVALENCE" << endl;
                              printVVec(E[i]);
                              cout << endl;
-                             PrintFullTextileInfo(T);
+                             SmartPrintTextileInfo(T);
                              return T; 
                          } 
                      } // for oei
@@ -3959,26 +3959,26 @@ Textile CreateNMTextile(Textile T, int n, int m)
     {
         N = CompositionPower(CreateInverse(Toneone),-newn);
         cout << "N has been created, it is: " << endl;
-        PrintFullTextileInfo(N);
+        SmartPrintTextileInfo(N);
 
     }
     else if(newn == 1){
         N = Toneone;
         cout << "N has been created, it is: " << endl;
-        PrintFullTextileInfo(N);
+        SmartPrintTextileInfo(N);
 
     }
     else if(newn == -1)
     {
         N = CreateInverse(Toneone);
         cout << "N has been created, it is: " << endl;
-        PrintFullTextileInfo(N);
+        SmartPrintTextileInfo(N);
 
     }
     else{
         N = CompositionPower(Toneone,newn);
         cout << "N has been created, it is: " << endl;
-        PrintFullTextileInfo(N);
+        SmartPrintTextileInfo(N);
 
     }
     
@@ -3986,26 +3986,26 @@ Textile CreateNMTextile(Textile T, int n, int m)
     {
         M = CompositionPower(CreateInverse(T),-newm);
         cout << "Now, M has been created, it is: " << endl;
-        PrintFullTextileInfo(M);
+        SmartPrintTextileInfo(M);
 
     }
     else if(newm == 1){
         M = T;
         cout << "Now, M has been created, it is: " << endl;
-        PrintFullTextileInfo(M);
+        SmartPrintTextileInfo(M);
 
     }
     else if(newm == -1)
     {
         M = CreateInverse(T);
         cout << "Now, M has been created, it is: " << endl;
-        PrintFullTextileInfo(M);
+        SmartPrintTextileInfo(M);
 
     }
     else{
         M = CompositionPower(T,newm);
         cout << "Now, M has been created, it is: " << endl;
-        PrintFullTextileInfo(M);
+        SmartPrintTextileInfo(M);
 
     }
 
@@ -5024,16 +5024,16 @@ Textile NewInducedRp(Textile T)
 			VVec S = compatibleSet(T,1,currv,*sit);
 			if(S.size() > 0)
 			{
-				cout << "Looking at CS " << ssVVec(S) << endl;
+		//		cout << "Looking at CS " << ssVVec(S) << endl;
 				// We have a (sorted) compatible set, we want to check if its a superset
 				added = false;
 				isSubset = false;
 				for(li = cSets.begin(); !isSubset && li!=cSets.end();li++)
 				{
-					cout << "Comparing it to " << ssVVec(*li) << endl;
+		//			cout << "Comparing it to " << ssVVec(*li) << endl;
 					if(VVecSubset(*li,S))
 					{
-						cout << "*li is a subset" << endl;
+		//				cout << "*li is a subset" << endl;
 						li = cSets.erase(li);
 						li--;
 						if(!added)
@@ -5044,7 +5044,7 @@ Textile NewInducedRp(Textile T)
 					}
 					else if(VVecSubset(S,*li))
 					{
-						cout << "S is a subset" << endl;
+			//			cout << "S is a subset" << endl;
 						isSubset = true;
 					}
 				}

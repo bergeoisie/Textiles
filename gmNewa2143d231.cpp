@@ -63,7 +63,7 @@ int main(void)
 {
 	bool a = false;
 	bool * found = &a;
-    int i,j;
+    int i,j,MAX=5;
     cout << "Defining a GammaGraph" << endl;
     
     
@@ -169,6 +169,7 @@ int main(void)
 	{
 		cout << "T is NOT one sided 1-1" << endl;
 	}
+    ofstream os("conjugaciesa2143d231.txt",ios_base::app);
 
     
     for(i=-1; i>-4;i--)
@@ -176,16 +177,20 @@ int main(void)
         for(j=1; j<5; j++)
         {
             Textile Tij = AutoHomom(CreateNMTextile(T,i,j));
-            Textile Tconj = LookForConjugacy(Tij,5,found);
+            Textile Tconj = LookForConjugacy(Tij,MAX,found);
 			if(*found)
 			{
-            ofstream os("conjugaciesa2143d231.txt",ios_base::app);
             os << "PRINTING IJ CONJUGACY FOR " << i << j << endl;
             PrintFullTextileInfo(Tij,os);
             PrintFullTextileInfo(Tconj,os);
 			}
+			else{
+				os << "Did not find anything for " << i << j << " with max = " << MAX << endl;	
+			}
         }
     }
+
+	os.close();
 
     
     return 0;
