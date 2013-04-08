@@ -1,5 +1,5 @@
 OBJS = textileHelper.o
-CC = g++
+CC = llvm-g++-4.2
 CFLAGS = -c -O3
 LFLAGS = -O3
 INCS = -I ./boost_1_47_0/ -I ./TNT -I ./JAMA

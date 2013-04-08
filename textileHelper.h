@@ -156,5 +156,8 @@ void OctaveOutput(Textile,string);
 //Textile RandomTrim(Textile);
 Textile ArrayTrim(Textile);
 Textile NewInducedRp(Textile);
+Textile FromSSE(Graph,Graph,std::tr1::unordered_map<string,string>);
+Graph ProductGraph(Graph,Graph);
+void PrintGraph(Graph,ostream& os = cout);
 
 #endif

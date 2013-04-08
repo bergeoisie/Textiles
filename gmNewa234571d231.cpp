@@ -61,26 +61,32 @@ typedef tuple<int,int,int> PQOEIElement;
 
 int main(void)
 {
-    bool found=false;
-    int i,j;
+	bool a = false;
+	bool * found = &a;
+    int i,j,MAX=5;
     cout << "Defining a GammaGraph" << endl;
     
     
-    GammaGraph G(3);
+    GammaGraph G(7);
     
-    add_edge(0, 0, PQ_Homoms(string("a"),Q_Homom(string("c"),string("01"))),G);
-    add_edge(0, 0, PQ_Homoms(string("c"),Q_Homom(string("a"),string("02"))),G);
-    add_edge(0, 1, PQ_Homoms(string("a"),Q_Homom(string("e"),string("03"))),G);
-    add_edge(0, 1, PQ_Homoms(string("c"),Q_Homom(string("d"),string("04"))),G);
-    add_edge(0, 2, PQ_Homoms(string("d"),Q_Homom(string("b"),string("05"))),G);
-    add_edge(1, 0, PQ_Homoms(string("b"),Q_Homom(string("g"),string("06"))),G);
-    add_edge(1, 1, PQ_Homoms(string("b"),Q_Homom(string("h"),string("07"))),G);
-    add_edge(1, 2, PQ_Homoms(string("e"),Q_Homom(string("f"),string("08"))),G);
-    add_edge(2, 0, PQ_Homoms(string("f"),Q_Homom(string("c"),string("09"))),G);
-    add_edge(2, 0, PQ_Homoms(string("g"),Q_Homom(string("a"),string("10"))),G);
-    add_edge(2, 1, PQ_Homoms(string("f"),Q_Homom(string("e"),string("11"))),G);
-    add_edge(2, 1, PQ_Homoms(string("g"),Q_Homom(string("d"),string("12"))),G);
-    add_edge(2, 2, PQ_Homoms(string("h"),Q_Homom(string("b"),string("13"))),G);
+    add_edge(0, 0, PQ_Homoms(string("a"),Q_Homom(string("b"),string("A"))),G);
+    add_edge(1, 1, PQ_Homoms(string("a"),Q_Homom(string("a"),string("B"))),G);
+    add_edge(1, 2, PQ_Homoms(string("a"),Q_Homom(string("b"),string("C"))),G);
+    add_edge(2, 0, PQ_Homoms(string("b"),Q_Homom(string("a"),string("D"))),G);
+    add_edge(2, 1, PQ_Homoms(string("b"),Q_Homom(string("b"),string("E"))),G);
+    add_edge(3, 2, PQ_Homoms(string("b"),Q_Homom(string("d"),string("F"))),G);
+    add_edge(0, 4, PQ_Homoms(string("c"),Q_Homom(string("a"),string("G"))),G);
+    add_edge(0, 3, PQ_Homoms(string("a"),Q_Homom(string("c"),string("H"))),G);
+    add_edge(1, 3, PQ_Homoms(string("b"),Q_Homom(string("c"),string("I"))),G);
+    add_edge(2, 5, PQ_Homoms(string("c"),Q_Homom(string("c"),string("J"))),G);
+    add_edge(3, 6, PQ_Homoms(string("c"),Q_Homom(string("e"),string("K"))),G);
+    add_edge(4, 0, PQ_Homoms(string("d"),Q_Homom(string("a"),string("L"))),G);
+    add_edge(4, 1, PQ_Homoms(string("d"),Q_Homom(string("b"),string("M"))),G);
+    add_edge(5, 2, PQ_Homoms(string("d"),Q_Homom(string("d"),string("N"))),G);
+    add_edge(6, 4, PQ_Homoms(string("e"),Q_Homom(string("d"),string("O"))),G);
+    add_edge(5, 3, PQ_Homoms(string("d"),Q_Homom(string("e"),string("P"))),G);
+    add_edge(5, 5, PQ_Homoms(string("e"),Q_Homom(string("e"),string("Q"))),G);
+    add_edge(4, 6, PQ_Homoms(string("e"),Q_Homom(string("c"),string("R"))),G);
 
     
     
@@ -98,17 +104,29 @@ int main(void)
     
     put(p_vhom,0,0);
     put(q_vhom,0,0);
-    put(vname,0,string("u"));
+    put(vname,0,string("t"));
     put(p_vhom,1,0);
-    put(q_vhom,1,1);
-    put(vname,1,string("v"));
-    put(p_vhom,2,1);
+    put(q_vhom,1,0);
+    put(vname,1,string("u"));
+    put(p_vhom,2,0);
     put(q_vhom,2,0);
-    put(vname,2,string("w"));
-    
+    put(vname,2,string("v"));
+    put(p_vhom,3,0);
+    put(q_vhom,3,1);
+    put(vname,3,string("w"));
+	put(p_vhom,4,1);
+    put(q_vhom,4,0);
+    put(vname,4,string("x"));
+	put(p_vhom,5,1);
+    put(q_vhom,5,1);
+    put(vname,5,string("y"));
+	put(p_vhom,6,1);
+    put(q_vhom,6,1);
+    put(vname,6,string("z"));    
+
     
     // Set up a file to put the graphviz data in.
-    ofstream gviz("gviz.dat");
+    ofstream gviz("gviza2345671d231.dat");
     write_graphviz(gviz, G, make_label_writer(vname),make_label_writer(name));
     
     cout << "Defining a Graph " << endl;
@@ -124,32 +142,53 @@ int main(void)
     
     add_edge(0,0,string("a"),Gr);
     add_edge(0,0,string("b"),Gr);
-    add_edge(0,0,string("c"),Gr);
-    add_edge(0,1,string("d"),Gr);
-    add_edge(0,1,string("e"),Gr);
-    add_edge(1,0,string("f"),Gr);
-    add_edge(1,0,string("g"),Gr);
-    add_edge(1,1,string("h"),Gr);
+    add_edge(0,1,string("c"),Gr);
+    add_edge(1,0,string("d"),Gr);
+    add_edge(1,1,string("e"),Gr);
     
-    put(grvname,0,string("D"));
-    put(grvname,1,string("E"));
+    put(grvname,0,string("Y"));
+    put(grvname,1,string("Z"));
     
     Textile T(G,Gr);
     
     PrintFullTextileInfo(T);
-    
+
+	if(isOneSided1to1(T))
+	{
+		cout << "T is onesided 1-1" << endl;
+		Textile Td = CreateDual(T);
+		if(is1to1(Td)) 
+		{
+		cout << "Td is 1-1" << endl;
+		}
+		else {
+			cout << "Td is not 1-1" << endl;
+		}
+	}
+	else
+	{
+		cout << "T is NOT one sided 1-1" << endl;
+	}
+	
+	ofstream os("conjugaciesa2345671d231.txt",ios_base::app);
     for(i=-1; i>-4;i--)
     {
-        for(j=7; j<9; j++)
-        {
-            Textile Tij = AutoHomomLite(CreateNMTextile(T,i,j));
-            Textile Tconj = LookForConjugacy(Tij,5,&found);
-            ofstream os("conjugaciescube3212.txt",ios_base::app);
-            os << "PRINTING IJ CONJUGACY FOR " << i << j << endl;
-            PrintFullTextileInfo(Tij,os);
-            PrintFullTextileInfo(Tconj,os);
-        }
-    }
+		for(j=1; j<5; j++)
+		{
+			Textile Tij = AutoHomom(CreateNMTextile(T,i,j));
+			Textile Tconj = LookForConjugacy(Tij,MAX,found);
+			if(*found)
+			{
+				os << "PRINTING IJ CONJUGACY FOR " << i << j << endl;
+				PrintFullTextileInfo(Tij,os);
+				PrintFullTextileInfo(Tconj,os);
+			}
+			else{
+				os << "Did not find anything for " << i << j << " with max = " << MAX << endl;	
+			}
+		}
+	}
+
     
     return 0;
 }

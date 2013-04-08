@@ -2149,7 +2149,7 @@ void PrintFullTextileInfo(Textile T,ostream& os)
         map<graph_traits<Graph>::vertex_descriptor,string> strStor;
         for(tie(goei,goei_end)=out_edges(*gvi,T.second);goei!=goei_end;goei++)
         {
-            graph_traits<Graph>::vertex_descriptor t=target(*goei,T.first);
+            graph_traits<Graph>::vertex_descriptor t=target(*goei,T.second);
             if(strStor.find(t)==strStor.end()) {
                 strStor[t]=gename(*goei);
             }
@@ -2705,7 +2705,7 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
                              cerr << "NOT A STATE EQUIVALENCE" << endl;
                              printVVec(E[i]);
                              cout << endl;
-                             PrintFullTextileInfo(T);
+                             SmartPrintTextileInfo(T);
                              return T; 
                          } 
                      } // for oei
@@ -3088,42 +3088,7 @@ VVec compatibleSet(Textile & T, bool porq, VVec U, string s)
     return C;
     
 }
-/*
- int maxLblOutDegree(Textile T, string s)
- {
- GammaVI vi,vi_end;
- GammaOEI oei,oei_end;
- int max=0;
- 
- property_map<GammaGraph,edge_p_homom_t>::type
- pe = get(edge_p_homom,T.first);
- property_map<GammaGraph,edge_q_homom_t>::type
- qe = get(edge_q_homom,T.first);
- 
- for(tie(vi,vi_end)=edges(T.first);vi!=vi_end;vi++)
- {
- int currp=0,currq=0;
- for(tie(oei,oei_end)=out_edges(*vi,T.first);oei!=oei_end;oei++)
- {
- if(pe(*oei)==s)
- {
- currp++;
- }
- if(qe(*oei)==s)
- {
- currq++;
- }
- }
- if(currp > max) {
- max = currp;
- }
- if(currq > max) {
- max = currq;
- }
- }
- return;
- }
- */
+
 /* This function generates the induced right resolving labelled graph of p
  * which will be stored as the p map in a new graph. It does not, however, have a q map
  * defined. One must proceed with caution. Also note that p might not be right resolving as
@@ -3357,35 +3322,28 @@ bool is1to1(Textile T)
 {
     Textile irq=inducedRq(T),ilp=inducedLp(T),irp=NewInducedRp(T),ilq=inducedLq(T);
     
-  //  if(true)
-  //  {
         bool rq,lp,rp,lq;
         cout << "In 1-1 function for textile " << endl;
-        PrintFullTextileInfo(T);
+        SmartPrintTextileInfo(T);
         
         cout << "Printing IRQ" << endl;
-        PrintFullTextileInfo(irq);
+        SmartPrintTextileInfo(irq);
         rq = IsqRightDefinite(irq);
         
         cout << "Printing ILQ" << endl;
-        PrintFullTextileInfo(ilq);
+        SmartPrintTextileInfo(ilq);
         lq = IsqLeftDefinite(ilq);
         
         cout << "Printing IRP" << endl;
-        PrintFullTextileInfo(irp);
+        SmartPrintTextileInfo(irp);
         rp = IspRightDefinite(irp);
         
         cout << "Printing ILP" << endl;
-        PrintFullTextileInfo(ilp);
+        SmartPrintTextileInfo(ilp);
         lp = IspLeftDefinite(ilp);
         
         return rq && lq && rp && lp;
         
-  //  }
- /*   else{
-        return ((IsqRightDefinite(irq) > 0)  && (IspLeftDefinite(ilp) > 0) && (IspRightDefinite(irp) > 0) && (IsqLeftDefinite(ilq) > 0));
-    }
-*/
   }
 
 // Checks if a Textile is one sided 1-1 by looking at its induced left and right homomorphisms and checking if they are definite.
@@ -3396,14 +3354,14 @@ bool isOneSided1to1(Textile T)
 
       	bool lp,rp;
         cout << "In One sided 1-1 function for textile " << endl;
-        PrintFullTextileInfo(T);
+        SmartPrintTextileInfo(T);
         
         cout << "Printing IRP" << endl;
-        PrintFullTextileInfo(irp);
+        SmartPrintTextileInfo(irp);
         rp = IspRightDefinite(irp);
         
         cout << "Printing ILP" << endl;
-        PrintFullTextileInfo(ilp);
+        SmartPrintTextileInfo(ilp);
         lp = IspLeftDefinite(ilp);
         
         return rp && lp;
@@ -3479,9 +3437,28 @@ void Analyzer(Textile T)
 {
     // Our first goal is to check to see if the phi associated with T is an LR map, we will use this as a starting 
     // point to find the LR cone of sigma.
-    
-    
+	double maxTopAngle,minTopAngle,maxBotAngle,minBotAngle;
+	bool topAngleKnown = false,botAngleKnown = false;
+
+	// Set the currTextile to be T initially
+	Textile currTextile = T;
+	// T corresponds to looking at the (0,1) direction of the textile system
+	double x = 0.0, y = 1.0;
+
+	while(!topAngleKnown && !botAngleKnown)
+	{
+		if(IsLR(currTextile)) 
+		{
+			minTopAngle = atan(y/x);
+			if(false)  //IsDefinite(currTextile))
+			{
+				topAngleKnown = true;
+				maxTopAngle = atan(y/x);
+			} 
+		}
+	}
 }
+
 
 /*
  * This is a new, better version of the checking isom languages program. It minimizes the automata given by
@@ -3714,7 +3691,7 @@ Textile DFAMinimization(Textile T)
     
     if(!IspRightResolving(T)) {
         cout << "The given p map is not right resolving we have returned the original textile" << endl;
-        PrintFullTextileInfo(T);
+        SmartPrintTextileInfo(T);
         return T;
     }
     
@@ -4229,7 +4206,7 @@ string Namer(int i, int len, int start)
     
     for(j=0;j<len;j++)
     {
-        div = i / pow(26,j);
+        div = i / pow(26.0,j);
         if(div > 0)
         {
             curr = div % 26;
@@ -4245,7 +4222,7 @@ string Namer(int i, int len, int start)
     return name;
 }
 
-// This function finds the Peron Frobenius Eigenvalue of the input matrix. We use JAMA for this as
+// This function finds the Perron Frobenius Eigenvalue of the input matrix. We use JAMA for this as
 // I would definitely screw it up.
 double PFEigenvalue(Graph G)
 {
@@ -5118,4 +5095,111 @@ Textile NewInducedRp(Textile T)
 	
 	return Textile(Gamma,G);
 	
+}
+
+/*
+ * Given graphs G and H and a specified equivalence between M_G M_H and M_H M_G, we create the corresponding
+ * textile system T = (p',q': Gamma -> G) for this specified equivalence. 
+ */
+Textile FromSSE(Graph G, Graph H, unordered_map<string,string> sequiv)
+{
+    GammaGraph Gamma;
+
+
+
+
+
+    return Textile(Gamma,G);
+}
+
+Graph ProductGraph(Graph G, Graph H)
+{
+    Graph GH(num_vertices(G));
+
+
+    property_map<Graph,vertex_name_t>::type
+    G_vname = get(vertex_name,G);
+
+    property_map<Graph,vertex_name_t>::type
+    GH_vname = get(vertex_name,GH);
+
+    property_map<Graph,edge_name_t>::type
+    G_ename = get(edge_name,G);
+
+    property_map<Graph,edge_name_t>::type
+    GH_ename = get(edge_name,GH);
+
+    property_map<Graph,edge_name_t>::type
+    H_ename = get(edge_name,H);
+
+
+    GVI tgvi,tgvi_end,pgvi,pgvi_end;
+    GOEI tgoei,tgoei_end,sgoei,sgoei_end;
+
+       // Add names
+    for(tie(tgvi,tgvi_end)=vertices(G),tie(pgvi,pgvi_end)=vertices(GH);
+        tgvi!=tgvi_end; tgvi++, pgvi++) {
+        put(GH_vname,*pgvi,G_vname(*tgvi));
+    }
+    
+    // We now need to create the edges of GH
+    for(tie(tgvi,tgvi_end)=vertices(G); tgvi!=tgvi_end;tgvi++)
+    {
+        for(tie(tgoei,tgoei_end)=out_edges(*tgvi,G);tgoei!=tgoei_end;tgoei++)
+        {
+            for(tie(sgoei,sgoei_end)=out_edges(target(*tgoei,G),H);sgoei!=sgoei_end;sgoei++)
+            {
+                add_edge(*tgvi,target(*sgoei,H),string( G_ename(*tgoei) + H_ename(*sgoei)),GH);
+            }
+        }
+    }
+
+
+    return GH;
+}
+
+void PrintGraph(Graph G,ostream&os)
+{
+    GVI gvi, gvi_end,gwi,gwi_end;
+    GOEI goei,goei_end;
+
+
+    property_map<Graph,edge_name_t>::type
+    G_ename = get(edge_name,G);
+
+    property_map<Graph,vertex_name_t>::type
+    G_vname = get(vertex_name,G);    
+
+    os << "Printing G Graph which has " << num_vertices(G) << " vertices and " << num_edges(G) << " edges." << endl;
+    
+    
+    for(tie(gvi,gvi_end)=vertices(G); gvi!=gvi_end; gvi++)
+    {
+        os << G_vname(*gvi) << " ";
+        map<graph_traits<Graph>::vertex_descriptor,string> strStor;
+        for(tie(goei,goei_end)=out_edges(*gvi,G);goei!=goei_end;goei++)
+        {
+            graph_traits<Graph>::vertex_descriptor t=target(*goei,G);
+            if(strStor.find(t)==strStor.end()) {
+                strStor[t]=G_ename(*goei);
+            }
+            else {
+                strStor[t]=strStor[t]+ string(" + ") + G_ename(*goei);
+            }
+            
+        }
+        
+        for(tie(gwi,gwi_end)=vertices(G); gwi!=gwi_end; gwi++)
+        {
+            
+            if(strStor.find(*gwi)!=strStor.end()) {
+                os << strStor[*gwi] << " ";
+            }
+            else {
+                os << "0 ";
+            }
+        }
+        os << endl;
+        
+    }
 }
