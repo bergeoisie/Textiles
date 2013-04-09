@@ -5103,10 +5103,33 @@ Textile NewInducedRp(Textile T)
  */
 Textile FromSSE(Graph G, Graph H, unordered_map<string,string> sequiv)
 {
-    GammaGraph Gamma;
+    GammaGraph Gamma(num_edges(H));
 
+    Graph Gprime = G;
 
+    GammaVI vi,vi_end;
+    GEI gei,gei_end;
 
+    unordered_map<string,VD> AHNameToGammaVD;
+
+    property_map<GammaGraph,vertex_name_t>::type
+    Gamma_vname = get(vertex_name,Gamma);
+
+    property_map<Graph,edge_name_t>::type
+    H_ename = get(edge_name,H);
+
+    // First let's add names to the Gamma Graph vertices, we will also create the 
+    for(tie(vi,vi_end)=vertices(Gamma), tie(gei,gei_end)=edges(H); vi!=vi_end; vi++,gei++)
+    {
+        put(Gamma_vname,*vi,H_ename(*gei));
+        AHNameToGammaVD[H_ename(*gei)] = *vi;
+    }
+
+    // Now we need to add the Gamma Graph edges and assign their properties
+    for(auto it = sequiv.begin(); it != sequiv.end(); ++it)
+    {
+        add_edge(2, 2, PQ_Homoms(string("h"),Q_Homom(string("b"),string("13"))),G);
+    }
 
 
     return Textile(Gamma,G);
@@ -5158,7 +5181,7 @@ Graph ProductGraph(Graph G, Graph H)
     return GH;
 }
 
-void PrintGraph(Graph G,ostream&os)
+void PrintGraph(Graph G,ostream& os)
 {
     GVI gvi, gvi_end,gwi,gwi_end;
     GOEI goei,goei_end;
@@ -5202,4 +5225,21 @@ void PrintGraph(Graph G,ostream&os)
         os << endl;
         
     }
+}
+
+vector<string> StringSplitter(string s)
+{
+    vector<string> split(2);
+    int length = s.length();
+
+    if(length % 2)
+    {
+        split[0] = s.substr(2)
+    }
+    else
+    {
+        throw 5;
+    }
+
+    return split;
 }
