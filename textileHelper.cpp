@@ -116,7 +116,7 @@ typedef graph_traits<GammaGraph>::vertex_descriptor VD;
 // A vertex collection is a set of vertex descriptors
 typedef set<graph_traits<GammaGraph>::vertex_descriptor> vColl;
 
-typedef tuple<int,int,int> PQOEIElement;
+typedef std::tuple<int,int,int> PQOEIElement;
 
 //enum colors { White, Gray, Black };
 
@@ -127,7 +127,7 @@ class pqcomparison
 public:
     bool operator() (const PQOEIElement& lhs, const PQOEIElement& rhs) const
     {
-        return rhs.get<0>() > lhs.get<0>();
+        return std::get<0>(rhs) > std::get<0>(lhs);
     }
 };
 
@@ -1015,7 +1015,7 @@ bool IsomLanguages(Textile T)
     int n=num_edges(T.first);
     
     // The OEI pairs allow us to keep both the current location of the iterator and its end.
-    typedef tuple<graph_traits<GammaGraph>::out_edge_iterator,
+    typedef std::tuple<graph_traits<GammaGraph>::out_edge_iterator,
     graph_traits<GammaGraph>::out_edge_iterator,
     string,string> OEITuple;
     
@@ -2293,11 +2293,11 @@ Textile HigherNBlock(Textile T, int n)
     
     // The OEI pairs allow us to keep both the current location of the iterator, its end
     // and the string it is carrying
-    typedef tuple<graph_traits<GammaGraph>::out_edge_iterator,
+    typedef std::tuple<graph_traits<GammaGraph>::out_edge_iterator,
     graph_traits<GammaGraph>::out_edge_iterator,
     string,string,string> GammaHOEITuple;
     
-    typedef tuple<graph_traits<Graph>::out_edge_iterator,
+    typedef std::tuple<graph_traits<Graph>::out_edge_iterator,
     graph_traits<Graph>::out_edge_iterator,
     string> GHOEITuple;
     
@@ -3027,7 +3027,7 @@ VVec compatibleSet(Textile & T, bool porq, VVec U, string s)
     property_map<GammaGraph,edge_q_homom_t>::type
     qt = get(edge_q_homom,T.first);
     
-    typedef tuple<graph_traits<GammaGraph>::vertex_descriptor,string> CSTuple;
+    typedef std::tuple<graph_traits<GammaGraph>::vertex_descriptor,string> CSTuple;
     
     stack<CSTuple> CSStack;
     bool found;
@@ -5101,7 +5101,7 @@ Textile NewInducedRp(Textile T)
  * Given graphs G and H and a specified equivalence between M_G M_H and M_H M_G, we create the corresponding
  * textile system T = (p',q': Gamma -> G) for this specified equivalence. 
  */
-Textile FromSSE(Graph G, Graph H, unordered_map<string,string> sequiv)
+Textile FromSSE(Graph G, Graph H, std::tr1::unordered_map<string,string> sequiv)
 {
     GammaGraph Gamma(num_edges(H));
 
@@ -5109,8 +5109,10 @@ Textile FromSSE(Graph G, Graph H, unordered_map<string,string> sequiv)
 
     GammaVI vi,vi_end;
     GEI gei,gei_end;
+    GammaOEI oei,oei_end;
 
     unordered_map<string,VD> AHNameToGammaVD;
+    unordered_map<string,GVD> GLookup;
 
     property_map<GammaGraph,vertex_name_t>::type
     Gamma_vname = get(vertex_name,Gamma);
@@ -5118,9 +5120,26 @@ Textile FromSSE(Graph G, Graph H, unordered_map<string,string> sequiv)
     property_map<Graph,edge_name_t>::type
     H_ename = get(edge_name,H);
 
-    // First let's add names to the Gamma Graph vertices, we will also create the 
+    property_map<GammaGraph,vertex_p_vhomom_t>::type
+    Gamma_pvhom = get(vertex_p_vhomom,Gamma);
+
+    property_map<GammaGraph,vertex_q_vhomom_t>::type
+    Gamma_qvhom = get(vertex_q_vhomom,Gamma);
+
+    property_map<Graph,edge_name_t>::type
+    G_vname = get(_name,G);
+
+    property_map<GammaGraph,edge_p_homom_t>::type
+    Gamma_phom = get(edge_p_homom,Gamma);    
+
+    property_map<GammaGraph,edge_q_homom_t>::type
+    Gamma_qhom = get(edge_q_homom,Gamma);
+
+
+    // First let's add names to the Gamma Graph vertices, we will also create the map for the AHnames
     for(tie(vi,vi_end)=vertices(Gamma), tie(gei,gei_end)=edges(H); vi!=vi_end; vi++,gei++)
     {
+        cout << "Adding " << H_ename(*gei) << endl;
         put(Gamma_vname,*vi,H_ename(*gei));
         AHNameToGammaVD[H_ename(*gei)] = *vi;
     }
@@ -5128,11 +5147,48 @@ Textile FromSSE(Graph G, Graph H, unordered_map<string,string> sequiv)
     // Now we need to add the Gamma Graph edges and assign their properties
     for(auto it = sequiv.begin(); it != sequiv.end(); ++it)
     {
-        add_edge(2, 2, PQ_Homoms(string("h"),Q_Homom(string("b"),string("13"))),G);
+        string currLHS = (*it).first,currRHS = (*it).second,a,b,aprime,bprime,name;
+        cout << "Attempting to split " << currLHS << " and " << currRHS << endl;
+        vector<string> LHSSplit = StringSplitter(currLHS,2);
+        vector<string> RHSSplit = StringSplitter(currRHS,2);
+
+        a = RHSSplit[0];
+        b = LHSSplit[0];
+        aprime = LHSSplit[1];
+        bprime = RHSSplit[1];
+        name = a+b+aprime+bprime;
+
+        add_edge(AHNameToGammaVD[b], AHNameToGammaVD[bprime], PQ_Homoms(a,Q_Homom(aprime,name)),Gamma);
     }
 
+    for(tie(vi,vi_end)=vertices(Gamma); vi!=vi_end; vi++)
+    {
+        tie(oei,oei_end) = out_edges(*vi,Gamma);
+        put(Gamma_pvhom,*vi,GLookup())
+    }
 
-    return Textile(Gamma,G);
+   // We now need to fill in the vertex homomorphisms
+    for(tie(vi,vi_end)=vertices(Gamma); vi!=vi_end; vi++)
+    {
+        string currPE;
+        tie(oei,oei_end)=out_edges(*vi,Gamma);
+        
+        currPE = Gamma_phom(*oei);
+        tie(gei,gei_end)=edges(G);
+        while(!found)
+        {
+            if(currPE == gename(*gei))
+            {
+                put(pvgamma,*vi,source(*gei,G));
+                found = true;
+            }
+            gei++;
+        } // while not found
+        found = false;
+    } // for vi
+
+
+    return Textile(Gamma,Gprime);
 }
 
 Graph ProductGraph(Graph G, Graph H)
@@ -5227,14 +5283,17 @@ void PrintGraph(Graph G,ostream& os)
     }
 }
 
-vector<string> StringSplitter(string s)
+vector<string> StringSplitter(string s,int n)
 {
-    vector<string> split(2);
-    int length = s.length();
+    vector<string> split(n);
+    int i,length = s.length();
 
-    if(length % 2)
+    if(!(length % n))
     {
-        split[0] = s.substr(2)
+        for(i=0;i<n;i++){
+
+            split[i] = s.substr(i*length/n,length/n);
+        }
     }
     else
     {

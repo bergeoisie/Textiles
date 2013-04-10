@@ -91,7 +91,7 @@ typedef graph_traits<GammaGraph>::vertex_descriptor VD;
 // A vertex collection is a set of vertex descriptors
 typedef set<graph_traits<GammaGraph>::vertex_descriptor> vColl;
 
-typedef tuple<int,int,int> PQOEIElement;
+typedef std::tuple<int,int,int> PQOEIElement;
 
 enum colors { White, Gray, Black };
 
@@ -159,5 +159,6 @@ Textile NewInducedRp(Textile);
 Textile FromSSE(Graph,Graph,std::tr1::unordered_map<string,string>);
 Graph ProductGraph(Graph,Graph);
 void PrintGraph(Graph,ostream& os = cout);
+vector<string> StringSplitter(string,int);
 
 #endif

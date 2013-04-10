@@ -55,29 +55,56 @@ typedef graph_traits<GammaGraph>::vertex_descriptor VD;
 // A vertex collection is a set of vertex descriptors
 typedef set<graph_traits<GammaGraph>::vertex_descriptor> vColl;
 
-typedef tuple<int,int,int> PQOEIElement;
+typedef std::tuple<int,int,int> PQOEIElement;
 
 
 
 int main(void)
 {
-	Graph GM(2);
+	Graph GM(2),HM(2);
+	std::tr1::unordered_map<string,string> sequiv;
 
     property_map<Graph,vertex_name_t>::type
     GM_vname = get(vertex_name,GM); 
 
-	add_edge(0,0,string("a"),GM);
-    add_edge(0,1,string("b"),GM);
-    add_edge(1,0,string("c"),GM);
+    property_map<Graph,vertex_name_t>::type
+    HM_vname = get(vertex_name,HM); 
+
+	add_edge(0,0,string("u"),GM);
+    add_edge(0,1,string("v"),GM);
+    add_edge(1,0,string("w"),GM);
     
-    put(GM_vname,0,string("D"));
-    put(GM_vname,1,string("E"));
+    put(GM_vname,0,string("A"));
+    put(GM_vname,1,string("B"));
+
 
     PrintGraph(GM);
 
-    Graph GMS = ProductGraph(GM,GM);
+	add_edge(0,0,string("x"),HM);
+    add_edge(0,1,string("y"),HM);
+    add_edge(1,0,string("z"),HM);
+    
+    put(HM_vname,0,string("C"));
+    put(HM_vname,1,string("D"));
 
-    PrintGraph(GMS);
+
+    Graph GH = ProductGraph(GM,HM);
+
+    Graph HG = ProductGraph(HM,GM);
+
+    PrintGraph(GH);
+
+    PrintGraph(HG);
+
+    sequiv[string("xu")]=string("vz");
+    sequiv[string("yw")]=string("ux");
+    sequiv[string("xv")]=string("uy");
+    sequiv[string("zu")]=string("wx");
+    sequiv[string("zv")]=string("wy");
+
+    Textile T = FromSSE(GM,HM,sequiv);
+
+    PrintFullTextileInfo(T);
 
 	return 0;
 }

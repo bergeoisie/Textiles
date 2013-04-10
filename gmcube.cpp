@@ -55,7 +55,7 @@ typedef graph_traits<GammaGraph>::vertex_descriptor VD;
 // A vertex collection is a set of vertex descriptors
 typedef set<graph_traits<GammaGraph>::vertex_descriptor> vColl;
 
-typedef tuple<int,int,int> PQOEIElement;
+typedef std::tuple<int,int,int> PQOEIElement;
 
 
 

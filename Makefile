@@ -1,7 +1,7 @@
 OBJS = textileHelper.o
-CC = llvm-g++-4.2
-CFLAGS = -c -O3
-LFLAGS = -O3
+CC = g++-4.8
+CFLAGS = -c -O3 -std=c++0x
+LFLAGS = -O3 -std=c++0x
 INCS = -I ./boost_1_47_0/ -I ./TNT -I ./JAMA
 gmcube: $(OBJS) 
 	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmcube gmcube.cpp
@@ -21,6 +21,8 @@ allNew: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNewa2341d231 gmNewa2341d231.cpp
 	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmNewa2143d231 gmNewa2143d231.cpp
 	
+FromSSE: $(OBJS)
+	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o FromSSE FromSSE.cpp
 
 junk: $(OBJS)
 	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o junk junk.cpp
