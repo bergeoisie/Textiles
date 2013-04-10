@@ -5126,14 +5126,17 @@ Textile FromSSE(Graph G, Graph H, std::tr1::unordered_map<string,string> sequiv)
     property_map<GammaGraph,vertex_q_vhomom_t>::type
     Gamma_qvhom = get(vertex_q_vhomom,Gamma);
 
-    property_map<Graph,edge_name_t>::type
-    G_vname = get(_name,G);
+    property_map<Graph,vertex_name_t>::type
+    G_vname = get(vertex_name,G);
 
     property_map<GammaGraph,edge_p_homom_t>::type
     Gamma_phom = get(edge_p_homom,Gamma);    
 
     property_map<GammaGraph,edge_q_homom_t>::type
     Gamma_qhom = get(edge_q_homom,Gamma);
+
+    property_map<Graph,edge_name_t>::type
+    Gprime_ename = get(edge_name,Gprime);
 
 
     // First let's add names to the Gamma Graph vertices, we will also create the map for the AHnames
@@ -5161,12 +5164,6 @@ Textile FromSSE(Graph G, Graph H, std::tr1::unordered_map<string,string> sequiv)
         add_edge(AHNameToGammaVD[b], AHNameToGammaVD[bprime], PQ_Homoms(a,Q_Homom(aprime,name)),Gamma);
     }
 
-    for(tie(vi,vi_end)=vertices(Gamma); vi!=vi_end; vi++)
-    {
-        tie(oei,oei_end) = out_edges(*vi,Gamma);
-        put(Gamma_pvhom,*vi,GLookup())
-    }
-
    // We now need to fill in the vertex homomorphisms
     for(tie(vi,vi_end)=vertices(Gamma); vi!=vi_end; vi++)
     {
@@ -5174,18 +5171,38 @@ Textile FromSSE(Graph G, Graph H, std::tr1::unordered_map<string,string> sequiv)
         tie(oei,oei_end)=out_edges(*vi,Gamma);
         
         currPE = Gamma_phom(*oei);
-        tie(gei,gei_end)=edges(G);
+        tie(gei,gei_end)=edges(Gprime);
         while(!found)
         {
-            if(currPE == gename(*gei))
+            if(currPE == Gprime_ename(*gei))
             {
-                put(pvgamma,*vi,source(*gei,G));
+                put(Gamma_pvhom,*vi,source(*gei,Gprime));
                 found = true;
             }
             gei++;
         } // while not found
         found = false;
     } // for vi
+
+    for(tie(vi,vi_end)=vertices(Gamma); vi!=vi_end; vi++)
+    {
+        string currPE;
+        tie(oei,oei_end)=out_edges(*vi,Gamma);
+        
+        currQE = Gamma_qhom(*oei);
+        tie(gei,gei_end)=edges(Gprime);
+        while(!found)
+        {
+            if(currQE == Gprime_ename(*gei))
+            {
+                put(Gamma_qvhom,*vi,source(*gei,Gprime));
+                found = true;
+            }
+            gei++;
+        } // while not found
+        found = false;
+    } // for vi
+
 
 
     return Textile(Gamma,Gprime);
