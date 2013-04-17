@@ -23,9 +23,10 @@
 #include <algorithm>
 #include <time.h>
 #include <fstream>
-#include <tr1/unordered_map>
+#include <unordered_map>
 #include <stdlib.h>
 #include <queue>
+#include <tuple>
 
 #include <boost/utility.hpp>
 #include <boost/graph/adjacency_list.hpp>
@@ -97,8 +98,8 @@ typedef adjacency_list<vecS,vecS, bidirectionalS, PQ_VHomoms,
 PQ_Homoms> GammaGraph;
 
 // Define two types of unordered_maps
-typedef std::tr1::unordered_map<string,graph_traits<Graph>::vertex_descriptor> VertexMap;
-typedef std::tr1::unordered_map<string,Edge> EdgeMap;
+typedef std::unordered_map<string,graph_traits<Graph>::vertex_descriptor> VertexMap;
+typedef std::unordered_map<string,Edge> EdgeMap;
 
 typedef pair<GammaGraph,Graph> Textile;
 
@@ -5101,8 +5102,10 @@ Textile NewInducedRp(Textile T)
  * Given graphs G and H and a specified equivalence between M_G M_H and M_H M_G, we create the corresponding
  * textile system T = (p',q': Gamma -> G) for this specified equivalence. 
  */
-Textile FromSSE(Graph G, Graph H, std::tr1::unordered_map<string,string> sequiv)
+Textile FromSSE(Graph G, Graph H, std::unordered_map<string,string> sequiv)
 {
+    bool found;
+
     GammaGraph Gamma(num_edges(H));
 
     Graph Gprime = G;
@@ -5111,8 +5114,8 @@ Textile FromSSE(Graph G, Graph H, std::tr1::unordered_map<string,string> sequiv)
     GEI gei,gei_end;
     GammaOEI oei,oei_end;
 
-    unordered_map<string,VD> AHNameToGammaVD;
-    unordered_map<string,GVD> GLookup;
+    std::unordered_map<string,VD> AHNameToGammaVD;
+    std::unordered_map<string,GVD> GLookup;
 
     property_map<GammaGraph,vertex_name_t>::type
     Gamma_vname = get(vertex_name,Gamma);
@@ -5186,7 +5189,7 @@ Textile FromSSE(Graph G, Graph H, std::tr1::unordered_map<string,string> sequiv)
 
     for(tie(vi,vi_end)=vertices(Gamma); vi!=vi_end; vi++)
     {
-        string currPE;
+        string currQE;
         tie(oei,oei_end)=out_edges(*vi,Gamma);
         
         currQE = Gamma_qhom(*oei);
@@ -5206,6 +5209,11 @@ Textile FromSSE(Graph G, Graph H, std::tr1::unordered_map<string,string> sequiv)
 
 
     return Textile(Gamma,Gprime);
+}
+
+unordered_map<string,string> GenerateSEquiv(Graph G, Graph H)
+{
+    
 }
 
 Graph ProductGraph(Graph G, Graph H)

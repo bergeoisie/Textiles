@@ -17,9 +17,11 @@
 #include <algorithm>
 #include <time.h>
 #include <fstream>
-#include <tr1/unordered_map>
+#include <unordered_map>
 #include <stdlib.h>
 #include <queue>
+
+#include <tuple>
 
 #include <boost/utility.hpp>
 #include <boost/graph/adjacency_list.hpp>
@@ -73,8 +75,8 @@ typedef adjacency_list<vecS,vecS, bidirectionalS, PQ_VHomoms,
 PQ_Homoms> GammaGraph;
 
 // Define two types of unordered_maps
-typedef std::tr1::unordered_map<string,graph_traits<Graph>::vertex_descriptor> VertexMap;
-typedef std::tr1::unordered_map<string,Edge> EdgeMap;
+typedef std::unordered_map<string,graph_traits<Graph>::vertex_descriptor> VertexMap;
+typedef std::unordered_map<string,Edge> EdgeMap;
 
 typedef pair<GammaGraph,Graph> Textile;
 
@@ -156,7 +158,7 @@ void OctaveOutput(Textile,string);
 //Textile RandomTrim(Textile);
 Textile ArrayTrim(Textile);
 Textile NewInducedRp(Textile);
-Textile FromSSE(Graph,Graph,std::tr1::unordered_map<string,string>);
+Textile FromSSE(Graph,Graph,std::unordered_map<string,string>);
 Graph ProductGraph(Graph,Graph);
 void PrintGraph(Graph,ostream& os = cout);
 vector<string> StringSplitter(string,int);

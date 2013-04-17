@@ -37,8 +37,8 @@ typedef adjacency_list<vecS,vecS, bidirectionalS, PQ_VHomoms,
 PQ_Homoms> GammaGraph;
 
 // Define two types of unordered_maps
-typedef std::tr1::unordered_map<string,graph_traits<Graph>::vertex_descriptor> VertexMap;
-typedef std::tr1::unordered_map<string,Edge> EdgeMap;
+typedef std::unordered_map<string,graph_traits<Graph>::vertex_descriptor> VertexMap;
+typedef std::unordered_map<string,Edge> EdgeMap;
 
 typedef pair<GammaGraph,Graph> Textile;
 

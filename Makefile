@@ -1,7 +1,7 @@
 OBJS = textileHelper.o
-CC = g++
-CFLAGS = -c -O3 -std=c++0x
-LFLAGS = -O3 -std=c++0x
+CC = c++
+CFLAGS = -c -O3 -std=c++0x -stdlib=libc++
+LFLAGS = -O3 -std=c++0x -stdlib=libc++
 INCS = -I ./boost_1_47_0/ -I ./TNT -I ./JAMA
 gmcube: $(OBJS) 
 	$(CC) $(LFLAGS) $(OBJS) $(INCS) -o gmcube gmcube.cpp
