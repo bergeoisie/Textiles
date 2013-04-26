@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <algorithm>
 #include "textileHelper.h"
 
 using namespace std;
@@ -58,10 +59,10 @@ typedef set<graph_traits<GammaGraph>::vertex_descriptor> vColl;
 typedef std::tuple<int,int,int> PQOEIElement;
 
 
-
 int main(void)
 {
-	Graph GM(2),HM(2);
+    int i;
+	Graph GM(2),HM(2),GH,HG;
 	std::unordered_map<string,string> sequiv;
 
     property_map<Graph,vertex_name_t>::type
@@ -69,6 +70,14 @@ int main(void)
 
     property_map<Graph,vertex_name_t>::type
     HM_vname = get(vertex_name,HM); 
+
+    property_map<Graph,edge_name_t>::type
+    GH_ename = get(edge_name,GH);
+
+    property_map<Graph,edge_name_t>::type
+    HG_ename = get(edge_name,HG);
+
+    GEI ei,ei_end,fi,fi_end;
 
 	add_edge(0,0,string("u"),GM);
     add_edge(0,1,string("v"),GM);
@@ -88,23 +97,59 @@ int main(void)
     put(HM_vname,1,string("D"));
 
 
-    Graph GH = ProductGraph(GM,HM);
+    GH = ProductGraph(GM,HM);
 
-    Graph HG = ProductGraph(HM,GM);
+    HG = ProductGraph(HM,GM);
 
     PrintGraph(GH);
 
     PrintGraph(HG);
 
-    sequiv[string("xu")]=string("vz");
+  /*  sequiv[string("xu")]=string("vz");
     sequiv[string("yw")]=string("ux");
     sequiv[string("xv")]=string("uy");
     sequiv[string("zu")]=string("wx");
     sequiv[string("zv")]=string("wy");
+*/
+  //  Textile T = FromSSE(GM,HM,sequiv);
+
+//    PrintFullTextileInfo(T);
+
+    vector<graph_traits<Graph>::edge_descriptor> permTest(5);
+
+    for(tie(ei,ei_end)=edges(HG),i=0;ei!=ei_end;ei++,i++)
+    {
+        permTest[i]=*ei;
+    } 
+
+    auto start = permTest.begin(),finish = permTest.end();
+do {
+    for(tie(ei,ei_end)=edges(GH),tie(fi,fi_end)=edges(HG),i=0;ei!=ei_end;ei++,i++,fi++)
+    {
+        cout<< GH_ename(*ei) << " and " << HG_ename(*fi) << " and " << HG_ename(permTest[i]) << endl;
+        sequiv[GH_ename(*ei)]=HG_ename(permTest[i]);
+        cout << GH_ename(*ei) << " -> " << sequiv[GH_ename(*ei)] << endl;
+    } 
+
+    cout << endl;
 
     Textile T = FromSSE(GM,HM,sequiv);
 
     PrintFullTextileInfo(T);
+
+    if(is1to1(T))
+    {
+        cout << "T is 1-1" << endl;
+        Textile Td = CreateDual(T);
+        cout << "Is Td 1-1?" << is1to1(Td) << endl;
+    }
+    else
+    {
+        cout << "T is not 1-1" << endl;
+    }
+
+} while(std::next_permutation(start,finish));
+
 
 	return 0;
 }

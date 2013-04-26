@@ -649,7 +649,8 @@ Textile Trim(Textile T)
            time(&start);
            N = j/100;
            average = (((N-1)*average)+dif)/N;
-           cout << "On round " << j << " deleted at least " << delcount << " edges so far. The last round took " << dif << " seconds, and the average time is " << average << " seconds." <<  '\r';
+           cout << "On round " << j << " deleted at least " << delcount << " edges so far. The last round took " 
+                << dif << " seconds, and the average time is " << average << " seconds." <<  '\r';
            cout.flush();
        } 
         stable = true;
@@ -3170,12 +3171,12 @@ Textile inducedRp(Textile T)
 			VVec S = compatibleSet(T,1,v,*sit);
 			if(S.size() > 0)
 			{
-	/*			cout << "S is of size " << S.size() << endl << "It is {";
+				cout << "S is of size " << S.size() << endl << "It is {";
 				for(it = S.begin(); it < S.end(); it++)
 				{
 					cout << *it << " ";
 				}
-				cout << "}" << endl; */
+				cout << "}" << endl; 
 
 				if(seen.find(S)==seen.end())
 				{
@@ -3210,7 +3211,7 @@ Textile inducedRp(Textile T)
 				
        //         cout << "We are planning to erase";
        //         printVVec(a); cout << endl;
-                toDelete.insert(a);
+       //         toDelete.insert(a);
             }
         }
     }
@@ -3220,7 +3221,7 @@ Textile inducedRp(Textile T)
     for(tdi=toDelete.begin(); tdi!=toDelete.end(); tdi++)
     {
          //   cout << "We are actually erasing "; printVVec(*tdi); cout << endl;
-        seen.erase(*tdi);
+        //seen.erase(*tdi);
     }
     
     
@@ -3321,7 +3322,7 @@ Textile inducedLq(Textile T)
 // Checks if a Textile is 1-1 by looking at its induced left and right homomorphisms and checking if they are definite.
 bool is1to1(Textile T)
 {
-    Textile irq=inducedRq(T),ilp=inducedLp(T),irp=NewInducedRp(T),ilq=inducedLq(T);
+    Textile irq=inducedRq(T),ilp=inducedLp(T),irp=inducedRp(T),ilq=inducedLq(T);
     
         bool rq,lp,rp,lq;
         cout << "In 1-1 function for textile " << endl;
@@ -4365,7 +4366,8 @@ Textile RandomTrim(Textile T)
            time(&start);
            N = j/100;
            average = (((N-1)*average)+dif)/N;
-           cout << "On round " << j << " deleted at least " << delcount << " edges so far. The last round took " << dif << " seconds, and the average time is " << average << " seconds." <<  '\r';
+           cout << "On round " << j << " deleted at least " << delcount << " edges so far. The last round took " 
+                << dif << " seconds, and the average time is " << average << " seconds." <<  '\r';
            cout.flush();
        } 
         stable = true;
@@ -5163,7 +5165,7 @@ Textile FromSSE(Graph G, Graph H, std::unordered_map<string,string> sequiv)
         aprime = LHSSplit[1];
         bprime = RHSSplit[1];
         name = a+b+aprime+bprime;
-
+        cout << name << endl;
         add_edge(AHNameToGammaVD[b], AHNameToGammaVD[bprime], PQ_Homoms(a,Q_Homom(aprime,name)),Gamma);
     }
 
@@ -5210,11 +5212,20 @@ Textile FromSSE(Graph G, Graph H, std::unordered_map<string,string> sequiv)
 
     return Textile(Gamma,Gprime);
 }
-
-unordered_map<string,string> GenerateSEquiv(Graph G, Graph H)
+/**
+Textile GenerateRandomTextileFromSSE(Graph G, Graph H)
 {
-    
-}
+
+    int i;
+    std::unordered_map<string,string> SpecEq;
+
+    for(i=0;i<n;i++)
+    {
+
+    }
+
+    return T;
+}**/
 
 Graph ProductGraph(Graph G, Graph H)
 {
