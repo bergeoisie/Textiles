@@ -8,8 +8,8 @@
 
 #include "textileHelper.h"
 
-#include "tnt.h"
-#include "jama_eig.h"
+//#include "tnt.h"
+//#include "jama_eig.h"
 
 #include <iostream>
 
@@ -42,8 +42,8 @@
 #include <boost/random/uniform_int_distribution.hpp>
 
 using namespace std;
-using namespace TNT;
-using namespace JAMA;
+//using namespace TNT;
+//using namespace JAMA;
 using namespace boost;
 
 // This allows us to create new properties later on and will
@@ -1448,13 +1448,13 @@ int IspRightDefinite(Textile T)
         
         types.push_back(gvname(*gvi));
         
-   //     cout << "We have inserted " << gvname(*gvi) << " into types." << endl;
+	cout << "We have inserted " << gvname(*gvi) << " into types." << endl;
         
         for(tie(goei,goei_end)=out_edges(*gvi,T.second); goei!=goei_end; goei++)
-        {
+	  {
             currSColl.push_back(gename(*goei));
-    //        cout << "We have pushed " << gename(*goei) << " onto the current string collection" << endl;
-        } // inner for
+            cout << "We have pushed " << gename(*goei) << " onto the current string collection" << endl;
+	  } // inner for
         productionRules.push_back(currSColl);
     } // outer for
     
@@ -1467,7 +1467,7 @@ int IspRightDefinite(Textile T)
         vector<vColl*> *dummy = new vector<vColl*>(1);
         int M=0;
         
-    //    cout << "Looking at type: " << *it << endl;
+        cout << "Looking at type: " << *it << endl;
         
         
         // iterate through the upstairs vertices and find all those whose vertex homom matches
@@ -1487,9 +1487,9 @@ int IspRightDefinite(Textile T)
         
   //      cout << "Out of for loop" << endl;
         if(M>maxM) {
-  //          cout << "New maxM is " << M << endl;
+            cout << "New maxM is " << M << endl;
             typeMatrix.resize(M,typeNumber,true);
-  //          cout << "Resizing complete." << endl;
+            cout << "Resizing complete." << endl;
             for(i=maxM;i<M;i++)
             {
                 for(j=0;j<typeNumber;j++)
@@ -1504,14 +1504,14 @@ int IspRightDefinite(Textile T)
         
         (*dummy)[0]=currColl;
         
-        //    cout << "Dummy[0] set and maxM-M is " << maxM-M << " while curr typeNumber is " << k << endl;
+            cout << "Dummy[0] set and maxM-M is " << maxM-M << " while curr typeNumber is " << k << endl;
         
         typeMatrix(M-1,k)=dummy;
         
-        //      cout << "successfully initialized dummy" << endl;
+              cout << "successfully initialized dummy" << endl;
     } // outer for
     
- //   cout << "Moving on with a maxM of " << maxM << endl;
+    cout << "Moving on with a maxM of " << maxM << endl;
     
     // Now that the type matrix has been computed, we want to iterate though each level, apply
     // our production rules, and if our production rules lead us to a set of vertices of the same size,
@@ -1525,7 +1525,7 @@ int IspRightDefinite(Textile T)
         {
             if(typeMatrix(i,j)!=0)
             {
-    //            cout << "Looking at type " << j << endl;
+                cout << "Looking at type " << j << endl;
                 for(m = 0; m < typeMatrix(i,j)->size(); m++)
                 {
                     GVD oldv;
@@ -1533,7 +1533,7 @@ int IspRightDefinite(Textile T)
                     vector<vColl*>::iterator vvcit;
                     
                     vColl* currVColl = (*typeMatrix(i,j))[m];
-                    //	  cout << "currVColl.empty? " << currVColl->empty() << endl;
+		    cout << "currVColl.empty? " << currVColl->empty() << endl;
                     // Push all of the production rules for this type onto the stack
                     sColl currentSColl = productionRules[j];
                     bool grfound=false;
@@ -1542,9 +1542,9 @@ int IspRightDefinite(Textile T)
                     {
                         if(*(*vvcit)== *currVColl)
                         {
-                            //		  cout << "Found a match for our vvcit: " << p << endl;
-                            oldv=p;
-                            grfound = true;
+			  cout << "Found a match for our vvcit: " << p << endl;
+			  oldv=p;
+			  grfound = true;
                         }
                     }
                     if(!grfound)
@@ -1556,7 +1556,7 @@ int IspRightDefinite(Textile T)
                     
                     for(k = 0; k < currentSColl.size(); k++)
                     {
-                        //	      cout << "Pushing rule " << j << "," << currentSColl[k] << endl;
+		      cout << "Pushing rule " << j << "," << currentSColl[k] << endl;
                         prodStack.push(sPair(j,currentSColl[k]));
                     }
                     
@@ -3884,7 +3884,7 @@ Textile LookForConjugacy(Textile T, int MAX, bool* found, int start)
 							*found = true;
                             cout << endl << endl << "FOUND CONJUGACY!!!!!!" << endl << endl;
                             cout << "TiD is also 1-1 at level " << i << endl;
-                            cout << "P-F Eigenvalue is " << PFEigenvalue(TiD.second) << endl;
+			    //                cout << "P-F Eigenvalue is " << PFEigenvalue(TiD.second) << endl;
                             return TiD;
                         }
                         else
@@ -4226,7 +4226,7 @@ string Namer(int i, int len, int start)
 
 // This function finds the Perron Frobenius Eigenvalue of the input matrix. We use JAMA for this as
 // I would definitely screw it up.
-double PFEigenvalue(Graph G)
+/**double PFEigenvalue(Graph G)
 {
     // We use the graph G to create an adjacency matrix, then we make a JAMA Eigen class for it
     int N = num_vertices(G),i;
@@ -4256,6 +4256,7 @@ double PFEigenvalue(Graph G)
     return max;
     
 }
+*/
 
 // This function is really designed for outputting the G graph of a textile so that you input
 // the matrix into Octave and 
@@ -5160,10 +5161,10 @@ Textile FromSSE(Graph G, Graph H, std::unordered_map<string,string> sequiv)
         vector<string> LHSSplit = StringSplitter(currLHS,2);
         vector<string> RHSSplit = StringSplitter(currRHS,2);
 
-        a = RHSSplit[0];
-        b = LHSSplit[0];
-        aprime = LHSSplit[1];
-        bprime = RHSSplit[1];
+        a = LHSSplit[0];
+        b = RHSSplit[0];
+        aprime = RHSSplit[1];
+        bprime = LHSSplit[1];
         name = a+b+aprime+bprime;
         cout << name << endl;
         add_edge(AHNameToGammaVD[b], AHNameToGammaVD[bprime], PQ_Homoms(a,Q_Homom(aprime,name)),Gamma);
@@ -5174,11 +5175,13 @@ Textile FromSSE(Graph G, Graph H, std::unordered_map<string,string> sequiv)
     {
         string currPE;
         tie(oei,oei_end)=out_edges(*vi,Gamma);
-        
+        cout << "Looking at vertex: " << Gamma_vname(*vi) << endl;
         currPE = Gamma_phom(*oei);
         tie(gei,gei_end)=edges(Gprime);
+	cout << "Looking for " << currPE << endl;
         while(!found)
         {
+	  cout << "Currently seeing " << Gprime_ename(*gei) << endl;
             if(currPE == Gprime_ename(*gei))
             {
                 put(Gamma_pvhom,*vi,source(*gei,Gprime));

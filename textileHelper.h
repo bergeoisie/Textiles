@@ -153,7 +153,7 @@ Textile AutoHomom(Textile);
 Textile AutoHomomLite(Textile);
 Textile AutoRenamer(Textile);
 string Namer(int,int,int=65);
-double PFEigenvalue(Graph);
+//double PFEigenvalue(Graph);
 void OctaveOutput(Textile,string);
 //Textile RandomTrim(Textile);
 Textile ArrayTrim(Textile);

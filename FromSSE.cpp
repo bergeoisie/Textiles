@@ -79,7 +79,7 @@ int main(void)
 
     GEI ei,ei_end,fi,fi_end;
 
-	add_edge(0,0,string("u"),GM);
+    add_edge(0,0,string("u"),GM);
     add_edge(0,1,string("v"),GM);
     add_edge(1,0,string("w"),GM);
     
@@ -89,7 +89,7 @@ int main(void)
 
     PrintGraph(GM);
 
-	add_edge(0,0,string("x"),HM);
+    add_edge(0,0,string("x"),HM);
     add_edge(0,1,string("y"),HM);
     add_edge(1,0,string("z"),HM);
     
