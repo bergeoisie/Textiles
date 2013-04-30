@@ -33,6 +33,8 @@
 #include <boost/graph/topological_sort.hpp>
 #include <boost/graph/depth_first_search.hpp>
 #include <boost/graph/dijkstra_shortest_paths.hpp>
+#include <boost/graph/transpose_graph.hpp>
+#include <boost/graph/graph_utility.hpp>
 #include <boost/graph/visitors.hpp>
 #include <boost/property_map/property_map.hpp>
 #include <boost/graph/graphviz.hpp>
@@ -2000,8 +2002,6 @@ int IsqLeftDefinite(Textile T)
 
 void PrintRepMatrix(Textile T)
 {
-    bool found;
-    
     graph_traits<GammaGraph>::vertex_iterator vi,vi_end,wi,wi_end;
     graph_traits<GammaGraph>::edge_descriptor e;
     
@@ -2048,9 +2048,7 @@ void PrintRepMatrix(Textile T)
 }
 
 void PrintFullTextileInfo(Textile T,ostream& os)
-{
-    bool found;
-    
+{    
     graph_traits<GammaGraph>::vertex_iterator vi,vi_end,wi,wi_end;
     graph_traits<GammaGraph>::edge_descriptor e;
     graph_traits<GammaGraph>::out_edge_iterator oei,oei_end;
@@ -2215,7 +2213,6 @@ void SmartPrintTextileInfo(Textile T, ostream& os)
 // you fed in as a map of strings
 Textile RenameTextile(Textile T,map<string,string> names)
 {
-    int i;
     GammaGraph A(num_vertices(T.first));
     Graph B(num_vertices(T.second));
     
@@ -2244,9 +2241,6 @@ Textile RenameTextile(Textile T,map<string,string> names)
     
     property_map<GammaGraph,vertex_name_t>::type
     avname = get(vertex_name,A);
-    
-    property_map<Graph,edge_name_t>::type
-    bename = get(edge_name,B);
     
     property_map<Graph,vertex_name_t>::type
     bvname = get(vertex_name,B);
@@ -2856,7 +2850,9 @@ Textile CreateTranspose(Textile T)
 {
     int i;
     GammaGraph A(num_vertices(T.first));
-    Graph B=T.second;
+    Graph B;
+    transpose_graph(T.first,A);
+    transpose_graph(T.second,B);
     
     graph_traits<GammaGraph>::edge_iterator ei,ei_end;
     graph_traits<GammaGraph>::vertex_iterator vi,vi_end,gi,gi_end;
@@ -2900,8 +2896,12 @@ Textile CreateTranspose(Textile T)
     property_map<Graph,edge_name_t>::type
     be_name = get(edge_name,B);
     
+    cout << "About to add edges" << endl;
+/**
     for(tie(ei,ei_end)=edges(T.first);ei!=ei_end;ei++)
     {
+        cout << "Inserting an edge from " << target(*ei,T.first) << " to " << source(*ei,T.first) " with p = " 
+             << p_homom(*ei) << 
         add_edge(target(*ei,T.first),source(*ei,T.first),PQ_Homoms(p_homom(*ei),Q_Homom(q_homom(*ei),ename(*ei))),A);
     }
     
@@ -2913,7 +2913,7 @@ Textile CreateTranspose(Textile T)
         {
             if(be_name(*gei)==p_ahomom(*aoei))
             {
-       //         cout << "Putting " << source(*gei,B) << " as pvhom for " << *vi << endl;
+                cout << "Putting " << source(*gei,B) << " as pvhom for " << *vi << endl;
                 put(p_avhom,*vi,source(*gei,B));
                 break;
             }
@@ -2923,7 +2923,7 @@ Textile CreateTranspose(Textile T)
         {
             if(be_name(*gei)==q_ahomom(*aoei))
             {
-        //        cout << "Putting " << source(*gei,B) << " as qvhom for " << *vi << endl;
+                cout << "Putting " << source(*gei,B) << " as qvhom for " << *vi << endl;
                 put(q_avhom,*vi,source(*gei,B));
                 break;
             }
@@ -2933,6 +2933,8 @@ Textile CreateTranspose(Textile T)
         
         put(avname,*vi,gammavname(*vi));
     }
+
+    */
     return Textile(A,B);
     
     
@@ -3316,26 +3318,36 @@ Textile inducedRp(Textile T)
 Textile inducedRq(Textile T)
 {
     Textile Tinv = CreateInverse(T);
-    return CreateInverse(NewInducedRp(Tinv));
+    Textile iirp = NewInducedRp(Tinv);
+    cout << "IIRP created" << endl;
+    PrintFullTextileInfo(iirp);
+    return CreateInverse(iirp);
     
 }
 
 Textile inducedLp(Textile T)
 {
     Textile Ttrans = CreateTranspose(T);
-    return CreateTranspose(NewInducedRp(Ttrans));
+    cout << "Created transpose" << endl;
+    Textile tirq = NewInducedRp(Ttrans);
+    cout << "TIRQ created" << endl;
+    PrintFullTextileInfo(tirq);
+    return CreateTranspose(tirq);
 }
 
 Textile inducedLq(Textile T)
 {
     Textile Tinv = CreateInverse(T);
-    return CreateInverse(inducedLp(Tinv));
+    cout << "Created inverse" << endl;
+    Textile iilq = inducedLp(Tinv);
+    cout << "IILQ created" << endl;
+    return CreateInverse(iilq);
 }
 
 // Checks if a Textile is 1-1 by looking at its induced left and right homomorphisms and checking if they are definite.
 bool is1to1(Textile T)
 {
-    Textile irq=inducedRq(T),ilp=inducedLp(T),irp=inducedRp(T),ilq=inducedLq(T);
+    Textile irq=inducedRq(T),ilp=inducedLp(T),irp=NewInducedRp(T),ilq=inducedLq(T);
     
         bool rq,lp,rp,lq;
         cout << "In 1-1 function for textile " << endl;
@@ -4690,7 +4702,7 @@ Textile ArrayTrim(Textile T)
 	GammaVI vi,vi_end;
 	GammaOEI oei,oei_end;
 	
-	bool done=false,removed=true,needToCheckVhoms,stable,found;
+	bool done=false,removed=true,needToCheckVhoms,stable=false,found;
 	int roundcount = 0,vertcount=0;
 	
 	property_map<GammaGraph,edge_p_homom_t>::type
@@ -4970,6 +4982,9 @@ Textile NewInducedRp(Textile T)
     property_map<Graph,edge_name_t>::type
     gename = get(edge_name,G);
 
+    property_map<Graph,vertex_name_t>::type
+    g_vname = get(vertex_name,G);
+
     property_map<GammaGraph,vertex_p_vhomom_t>::type
     pvgamma = get(vertex_p_vhomom, Gamma);
   
@@ -4978,8 +4993,8 @@ Textile NewInducedRp(Textile T)
 	GEI gei,gei_end;
 	GammaOEI oei,oei_end;
 	
-	list<VVec> cSets;
-	list<VVec>::iterator li;
+	set<VVec> cSets;
+	set<VVec>::iterator li;
 	
 	stack<VVec> toExamine;
 	
@@ -4991,23 +5006,29 @@ Textile NewInducedRp(Textile T)
 
 	VVec::iterator si;
 
-	bool added,isSubset,found;
+	bool added,isSubset,found=false;
 	
+
+    // Insert all the singletons onto our stack of sets to examine and into the compatible sets
 	for(tie(vi,vi_end)=vertices(T.first);vi!=vi_end;vi++)
 	{
 		VD v = *vi;
 		VVec singleton(1,v);
-		cout << "Pushing" << v << endl;
+		cout << "Pushing " << v << endl;
 		toExamine.push(singleton);
-		cSets.push_back(singleton);
+		cSets.insert(singleton);
 	}
 	
+
+    // Fix the codex with all of the G edge names
 	for(tie(gei,gei_end)=edges(T.second);gei!=gei_end;gei++)
 	{
 		string s = tsename(*gei);
 		codex.push_back(s);
 	}
 	
+
+    // Start going through the stack of sets to examine
 	while(!toExamine.empty())
 	{
 		VVec currv = toExamine.top();
@@ -5018,16 +5039,23 @@ Textile NewInducedRp(Textile T)
 			VVec S = compatibleSet(T,1,currv,*sit);
 			if(S.size() > 0)
 			{
-		//		cout << "Looking at CS " << ssVVec(S) << endl;
-				// We have a (sorted) compatible set, we want to check if its a superset
-				added = false;
+				cout << "Looking at CS " << ssVVec(S) << endl;
+				// We have a (sorted) compatible set, we want to check if its already seen
+
+                if(cSets.find(S)==cSets.end())
+                {
+                    cSets.insert(S);
+                    toExamine.push(S);
+                }
+
+				/*added = false;
 				isSubset = false;
 				for(li = cSets.begin(); !isSubset && li!=cSets.end();li++)
 				{
-		//			cout << "Comparing it to " << ssVVec(*li) << endl;
+					cout << "Comparing it to " << ssVVec(*li) << endl;
 					if(VVecSubset(*li,S))
 					{
-		//				cout << "*li is a subset" << endl;
+						cout << "*li is a subset" << endl;
 						li = cSets.erase(li);
 						li--;
 						if(!added)
@@ -5041,7 +5069,8 @@ Textile NewInducedRp(Textile T)
 			//			cout << "S is a subset" << endl;
 						isSubset = true;
 					}
-				}
+                    
+				}*/
 			}
 		}
 		
@@ -5097,11 +5126,13 @@ Textile NewInducedRp(Textile T)
         tie(oei,oei_end)=out_edges(*vi,Gamma);
         
         currPE = pe(*oei);
+        cout << "In order to place a vertex homom on " << gamma_vname(*vi) << " we are looking at " << currPE << endl;
         tie(gei,gei_end)=edges(G);
         while(!found)
         {
             if(currPE == gename(*gei))
             {
+                cout << "We found a match between " << currPE << " and " << gename(*gei) << " which has source " << g_vname(source(*gei,G)) << endl;
                 put(pvgamma,*vi,source(*gei,G));
                 found = true;
             }
@@ -5110,6 +5141,8 @@ Textile NewInducedRp(Textile T)
         found = false;
     } // for vi
 	
+    cout << "Done with creating induced presentation" << endl;
+
 	return Textile(Gamma,G);
 	
 }
@@ -5352,12 +5385,12 @@ vector<string> StringSplitter(string s,vector<int> sizes)
   int i,j=0,n=sizes.size(),length = s.length();
   vector<string> split(n);
 
-  cout << "Initial String: " << s << endl;
+//  cout << "Initial String: " << s << endl;
 
   for(i=0;i<n;i++)
     {
       split[i] = s.substr(j,sizes[i]);
-      cout << "The "<< i << "th chunk is " << split[i] << " while sizes[" << i << "] is " << sizes[i] << endl; 
+ //     cout << "The "<< i << "th chunk is " << split[i] << " while sizes[" << i << "] is " << sizes[i] << endl; 
       j += sizes[i];
     }
   
@@ -5393,6 +5426,8 @@ bool SEquivChecker(Graph& GH, Graph& HG, std::unordered_map<string,string> sequi
 	  if(currName == HG_ename(*fi))
 	    {
 	      found = true;
+          cout << "Checking that " << GH_vname(source(*ei,GH)) << " matches " << HG_vname(source(*fi,HG)) << endl;
+          cout << "Checking that " << GH_vname(target(*ei,GH)) << " matches " << HG_vname(target(*fi,HG)) << endl;
 	      if(GH_vname(source(*ei,GH)) != HG_vname(source(*fi,HG)))
 		{
 		  /*

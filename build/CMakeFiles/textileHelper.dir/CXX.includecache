@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/brendan/Documents/Textiles/textileHelper.cpp
+/Users/brberg/Projects/Textiles/textileHelper.cpp
 textileHelper.h
-/home/brendan/Documents/Textiles/textileHelper.h
+/Users/brberg/Projects/Textiles/textileHelper.h
 iostream
 -
 time.h
@@ -43,6 +43,10 @@ boost/graph/depth_first_search.hpp
 -
 boost/graph/dijkstra_shortest_paths.hpp
 -
+boost/graph/transpose_graph.hpp
+-
+boost/graph/graph_utility.hpp
+-
 boost/graph/visitors.hpp
 -
 boost/property_map/property_map.hpp
@@ -58,7 +62,7 @@ boost/random/mersenne_twister.hpp
 boost/random/uniform_int_distribution.hpp
 -
 
-/home/brendan/Documents/Textiles/textileHelper.h
+/Users/brberg/Projects/Textiles/textileHelper.h
 boost/config.hpp
 -
 iostream

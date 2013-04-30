@@ -26,19 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/2.8.10.2/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/2.8.10.2/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/local/Cellar/cmake/2.8.10.2/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/brendan/Documents/Textiles
+CMAKE_SOURCE_DIR = /Users/brberg/Projects/Textiles
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/brendan/Documents/Textiles/build
+CMAKE_BINARY_DIR = /Users/brberg/Projects/Textiles/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/FromSSE.dir/depend.make
@@ -51,17 +54,17 @@ include CMakeFiles/FromSSE.dir/flags.make
 
 CMakeFiles/FromSSE.dir/FromSSE.cpp.o: CMakeFiles/FromSSE.dir/flags.make
 CMakeFiles/FromSSE.dir/FromSSE.cpp.o: ../FromSSE.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/brendan/Documents/Textiles/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/brberg/Projects/Textiles/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/FromSSE.dir/FromSSE.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/FromSSE.dir/FromSSE.cpp.o -c /home/brendan/Documents/Textiles/FromSSE.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/FromSSE.dir/FromSSE.cpp.o -c /Users/brberg/Projects/Textiles/FromSSE.cpp
 
 CMakeFiles/FromSSE.dir/FromSSE.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FromSSE.dir/FromSSE.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/brendan/Documents/Textiles/FromSSE.cpp > CMakeFiles/FromSSE.dir/FromSSE.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/brberg/Projects/Textiles/FromSSE.cpp > CMakeFiles/FromSSE.dir/FromSSE.cpp.i
 
 CMakeFiles/FromSSE.dir/FromSSE.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FromSSE.dir/FromSSE.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/brendan/Documents/Textiles/FromSSE.cpp -o CMakeFiles/FromSSE.dir/FromSSE.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/brberg/Projects/Textiles/FromSSE.cpp -o CMakeFiles/FromSSE.dir/FromSSE.cpp.s
 
 CMakeFiles/FromSSE.dir/FromSSE.cpp.o.requires:
 .PHONY : CMakeFiles/FromSSE.dir/FromSSE.cpp.o.requires
@@ -98,6 +101,6 @@ CMakeFiles/FromSSE.dir/clean:
 .PHONY : CMakeFiles/FromSSE.dir/clean
 
 CMakeFiles/FromSSE.dir/depend:
-	cd /home/brendan/Documents/Textiles/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/brendan/Documents/Textiles /home/brendan/Documents/Textiles /home/brendan/Documents/Textiles/build /home/brendan/Documents/Textiles/build /home/brendan/Documents/Textiles/build/CMakeFiles/FromSSE.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/brberg/Projects/Textiles/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/brberg/Projects/Textiles /Users/brberg/Projects/Textiles /Users/brberg/Projects/Textiles/build /Users/brberg/Projects/Textiles/build /Users/brberg/Projects/Textiles/build/CMakeFiles/FromSSE.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/FromSSE.dir/depend
 

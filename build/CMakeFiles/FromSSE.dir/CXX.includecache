@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/brendan/Documents/Textiles/FromSSE.cpp
+/Users/brberg/Projects/Textiles/FromSSE.cpp
 iostream
 -
 algorithm
 -
 textileHelper.h
-/home/brendan/Documents/Textiles/textileHelper.h
+/Users/brberg/Projects/Textiles/textileHelper.h
 
-/home/brendan/Documents/Textiles/textileHelper.h
+/Users/brberg/Projects/Textiles/textileHelper.h
 boost/config.hpp
 -
 iostream

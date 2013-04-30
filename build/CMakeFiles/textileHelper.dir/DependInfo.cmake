@@ -4,9 +4,9 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/brendan/Documents/Textiles/textileHelper.cpp" "/home/brendan/Documents/Textiles/build/CMakeFiles/textileHelper.dir/textileHelper.cpp.o"
+  "/Users/brberg/Projects/Textiles/textileHelper.cpp" "/Users/brberg/Projects/Textiles/build/CMakeFiles/textileHelper.dir/textileHelper.cpp.o"
   )
-SET(CMAKE_CXX_COMPILER_ID "GNU")
+SET(CMAKE_CXX_COMPILER_ID "Clang")
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES

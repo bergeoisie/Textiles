@@ -140,7 +140,7 @@ do {
     {
       //  cout<< MP_ename(*ei) << " and " << PM_ename(*fi) << " and " << PM_ename(permTest[i]) << endl;
         sequiv[MP_ename(*ei)]=PM_ename(permTest[i]);
-	//  cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
+	    cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
     } 
 
     //  cout << endl;
@@ -156,6 +156,8 @@ do {
 	  {
 	    cout << "T is 1-1" << endl;
 	    Textile Td = CreateDual(T);
+
+        PrintFullTextileInfo(Td);
 	    cout << "Is Td 1-1?" << is1to1(Td) << endl;
 	  }
 	else
