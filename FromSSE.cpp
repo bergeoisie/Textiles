@@ -62,7 +62,7 @@ typedef std::tuple<int,int,int> PQOEIElement;
 int main(void)
 {
     int i;
-	Graph GM(2),HM(2),GH,HG;
+    Graph GM(2),HM(2),GH,HG,PM,MP,M;
 	std::unordered_map<string,string> sequiv;
 
     property_map<Graph,vertex_name_t>::type
@@ -76,6 +76,12 @@ int main(void)
 
     property_map<Graph,edge_name_t>::type
     HG_ename = get(edge_name,HG);
+    
+    property_map<Graph,edge_name_t>::type
+    PM_ename = get(edge_name,PM);
+
+    property_map<Graph,edge_name_t>::type
+    MP_ename = get(edge_name,MP);
 
     GEI ei,ei_end,fi,fi_end;
 
@@ -93,17 +99,23 @@ int main(void)
     add_edge(0,1,string("y"),HM);
     add_edge(1,0,string("z"),HM);
     
-    put(HM_vname,0,string("C"));
-    put(HM_vname,1,string("D"));
+    put(HM_vname,0,string("A"));
+    put(HM_vname,1,string("B"));
 
 
-    GH = ProductGraph(GM,HM);
+    M = ProductGraph(GM,HM);
 
-    HG = ProductGraph(HM,GM);
+    MP = ProductGraph(M,GM);
 
-    PrintGraph(GH);
+    PM = ProductGraph(GM,M);
 
-    PrintGraph(HG);
+    //    HG = ProductGraph(HM,GM);
+
+    PrintGraph(M);
+
+    PrintGraph(MP);
+
+    PrintGraph(PM);
 
   /*  sequiv[string("xu")]=string("vz");
     sequiv[string("yw")]=string("ux");
@@ -115,39 +127,43 @@ int main(void)
 
 //    PrintFullTextileInfo(T);
 
-    vector<graph_traits<Graph>::edge_descriptor> permTest(5);
+    vector<graph_traits<Graph>::edge_descriptor> permTest(num_edges(MP));
 
-    for(tie(ei,ei_end)=edges(HG),i=0;ei!=ei_end;ei++,i++)
+    for(tie(ei,ei_end)=edges(PM),i=0;ei!=ei_end;ei++,i++)
     {
         permTest[i]=*ei;
     } 
 
     auto start = permTest.begin(),finish = permTest.end();
 do {
-    for(tie(ei,ei_end)=edges(GH),tie(fi,fi_end)=edges(HG),i=0;ei!=ei_end;ei++,i++,fi++)
+    for(tie(ei,ei_end)=edges(MP),tie(fi,fi_end)=edges(PM),i=0;ei!=ei_end;ei++,i++,fi++)
     {
-        cout<< GH_ename(*ei) << " and " << HG_ename(*fi) << " and " << HG_ename(permTest[i]) << endl;
-        sequiv[GH_ename(*ei)]=HG_ename(permTest[i]);
-        cout << GH_ename(*ei) << " -> " << sequiv[GH_ename(*ei)] << endl;
+      //  cout<< MP_ename(*ei) << " and " << PM_ename(*fi) << " and " << PM_ename(permTest[i]) << endl;
+        sequiv[MP_ename(*ei)]=PM_ename(permTest[i]);
+	//  cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
     } 
 
-    cout << endl;
+    //  cout << endl;
+    
+    if(SEquivChecker(MP,PM,sequiv))
+      {
 
-    Textile T = FromSSE(GM,HM,sequiv);
-
-    PrintFullTextileInfo(T);
-
-    if(is1to1(T))
-    {
-        cout << "T is 1-1" << endl;
-        Textile Td = CreateDual(T);
-        cout << "Is Td 1-1?" << is1to1(Td) << endl;
-    }
-    else
-    {
-        cout << "T is not 1-1" << endl;
-    }
-
+	Textile T = FromSSE(M,GM,sequiv);
+	
+	PrintFullTextileInfo(T);
+	
+	if(is1to1(T))
+	  {
+	    cout << "T is 1-1" << endl;
+	    Textile Td = CreateDual(T);
+	    cout << "Is Td 1-1?" << is1to1(Td) << endl;
+	  }
+	else
+	  {
+	    cout << "T is not 1-1" << endl;
+	  }
+	
+      }
 } while(std::next_permutation(start,finish));
 
 

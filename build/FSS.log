@@ -1,0 +1,1449 @@
+Printing G Graph which has 2 vertices and 3 edges.
+A u v 
+B w 0 
+Printing G Graph which has 2 vertices and 5 edges.
+A ux + vz uy 
+B wx wy 
+Printing G Graph which has 2 vertices and 5 edges.
+C xu + yw xv 
+D zu zv 
+ux and xu and xu
+ux -> xu
+uy and xv and xv
+uy -> xv
+vz and yw and yw
+vz -> yw
+wx and zu and zu
+wx -> zu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and xv
+uy -> xv
+vz and yw and yw
+vz -> yw
+wx and zu and zv
+wx -> zv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and xv
+uy -> xv
+vz and yw and zu
+vz -> zu
+wx and zu and yw
+wx -> yw
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and xv
+uy -> xv
+vz and yw and zu
+vz -> zu
+wx and zu and zv
+wx -> zv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and xv
+uy -> xv
+vz and yw and zv
+vz -> zv
+wx and zu and yw
+wx -> yw
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and xv
+uy -> xv
+vz and yw and zv
+vz -> zv
+wx and zu and zu
+wx -> zu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and yw
+uy -> yw
+vz and yw and xv
+vz -> xv
+wx and zu and zu
+wx -> zu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and yw
+uy -> yw
+vz and yw and xv
+vz -> xv
+wx and zu and zv
+wx -> zv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and yw
+uy -> yw
+vz and yw and zu
+vz -> zu
+wx and zu and xv
+wx -> xv
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and yw
+uy -> yw
+vz and yw and zu
+vz -> zu
+wx and zu and zv
+wx -> zv
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and yw
+uy -> yw
+vz and yw and zv
+vz -> zv
+wx and zu and xv
+wx -> xv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and yw
+uy -> yw
+vz and yw and zv
+vz -> zv
+wx and zu and zu
+wx -> zu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zu
+uy -> zu
+vz and yw and xv
+vz -> xv
+wx and zu and yw
+wx -> yw
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zu
+uy -> zu
+vz and yw and xv
+vz -> xv
+wx and zu and zv
+wx -> zv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zu
+uy -> zu
+vz and yw and yw
+vz -> yw
+wx and zu and xv
+wx -> xv
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zu
+uy -> zu
+vz and yw and yw
+vz -> yw
+wx and zu and zv
+wx -> zv
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zu
+uy -> zu
+vz and yw and zv
+vz -> zv
+wx and zu and xv
+wx -> xv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zu
+uy -> zu
+vz and yw and zv
+vz -> zv
+wx and zu and yw
+wx -> yw
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zv
+uy -> zv
+vz and yw and xv
+vz -> xv
+wx and zu and yw
+wx -> yw
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zv
+uy -> zv
+vz and yw and xv
+vz -> xv
+wx and zu and zu
+wx -> zu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zv
+uy -> zv
+vz and yw and yw
+vz -> yw
+wx and zu and xv
+wx -> xv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zv
+uy -> zv
+vz and yw and yw
+vz -> yw
+wx and zu and zu
+wx -> zu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zv
+uy -> zv
+vz and yw and zu
+vz -> zu
+wx and zu and xv
+wx -> xv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xu
+ux -> xu
+uy and xv and zv
+uy -> zv
+vz and yw and zu
+vz -> zu
+wx and zu and yw
+wx -> yw
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and xu
+uy -> xu
+vz and yw and yw
+vz -> yw
+wx and zu and zu
+wx -> zu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and xu
+uy -> xu
+vz and yw and yw
+vz -> yw
+wx and zu and zv
+wx -> zv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and xu
+uy -> xu
+vz and yw and zu
+vz -> zu
+wx and zu and yw
+wx -> yw
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and xu
+uy -> xu
+vz and yw and zu
+vz -> zu
+wx and zu and zv
+wx -> zv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and xu
+uy -> xu
+vz and yw and zv
+vz -> zv
+wx and zu and yw
+wx -> yw
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and xu
+uy -> xu
+vz and yw and zv
+vz -> zv
+wx and zu and zu
+wx -> zu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and yw
+uy -> yw
+vz and yw and xu
+vz -> xu
+wx and zu and zu
+wx -> zu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and yw
+uy -> yw
+vz and yw and xu
+vz -> xu
+wx and zu and zv
+wx -> zv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and yw
+uy -> yw
+vz and yw and zu
+vz -> zu
+wx and zu and xu
+wx -> xu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and yw
+uy -> yw
+vz and yw and zu
+vz -> zu
+wx and zu and zv
+wx -> zv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and yw
+uy -> yw
+vz and yw and zv
+vz -> zv
+wx and zu and xu
+wx -> xu
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and yw
+uy -> yw
+vz and yw and zv
+vz -> zv
+wx and zu and zu
+wx -> zu
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zu
+uy -> zu
+vz and yw and xu
+vz -> xu
+wx and zu and yw
+wx -> yw
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zu
+uy -> zu
+vz and yw and xu
+vz -> xu
+wx and zu and zv
+wx -> zv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zu
+uy -> zu
+vz and yw and yw
+vz -> yw
+wx and zu and xu
+wx -> xu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zu
+uy -> zu
+vz and yw and yw
+vz -> yw
+wx and zu and zv
+wx -> zv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zu
+uy -> zu
+vz and yw and zv
+vz -> zv
+wx and zu and xu
+wx -> xu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zu
+uy -> zu
+vz and yw and zv
+vz -> zv
+wx and zu and yw
+wx -> yw
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zv
+uy -> zv
+vz and yw and xu
+vz -> xu
+wx and zu and yw
+wx -> yw
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zv
+uy -> zv
+vz and yw and xu
+vz -> xu
+wx and zu and zu
+wx -> zu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zv
+uy -> zv
+vz and yw and yw
+vz -> yw
+wx and zu and xu
+wx -> xu
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zv
+uy -> zv
+vz and yw and yw
+vz -> yw
+wx and zu and zu
+wx -> zu
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zv
+uy -> zv
+vz and yw and zu
+vz -> zu
+wx and zu and xu
+wx -> xu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is C
+ux and xu and xv
+ux -> xv
+uy and xv and zv
+uy -> zv
+vz and yw and zu
+vz -> zu
+wx and zu and yw
+wx -> yw
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xu
+uy -> xu
+vz and yw and xv
+vz -> xv
+wx and zu and zu
+wx -> zu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xu
+uy -> xu
+vz and yw and xv
+vz -> xv
+wx and zu and zv
+wx -> zv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xu
+uy -> xu
+vz and yw and zu
+vz -> zu
+wx and zu and xv
+wx -> xv
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xu
+uy -> xu
+vz and yw and zu
+vz -> zu
+wx and zu and zv
+wx -> zv
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xu
+uy -> xu
+vz and yw and zv
+vz -> zv
+wx and zu and xv
+wx -> xv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xu
+uy -> xu
+vz and yw and zv
+vz -> zv
+wx and zu and zu
+wx -> zu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xv
+uy -> xv
+vz and yw and xu
+vz -> xu
+wx and zu and zu
+wx -> zu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xv
+uy -> xv
+vz and yw and xu
+vz -> xu
+wx and zu and zv
+wx -> zv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xv
+uy -> xv
+vz and yw and zu
+vz -> zu
+wx and zu and xu
+wx -> xu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xv
+uy -> xv
+vz and yw and zu
+vz -> zu
+wx and zu and zv
+wx -> zv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xv
+uy -> xv
+vz and yw and zv
+vz -> zv
+wx and zu and xu
+wx -> xu
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and xv
+uy -> xv
+vz and yw and zv
+vz -> zv
+wx and zu and zu
+wx -> zu
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zu
+uy -> zu
+vz and yw and xu
+vz -> xu
+wx and zu and xv
+wx -> xv
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zu
+uy -> zu
+vz and yw and xu
+vz -> xu
+wx and zu and zv
+wx -> zv
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zu
+uy -> zu
+vz and yw and xv
+vz -> xv
+wx and zu and xu
+wx -> xu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zu
+uy -> zu
+vz and yw and xv
+vz -> xv
+wx and zu and zv
+wx -> zv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zu
+uy -> zu
+vz and yw and zv
+vz -> zv
+wx and zu and xu
+wx -> xu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zu
+uy -> zu
+vz and yw and zv
+vz -> zv
+wx and zu and xv
+wx -> xv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zv
+uy -> zv
+vz and yw and xu
+vz -> xu
+wx and zu and xv
+wx -> xv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zv
+uy -> zv
+vz and yw and xu
+vz -> xu
+wx and zu and zu
+wx -> zu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zv
+uy -> zv
+vz and yw and xv
+vz -> xv
+wx and zu and xu
+wx -> xu
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zv
+uy -> zv
+vz and yw and xv
+vz -> xv
+wx and zu and zu
+wx -> zu
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zv
+uy -> zv
+vz and yw and zu
+vz -> zu
+wx and zu and xu
+wx -> xu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is C
+ux and xu and yw
+ux -> yw
+uy and xv and zv
+uy -> zv
+vz and yw and zu
+vz -> zu
+wx and zu and xv
+wx -> xv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is C
+ux and xu and zu
+ux -> zu
+uy and xv and xu
+uy -> xu
+vz and yw and xv
+vz -> xv
+wx and zu and yw
+wx -> yw
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and xu
+uy -> xu
+vz and yw and xv
+vz -> xv
+wx and zu and zv
+wx -> zv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and xu
+uy -> xu
+vz and yw and yw
+vz -> yw
+wx and zu and xv
+wx -> xv
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and xu
+uy -> xu
+vz and yw and yw
+vz -> yw
+wx and zu and zv
+wx -> zv
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and xu
+uy -> xu
+vz and yw and zv
+vz -> zv
+wx and zu and xv
+wx -> xv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and xu
+uy -> xu
+vz and yw and zv
+vz -> zv
+wx and zu and yw
+wx -> yw
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and xv
+uy -> xv
+vz and yw and xu
+vz -> xu
+wx and zu and yw
+wx -> yw
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and xv
+uy -> xv
+vz and yw and xu
+vz -> xu
+wx and zu and zv
+wx -> zv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and xv
+uy -> xv
+vz and yw and yw
+vz -> yw
+wx and zu and xu
+wx -> xu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and xv
+uy -> xv
+vz and yw and yw
+vz -> yw
+wx and zu and zv
+wx -> zv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and xv
+uy -> xv
+vz and yw and zv
+vz -> zv
+wx and zu and xu
+wx -> xu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and xv
+uy -> xv
+vz and yw and zv
+vz -> zv
+wx and zu and yw
+wx -> yw
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and yw
+uy -> yw
+vz and yw and xu
+vz -> xu
+wx and zu and xv
+wx -> xv
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and yw
+uy -> yw
+vz and yw and xu
+vz -> xu
+wx and zu and zv
+wx -> zv
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and yw
+uy -> yw
+vz and yw and xv
+vz -> xv
+wx and zu and xu
+wx -> xu
+wy and zv and zv
+wy -> zv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and yw
+uy -> yw
+vz and yw and xv
+vz -> xv
+wx and zu and zv
+wx -> zv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and yw
+uy -> yw
+vz and yw and zv
+vz -> zv
+wx and zu and xu
+wx -> xu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and yw
+uy -> yw
+vz and yw and zv
+vz -> zv
+wx and zu and xv
+wx -> xv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and zv
+uy -> zv
+vz and yw and xu
+vz -> xu
+wx and zu and xv
+wx -> xv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and zv
+uy -> zv
+vz and yw and xu
+vz -> xu
+wx and zu and yw
+wx -> yw
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and zv
+uy -> zv
+vz and yw and xv
+vz -> xv
+wx and zu and xu
+wx -> xu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and zv
+uy -> zv
+vz and yw and xv
+vz -> xv
+wx and zu and yw
+wx -> yw
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and zv
+uy -> zv
+vz and yw and yw
+vz -> yw
+wx and zu and xu
+wx -> xu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zu
+ux -> zu
+uy and xv and zv
+uy -> zv
+vz and yw and yw
+vz -> yw
+wx and zu and xv
+wx -> xv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xu
+uy -> xu
+vz and yw and xv
+vz -> xv
+wx and zu and yw
+wx -> yw
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xu
+uy -> xu
+vz and yw and xv
+vz -> xv
+wx and zu and zu
+wx -> zu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xu
+uy -> xu
+vz and yw and yw
+vz -> yw
+wx and zu and xv
+wx -> xv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xu
+uy -> xu
+vz and yw and yw
+vz -> yw
+wx and zu and zu
+wx -> zu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xu
+uy -> xu
+vz and yw and zu
+vz -> zu
+wx and zu and xv
+wx -> xv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xu
+uy -> xu
+vz and yw and zu
+vz -> zu
+wx and zu and yw
+wx -> yw
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xv
+uy -> xv
+vz and yw and xu
+vz -> xu
+wx and zu and yw
+wx -> yw
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xv
+uy -> xv
+vz and yw and xu
+vz -> xu
+wx and zu and zu
+wx -> zu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xv
+uy -> xv
+vz and yw and yw
+vz -> yw
+wx and zu and xu
+wx -> xu
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xv
+uy -> xv
+vz and yw and yw
+vz -> yw
+wx and zu and zu
+wx -> zu
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xv
+uy -> xv
+vz and yw and zu
+vz -> zu
+wx and zu and xu
+wx -> xu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and xv
+uy -> xv
+vz and yw and zu
+vz -> zu
+wx and zu and yw
+wx -> yw
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and yw
+uy -> yw
+vz and yw and xu
+vz -> xu
+wx and zu and xv
+wx -> xv
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and yw
+uy -> yw
+vz and yw and xu
+vz -> xu
+wx and zu and zu
+wx -> zu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and yw
+uy -> yw
+vz and yw and xv
+vz -> xv
+wx and zu and xu
+wx -> xu
+wy and zv and zu
+wy -> zu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and yw
+uy -> yw
+vz and yw and xv
+vz -> xv
+wx and zu and zu
+wx -> zu
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and yw
+uy -> yw
+vz and yw and zu
+vz -> zu
+wx and zu and xu
+wx -> xu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and yw
+uy -> yw
+vz and yw and zu
+vz -> zu
+wx and zu and xv
+wx -> xv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and zu
+uy -> zu
+vz and yw and xu
+vz -> xu
+wx and zu and xv
+wx -> xv
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and zu
+uy -> zu
+vz and yw and xu
+vz -> xu
+wx and zu and yw
+wx -> yw
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and zu
+uy -> zu
+vz and yw and xv
+vz -> xv
+wx and zu and xu
+wx -> xu
+wy and zv and yw
+wy -> yw
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and zu
+uy -> zu
+vz and yw and xv
+vz -> xv
+wx and zu and yw
+wx -> yw
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and zu
+uy -> zu
+vz and yw and yw
+vz -> yw
+wx and zu and xu
+wx -> xu
+wy and zv and xv
+wy -> xv
+
+GH_vname is A while HG_vname is D
+ux and xu and zv
+ux -> zv
+uy and xv and zu
+uy -> zu
+vz and yw and yw
+vz -> yw
+wx and zu and xv
+wx -> xv
+wy and zv and xu
+wy -> xu
+
+GH_vname is A while HG_vname is D

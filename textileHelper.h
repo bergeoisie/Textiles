@@ -161,6 +161,7 @@ Textile NewInducedRp(Textile);
 Textile FromSSE(Graph,Graph,std::unordered_map<string,string>);
 Graph ProductGraph(Graph,Graph);
 void PrintGraph(Graph,ostream& os = cout);
-vector<string> StringSplitter(string,int);
+vector<string> StringSplitter(string,vector<int>);
+bool SEquivChecker(Graph&, Graph&, std::unordered_map<string,string>);
 
 #endif

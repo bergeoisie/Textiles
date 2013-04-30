@@ -1418,11 +1418,15 @@ int IspRightDefinite(Textile T)
     
     vector<string> types;
     vector<string>::iterator it;
+
+    cout << "About to create type matrix" << endl;
     
     // The type matrix is indexed so that the 0 index is actually representing the types of
     // size M (where M is the largest vertex set).
     boost::numeric::ublas::matrix<vector<vColl* >* > typeMatrix;
     
+    cout << "Created type matrix" << endl;
+
     property_map<GammaGraph,edge_p_homom_t>::type
     p_homom = get(edge_p_homom,T.first);
     
@@ -1719,11 +1723,15 @@ int IspLeftDefinite(Textile T)
     
     vector<string> types;
     vector<string>::iterator it;
+
+    cout << "About to create type matrix" << endl;
     
     // The type matrix is indexed so that the 0 index is actually representing the types of
     // size M (where M is the largest vertex set).
     boost::numeric::ublas::matrix<vector<vColl* >* > typeMatrix;
     
+    cout << "Created type matrix" << endl;
+
     property_map<GammaGraph,edge_p_homom_t>::type
     p_homom = get(edge_p_homom,T.first);
     
@@ -1749,12 +1757,12 @@ int IspLeftDefinite(Textile T)
         
         types.push_back(gvname(*gvi));
         
-     //   cout << "We have inserted " << gvname(*gvi) << " into types." << endl;
+        cout << "We have inserted " << gvname(*gvi) << " into types." << endl;
         
         for(tie(goei,goei_end)=in_edges(*gvi,T.second); goei!=goei_end; goei++)
         {
             currSColl.push_back(gename(*goei));
-     //       cout << "We have pushed " << gename(*goei) << " onto the current string collection" << endl;
+            cout << "We have pushed " << gename(*goei) << " onto the current string collection" << endl;
         } // inner for
         productionRules.push_back(currSColl);
     } // outer for
@@ -1768,7 +1776,7 @@ int IspLeftDefinite(Textile T)
         vector<vColl*> *dummy = new vector<vColl*>(1);
         int M=0;
         
-   //     cout << "Looking at type: " << *it << endl;
+        cout << "Looking at type: " << *it << endl;
         
         
         // iterate through the upstairs vertices and find all those whose vertex homom matches
@@ -1781,16 +1789,16 @@ int IspLeftDefinite(Textile T)
                 currColl->insert(*vi);
                 M++;
                 
-   //             cout << "Found a match, new m value is: " << M << endl;
+                cout << "Found a match, new m value is: " << M << endl;
             }
-   //         cout << "We are done checking vertex: " << *vi << endl;
+            cout << "We are done checking vertex: " << *vi << endl;
         } // inner for
         
    //     cout << "Out of for loop" << endl;
         if(M>maxM) {
-    //        cout << "New maxM is " << M << endl;
+            cout << "New maxM is " << M << endl;
             typeMatrix.resize(M,typeNumber,true);
-   //         cout << "Resizing complete." << endl;
+            cout << "Resizing complete." << endl;
             for(i=maxM;i<M;i++)
             {
                 for(j=0;j<typeNumber;j++)
@@ -1805,14 +1813,14 @@ int IspLeftDefinite(Textile T)
         
         (*dummy)[0]=currColl;
         
-   //     cout << "Dummy[0] set and maxM-M is " << maxM-M << " while curr typeNumber is " << k << endl;
+        cout << "Dummy[0] set and maxM-M is " << maxM-M << " while curr typeNumber is " << k << endl;
         
         typeMatrix(M-1,k)=dummy;
         
-  //      cout << "successfully initialized dummy" << endl;
+        cout << "successfully initialized dummy" << endl;
     } // outer for
     
-  //  cout << "Moving on with a maxM of " << maxM << endl;
+    cout << "Moving on with a maxM of " << maxM << endl;
     
     // Now that the type matrix has been computed, we want to iterate though each level, apply
     // our production rules, and if our production rules lead us to a set of vertices of the same size,
@@ -1820,139 +1828,144 @@ int IspLeftDefinite(Textile T)
     // we know that our graph is not definite.
     for(i = maxM-1; i != 0; i--)
     {
-        //    cout << "Starting to look at vertex collections of size " << i+1 << endl;
-        
-        for(j = 0; j < typeNumber; j++)
+      cout << "Starting to look at vertex collections of size " << i+1 << endl;
+      
+      for(j = 0; j < typeNumber; j++)
         {
-            if(typeMatrix(i,j)!=0)
+	  if(typeMatrix(i,j)!=0)
             {
-                //      cout << "Looking at type " << j << endl;
-                for(m = 0; m < typeMatrix(i,j)->size(); m++)
+	      cout << "Looking at type " << j << endl;
+	      for(m = 0; m < typeMatrix(i,j)->size(); m++)
                 {
-                    GVD oldv;
-                    unsigned int p;
-                    vector<vColl*>::iterator vvcit;
-                    
-                    vColl* currVColl = (*typeMatrix(i,j))[m];
-                    //	  cout << "currVColl.empty? " << currVColl->empty() << endl;
-                    // Push all of the production rules for this type onto the stack
-                    sColl currentSColl = productionRules[j];
-                    bool grfound=false;
-                    
-                    for(vvcit=graphRef.begin(), p=0; vvcit!=graphRef.end(); vvcit++, p++)
+		  GVD oldv;
+		  unsigned int p;
+		  vector<vColl*>::iterator vvcit;
+                  
+		  vColl* currVColl = (*typeMatrix(i,j))[m];
+		  cout << "currVColl.empty? " << currVColl->empty() << endl;
+		  // Push all of the production rules for this type onto the stack
+		  sColl currentSColl = productionRules[j];
+		  bool grfound=false;
+                  
+		  for(vvcit=graphRef.begin(), p=0; vvcit!=graphRef.end(); vvcit++, p++)
                     {
-                        if(*(*vvcit)==*currVColl)
+		      if(*(*vvcit)==*currVColl)
                         {
-                            //		  cout << "Found a match for our vvcit: " << p << endl;
-                            oldv=p;
-                            grfound = true;
+			  cout << "Found a match for our vvcit: " << p << endl;
+			  oldv=p;
+			  grfound = true;
                         }
                     }
-                    if(!grfound)
+		  if(!grfound)
                     {
-                        oldv = add_vertex(matrixHelper);
-                        graphRef.push_back(currVColl);
-                        //          cout << "Did not find a match for vvcit, oldv set as " << oldv << endl;
+		      oldv = add_vertex(matrixHelper);
+		      graphRef.push_back(currVColl);
+		      cout << "Did not find a match for vvcit, oldv set as " << oldv << endl;
                     }
-                    
-                    for(k = 0; k < currentSColl.size(); k++)
+		  
+		  for(k = 0; k < currentSColl.size(); k++)
                     {
-                        //	      cout << "Pushing rule " << j << "," << currentSColl[k] << endl;
-                        prodStack.push(sPair(j,currentSColl[k]));
+		      cout << "Pushing rule " << j << "," << currentSColl[k] << endl;
+		      prodStack.push(sPair(j,currentSColl[k]));
                     }
-                    
-                    // Apply the the production rules until we're empty.
-                    while(!prodStack.empty())
+		  
+		  // Apply the the production rules until we're empty.
+		  while(!prodStack.empty())
                     {
-                        vColl::iterator vit;
-                        
-                        firstfound = false;
-                        
-                        sPair currPair = prodStack.top();
-                        prodStack.pop();
-                        
-                        //	      cout << "Got pair " << currPair.first << "," << currPair.second << endl;
-                        
-                        // We now create the new vertex collection
-                        vColl * newVColl = new vColl;
-                        GVD newType;
-                        
-                        for(vit = currVColl->begin(); vit != currVColl->end(); vit++)
-                            
+		      vColl::iterator vit;
+                      
+		      firstfound = false;
+                      
+		      sPair currPair = prodStack.top();
+		      prodStack.pop();
+                      
+		      cout << "Got pair " << currPair.first << "," << currPair.second << endl;
+                      
+		      // We now create the new vertex collection
+		      vColl * newVColl = new vColl;
+		      GVD newType;
+                      
+		      for(vit = currVColl->begin(); vit != currVColl->end(); vit++)
+			
                         {
-                            //found = false;
-                            //		  cout << "Looking at element " << *vit << " of our current vertex collection" << endl;
-                            
-                            // iterate through the in_edges looking for a match
-                            for(tie(oei,oei_end)=in_edges(*vit,T.first); oei != oei_end; oei++)
+			  //found = false;
+			  cout << "Looking at element " << *vit 
+			       << " of our current vertex collection" << endl;
+			  
+			  // iterate through the in_edges looking for a match
+			  for(tie(oei,oei_end)=in_edges(*vit,T.first); oei != oei_end; oei++)
                             {
-                                //	      cout << "Current phom is " << p_homom(*oei) << endl;
-                                // we found a match for our rule
-                                if(p_homom(*oei) == currPair.second)
-                                {
-                                    //		  cout << "We found a match: " << target(*oei,T.first) <<  endl;
-                                    //found = true;
-                                    newVColl->insert(source(*oei,T.first));
-                                    if(!firstfound) {
-                                        newType = p_vhomom(source(*oei,T.first));
-                                        firstfound = true;
-                                    } // firstfound
-                                }
+			      //	      cout << "Current phom is " << p_homom(*oei) << endl;
+			      // we found a match for our rule
+			      if(p_homom(*oei) == currPair.second)
+				{
+				  cout << "We found a match: " << target(*oei,T.first) <<  endl;
+				  //found = true;
+				  newVColl->insert(source(*oei,T.first));
+				  if(!firstfound) {
+				    newType = p_vhomom(source(*oei,T.first));
+				    firstfound = true;
+				  } // firstfound
+				}
                             } // oei for
-                            //} // while found
+			  //} // while found
                         } // vit for
+		      
+		      // We have the new vColl, now we need to find its size 
+		      // and add it to the matrix and graph.
+		      newM = newVColl->size();
+		      cout << "newM is " << newM << " and newType is " << newType << endl;
+		      cout << "typeMatrix is " << typeMatrix.size1() 
+			   << " by " << typeMatrix.size2() << endl;
+		      if(newM!=0){
+			if(typeMatrix(newM-1,newType)==0){
+			  cout << "Target is 0, putting in a new vector<vColl>" << endl;
+			  typeMatrix(newM-1,newType)= new vector< vColl *>;
+                          
+			}
                         
-                        // We have the new vColl, now we need to find its size and add it to the matrix and graph.
-                        newM = newVColl->size();
-                        //	      cout << "newM is " << newM << " and newType is " << newType << endl;
-                        //	      cout << "typeMatrix is " << typeMatrix.size1() << " by " << typeMatrix.size2() << endl;
-                        if(newM!=0){
-                            if(typeMatrix(newM-1,newType)==0){
-                                //		  cout << "Target is 0, putting in a new vector<vColl>" << endl;
-                                typeMatrix(newM-1,newType)= new vector< vColl *>;
+			// We need to check to make sure that newVColl isn't already in there
+			bool tmfound= false;
+                        
+			for(vvcit = (*typeMatrix(newM-1,newType)).begin();
+			    vvcit != (*typeMatrix(newM-1,newType)).end();
+			    vvcit++)
+			  {
+			    if(*(*vvcit) == *newVColl) {
+			      tmfound = true;
+			      break;
+			    }
+			  }
+			if(!tmfound) {
+			  typeMatrix(newM-1,newType)->push_back(newVColl);
+			}
+			// if they are the same size, we need to create an edge
+			if(newM == i+1)
+			  {
+			    bool vfound=false;
+			    //	    stringstream newName;
+			    GVD newv;
+			    // check to see if vertex already exists
+			    for(tie(gvi,gvi_end) = vertices(matrixHelper); gvi != gvi_end; gvi++)
+			      {
+				if(*graphRef[*gvi] == *newVColl) {
+				  vfound = true;
+				  newv = *gvi;
+				}
                                 
-                            }
-                            
-                            // We need to check to make sure that newVColl isn't already in there
-                            bool tmfound= false;
-                            
-                            for(vvcit = (*typeMatrix(newM-1,newType)).begin(); vvcit != (*typeMatrix(newM-1,newType)).end(); vvcit++)
-                            {
-                                if(*(*vvcit) == *newVColl) {
-                                    tmfound = true;
-                                    break;
-                                }
-                            }
-                            if(!tmfound) {
-                                typeMatrix(newM-1,newType)->push_back(newVColl);
-                            }
-                            // if they are the same size, we need to create an edge
-                            if(newM == i+1)
-                            {
-                                bool vfound=false;
-                                //	    stringstream newName;
-                                GVD newv;
-                                // check to see if vertex already exists
-                                for(tie(gvi,gvi_end) = vertices(matrixHelper); gvi != gvi_end; gvi++)
-                                {
-                                    if(*graphRef[*gvi] == *newVColl) {
-                                        vfound = true;
-                                        newv = *gvi;
-                                    }
-                                    
-                                }
-                                
-                                if(!vfound)
-                                {
-                                    //		  cout << "Could not find the vertex, creating a new one" << endl;
-                                    newv = add_vertex(matrixHelper);
-                                    graphRef.push_back(newVColl);
-                                }
-                                add_edge(newv,oldv,currPair.second,matrixHelper);
-                                //	      cout << "We have created an edge between " << newv
-                                //		   << " and " << oldv << endl;
-                            } // newM == i
-                        } // newM != 0
+			      }
+			    
+			    if(!vfound)
+			      {
+				//		  cout << "Could not find the vertex, creating a new one" << endl;
+				newv = add_vertex(matrixHelper);
+				graphRef.push_back(newVColl);
+			      }
+			    add_edge(newv,oldv,currPair.second,matrixHelper);
+			    cout << "We have created an edge between " << newv
+				 << " and " << oldv << endl;
+			  } // newM == i
+		      } // newM != 0
                     } //while (all rules for a given vColl)
                 } // m for (all vColls for a given type and size)
             } // if
@@ -5108,6 +5121,7 @@ Textile NewInducedRp(Textile T)
 Textile FromSSE(Graph G, Graph H, std::unordered_map<string,string> sequiv)
 {
     bool found;
+    vector<int> RHSsizes(2),LHSsizes(2);
 
     GammaGraph Gamma(num_edges(H));
 
@@ -5125,6 +5139,9 @@ Textile FromSSE(Graph G, Graph H, std::unordered_map<string,string> sequiv)
 
     property_map<Graph,edge_name_t>::type
     H_ename = get(edge_name,H);
+
+    property_map<Graph,edge_name_t>::type
+    G_ename = get(edge_name,G);
 
     property_map<GammaGraph,vertex_p_vhomom_t>::type
     Gamma_pvhom = get(vertex_p_vhomom,Gamma);
@@ -5144,6 +5161,13 @@ Textile FromSSE(Graph G, Graph H, std::unordered_map<string,string> sequiv)
     property_map<Graph,edge_name_t>::type
     Gprime_ename = get(edge_name,Gprime);
 
+    tie(gei,gei_end)=edges(G);
+    LHSsizes[0]=G_ename(*gei).length();
+    RHSsizes[1]=G_ename(*gei).length();
+
+    tie(gei,gei_end)=edges(H);
+    LHSsizes[1]=H_ename(*gei).length();
+    RHSsizes[0]=H_ename(*gei).length();
 
     // First let's add names to the Gamma Graph vertices, we will also create the map for the AHnames
     for(tie(vi,vi_end)=vertices(Gamma), tie(gei,gei_end)=edges(H); vi!=vi_end; vi++,gei++)
@@ -5158,15 +5182,15 @@ Textile FromSSE(Graph G, Graph H, std::unordered_map<string,string> sequiv)
     {
         string currLHS = (*it).first,currRHS = (*it).second,a,b,aprime,bprime,name;
         cout << "Attempting to split " << currLHS << " and " << currRHS << endl;
-        vector<string> LHSSplit = StringSplitter(currLHS,2);
-        vector<string> RHSSplit = StringSplitter(currRHS,2);
+        vector<string> LHSSplit = StringSplitter(currLHS,LHSsizes);
+        vector<string> RHSSplit = StringSplitter(currRHS,RHSsizes);
 
         a = LHSSplit[0];
         b = RHSSplit[0];
         aprime = RHSSplit[1];
         bprime = LHSSplit[1];
         name = a+b+aprime+bprime;
-        cout << name << endl;
+        cout << "a = " << a << ", b = " << b << ", aprime = " << aprime << ", bprime = " << bprime  << endl;
         add_edge(AHNameToGammaVD[b], AHNameToGammaVD[bprime], PQ_Homoms(a,Q_Homom(aprime,name)),Gamma);
     }
 
@@ -5322,22 +5346,74 @@ void PrintGraph(Graph G,ostream& os)
     }
 }
 
-vector<string> StringSplitter(string s,int n)
+vector<string> StringSplitter(string s,vector<int> sizes)
 {
-    vector<string> split(n);
-    int i,length = s.length();
+ 
+  int i,j=0,n=sizes.size(),length = s.length();
+  vector<string> split(n);
 
-    if(!(length % n))
-    {
-        for(i=0;i<n;i++){
+  cout << "Initial String: " << s << endl;
 
-            split[i] = s.substr(i*length/n,length/n);
-        }
-    }
-    else
+  for(i=0;i<n;i++)
     {
-        throw 5;
+      split[i] = s.substr(j,sizes[i]);
+      cout << "The "<< i << "th chunk is " << split[i] << " while sizes[" << i << "] is " << sizes[i] << endl; 
+      j += sizes[i];
     }
+  
 
     return split;
+}
+
+bool SEquivChecker(Graph& GH, Graph& HG, std::unordered_map<string,string> sequiv)
+{
+  bool validse=true,found=false;
+
+  property_map<Graph,vertex_name_t>::type
+    GH_vname = get(vertex_name,GH);
+
+  property_map<Graph,vertex_name_t>::type
+    HG_vname = get(vertex_name,HG);
+
+  property_map<Graph,edge_name_t>::type
+    GH_ename = get(edge_name,GH);
+  
+  property_map<Graph,edge_name_t>::type
+    HG_ename = get(edge_name,HG);
+
+  GEI ei,ei_end,fi,fi_end;
+
+  for(tie(ei,ei_end)=edges(GH);ei!=ei_end;ei++)
+    {
+      found = false;
+      string currName = sequiv[GH_ename(*ei)];
+      tie(fi,fi_end)=edges(HG);
+      while(!found && validse && fi!=fi_end)
+	{
+	  if(currName == HG_ename(*fi))
+	    {
+	      found = true;
+	      if(GH_vname(source(*ei,GH)) != HG_vname(source(*fi,HG)))
+		{
+		  /*
+		  cout << "GH_vname is " << GH_vname(source(*ei,GH)) << " while HG_vname is "
+		       << HG_vname(source(*fi,HG)) << endl;
+		  */
+		  validse = false;
+		}
+	      if(GH_vname(target(*ei,GH)) != HG_vname(target(*fi,HG)))
+		{
+		  /*
+		  cout << "GH_vname is " << GH_vname(target(*ei,GH)) << " while HG_vname is "
+		       << HG_vname(target(*fi,HG)) << endl;
+		  */
+		  validse = false;
+		  }
+	    }
+	  fi++;
+	}
+
+    }
+
+    return validse;
 }
