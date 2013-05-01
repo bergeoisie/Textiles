@@ -6,9 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef _textileHelper_h
-#define _textileHelper_h
+#ifndef _output_h
+#define _output_h
 
+#include "textileHelper.h"
 
 #include <boost/config.hpp> // put this first to suppress some VC++ warnings
 
@@ -37,18 +38,6 @@
 using namespace std;
 using namespace boost;
 
-namespace boost { 
-    enum edge_p_homom_t { edge_p_homom };
-    enum edge_q_homom_t { edge_q_homom };
-    enum vertex_p_vhomom_t { vertex_p_vhomom };
-    enum vertex_q_vhomom_t { vertex_q_vhomom };
-    
-    BOOST_INSTALL_PROPERTY(edge, p_homom);
-    BOOST_INSTALL_PROPERTY(edge, q_homom);
-    BOOST_INSTALL_PROPERTY(vertex, p_vhomom);
-    BOOST_INSTALL_PROPERTY(vertex, q_vhomom);
-    }
- 
 
 // A string collection is a set of strings which are the names of applicable vertices
 typedef vector<string> sColl;
@@ -95,60 +84,18 @@ typedef set<graph_traits<GammaGraph>::vertex_descriptor> vColl;
 
 typedef std::tuple<int,int,int> PQOEIElement;
 
-enum colors { White, Gray, Black };
+//enum colors { White, Gray, Black };
 
 
-Textile CreateDual(Textile);
-bool checkNondegen(Graph);
-bool checkHomoms(Textile);
-Textile Trim(Textile T);
-Textile HigherBlock(Textile);
-Textile CreateInverse(Textile);
-Textile ProductTextile(Textile,Textile);
-bool IsLR(Textile);
-bool IspRightResolving(Textile);
-bool IspLeftResolving(Textile);
-bool IsqRightResolving(Textile);
-bool IsqLeftResolving(Textile);
-int NDefinite(Textile);
-int IsqRightDefinite(Textile);
-int IspLeftDefinite(Textile);
-int IspRightDefinite(Textile);
-int IsqLeftDefinite(Textile);
-Textile RenameTextile(Textile,map<string,string>);
-Textile HigherNBlock(Textile,int);
-Textile Quotient(Textile,vector<VVec>);
-Textile HomomComp(Textile, Graph,map<string,string>);
-Textile CreateTranspose(Textile);
-Textile CreateOneOneTextile(Textile);
-VVec compatibleSet(Textile&,
-                   bool,
-                   VVec,
-                   string);
-int maxLblOutDegree(Textile,string);
-Textile inducedRp(Textile);
-Textile inducedLp(Textile);
-Textile inducedRq(Textile);
-Textile inducedLq(Textile);
-bool is1to1(Textile);
-bool isOneSided1to1(Textile);
-bool VVecSubset(VVec&,VVec&);
-bool hasCycleHelper(Graph&,GVD,colors*);
-void Analyzer(Textile);
-bool NewIsomLanguages(Textile);
-Textile DirectSum(Textile,Textile);
-Textile DFAMinimization(Textile);
-Textile Composition(Textile,Textile);
-Textile LookForConjugacy(Textile,int, bool*, int start = 2);
-Textile CompositionPower(Textile, int);
-Textile CreateNMTextile(Textile,int,int);
-Textile AutoHomom(Textile);
-Textile AutoHomomLite(Textile);
-Textile AutoRenamer(Textile);
-Textile ArrayTrim(Textile);
-Textile NewInducedRp(Textile);
-Textile FromSSE(Graph,Graph,std::unordered_map<string,string>);
-Graph ProductGraph(Graph,Graph);
-bool SEquivChecker(Graph&, Graph&, std::unordered_map<string,string>);
+void PrintRepMatrix(Textile);
+void PrintFullTextileInfo(Textile,ostream& os = cout);
+void PrintBasicTextileInfo(Textile, ostream& os = cout);
+void SmartPrintTextileInfo(Textile, ostream& os = cout);
+void printVVec(VVec);
+string ssVVec(VVec);
+string Namer(int,int,int=65);
+void OctaveOutput(Textile,string);
+void PrintGraph(Graph,ostream& os = cout);
+vector<string> StringSplitter(string,vector<int>);
 
 #endif

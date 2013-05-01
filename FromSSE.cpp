@@ -9,6 +9,7 @@
 #include <iostream>
 #include <algorithm>
 #include "textileHelper.h"
+#include "output.h"
 
 using namespace std;
 
@@ -140,13 +141,18 @@ do {
     {
       //  cout<< MP_ename(*ei) << " and " << PM_ename(*fi) << " and " << PM_ename(permTest[i]) << endl;
         sequiv[MP_ename(*ei)]=PM_ename(permTest[i]);
-	    cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
+	//	    cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
     } 
 
     //  cout << endl;
     
     if(SEquivChecker(MP,PM,sequiv))
       {
+
+	for(tie(ei,ei_end)=edges(MP),i=0;ei!=ei_end;ei++,i++)
+	  {
+	    cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
+	  }
 
 	Textile T = FromSSE(M,GM,sequiv);
 	
