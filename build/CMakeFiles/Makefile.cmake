@@ -20,7 +20,7 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/Cellar/cmake/2.8.10.2/share/cmake/Modules/Compiler/Clang-CXX.cmake"
   "/usr/local/Cellar/cmake/2.8.10.2/share/cmake/Modules/Compiler/Clang.cmake"
   "/usr/local/Cellar/cmake/2.8.10.2/share/cmake/Modules/Compiler/GNU.cmake"
-  "/usr/local/Cellar/cmake/2.8.10.2/share/cmake/Modules/Findboost.cmake"
+  "/usr/local/Cellar/cmake/2.8.10.2/share/cmake/Modules/FindBoost.cmake"
   "/usr/local/Cellar/cmake/2.8.10.2/share/cmake/Modules/Platform/Darwin-Clang-C.cmake"
   "/usr/local/Cellar/cmake/2.8.10.2/share/cmake/Modules/Platform/Darwin-Clang-CXX.cmake"
   "/usr/local/Cellar/cmake/2.8.10.2/share/cmake/Modules/Platform/Darwin-Clang.cmake"
@@ -42,5 +42,7 @@ SET(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/FromSSE.dir/DependInfo.cmake"
+  "CMakeFiles/GMSquare.dir/DependInfo.cmake"
+  "CMakeFiles/output.dir/DependInfo.cmake"
   "CMakeFiles/textileHelper.dir/DependInfo.cmake"
   )

@@ -3620,7 +3620,7 @@ Textile AutoHomomLite(Textile T)
 	      if(*si==*vi)
 		{
 		  seen=true;
-		  cout << "We have seen " << *si << endl;
+		  cout << "We have seen " << *si << '\r';
 		}
 	    }
 	} 
@@ -4628,7 +4628,7 @@ Textile FromSSE(Graph G, Graph H, std::unordered_map<string,string> sequiv)
     for(auto it = sequiv.begin(); it != sequiv.end(); ++it)
     {
         string currLHS = (*it).first,currRHS = (*it).second,a,b,aprime,bprime,name;
-        cout << "Attempting to split " << currLHS << " and " << currRHS << endl;
+      //  cout << "Attempting to split " << currLHS << " and " << currRHS << endl;
         vector<string> LHSSplit = StringSplitter(currLHS,LHSsizes);
         vector<string> RHSSplit = StringSplitter(currRHS,RHSsizes);
 
@@ -4637,7 +4637,7 @@ Textile FromSSE(Graph G, Graph H, std::unordered_map<string,string> sequiv)
         aprime = RHSSplit[1];
         bprime = LHSSplit[1];
         name = a+b+aprime+bprime;
-        cout << "a = " << a << ", b = " << b << ", aprime = " << aprime << ", bprime = " << bprime  << endl;
+      //  cout << "a = " << a << ", b = " << b << ", aprime = " << aprime << ", bprime = " << bprime  << endl;
         add_edge(AHNameToGammaVD[b], AHNameToGammaVD[bprime], PQ_Homoms(a,Q_Homom(aprime,name)),Gamma);
     }
 

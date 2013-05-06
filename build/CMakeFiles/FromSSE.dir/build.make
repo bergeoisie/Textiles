@@ -84,6 +84,7 @@ FromSSE_EXTERNAL_OBJECTS =
 
 FromSSE: CMakeFiles/FromSSE.dir/FromSSE.cpp.o
 FromSSE: CMakeFiles/FromSSE.dir/build.make
+FromSSE: liboutput.a
 FromSSE: libtextileHelper.a
 FromSSE: CMakeFiles/FromSSE.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable FromSSE"

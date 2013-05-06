@@ -62,7 +62,8 @@ typedef std::tuple<int,int,int> PQOEIElement;
 
 int main(void)
 {
-    int i;
+    int i,j=1,k,l;
+    bool found=false;
     Graph GM(2),HM(2),GH,HG,PM,MP,M;
 	std::unordered_map<string,string> sequiv;
 
@@ -85,6 +86,8 @@ int main(void)
     MP_ename = get(edge_name,MP);
 
     GEI ei,ei_end,fi,fi_end;
+
+    ofstream grid("grid.txt"),loSEs("listOfSEs.txt");
 
     add_edge(0,0,string("u"),GM);
     add_edge(0,1,string("v"),GM);
@@ -136,28 +139,44 @@ int main(void)
     } 
 
     auto start = permTest.begin(),finish = permTest.end();
-do {
-    for(tie(ei,ei_end)=edges(MP),tie(fi,fi_end)=edges(PM),i=0;ei!=ei_end;ei++,i++,fi++)
-    {
+    do {
+        for(tie(ei,ei_end)=edges(MP),tie(fi,fi_end)=edges(PM),i=0;ei!=ei_end;ei++,i++,fi++)
+        {
       //  cout<< MP_ename(*ei) << " and " << PM_ename(*fi) << " and " << PM_ename(permTest[i]) << endl;
-        sequiv[MP_ename(*ei)]=PM_ename(permTest[i]);
+            sequiv[MP_ename(*ei)]=PM_ename(permTest[i]);
 	//	    cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
-    } 
+        } 
 
     //  cout << endl;
-    
-    if(SEquivChecker(MP,PM,sequiv))
-      {
 
-	for(tie(ei,ei_end)=edges(MP),i=0;ei!=ei_end;ei++,i++)
-	  {
-	    cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
-	  }
+        if(SEquivChecker(MP,PM,sequiv))
+        {
+            if(j==5046)
+            {
+                cout << "Beginning printing the " << j << "th SE " << endl;
+                for(tie(ei,ei_end)=edges(MP),i=0;ei!=ei_end;ei++,i++) {
+                    cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
+                }
+                cout << "Printing trimmed SSE textile" << endl;
+                Textile T = Trim(FromSSE(M,GM,sequiv));
 
-	Textile T = FromSSE(M,GM,sequiv);
-	
-	PrintFullTextileInfo(T);
-	
+                PrintFullTextileInfo(T);
+
+                Textile Tonenone = AutoHomom(Trim(CreateNMTextile(T,1,-1)));
+                cout << "PRINTING 1,-1 FOR T" << endl;
+                PrintFullTextileInfo(Tonenone);
+
+                Textile Tnonetwo = AutoHomom(Trim(CreateNMTextile(T,-1,2)));
+                cout << "PRINTING -1,2 FOR T" << endl;
+                PrintFullTextileInfo(Tnonetwo);
+
+                Textile Tdthree = Trim(HigherNBlock(CreateDual(Tnonetwo),3));
+                PrintFullTextileInfo(Tdthree);
+
+                cout << is1to1(CreateDual(Tdthree)) << endl;
+
+
+    /*	
 	if(is1to1(T))
 	  {
 	    cout << "T is 1-1" << endl;
@@ -169,9 +188,33 @@ do {
 	else
 	  {
 	    cout << "T is not 1-1" << endl;
-	  }
-	
-      }
+	  }*/
+
+        for(k=-1; k>-3;k--)
+        {
+            for(l=1; l<3; l++)
+            {
+                Textile Tkl = AutoHomom(CreateNMTextile(T,k,l));
+                if(IsLR(Tkl))
+                {
+                    grid << "We are LR at SE " << j << " where k = " << k << " and l = "  << l << endl;
+                }
+                else{
+                    grid << "We are NOT LR at SE " << j << " where k = " << k << " and l = "  << l << endl;
+                }
+                cout << "CHECKING CONJUGACY FOR k = " << k << " and l = " << l << endl;
+                Textile Tconj = LookForConjugacy(Tkl,4,&found);
+                if(found){
+                    grid << "PRINTING IJ CONJUGACY FOR " << i << j << endl;
+                    PrintFullTextileInfo(Tkl);
+                    PrintFullTextileInfo(Tconj);
+                }
+            }
+        } 
+    }
+}
+
+j++;
 } while(std::next_permutation(start,finish));
 
 

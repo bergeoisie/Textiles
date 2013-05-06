@@ -15,12 +15,14 @@ find_package(Boost)
 # so that we will find TutorialConfig.h
 include_directories("${PROJECT_BINARY_DIR}")
 
-set(CMAKE_CXX_FLAGS "-g -Wall -std=c++11 -O2")
+set(CMAKE_CXX_FLAGS "-g -Wall -std=c++11 -stdlib=libc++ -O3")
 
 add_library(textileHelper textileHelper.cpp)
 add_library(output output.cpp)
 
 # add the executable
 add_executable(FromSSE FromSSE.cpp)
+add_executable(GMSquare gmsquare.cpp)
 
 target_link_libraries(FromSSE output textileHelper)
+target_link_libraries(GMSquare output textileHelper)
