@@ -3204,7 +3204,7 @@ Textile DirectSum(Textile S,Textile T)
 Textile DFAMinimization(Textile T)
 {
     // N is the size of the longest word we need to check when looking at distinguishing states
-    int N,i,j,numStates=num_vertices(T.first),blocksize;
+    int N,i,j,numStates=num_vertices(T.first),blocksize,maxSoFar=0;
     GammaEI ei,ei_end;
     GammaOEI oei,oei_end,ofi,ofi_end;
     bool dble,found,seenlast=false,unnec;
@@ -3220,6 +3220,8 @@ Textile DFAMinimization(Textile T)
         SmartPrintTextileInfo(T);
         return T;
     }
+
+
     
     if(numStates-2 < 1) {
         N = 1;
@@ -3233,6 +3235,7 @@ Textile DFAMinimization(Textile T)
     
     vector< vector<VD> > stateEquiv;
     
+    PrintFullTextileInfo(T);
     
     for(i=0;i<numStates-1;i++) {
         unnec = false;
@@ -3255,9 +3258,11 @@ Textile DFAMinimization(Textile T)
                 dble = false;
                 
                 // Here we check to see if states i and j are equivalent
-                //    cout << "Checking if " << i << " and " << j << " are equivalent." << endl;
+                cout << "Checking if " << i << " and " << j << " are equivalent." << endl;
                 // Iterate through words of length k in a breadth first search
                 
+                maxSoFar = 1;
+
                 priority_queue<PQOEIElement,vector<PQOEIElement>,pqcomparison> OEIPQ;
                 
                 tie(oei,oei_end)=out_edges(i,T.first);           
@@ -3270,13 +3275,13 @@ Textile DFAMinimization(Textile T)
                 {
                     PQOEIElement current = OEIPQ.top();
                     OEIPQ.pop();
-                    //  cout << "Popped: k = " << get<0>(current) << ", i = " << get<1>(current) 
-		    //       << ", j = " << get<2>(current) << endl;
+                   //   cout << "Popped: k = " << get<0>(current) << ", i = " << get<1>(current) 
+		           //  << ", j = " << get<2>(current) << endl;
                     
                     // Make sure both vertices have the same out degree.
                     if(out_degree(get<1>(current),T.first) != out_degree(get<2>(current),T.first))
                     {
-                        //             cout << "Different out degrees" << endl;
+                     cout << "Different out degrees" << endl;
                         dble = true;
                     } // if
                     else {
@@ -3288,11 +3293,16 @@ Textile DFAMinimization(Textile T)
                                 if(p_homom(*ofi) == p_homom(*oei))
                                 {
                                     found = true;
-                                    //       cout << "Found a match for " << p_homom(*oei) <<endl;
+                              //     cout << "Found a match for " << p_homom(*oei) <<endl;
                                     if(get<0>(current) < N && target(*oei,T.first) != target(*ofi,T.first)) { 
-				      //      cout << "Pushing: k = " << get<0>(current)+1 << ", i = " << target(*oei,T.first)
-				      //      << ", j = " << target(*ofi,T.first) << endl;
-				      OEIPQ.push(PQOEIElement(get<0>(current)+1,target(*oei,T.first),target(*ofi,T.first)));
+				     //      cout << "Pushing: k = " << get<0>(current)+1 << ", i = " << target(*oei,T.first)
+				     //       << ", j = " << target(*ofi,T.first) << endl;
+                                            if(get<0>(current)+1 > maxSoFar)
+                                            {
+                                                maxSoFar = get<0>(current)+1;
+                                                cout << "Max so far is now = " << maxSoFar << endl;
+                                            }
+	           			                    OEIPQ.push(PQOEIElement(get<0>(current)+1,target(*oei,T.first),target(*ofi,T.first)));
                                     }
                                     break;
                                 } // if p = p
@@ -4557,7 +4567,7 @@ Textile NewInducedRp(Textile T)
 	
     //cout << "Done with creating induced presentation" << endl;
 
-	return Textile(Gamma,G);
+	return Textile(GraphTrim(Gamma),G);
 	
 }
 
@@ -4801,4 +4811,64 @@ bool SEquivChecker(Graph& GH, Graph& HG, std::unordered_map<string,string> sequi
     }
 
     return validse;
+}
+
+GammaGraph GraphTrim(GammaGraph &G)
+{
+    GammaGraph Trimmed=G;
+    bool isEndIT=true,isEndTI=true,isEndPQ=true,isEndQP=true;
+    unsigned int i,j=0,delcount=0,N;
+    //  vector<graph_traits<GammaGraph>::edge_descriptor> toDelete;
+    vector<int> vertToDelete;
+    bool done,stable;
+    time_t start,end;
+    double dif,average=0;
+
+    graph_traits<Graph>::vertex_iterator vi,vi_end;
+
+    bool needToCheckVhoms=false,found=false,topStart=true;;
+    
+   // stack<VD> toCheck;  
+
+    cout << "Our starting graph has " << num_edges(Trimmed) << " edges and " << num_vertices(Trimmed) << " vertices." << endl; 
+
+    time(&start);
+    do{
+        j++;
+        if(j % 100 == 0)
+        {
+         time(&end);
+         dif = difftime(end,start);
+         time(&start);
+         N = j/100;
+         average = (((N-1)*average)+dif)/N;
+         cout << "On round " << j << " deleted at least " << delcount << " edges so far. The last round took " 
+                << dif << " seconds, and the average time is " << average << " seconds." <<  '\r';
+         cout.flush();
+     } 
+     stable = true;
+     done = false;
+
+        // Check for sinks or sources
+     for(tie(vi,vi_end)=vertices(Trimmed); vi!=vi_end && !done; vi++)
+     {
+            //  cout << "We are checking " << vname(*vi) << endl;
+        if(out_degree(*vi,Trimmed)==0 || in_degree(*vi,Trimmed)==0)
+        {
+                //   cout << "The vertex " << vname(*vi) << "is a sink or a source" << endl;
+            clear_vertex(*vi,Trimmed);
+            remove_vertex(*vi,Trimmed);
+            stable = false;
+            done = true;
+            break;
+        }
+            //  cout << "It's not." << endl;
+    }
+    } while(!stable); // do while statement (don't panic)
+    
+    
+    cout << "Original T.first had " << num_edges(G) << " edges and " << num_vertices(G)
+    << " vertices, now has " << num_edges(Trimmed) << " edges and " << num_vertices(Trimmed) << endl;
+
+    return Trimmed;
 }

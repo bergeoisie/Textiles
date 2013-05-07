@@ -150,5 +150,6 @@ Textile NewInducedRp(Textile);
 Textile FromSSE(Graph,Graph,std::unordered_map<string,string>);
 Graph ProductGraph(Graph,Graph);
 bool SEquivChecker(Graph&, Graph&, std::unordered_map<string,string>);
+GammaGraph GraphTrim(GammaGraph &);
 
 #endif
