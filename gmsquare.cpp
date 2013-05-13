@@ -142,6 +142,7 @@ int main(void)
 
     cout << is1to1(Ttwo) << endl;
 
+
 /*
   
     vector<vector<graph_traits<GammaGraph>::vertex_descriptor> > E(4);

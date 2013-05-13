@@ -23,6 +23,10 @@ add_library(output output.cpp)
 # add the executable
 add_executable(FromSSE FromSSE.cpp)
 add_executable(GMSquare gmsquare.cpp)
+add_executable(GMSSEs GMSSEs.cpp)
+add_executable(OneOneFour OneOneFour.cpp)
 
 target_link_libraries(FromSSE output textileHelper)
 target_link_libraries(GMSquare output textileHelper)
+target_link_libraries(GMSSEs output textileHelper)
+target_link_libraries(OneOneFour output textileHelper)

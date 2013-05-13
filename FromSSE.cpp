@@ -190,9 +190,9 @@ int main(void)
 	    cout << "T is not 1-1" << endl;
 	  }*/
 
-        for(k=-1; k>-3;k--)
+        for(k=-2; k>-3;k--)
         {
-            for(l=1; l<3; l++)
+            for(l=1; l<4; l++)
             {
                 Textile Tkl = AutoHomom(CreateNMTextile(T,k,l));
                 if(IsLR(Tkl))

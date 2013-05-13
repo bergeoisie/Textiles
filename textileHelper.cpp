@@ -4872,3 +4872,8 @@ GammaGraph GraphTrim(GammaGraph &G)
 
     return Trimmed;
 }
+
+Textile NewDFAMinimization(Textile T)
+{
+    
+}
