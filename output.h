@@ -92,6 +92,7 @@ void PrintFullTextileInfo(Textile,ostream& os = cout);
 void PrintBasicTextileInfo(Textile, ostream& os = cout);
 void SmartPrintTextileInfo(Textile, ostream& os = cout);
 void printVVec(VVec);
+void printVColl(Vcoll);
 string ssVVec(VVec);
 string Namer(int,int,int=65);
 void OctaveOutput(Textile,string);

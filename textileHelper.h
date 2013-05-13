@@ -91,9 +91,11 @@ typedef graph_traits<Graph>::vertex_descriptor GVD;
 typedef graph_traits<GammaGraph>::vertex_descriptor VD;
 
 // A vertex collection is a set of vertex descriptors
-typedef set<graph_traits<GammaGraph>::vertex_descriptor> vColl;
+typedef set<VD> vColl;
 
 typedef std::tuple<int,int,int> PQOEIElement;
+
+typedef vector<vColl > Partition;
 
 enum colors { White, Gray, Black };
 
@@ -152,5 +154,6 @@ Graph ProductGraph(Graph,Graph);
 bool SEquivChecker(Graph&, Graph&, std::unordered_map<string,string>);
 GammaGraph GraphTrim(GammaGraph &);
 Textile NewDFAMinimization(Textile &);
+Partition InitialPartition(Textile &);
 
 #endif

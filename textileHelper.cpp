@@ -122,6 +122,8 @@ typedef set<graph_traits<GammaGraph>::vertex_descriptor> vColl;
 
 typedef std::tuple<int,int,int> PQOEIElement;
 
+typedef vector<set<VD> > Partition;
+
 //enum colors { White, Gray, Black };
 
 random::mt19937 gen(time(0));
@@ -4873,7 +4875,141 @@ GammaGraph GraphTrim(GammaGraph &G)
     return Trimmed;
 }
 
-Textile NewDFAMinimization(Textile T)
+Textile NewDFAMinimization(Textile& T)
 {
-    
+    Partition P=InitialPartition(T);
+    stack<vColl> toCheck;
+    set<string> codex;
+
+    auto codexIt;
+
+    GEI gei,gei_end;
+
+    property_map<Graph,edge_name_t>::type
+    G_ename = get(edge_name,T.second);
+
+    // Let's add the full partition to the stack of things to check
+    toCheck.push(P[0]);
+
+    // Let us create the codex from the bottom graph's edge names
+    for(tie(gei,gei_end)=edges(T.second); gei!=gei_end; gei++)
+    {
+        codex.insert(G_ename(*gei));
+    }
+
+    while(!toCheck.empty())
+    {
+        vColl current = toCheck.top();
+        toCheck.pop();
+
+        // For each symbol in our codex, let's generate a finer partition.
+        for(codexIt = codex.begin(); codexIt != codex.end(); codexIt++)
+        {
+            string s = *codexIt;
+            vColl gen = deltaInv(current,s,&T.first);
+        //    for(auto partIt = P.begin(); partIt != P.end(); partIt++)
+            bool goodSplits = true;
+            auto partIt = P.begin();
+            while(goodSplits && partIt != P.end())
+            {
+                Partition Q = Intersection(P,gen);
+                if(Q[0].size() > 0 && Q[1].size() > 0)
+                {
+                    if(Q[0].size() < Q[1].size()) {
+                    toCheck.push_back(Q[0]);
+                }
+                    else{
+                        toCheck.push_back(Q[1]);
+                    }
+                P.erase(*PartIt);
+                goodSplits = false;
+                P.push_back(Q[0]);
+                P.push_back(Q[1]);
+                }
+
+            }
+
+
+        }
+    }
+
+
+
+
+}
+
+Partition InitialPartition(Textile& T)
+{
+    Partition P;
+    set<VD> allVDs;
+
+    VI vi,vi_end;
+
+    for(tie(vi,vi_end)=vertices(T.first)); vi!=vi_end;vi++)
+    {
+        allVDs.insert(*vi);
+    }
+
+    P.push_back(allVDs);
+
+    return P;
+
+}
+
+vColl deltaInv(vColl v, string a, GammaGraph & Gamma)
+{
+    vColl Generated;
+    bool found;
+    auto vCollIt;
+
+    property_map<GammaGraph,p_homom_t>::type
+    Gamma_phom = get(p_homom,Gamma);
+
+    graph_traits<GammaGraph>::in_edge_iterator iei,iei_end;
+
+    for(vCollIt = v.begin(); vCollIt != v.end(); vCollIt++)
+    {
+        found = false;
+        tie(iei,iei_end)=in_edges(*vCollIt);
+        while(!found && iei!=iei_end)
+          {
+              if(Gamma_phom(*iei) == a)
+              {
+                    found = true;
+                    Generated.insert(source(*iei,Gamma));
+              }
+              iei++;
+          }  
+    }
+
+    return Generated;
+}
+
+// Intersects an element of a partition (P) with a set of vertices
+// creating a new partition that refines P based on these vertices
+Partition Intersection(vColl P, vColl v)
+{
+    Partition Q;
+
+    auto PartIt;
+    auto vIt;
+
+    vColl complement = P;
+    vColl intersect;
+        // Go through all the VDs 
+    for(vIt = v.begin(); vIt != v.end(); vIt++)
+    {
+        if(PartIt->find(*vIt) != P.end())
+        {
+            intersect.insert(*vIt);
+            complement.erase(*vIt);
+            }
+        }
+    }
+
+    Q.push_back(intersect);
+    Q.push_back(complement);
+
+
+    return Q;
 }

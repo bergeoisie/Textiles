@@ -304,6 +304,18 @@ void printVVec(VVec a)
     cout << *it << "}";
 }
 
+void printVColl(vColl a)
+{
+    vColl::iterator it;
+    cout << "{";
+    
+    for(it = a.begin(); it < a.end()-1; it++)
+    {
+        cout << *it << " ";
+    }
+    cout << *it << "}";
+}
+
 // Makes a VVec (a vector of vertex descriptors) into a stringstream
 string ssVVec(VVec a)
 {
