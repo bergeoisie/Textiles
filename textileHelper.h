@@ -155,5 +155,7 @@ bool SEquivChecker(Graph&, Graph&, std::unordered_map<string,string>);
 GammaGraph GraphTrim(GammaGraph &);
 Textile NewDFAMinimization(Textile &);
 Partition InitialPartition(Textile &);
+Partition Intersection(vColl, vColl);
+vColl deltaInv(vColl, string, GammaGraph &);
 
 #endif

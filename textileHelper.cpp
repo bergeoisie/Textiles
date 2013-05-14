@@ -4881,14 +4881,15 @@ Textile NewDFAMinimization(Textile& T)
     stack<vColl> toCheck;
     set<string> codex;
 
-    auto codexIt;
-
     GEI gei,gei_end;
 
     property_map<Graph,edge_name_t>::type
     G_ename = get(edge_name,T.second);
 
     // Let's add the full partition to the stack of things to check
+    cout << "We are pushing the full partition ";
+    printVColl(P[0]);
+    cout << endl;
     toCheck.push(P[0]);
 
     // Let us create the codex from the bottom graph's edge names
@@ -4903,37 +4904,74 @@ Textile NewDFAMinimization(Textile& T)
         toCheck.pop();
 
         // For each symbol in our codex, let's generate a finer partition.
-        for(codexIt = codex.begin(); codexIt != codex.end(); codexIt++)
+        for(auto codexIt = codex.begin(); codexIt != codex.end(); codexIt++)
         {
             string s = *codexIt;
-            vColl gen = deltaInv(current,s,&T.first);
-        //    for(auto partIt = P.begin(); partIt != P.end(); partIt++)
+            vColl gen = deltaInv(current,s,T.first);
+            cout << "We have generated ";
+            printVColl(gen);
+            cout << endl;
+            if(gen.size()>0){
             bool goodSplits = true;
             auto partIt = P.begin();
             while(goodSplits && partIt != P.end())
             {
-                Partition Q = Intersection(P,gen);
+                Partition Q = Intersection(*partIt,gen);
                 if(Q[0].size() > 0 && Q[1].size() > 0)
                 {
+                    cout << "We are going to push on to the stack";
                     if(Q[0].size() < Q[1].size()) {
-                    toCheck.push_back(Q[0]);
-                }
-                    else{
-                        toCheck.push_back(Q[1]);
+                        printVColl(Q[0]);
+                    toCheck.push(Q[0]);
                     }
-                P.erase(*PartIt);
+                    else{
+                        printVColl(Q[1]);
+                        toCheck.push(Q[1]);
+                    }
+                    cout << endl;
+                cout << "We are erasing ";
+                printVColl(*partIt);
+                cout << endl;
+                P.erase(partIt);
                 goodSplits = false;
+                cout << "We are adding ";
+                printVColl(Q[0]);
+                cout << " and ";
+                printVColl(Q[1]);
+                cout << endl;
+
                 P.push_back(Q[0]);
                 P.push_back(Q[1]);
                 }
+                partIt++;
 
             }
-
+        }
 
         }
     }
 
 
+    vector< vector< VD > > stateEquiv;
+
+    cout << "Final partition is ";
+
+    for(auto partIt = P.begin(); partIt != P.end(); partIt++)
+    {
+        printVColl(*partIt);
+        cout << endl << (*partIt).size() << endl;
+        vector<VD> currVD;
+        for(auto setIt=partIt->begin(); setIt!=partIt->end(); setIt++)
+        {
+            currVD.push_back(*setIt);
+        }
+        printVVec(currVD);
+        stateEquiv.push_back(currVD);
+    }
+    cout << endl;
+
+
+    return Quotient(T,stateEquiv);
 
 
 }
@@ -4943,9 +4981,9 @@ Partition InitialPartition(Textile& T)
     Partition P;
     set<VD> allVDs;
 
-    VI vi,vi_end;
+    GammaVI vi,vi_end;
 
-    for(tie(vi,vi_end)=vertices(T.first)); vi!=vi_end;vi++)
+    for(tie(vi,vi_end)=vertices(T.first); vi!=vi_end;vi++)
     {
         allVDs.insert(*vi);
     }
@@ -4960,17 +4998,17 @@ vColl deltaInv(vColl v, string a, GammaGraph & Gamma)
 {
     vColl Generated;
     bool found;
-    auto vCollIt;
+    
 
-    property_map<GammaGraph,p_homom_t>::type
-    Gamma_phom = get(p_homom,Gamma);
+    property_map<GammaGraph,edge_p_homom_t>::type
+    Gamma_phom = get(edge_p_homom,Gamma);
 
     graph_traits<GammaGraph>::in_edge_iterator iei,iei_end;
 
-    for(vCollIt = v.begin(); vCollIt != v.end(); vCollIt++)
+    for(auto vCollIt = v.begin(); vCollIt != v.end(); vCollIt++)
     {
         found = false;
-        tie(iei,iei_end)=in_edges(*vCollIt);
+        tie(iei,iei_end)=in_edges(*vCollIt,Gamma);
         while(!found && iei!=iei_end)
           {
               if(Gamma_phom(*iei) == a)
@@ -4991,22 +5029,23 @@ Partition Intersection(vColl P, vColl v)
 {
     Partition Q;
 
-    auto PartIt;
-    auto vIt;
 
     vColl complement = P;
     vColl intersect;
         // Go through all the VDs 
-    for(vIt = v.begin(); vIt != v.end(); vIt++)
+    for(auto vIt = v.begin(); vIt != v.end(); vIt++)
     {
-        if(PartIt->find(*vIt) != P.end())
+        if(P.find(*vIt) != P.end())
         {
             intersect.insert(*vIt);
             complement.erase(*vIt);
-            }
         }
     }
-
+    cout << "Intersect is ";
+    printVColl(intersect);
+    cout << " with size " << intersect.size() << " and complement is ";
+    printVColl(complement);
+    cout << " with size " << complement.size() << endl;
     Q.push_back(intersect);
     Q.push_back(complement);
 

@@ -309,11 +309,11 @@ void printVColl(vColl a)
     vColl::iterator it;
     cout << "{";
     
-    for(it = a.begin(); it < a.end()-1; it++)
+    for(it = a.begin(); it != a.end(); it++)
     {
         cout << *it << " ";
     }
-    cout << *it << "}";
+    cout << "}";
 }
 
 // Makes a VVec (a vector of vertex descriptors) into a stringstream

@@ -129,18 +129,39 @@ int main(void)
     
     PrintFullTextileInfo(T);
     
+
     Textile Tone = ArrayTrim(AutoHomom(CreateNMTextile(T,-1,2)));
     
-    PrintFullTextileInfo(Tone);
-
-
     Textile Tdthree = Trim(HigherNBlock(CreateDual(Tone),3));
 
-    PrintFullTextileInfo(Tdthree);
 
-    Textile Ttwo = CreateDual(Tdthree);
+    Textile nirp = AutoRenamer(NewInducedRp(Tdthree));
 
-    cout << is1to1(Ttwo) << endl;
+
+    Textile NDFA = NewDFAMinimization(nirp);
+
+
+    Textile DFA = DFAMinimization(nirp);
+
+    cout << "NIRP IS" << endl;
+    PrintFullTextileInfo(nirp);
+
+    cout << "OLD DFA" << endl;
+    PrintFullTextileInfo(DFA);
+
+    cout << "NEW DFA" << endl;
+    PrintFullTextileInfo(NDFA);
+
+//    PrintFullTextileInfo(Tone);
+
+
+//    Textile Tdthree = Trim(HigherNBlock(CreateDual(Tone),3));
+
+//    PrintFullTextileInfo(Tdthree);
+
+//    Textile Ttwo = CreateDual(Tdthree);
+
+ //   cout << is1to1(Ttwo) << endl;
 
 
 /*
