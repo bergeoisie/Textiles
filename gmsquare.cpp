@@ -71,12 +71,14 @@ typedef std::tuple<int,int,int> PQOEIElement;
 
 int main(void)
 {
-    
-    int i,j;
+    bool found;
+    int i,j,k,l;
     
     GammaGraph A(3);
     
     
+    ofstream os("gms.txt");
+
     add_edge(0, 0, PQ_Homoms(string("a"),Q_Homom(string("b"),string("01"))),A);
     add_edge(0, 1, PQ_Homoms(string("a"),Q_Homom(string("c"),string("02"))),A);
     add_edge(1, 0, PQ_Homoms(string("b"),Q_Homom(string("d"),string("03"))),A);
@@ -135,23 +137,6 @@ int main(void)
     Textile Tdthree = Trim(HigherNBlock(CreateDual(Tone),3));
 
 
-    Textile nirp = AutoRenamer(NewInducedRp(Tdthree));
-
-
-    Textile NDFA = NewDFAMinimization(nirp);
-
-
-    Textile DFA = DFAMinimization(nirp);
-
-    cout << "NIRP IS" << endl;
-    PrintFullTextileInfo(nirp);
-
-    cout << "OLD DFA" << endl;
-    PrintFullTextileInfo(DFA);
-
-    cout << "NEW DFA" << endl;
-    PrintFullTextileInfo(NDFA);
-
 //    PrintFullTextileInfo(Tone);
 
 
@@ -159,12 +144,12 @@ int main(void)
 
 //    PrintFullTextileInfo(Tdthree);
 
-//    Textile Ttwo = CreateDual(Tdthree);
+    Textile Ttwo = CreateDual(Tdthree);
 
- //   cout << is1to1(Ttwo) << endl;
+    cout << is1to1(Ttwo) << endl;
 
 
-/*
+
   
     vector<vector<graph_traits<GammaGraph>::vertex_descriptor> > E(4);
     
@@ -191,17 +176,29 @@ int main(void)
     
     PrintFullTextileInfo(Taq);
     
-    for(i=-1; i>-4;i--)
+    for(k=-1; k>-3;k--)
     {
-        for(j=1; j<5; j++)
+        for(l=3; l<7; l++)
         {
-        Textile Tij = LookForConjugacy(AutoHomom(CreateNMTextile(T,i,j)),6);
-        ofstream os("conjugacies.dat",ios_base::app);
-            os << "PRINTING IJ CONJUGACY FOR " << i << j << endl;
-        PrintFullTextileInfo(Tij,os);
-            PrintFullTextileInfo(T,os);
+            found = false;
+          Textile Tkl = AutoHomom(CreateNMTextile(T,k,l));
+              /*  if(IsLR(Tkl))
+                {
+                    grid << "We are LR at SE " << j << " where k = " << k << " and l = "  << l << endl;
+                }
+                else{
+                    grid << "We are NOT LR at SE " << j << " where k = " << k << " and l = "  << l << endl;
+                } */
+               // cout << "CHECKING CONJUGACY FOR k = " << k << " and l = " << l << endl;
+                Textile Tconj = LookForConjugacy(Tkl,4,&found);
+                cout << "Found = " <<  found << endl;
+                if(found){
+                    os << "PRINTING IJ CONJUGACY FOR " << k << l << endl;
+                    PrintFullTextileInfo(Tkl,os);
+                    PrintFullTextileInfo(Tconj,os);
+                }
         }
     }
-    */
+    
     return 0;
 }

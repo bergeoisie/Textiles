@@ -3017,7 +3017,7 @@ bool NewIsomLanguages(Textile T)
     
     cout << "Creating minimized DFAs" << endl;
     
-    Textile mirp = DFAMinimization(irp), mirq = DFAMinimization(irq);
+    Textile mirp = NewDFAMinimization(irp), mirq = NewDFAMinimization(irq);
     
     
     int psize = num_vertices(mirp.first), qsize = num_vertices(mirq.first),i,N;
