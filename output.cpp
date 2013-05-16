@@ -410,6 +410,7 @@ void OctaveOutput(Textile T,string filename)
 	}
 	
 	os << "]";
+    os.close();
 }
 
 void PrintGraph(Graph G,ostream& os)

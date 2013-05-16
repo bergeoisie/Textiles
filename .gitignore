@@ -10,3 +10,5 @@ gmctwo
 gmsquare
 *.dSYM
 FromSSE
+build/*
+build/CMakeFiles/*

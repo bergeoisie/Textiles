@@ -176,9 +176,9 @@ int main(void)
     
     PrintFullTextileInfo(Taq);
     
-    for(k=-1; k>-3;k--)
+    for(k=-1; k>-2;k--)
     {
-        for(l=3; l<7; l++)
+        for(l=5; l<6; l++)
         {
             found = false;
           Textile Tkl = AutoHomom(CreateNMTextile(T,k,l));
@@ -190,7 +190,7 @@ int main(void)
                     grid << "We are NOT LR at SE " << j << " where k = " << k << " and l = "  << l << endl;
                 } */
                // cout << "CHECKING CONJUGACY FOR k = " << k << " and l = " << l << endl;
-                Textile Tconj = LookForConjugacy(Tkl,4,&found);
+                Textile Tconj = LookForConjugacy(Tkl,5,&found,4);
                 cout << "Found = " <<  found << endl;
                 if(found){
                     os << "PRINTING IJ CONJUGACY FOR " << k << l << endl;
