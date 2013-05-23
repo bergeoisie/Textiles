@@ -129,26 +129,54 @@ int main(void)
     
     Textile T(A,B);
     
+    cout << "Our original T is" << endl;
+
     PrintFullTextileInfo(T);
     
 
-    Textile Tone = ArrayTrim(AutoHomom(CreateNMTextile(T,-1,2)));
+/*    Textile Tone = CreateNMTextile(T,-1,2);
+
+    Textile ToneAH = AutoHomom(Tone);
     
-    Textile Tdthree = Trim(HigherNBlock(CreateDual(Tone),3));
-
-
-//    PrintFullTextileInfo(Tone);
-
-
 //    Textile Tdthree = Trim(HigherNBlock(CreateDual(Tone),3));
 
-//    PrintFullTextileInfo(Tdthree);
 
-    Textile Ttwo = CreateDual(Tdthree);
+    cout << "T1 is " << endl;
 
-    cout << is1to1(Ttwo) << endl;
+      PrintFullTextileInfo(Tone);
+
+      cout << "AutoHomomed T1 is " << endl;
+
+      PrintFullTextileInfo(ToneAH);
+
+      Textile ToneAHT = Trim(ToneAH);
+
+      cout << "Trimmed Autohomomed T1 is " << endl;
+
+      PrintFullTextileInfo(ToneAHT);
+
+    Textile TdthreeNoTrim = AutoRenamer(HigherNBlock(CreateDual(ToneAHT),3));
+
+    cout << "T*[3] is " << endl;
+
+    PrintFullTextileInfo(TdthreeNoTrim);
+*/
+ //  Textile Tdthree = Trim(TdthreeNoTrim);
+
+//    cout << "Good trim is" << endl;
+
+   // PrintFullTextileInfo(Tdthree);
+
+    //Textile TdthreeTBREI = TrimByREI(TdthreeNoTrim);
+
+//    PrintFullTextileInfo(TdthreeTBREI);
 
 
+  //  Textile Ttwo = CreateDual(Tdthree);
+
+ //   cout << is1to1(Ttwo) << endl;
+
+/*
 
   
     vector<vector<graph_traits<GammaGraph>::vertex_descriptor> > E(4);
@@ -175,22 +203,24 @@ int main(void)
     Textile Taq = AutoHomom(Tone);
     
     PrintFullTextileInfo(Taq);
-    
+   
+ */
+
     for(k=-1; k>-2;k--)
     {
-        for(l=5; l<6; l++)
+        for(l=5; l<7; l++)
         {
             found = false;
           Textile Tkl = AutoHomom(CreateNMTextile(T,k,l));
-              /*  if(IsLR(Tkl))
+                if(IsLR(Tkl))
                 {
-                    grid << "We are LR at SE " << j << " where k = " << k << " and l = "  << l << endl;
+                    cout << "We are LR at SE " << j << " where k = " << k << " and l = "  << l << endl;
                 }
                 else{
-                    grid << "We are NOT LR at SE " << j << " where k = " << k << " and l = "  << l << endl;
-                } */
+                    cout << "We are NOT LR at SE " << j << " where k = " << k << " and l = "  << l << endl;
+                } 
                // cout << "CHECKING CONJUGACY FOR k = " << k << " and l = " << l << endl;
-                Textile Tconj = LookForConjugacy(Tkl,5,&found,4);
+                Textile Tconj = LookForConjugacy(Tkl,7,&found,4);
                 cout << "Found = " <<  found << endl;
                 if(found){
                     os << "PRINTING IJ CONJUGACY FOR " << k << l << endl;
@@ -199,6 +229,8 @@ int main(void)
                 }
         }
     }
-    
+   
+
+
     return 0;
 }

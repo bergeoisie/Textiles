@@ -93,14 +93,14 @@ int main(void)
 
     GEI ei,ei_end,fi,fi_end;
 
-    ofstream grid("gridTbTB.txt"),loSEs("listOfSEsTbTB.txt");
+    ofstream grid("gridTbTASquare.txt"),loSEs("listOfSEsTbTASquare.txt");
 
     add_edge(0,1,string("a"),GM);
-    add_edge(1,2,string("b"),GM);
-    add_edge(2,0,string("c"),GM);
-    add_edge(2,1,string("d"),GM);
-    add_edge(2,2,string("e"),GM);
-
+    add_edge(0,2,string("b"),GM);
+    add_edge(1,2,string("c"),GM);
+    add_edge(2,0,string("d"),GM);
+    add_edge(2,1,string("e"),GM);
+ 
 
     put(GM_vname,0,string("A"));
     put(GM_vname,1,string("B"));
@@ -110,10 +110,10 @@ int main(void)
     PrintGraph(GM);
 
     add_edge(0,1,string("u"),HM);
-    add_edge(1,2,string("v"),HM);
-    add_edge(2,0,string("w"),HM);
-    add_edge(2,1,string("x"),HM);
-    add_edge(2,2,string("y"),HM);
+    add_edge(0,2,string("v"),HM);
+    add_edge(1,2,string("w"),HM);
+    add_edge(2,0,string("x"),HM);
+    add_edge(2,1,string("y"),HM);
 
 
     
@@ -124,38 +124,74 @@ int main(void)
 
    M = ProductGraph(GM,HM);
 
-    vector<graph_traits<Graph>::edge_descriptor> permTest(num_edges(M));
+    MP = ProductGraph(M,GM);
 
-    for(tie(ei,ei_end)=edges(N),i=0;ei!=ei_end;ei++,i++)
+    PM = ProductGraph(GM,M);
+
+    //    HG = ProductGraph(HM,GM);
+
+    PrintGraph(M);
+
+    PrintGraph(MP);
+
+    PrintGraph(PM);
+
+  /*  sequiv[string("xu")]=string("vz");
+    sequiv[string("yw")]=string("ux");
+    sequiv[string("xv")]=string("uy");
+    sequiv[string("zu")]=string("wx");
+    sequiv[string("zv")]=string("wy");
+*/
+  //  Textile T = FromSSE(GM,HM,sequiv);
+
+//    PrintFullTextileInfo(T);
+
+    vector<graph_traits<Graph>::edge_descriptor> permTest(num_edges(MP));
+
+    for(tie(ei,ei_end)=edges(PM),i=0;ei!=ei_end;ei++,i++)
     {
         permTest[i]=*ei;
     } 
 
     auto start = permTest.begin(),finish = permTest.end();
     do {
-        for(tie(ei,ei_end)=edges(M),tie(fi,fi_end)=edges(N),i=0;ei!=ei_end;ei++,i++,fi++)
+        for(tie(ei,ei_end)=edges(MP),tie(fi,fi_end)=edges(PM),i=0;ei!=ei_end;ei++,i++,fi++)
         {
       //  cout<< MP_ename(*ei) << " and " << PM_ename(*fi) << " and " << PM_ename(permTest[i]) << endl;
-            sequiv[M_ename(*ei)]=N_ename(permTest[i]);
-       //    cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
+            sequiv[MP_ename(*ei)]=PM_ename(permTest[i]);
+    //      cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
         } 
 
     //  cout << endl;
 
-        if(SEquivChecker(M,N,sequiv))
+        if(SEquivChecker(MP,PM,sequiv))
         {
            /* if(j==5046)
             { */
                 cout << "Beginning printing the " << j << "th SE " << endl;
-                for(tie(ei,ei_end)=edges(M),i=0;ei!=ei_end;ei++,i++) {
-                    cout << M_ename(*ei) << " -> " << sequiv[M_ename(*ei)] << endl;
+                for(tie(ei,ei_end)=edges(MP),i=0;ei!=ei_end;ei++,i++) {
+                    cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
                 }
                 cout << "Printing trimmed SSE textile" << endl;
-                Textile T = Trim(FromSSE(GM,HM,sequiv));
+                Textile T = Trim(FromSSE(M,GM,sequiv));
+
+    /*  
+    if(is1to1(T))
+      {
+        cout << "T is 1-1" << endl;
+        Textile Td = CreateDual(T);
+
+        PrintFullTextileInfo(Td);
+        cout << "Is Td 1-1?" << is1to1(Td) << endl;
+      }
+    else
+      {
+        cout << "T is not 1-1" << endl;
+      }*/
 
         for(k=-1; k>-3;k--)
         {
-            for(l=1; l<4; l++)
+            for(l=1; l<3; l++)
             {
                 Textile Tkl = AutoHomom(CreateNMTextile(T,k,l));
                 if(IsLR(Tkl))
@@ -173,7 +209,7 @@ int main(void)
                     PrintFullTextileInfo(Tkl,grid);
                     PrintFullTextileInfo(Tconj,grid);
                     stringstream filename;
-                    filename << "TbTBCONJUGACY" << j << k << l;
+                    filename << "TbTASquareCONJUGACY" << j << k << l;
                     OctaveOutput(Tconj,filename.str());
                 }
             } // l for loop

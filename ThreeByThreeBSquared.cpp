@@ -93,14 +93,13 @@ int main(void)
 
     GEI ei,ei_end,fi,fi_end;
 
-    ofstream grid("gridTbTB.txt"),loSEs("listOfSEsTbTB.txt");
+    ofstream grid("gridTbTBSquare.txt"),loSEs("listOfSEsTbTBSquare.txt");
 
-    add_edge(0,0,string("a"),GM);
-    add_edge(0,1,string("b"),GM);
-    add_edge(1,0,string("c"),GM);
-    add_edge(1,2,string("d"),GM);
-    add_edge(2,0,string("e"),GM);
-    add_edge(2,1,string("f"),GM);
+    add_edge(0,1,string("a"),GM);
+    add_edge(1,2,string("b"),GM);
+    add_edge(2,0,string("c"),GM);
+    add_edge(2,1,string("d"),GM);
+    add_edge(2,2,string("e"),GM);
 
 
     put(GM_vname,0,string("A"));
@@ -110,12 +109,11 @@ int main(void)
 
     PrintGraph(GM);
 
-    add_edge(0,0,string("u"),HM);
-    add_edge(0,1,string("v"),HM);
-    add_edge(1,0,string("w"),HM);
-    add_edge(1,2,string("x"),HM);
-    add_edge(2,0,string("y"),HM);
-    add_edge(2,1,string("z"),HM);
+    add_edge(0,1,string("u"),HM);
+    add_edge(1,2,string("v"),HM);
+    add_edge(2,0,string("w"),HM);
+    add_edge(2,1,string("x"),HM);
+    add_edge(2,2,string("y"),HM);
 
 
     
@@ -211,7 +209,7 @@ int main(void)
                     PrintFullTextileInfo(Tkl,grid);
                     PrintFullTextileInfo(Tconj,grid);
                     stringstream filename;
-                    filename << "TbTBCONJUGACY" << j << k << l;
+                    filename << "TbTBSquareCONJUGACY" << j << k << l;
                     OctaveOutput(Tconj,filename.str());
                 }
             } // l for loop

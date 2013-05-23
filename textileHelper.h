@@ -104,7 +104,6 @@ Textile CreateDual(Textile);
 bool checkNondegen(Graph);
 bool checkHomoms(Textile);
 Textile Trim(Textile T);
-Textile HigherBlock(Textile);
 Textile CreateInverse(Textile);
 Textile ProductTextile(Textile,Textile);
 bool IsLR(Textile);
@@ -139,7 +138,6 @@ bool hasCycleHelper(Graph&,GVD,colors*);
 void Analyzer(Textile);
 bool NewIsomLanguages(Textile);
 Textile DirectSum(Textile,Textile);
-Textile DFAMinimization(Textile);
 Textile Composition(Textile,Textile);
 Textile LookForConjugacy(Textile,int, bool*, int start = 2);
 Textile CompositionPower(Textile, int);
@@ -157,5 +155,6 @@ Textile NewDFAMinimization(Textile &);
 Partition InitialPartition(Textile &);
 Partition Intersection(vColl, vColl);
 vColl deltaInv(vColl, string, GammaGraph &);
+//Textile TrimByREI(Textile &);
 
 #endif

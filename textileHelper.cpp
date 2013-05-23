@@ -117,6 +117,13 @@ typedef graph_traits<Graph>::edge_iterator GEI;
 typedef graph_traits<Graph>::vertex_descriptor GVD;
 typedef graph_traits<GammaGraph>::vertex_descriptor VD;
 
+typedef property_map<GammaGraph,edge_p_homom_t>::type edge_p_type;
+typedef property_map<GammaGraph,edge_q_homom_t>::type edge_q_type;
+typedef property_map<Graph,edge_name_t>::type g_edge_name_type;
+typedef property_map<GammaGraph,vertex_name_t>::type gamma_vertex_name_type;
+typedef property_map<Graph,vertex_name_t>::type g_vertex_name_type;
+
+
 // A vertex collection is a set of vertex descriptors
 typedef set<graph_traits<GammaGraph>::vertex_descriptor> vColl;
 
@@ -393,7 +400,7 @@ Textile ProductTextile(Textile T, Textile S)
     // We need to make sure our graphs are compatible
     for(tie(tgvi,tgvi_end)=vertices(T.second);tgvi!=tgvi_end;tgvi++)
     {
-        cout << "We're in the for loop" << endl;
+    //    cout << "We're in the for loop" << endl;
         graph_traits<GammaGraph>::vertex_descriptor currV=*tgvi;
         if(num_vertices(T.first)!= num_vertices(S.first) || num_vertices(T.second) != num_vertices(S.second) 
            || p_Tvhom(currV) != p_Svhom(currV) || q_Tvhom(currV) != q_Svhom(currV) 
@@ -403,7 +410,7 @@ Textile ProductTextile(Textile T, Textile S)
             return Textile(GammaProd,GProd);
         }
         else {
-            cout << "We can make a product! Yay!" << endl;
+//            cout << "We can make a product! Yay!" << endl;
         }
     }
     
@@ -573,7 +580,7 @@ bool checkHomoms(Textile T)
     
     return true;
 }
-
+/*
 Textile Trim(Textile T)
 {
     Textile Trimmed=T;
@@ -610,124 +617,124 @@ Textile Trim(Textile T)
     
     stack<VD> toCheck;  
 
-	cout << "Our starting graph has " << num_edges(Trimmed.first) << " edges and " << num_vertices(Trimmed.first) << " vertices." << endl; 
+    cout << "Our starting graph has " << num_edges(Trimmed.first) << " edges and " << num_vertices(Trimmed.first) << " vertices." << endl; 
 
     time(&start);
     do{
       j++;
       if(j % 100 == 0)
-	{
-	  time(&end);
-	  dif = difftime(end,start);
-	  time(&start);
-	  N = j/100;
-	  average = (((N-1)*average)+dif)/N;
-	  cout << "On round " << j << " deleted at least " << delcount << " edges so far. The last round took " 
-	       << dif << " seconds, and the average time is " << average << " seconds." <<  '\r';
-	  cout.flush();
-	} 
-      stable = true;
-      done = false;
-      
-      // Check for sinks 
-      for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end && !done; vi++)
-        {
+      {
+         time(&end);
+         dif = difftime(end,start);
+         time(&start);
+         N = j/100;
+         average = (((N-1)*average)+dif)/N;
+         cout << "On round " << j << " deleted at least " << delcount << " edges so far. The last round took " 
+         << dif << " seconds, and the average time is " << average << " seconds." <<  '\r';
+         cout.flush();
+     } 
+     stable = true;
+     done = false;
+
+      // Check for sinks and sources
+     for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end && !done; vi++)
+     {
 	  //	cout << "We are checking " << vname(*vi) << endl;
-	  if(out_degree(*vi,Trimmed.first)==0 || in_degree(*vi,Trimmed.first)==0)
-            {
+         if(out_degree(*vi,Trimmed.first)==0 || in_degree(*vi,Trimmed.first)==0)
+         {
 	      //   cout << "The vertex " << vname(*vi) << "is a sink or a source" << endl;
-	      clear_vertex(*vi,Trimmed.first);
-	      remove_vertex(*vi,Trimmed.first);
-	      stable = false;
-	      done=true;
-	      break;
-            }
+             clear_vertex(*vi,Trimmed.first);
+             remove_vertex(*vi,Trimmed.first);
+             stable = false;
+             done=true;
+             break;
+         }
 	  //	cout << "It's not." << endl;
-        }
-      if(!done)
-        {
+     }
+     if(!done)
+     {
 	  //	cout << "Starting ends loop" << endl;
-	  for(tie(ei,ei_end)=edges(Trimmed.first); ei != ei_end && !done; ++ei) {
+         for(tie(ei,ei_end)=edges(Trimmed.first); ei != ei_end && !done; ++ei) {
 	    //  cout << "Checking " << ename(*ei) << " for ends" << endl;
-	    for(tie(fi,fi_end)=edges(Trimmed.first); fi != fi_end; ++fi) {
-	      
-	      if(source(*ei,Trimmed.first)==target(*fi,Trimmed.first)) {
-		isEndIT=false;
-	      }
-              
-	      if(target(*ei,Trimmed.first)==source(*fi,Trimmed.first)) {
-		isEndTI=false;
-	      }
-              
-	      if(p_homom(*ei)==q_homom(*fi)) {
-		isEndPQ=false;
-	      }
-              
-	      if(q_homom(*ei)==p_homom(*fi)) {
-		isEndQP=false;
-	      }
-	    }
-	    if(isEndIT || isEndTI || isEndPQ || isEndQP) {
-	      VD s=source(*ei,Trimmed.first),t=target(*ei,Trimmed.first);
-	      toCheck.push(s);
-	      toCheck.push(t);
+           for(tie(fi,fi_end)=edges(Trimmed.first); fi != fi_end; ++fi) {
+
+             if(source(*ei,Trimmed.first)==target(*fi,Trimmed.first)) {
+              isEndIT=false;
+          }
+
+          if(target(*ei,Trimmed.first)==source(*fi,Trimmed.first)) {
+              isEndTI=false;
+          }
+
+          if(p_homom(*ei)==q_homom(*fi)) {
+              isEndPQ=false;
+          }
+
+          if(q_homom(*ei)==p_homom(*fi)) {
+              isEndQP=false;
+          }
+      }
+      if(isEndIT || isEndTI || isEndPQ || isEndQP) {
+         VD s=source(*ei,Trimmed.first),t=target(*ei,Trimmed.first);
+         toCheck.push(s);
+         toCheck.push(t);
 	      //            cout << "Removed Edge (" << s << ", "
 	      //            << t << ")" << " named " << ename(*ei) << endl;
-	      remove_edge(*ei,Trimmed.first);
-	      delcount++;
-	      done = true;
-	      stable = false;
+         remove_edge(*ei,Trimmed.first);
+         delcount++;
+         done = true;
+         stable = false;
 	      // the goal of this inner while loop is to check to see if we've just created a dead end for the surrounding vertices.
-	      while(!toCheck.empty())
-		{
-		  VD currv = toCheck.top();
-		  toCheck.pop();
-                  
-		  if(out_degree(currv,Trimmed.first)==0 && in_degree(currv,Trimmed.first)!=0)
-		    {
-		      for(tie(iei,iei_end)=in_edges(currv,Trimmed.first);iei!=iei_end;iei++)
-			{
-			  VD sour = source(*iei,Trimmed.first);
-			  toCheck.push(sour);
-			}
-		      delcount += in_degree(currv,Trimmed.first);
-		      //                  cout << "Clearing " << currv << endl;
-		      clear_vertex(currv,Trimmed.first);
-		    }
-		  else if(out_degree(currv,Trimmed.first)!=0 && in_degree(currv,Trimmed.first)==0)
-		    {
-		      for(tie(oei,oei_end)=out_edges(currv,Trimmed.first);oei!=oei_end;oei++)
-			{
-			  VD tar = target(*oei,Trimmed.first);
-			  toCheck.push(tar);
-			}
-		      delcount += out_degree(currv,Trimmed.first);
-		      //                  cout << "Clearing " << currv << endl;
-		      clear_vertex(currv,Trimmed.first);
-		    }
-		  
-		}
-	    }
-	    isEndIT=true;
-	    isEndTI=true;
-	    isEndPQ=true;
-	    isEndQP=true;
-	  }
-	  //	cout << "Done with the ends, checking for empty vertices" << endl;
-	  if(!done)
+         while(!toCheck.empty())
+         {
+            VD currv = toCheck.top();
+            toCheck.pop();
+
+            if(out_degree(currv,Trimmed.first)==0 && in_degree(currv,Trimmed.first)!=0)
             {
-	      for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end && !done; vi++)
+                for(tie(iei,iei_end)=in_edges(currv,Trimmed.first);iei!=iei_end;iei++)
                 {
-		  if(out_degree(*vi,Trimmed.first)==0 && in_degree(*vi,Trimmed.first)==0)
-                    {
-		      remove_vertex(*vi,Trimmed.first);
-		      done = true;
-		      stable = false;
-                    }
-                }
-            }
-        }
-      
+                   VD sour = source(*iei,Trimmed.first);
+                   toCheck.push(sour);
+               }
+               delcount += in_degree(currv,Trimmed.first);
+		      //                  cout << "Clearing " << currv << endl;
+               clear_vertex(currv,Trimmed.first);
+           }
+           else if(out_degree(currv,Trimmed.first)!=0 && in_degree(currv,Trimmed.first)==0)
+           {
+            for(tie(oei,oei_end)=out_edges(currv,Trimmed.first);oei!=oei_end;oei++)
+            {
+               VD tar = target(*oei,Trimmed.first);
+               toCheck.push(tar);
+           }
+           delcount += out_degree(currv,Trimmed.first);
+		      //                  cout << "Clearing " << currv << endl;
+           clear_vertex(currv,Trimmed.first);
+       }
+
+   }
+}
+isEndIT=true;
+isEndTI=true;
+isEndPQ=true;
+isEndQP=true;
+}
+	  //	cout << "Done with the ends, checking for empty vertices" << endl;
+if(!done)
+{
+ for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end && !done; vi++)
+ {
+    if(out_degree(*vi,Trimmed.first)==0 && in_degree(*vi,Trimmed.first)==0)
+    {
+        remove_vertex(*vi,Trimmed.first);
+        done = true;
+        stable = false;
+    }
+}
+}
+}
+
     } while(!stable); // do while statement (don't panic)
     
     // Now that we have trimmed the GammaGraph, we need to check the downstairs Graph
@@ -854,123 +861,7 @@ Textile Trim(Textile T)
     
     return Trimmed;
 }
-
-Textile HigherBlock(Textile T)
-{
-    int sizeOfAG = num_edges(T.second);
-    int sizeOfAGamma = num_edges(T.first);
-    int i;
-    
-    Graph GTwo(sizeOfAG);
-    GammaGraph GammaTwo(sizeOfAGamma);
-    
-    VertexMap vmap,xmap;
-    
-    property_map<Graph,edge_name_t>::type
-    g_name = get(edge_name,T.second);
-    
-    property_map<GammaGraph,edge_name_t>::type
-    gamma_name = get(edge_name,T.first);
-    
-    property_map<Graph,vertex_name_t>::type
-    gtwo_vname = get(vertex_name,GTwo);
-    
-    property_map<GammaGraph,vertex_name_t>::type
-    gammatwo_vname = get(vertex_name,GammaTwo);
-    
-    property_map<GammaGraph,edge_p_homom_t>::type
-    p_homom = get(edge_p_homom,T.first);
-    
-    property_map<GammaGraph,edge_q_homom_t>::type
-    q_homom = get(edge_q_homom,T.first);
-    
-    property_map<GammaGraph,vertex_p_vhomom_t>::type
-    tp_vhom = get(vertex_p_vhomom,GammaTwo);
-    
-    property_map<GammaGraph,vertex_q_vhomom_t>::type
-    tq_vhom = get(vertex_q_vhomom,GammaTwo);
-    
-    graph_traits<Graph>::vertex_iterator vi,vi_end;
-    graph_traits<Graph>::edge_iterator ei,ei_end;
-    graph_traits<Graph>::out_edge_iterator fi,fi_end,gi,gi_end;
-    VertexMap::iterator vmi,wmi,xmi,ymi;
-    
-    graph_traits<GammaGraph>::vertex_iterator gvi,gvi_end;
-    graph_traits<GammaGraph>::edge_iterator gei,gei_end;
-    graph_traits<GammaGraph>::out_edge_iterator gfi,gfi_end,ggi,ggi_end;
-    
-    // Populate our VertexMap
-    for(tie(ei,ei_end)=edges(T.second), i=0; ei!=ei_end; ++ei,i++)
-    {
-        vmap.insert(VertexMap::value_type(g_name(*ei),i));
-        put(gtwo_vname,i,g_name(*ei));
-    }
-    
-    // Fill the edges of GTwo
-    for(tie(vi,vi_end)=vertices(T.second); vi!=vi_end; ++vi)
-    {
-        for(tie(fi,fi_end)=out_edges(*vi,T.second); fi!=fi_end;++fi)
-        {
-            for(tie(gi,gi_end)=out_edges(target(*fi,T.second),T.second);
-                gi!=gi_end;
-                ++gi)
-            {
-                vmi=vmap.find(g_name(*fi));
-                wmi=vmap.find(g_name(*gi));
-                
-                add_edge(vmi->second,
-                         wmi->second,
-                         Name(g_name(*fi)+g_name(*gi)),
-                         GTwo);
-            }
-            
-        }
-        
-    }
-    
-    
-    // Populate our second VertexMap and the Vertex Homoms
-    for(tie(gei,gei_end)=edges(T.first), i=0; gei!=gei_end; ++gei,i++)
-    {
-        xmap.insert(VertexMap::value_type(gamma_name(*gei),i));
-        vmi=vmap.find(p_homom(*gei));
-        wmi=vmap.find(q_homom(*gei));
-        
-        put(gammatwo_vname,i,gamma_name(*gei));
-        put(tp_vhom,i,vmi->second);
-        put(tq_vhom,i,wmi->second);
-    }
-    
-    
-    // Fill the edges of GTwo
-    for(tie(gvi,gvi_end)=vertices(T.first); gvi!=gvi_end; ++gvi)
-    {
-        for(tie(gfi,gfi_end)=out_edges(*gvi,T.first); gfi!=gfi_end;++gfi)
-        {
-            for(tie(ggi,ggi_end)=out_edges(target(*gfi,T.first),T.first);
-                ggi!=ggi_end;
-                ++ggi)
-            {
-                xmi=xmap.find(gamma_name(*gfi));
-                ymi=xmap.find(gamma_name(*ggi));
-                
-                add_edge(xmi->second,
-                         ymi->second,
-                         PQ_Homoms(p_homom(*gfi)+p_homom(*ggi),
-                                   Q_Homom(q_homom(*gfi)+q_homom(*ggi),
-                                           Name(gamma_name(*gfi)+gamma_name(*ggi)))),
-                         GammaTwo);
-                //     cout << "Created edge: " << gamma_name(*gfi)+gamma_name(*ggi) << endl;
-            }
-            
-        }
-        
-    }
-    
-    
-    
-    return Textile(GammaTwo,GTwo);
-}
+*/
 
 bool IsLR(Textile T)
 {
@@ -1563,7 +1454,7 @@ int IspLeftDefinite(Textile T)
     graph_traits<GammaGraph>::vertex_iterator vi,vi_end;
     graph_traits<GammaGraph>::in_edge_iterator oei,oei_end;
     graph_traits<Graph>::in_edge_iterator goei,goei_end;
-    bool done, found, firstfound;
+    bool firstfound;
     stack<sPair> prodStack;
     
     // The production rules depend only on the type. They can be generated by looking at the out edges
@@ -2259,12 +2150,12 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
     
     VertexMap vmap;
     
-    cout << "Printing E, the state equivalences" << endl;
+  /*  cout << "Printing E, the state equivalences" << endl;
     for(unsigned int i=0; i<E.size();i++)
     {
         printVVec(E[i]);
         cout << endl;
-    }
+    } */
     
     // We need to check to make sure our equivalence relation E is actually a state equivalence    
      for(unsigned int i=0;i<E.size();i++)
@@ -2363,7 +2254,7 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
         put(q_vhom,*vi,Tq_vhom(currE[0]));
     }
     
-    cout << "Made it through the naming process" << endl;
+ //   cout << "Made it through the naming process" << endl;
     
     // Now we can actually create our quotient system
     for(tie(vi,vi_end)=vertices(Gamma),i=0; vi!=vi_end; vi++, i++)
@@ -2372,7 +2263,7 @@ Textile Quotient(Textile T, vector<vector<VD> > E)
         map<pair<graph_traits<GammaGraph>::vertex_descriptor,string>,bool>::iterator it;
         
         
-    //    cout << "Starting the " << i << "th round" << endl;
+        cout << "Starting the " << i << "th round" << '\r';
         
         currE=E[i];
         
@@ -2764,7 +2655,7 @@ Textile inducedRp(Textile T)
         }
     }
 
-	cout << "We have " << toDelete.size() << " vectors to delete" << endl;
+//	cout << "We have " << toDelete.size() << " vectors to delete" << endl;
     
     for(tdi=toDelete.begin(); tdi!=toDelete.end(); tdi++)
     {
@@ -2773,7 +2664,7 @@ Textile inducedRp(Textile T)
     }
     
     
-     cout << "Our final Seen consists of:";
+   //  cout << "Our final Seen consists of:";
     
     for(si=seen.begin(); si != seen.end(); si++)
     {
@@ -2783,7 +2674,7 @@ Textile inducedRp(Textile T)
         string vname;
         VVec curr=*si;
         
-               printVVec(curr);
+     //          printVVec(curr);
         vname = ssVVec(curr);
         put(gamma_vname,v,vname);
         
@@ -3200,170 +3091,7 @@ Textile DirectSum(Textile S,Textile T)
     return Textile(Sum,S.second);
 }
 
-/*
- *  This function actual performs the DFA minimization on the p map, which is assumed to be right resolving.
- */
-Textile DFAMinimization(Textile T)
-{
-    // N is the size of the longest word we need to check when looking at distinguishing states
-    int N,i,j,numStates=num_vertices(T.first),blocksize,maxSoFar=0;
-    GammaEI ei,ei_end;
-    GammaOEI oei,oei_end,ofi,ofi_end;
-    bool dble,found,seenlast=false,unnec;
-    vector<VD>::iterator it;
-    vector< vector<VD> >::iterator vit;
-    
-    property_map<GammaGraph,edge_p_homom_t>::type
-    p_homom = get(edge_p_homom,T.first);
-    
-    
-    if(!IspRightResolving(T)) {
-        cout << "The given p map is not right resolving we have returned the original textile" << endl;
-        SmartPrintTextileInfo(T);
-        return T;
-    }
 
-
-    
-    if(numStates-2 < 1) {
-        N = 1;
-    }
-    else {
-        N = numStates - 2;
-    }
-    
-    tie(ei,ei_end) = edges(T.first);
-    blocksize = p_homom(*ei).size();
-    
-    vector< vector<VD> > stateEquiv;
-    
-    PrintFullTextileInfo(T);
-    
-    for(i=0;i<numStates-1;i++) {
-        unnec = false;
-        for(vit=stateEquiv.begin(); vit < stateEquiv.end(); vit++)
-        {
-            for(it=(*vit).begin(); it < (*vit).end(); it++)
-            {
-                if(*it == i)
-                {
-         //           cout << *it << " is unneccesary, skipping" << endl;
-                    unnec = true;
-                }
-            }
-        }
-        if(!unnec) {
-            vector<VD> EquivForI;  
-            EquivForI.push_back(i);
-            
-            for(j=i+1;j<numStates;j++) {
-                dble = false;
-                
-                // Here we check to see if states i and j are equivalent
-                cout << "Checking if " << i << " and " << j << " are equivalent." << endl;
-                // Iterate through words of length k in a breadth first search
-                
-                maxSoFar = 1;
-
-                priority_queue<PQOEIElement,vector<PQOEIElement>,pqcomparison> OEIPQ;
-                
-                tie(oei,oei_end)=out_edges(i,T.first);           
-                //   tie(ofi,ofi_end)=out_edges(j,T.first);
-                
-                //   cout << "Pushing " << 0 << ", i = " << i << ", j = " << j << ", phomom(oei) = " << p_homom(*oei) << endl; 
-                OEIPQ.push(PQOEIElement(0,i,j));
-                
-                while(!OEIPQ.empty() && !dble)
-                {
-                    PQOEIElement current = OEIPQ.top();
-                    OEIPQ.pop();
-                   //   cout << "Popped: k = " << get<0>(current) << ", i = " << get<1>(current) 
-		           //  << ", j = " << get<2>(current) << endl;
-                    
-                    // Make sure both vertices have the same out degree.
-                    if(out_degree(get<1>(current),T.first) != out_degree(get<2>(current),T.first))
-                    {
-                     cout << "Different out degrees" << endl;
-                        dble = true;
-                    } // if
-                    else {
-                        for(tie(oei,oei_end)=out_edges(get<1>(current),T.first); oei != oei_end; oei++)
-                        {
-                            found = false;
-                            for(tie(ofi,ofi_end)=out_edges(get<2>(current),T.first); ofi != ofi_end; ofi++)
-                            {
-                                if(p_homom(*ofi) == p_homom(*oei))
-                                {
-                                    found = true;
-                              //     cout << "Found a match for " << p_homom(*oei) <<endl;
-                                    if(get<0>(current) < N && target(*oei,T.first) != target(*ofi,T.first)) { 
-				     //      cout << "Pushing: k = " << get<0>(current)+1 << ", i = " << target(*oei,T.first)
-				     //       << ", j = " << target(*ofi,T.first) << endl;
-                                            if(get<0>(current)+1 > maxSoFar)
-                                            {
-                                                maxSoFar = get<0>(current)+1;
-                                                cout << "Max so far is now = " << maxSoFar << endl;
-                                            }
-	           			                    OEIPQ.push(PQOEIElement(get<0>(current)+1,target(*oei,T.first),target(*ofi,T.first)));
-                                    }
-                                    break;
-                                } // if p = p
-                                
-                            } // for ofi
-                            if(!found) {
-                                //         cout << "Did not find a match. They are distinguisable" << endl;
-                                dble = true;
-                            }// if !found
-                        } // for oei
-                        // Now we have to find a match for i and j
-                    } // else
-                    
-                } // while
-                
-                if(!dble)
-                {
-                    //             cout << "We have created an entry in stateEquiv for " << i << ", " << j << endl;
-                    EquivForI.push_back(j);
-                    if(j==numStates-1)
-                    {
-                        seenlast=true;
-                    }
-                }
-                
-            } // for j
-            
-     //       cout << "State equivalences for " << i << " are : ";
-            for(it=EquivForI.begin(); it < EquivForI.end(); it++)
-            {
-      //          cout << *it << ", ";
-            }
-            
-            stateEquiv.push_back(EquivForI);
-            
-            // Now we need to search through the previous entries
-            
-            
-    //        cout << endl;
-        } // if unnec
-    } // for i
-    
-    if(!seenlast)
-    {
-        stateEquiv.push_back(vector<VD>(1,numStates-1));
-    }
-    
-    for(vit=stateEquiv.begin(); vit < stateEquiv.end(); vit++)
-    {
-   //     cout << "State equiv contains: ";
-        for(it = (*vit).begin(); it < (*vit).end(); it++)
-        {
-  //          cout << *it << ", ";
-        }
- //       cout << endl;
-    }
-    
-    return Quotient(T,stateEquiv);
-}
 
 Textile Composition(Textile S, Textile T)
 {
@@ -3377,7 +3105,7 @@ Textile LookForConjugacy(Textile T, int MAX, bool* found, int start)
     bool TND,TOO,NND,NOO,DOO,DND;
     int i;
     // We first check that T is nondegenerate
-    cout << "We are looking for conjugacy and so are going to print T" << endl;
+    cout << "We are looking for conjugacy of T and so are going to print T" << endl;
     SmartPrintTextileInfo(T);
     
     cout << "Checking to see if T is nondegenerate" << endl;
@@ -3400,12 +3128,13 @@ Textile LookForConjugacy(Textile T, int MAX, bool* found, int start)
             {
                 if(is1to1(TD))
                 {
-                    cout << "TD is good to go already" << endl;
+                    cout << "The Dual of T is already nondegenerate, so it is subshift identified" << endl;
+                    *found = true;
                     return T;
                 }
             }
             else{
-                cout << "TD is not nondegenerate" << endl;
+                cout << "The Dual of T is not nondegenerate" << endl;
                 for(i=start;i<MAX;i++)
                 {
                     cout << "We are starting to look at trim((T*)^[" << i << "])*" << endl;
@@ -4148,78 +3877,78 @@ Textile ArrayTrim(Textile T)
   cout << "Original T.first had " << num_edges(T.first) << " edges and " << num_vertices(T.first) << endl;
   
   do {
-    
+
     // checking for dead vertices
     do
-      {
-	vertcount=0;
-	for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end; vi++)
-	  {
-	    if(out_degree(*vi,Trimmed.first)==0 || in_degree(*vi,Trimmed.first)==0)
-	      {
+    {
+       vertcount=0;
+       for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end; vi++)
+       {
+           if(out_degree(*vi,Trimmed.first)==0 || in_degree(*vi,Trimmed.first)==0)
+           {
 		//					cout << "Deleting vertex " << *vi << endl;
-		clear_vertex(*vi,Trimmed.first);
-		remove_vertex(*vi,Trimmed.first);
-		vertcount++;
-		break;
-	      }
+              clear_vertex(*vi,Trimmed.first);
+              remove_vertex(*vi,Trimmed.first);
+              vertcount++;
+              break;
+          }
 	  } // for vi
-      } while(vertcount>0);
-    
-    
-    roundcount = 0;
+  } while(vertcount>0);
+
+
+  roundcount = 0;
     // First we'll populate the sets with the current version of Trimmed.	
-    cout << "Creating the sets" << endl;
-    for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
-      {
-	
-	iAGamma.insert(source(*ei,Trimmed.first));
-	tAGamma.insert(target(*ei,Trimmed.first));
-	pAGamma.insert(p_homom(*ei));
-	qAGamma.insert(q_homom(*ei));
-      }
-    
-    cout << "iAGamma size is " << iAGamma.size() << endl;
-    cout << "Sets created, moving on to removed while loop" << endl;	
-    
+  cout << "Creating the sets" << endl;
+  for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
+  {
+
+   iAGamma.insert(source(*ei,Trimmed.first));
+   tAGamma.insert(target(*ei,Trimmed.first));
+   pAGamma.insert(p_homom(*ei));
+   qAGamma.insert(q_homom(*ei));
+}
+
+cout << "iAGamma size is " << iAGamma.size() << endl;
+cout << "Sets created, moving on to removed while loop" << endl;	
+
     // Now that we've populated the sets, we can go through the edges and check their properties.
-    while(removed) {
+while(removed) {
       //cout << "Back in removed while loop" << endl; 
-      removed = false;
-      for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
-	{
-	  if(iAGamma.find(target(*ei,Trimmed.first))==iAGamma.end())
-	    {
+  removed = false;
+  for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
+  {
+     if(iAGamma.find(target(*ei,Trimmed.first))==iAGamma.end())
+     {
 	      //cout << "Deleting edge from " << source(*ei,Trimmed.first) << " to " << target(*ei,Trimmed.first) << endl;
-	      roundcount++;
-	      removed = true;
-	      remove_edge(*ei,Trimmed.first);
-	      break;
-	    }
-	  if(tAGamma.find(source(*ei,Trimmed.first))==tAGamma.end())
-	    {
+         roundcount++;
+         removed = true;
+         remove_edge(*ei,Trimmed.first);
+         break;
+     }
+     if(tAGamma.find(source(*ei,Trimmed.first))==tAGamma.end())
+     {
 	      //cout << "Deleting edge from " << source(*ei,Trimmed.first) << " to " << target(*ei,Trimmed.first) << endl;
-	      roundcount++;
-	      removed = true;
-	      remove_edge(*ei,Trimmed.first);
-	      break;
-	    }
-	  if(pAGamma.find(q_homom(*ei))==pAGamma.end())
-	    {
+         roundcount++;
+         removed = true;
+         remove_edge(*ei,Trimmed.first);
+         break;
+     }
+     if(pAGamma.find(q_homom(*ei))==pAGamma.end())
+     {
 	      //cout << "Deleting edge from " << source(*ei,Trimmed.first) << " to " << target(*ei,Trimmed.first) << endl;
-	      roundcount++;
-	      removed = true;
-	      remove_edge(*ei,Trimmed.first);
-	      break;
-	    }
-	  if(qAGamma.find(p_homom(*ei))==qAGamma.end())
-	    {
+         roundcount++;
+         removed = true;
+         remove_edge(*ei,Trimmed.first);
+         break;
+     }
+     if(qAGamma.find(p_homom(*ei))==qAGamma.end())
+     {
 	      //cout << "Deleting edge from " << source(*ei,Trimmed.first) << " to " << target(*ei,Trimmed.first) << endl;
-	      roundcount++;
-	      removed = true;
-	      remove_edge(*ei,Trimmed.first);
-	      break;
-	    }
+         roundcount++;
+         removed = true;
+         remove_edge(*ei,Trimmed.first);
+         break;
+     }
 	} // for ei
     } // while
     
@@ -4227,84 +3956,84 @@ Textile ArrayTrim(Textile T)
     
     // checking for dead vertices
     do
-      {
-	vertcount=0;
-	for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end; vi++)
-	  {
-	    if(out_degree(*vi,Trimmed.first)==0 || in_degree(*vi,Trimmed.first)==0)
-	      {
+    {
+       vertcount=0;
+       for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end; vi++)
+       {
+           if(out_degree(*vi,Trimmed.first)==0 || in_degree(*vi,Trimmed.first)==0)
+           {
 		//					cout << "Deleting vertex " << *vi << endl;
-		clear_vertex(*vi,Trimmed.first);
-		remove_vertex(*vi,Trimmed.first);
-		vertcount++;
-		break;
-	      }
+              clear_vertex(*vi,Trimmed.first);
+              remove_vertex(*vi,Trimmed.first);
+              vertcount++;
+              break;
+          }
 	  } // for vi
-      } while(vertcount>0);
-    cout << "Roundcount is " << roundcount << endl;
+  } while(vertcount>0);
+  cout << "Roundcount is " << roundcount << endl;
     //	cout << "Clearing sets" << endl;
-    
-    iAGamma.clear();
-    tAGamma.clear();
-    pAGamma.clear();
-    qAGamma.clear();
-    
-    
-  } while(roundcount > 0);
-  
+
+  iAGamma.clear();
+  tAGamma.clear();
+  pAGamma.clear();
+  qAGamma.clear();
+
+
+} while(roundcount > 0);
+
   // Now that we have trimmed the GammaGraph, we need to check the downstairs Graph
   // First, we check for dead edges
-  while(!stable)
-    {
-      stable = true;
-      for(tie(gei,gei_end)=edges(Trimmed.second);gei!=gei_end; gei++)
-        {
-	  found = false;
-	  for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
-            {
-	      if(p_homom(*ei) == gename(*gei) || q_homom(*ei) == gename(*gei))
-                {
-		  found = true;
-		  break;
+while(!stable)
+{
+  stable = true;
+  for(tie(gei,gei_end)=edges(Trimmed.second);gei!=gei_end; gei++)
+  {
+     found = false;
+     for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
+     {
+         if(p_homom(*ei) == gename(*gei) || q_homom(*ei) == gename(*gei))
+         {
+            found = true;
+            break;
                 } // if
             } // for ei
-	  if(!found)
+            if(!found)
             {
-	      stable = false;
-	      remove_edge(*gei,Trimmed.second);
-	      break;
+             stable = false;
+             remove_edge(*gei,Trimmed.second);
+             break;
             } // if found 
         } // for gei
     }
-  
-  cout << "Done removing downstairs edges" << endl;
-  
+
+    cout << "Done removing downstairs edges" << endl;
+
   // Now we check for dead vertices
-  stack<GVD> toDel;
-  
-  for(tie(gvi,gvi_end)=vertices(Trimmed.second); gvi!=gvi_end; gvi++)
+    stack<GVD> toDel;
+
+    for(tie(gvi,gvi_end)=vertices(Trimmed.second); gvi!=gvi_end; gvi++)
     {
       bool found=false;
       
       for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end; vi++)
-        {
-	  if(p_vhom(*vi) == *gvi || q_vhom(*vi) == *gvi)
-            {
-	      found = true;
-	      break;
-            } 
+      {
+         if(p_vhom(*vi) == *gvi || q_vhom(*vi) == *gvi)
+         {
+             found = true;
+             break;
+         } 
         } // for vi
-      if(!found)
+        if(!found)
         {
-	  toDel.push(*gvi);
+         toDel.push(*gvi);
         } // if !found
     }
-  
-  if(!toDel.empty()) {
-    needToCheckVhoms = true;
-  }
-  
-  while(!toDel.empty())
+
+    if(!toDel.empty()) {
+        needToCheckVhoms = true;
+    }
+
+    while(!toDel.empty())
     {
       GVD u = toDel.top();
       toDel.pop();
@@ -4313,77 +4042,77 @@ Textile ArrayTrim(Textile T)
       remove_vertex(u,Trimmed.second);
       
       //   cout << "We have deleted " << u << " from G" << endl;
-    }
+  }
   
   cout << "Do we need to check vHoms? :" << needToCheckVhoms << endl;
   
   cout << "Original T.first had " << num_edges(T.first) << " edges and " << num_vertices(T.first)
-       << " vertices, now has " << num_edges(Trimmed.first) << " edges and " << num_vertices(Trimmed.first) << endl;
+  << " vertices, now has " << num_edges(Trimmed.first) << " edges and " << num_vertices(Trimmed.first) << endl;
   
   cout << "Original T.second had " << num_edges(T.second) << " edges and " << num_vertices(T.second)
-       << " vertices, now has " << num_edges(Trimmed.second) << " edges and " << num_vertices(Trimmed.second) << endl;
+  << " vertices, now has " << num_edges(Trimmed.second) << " edges and " << num_vertices(Trimmed.second) << endl;
   
   
   if(needToCheckVhoms)
-    {
+  {
       for(tie(vi,vi_end)=vertices(Trimmed.first);vi!=vi_end;vi++)
-        {
-	  cout << "Out degree of vi is " << out_degree(*vi,Trimmed.first) << " and in degree is " << in_degree(*vi,Trimmed.first) << endl;
-	  tie(oei,oei_end)=out_edges(*vi,Trimmed.first);
-	  found = false;
-	  tie(gei,gei_end)=edges(Trimmed.second);
-	  while(!found)
-            {
-	      if(gei==gei_end)
-                {
-		  cout << "WE DIDN'T FIND A MATCH FOR A HOMOM AND AN G EDGE. THIS IS A BIG PROBLEM" << endl;
-		  return T;
-                }
-	      
-	      if(p_homom(*oei)==gename(*gei))
-                {
-		  found = true;
-		  put(p_vhom,*vi,source(*gei,Trimmed.second));
-		  cout << "Assigned " << source(*gei,Trimmed.second) << "as the p_vhom for " << *vi << endl;
-                }
-	      else {
-		gei++;
-	      }
+      {
+         cout << "Out degree of vi is " << out_degree(*vi,Trimmed.first) << " and in degree is " << in_degree(*vi,Trimmed.first) << endl;
+         tie(oei,oei_end)=out_edges(*vi,Trimmed.first);
+         found = false;
+         tie(gei,gei_end)=edges(Trimmed.second);
+         while(!found)
+         {
+             if(gei==gei_end)
+             {
+                cout << "WE DIDN'T FIND A MATCH FOR A HOMOM AND AN G EDGE. THIS IS A BIG PROBLEM" << endl;
+                return T;
             }
-	  
-	  found = false;
-          
-	  tie(gei,gei_end)=edges(Trimmed.second);
-	  while(!found)
+
+            if(p_homom(*oei)==gename(*gei))
             {
-	      if(gei==gei_end)
-                {
-		  cout << "WE DIDN'T FIND A MATCH FOR A HOMOM AND AN G EDGE. THIS IS A BIG PROBLEM" << endl;
-		  return T;
-                }
-	      
-	      if(q_homom(*oei)==gename(*gei))
-                {
-		  found = true;
-		  put(q_vhom,*vi,source(*gei,Trimmed.second));
-		  cout << "Assigned " << source(*gei,Trimmed.second) << "as the q_vhom for " << *vi << endl;
-		  
-                }
-	      else {
-		gei++;
-	      }
+                found = true;
+                put(p_vhom,*vi,source(*gei,Trimmed.second));
+                cout << "Assigned " << source(*gei,Trimmed.second) << "as the p_vhom for " << *vi << endl;
             }
-	  
+            else {
+              gei++;
+          }
+      }
+
+      found = false;
+
+      tie(gei,gei_end)=edges(Trimmed.second);
+      while(!found)
+      {
+         if(gei==gei_end)
+         {
+            cout << "WE DIDN'T FIND A MATCH FOR A HOMOM AND AN G EDGE. THIS IS A BIG PROBLEM" << endl;
+            return T;
         }
-      
-    }
-  
-  cout << "Original T.first had " << num_edges(T.first) << " edges and " << num_vertices(T.first)
-       << " vertices, now has " << num_edges(Trimmed.first) << " edges and " << num_vertices(Trimmed.first) << endl;
-  
-  cout << "Original T.second had " << num_edges(T.second) << " edges and " << num_vertices(T.second)
-       << " vertices, now has " << num_edges(Trimmed.second) << " edges and " << num_vertices(Trimmed.second) << endl;
-  
+
+        if(q_homom(*oei)==gename(*gei))
+        {
+            found = true;
+            put(q_vhom,*vi,source(*gei,Trimmed.second));
+            cout << "Assigned " << source(*gei,Trimmed.second) << "as the q_vhom for " << *vi << endl;
+
+        }
+        else {
+          gei++;
+      }
+  }
+
+}
+
+}
+
+cout << "Original T.first had " << num_edges(T.first) << " edges and " << num_vertices(T.first)
+<< " vertices, now has " << num_edges(Trimmed.first) << " edges and " << num_vertices(Trimmed.first) << endl;
+
+cout << "Original T.second had " << num_edges(T.second) << " edges and " << num_vertices(T.second)
+<< " vertices, now has " << num_edges(Trimmed.second) << " edges and " << num_vertices(Trimmed.second) << endl;
+
   return Trimmed;
   
 }
@@ -4498,9 +4227,9 @@ Textile NewInducedRp(Textile T)
     
     VertexMap vmap;
     
-    cout << "Gamma has " << num_vertices(Gamma) << " vertices" << endl;
+  //  cout << "Gamma has " << num_vertices(Gamma) << " vertices" << endl;
 
-    cout << "Our final Seen consists of:";
+  //  cout << "Our final Seen consists of:";
     
     for(li=cSets.begin(); li != cSets.end(); li++)
       {
@@ -4510,7 +4239,7 @@ Textile NewInducedRp(Textile T)
         string vname;
         VVec curr=*li;
         
-        printVVec(curr);
+  //      printVVec(curr);
         vname = ssVVec(curr);
         put(gamma_vname,v,vname);
         
@@ -4818,8 +4547,7 @@ bool SEquivChecker(Graph& GH, Graph& HG, std::unordered_map<string,string> sequi
 GammaGraph GraphTrim(GammaGraph &G)
 {
     GammaGraph Trimmed=G;
-    bool isEndIT=true,isEndTI=true,isEndPQ=true,isEndQP=true;
-    unsigned int i,j=0,delcount=0,N;
+    unsigned int j=0,delcount=0,N;
     //  vector<graph_traits<GammaGraph>::edge_descriptor> toDelete;
     vector<int> vertToDelete;
     bool done,stable;
@@ -4827,8 +4555,6 @@ GammaGraph GraphTrim(GammaGraph &G)
     double dif,average=0;
 
     graph_traits<Graph>::vertex_iterator vi,vi_end;
-
-    bool needToCheckVhoms=false,found=false,topStart=true;;
     
    // stack<VD> toCheck;  
 
@@ -4954,12 +4680,12 @@ Textile NewDFAMinimization(Textile& T)
 
     vector< vector< VD > > stateEquiv;
 
-    cout << "Final partition is ";
+//    cout << "Final partition is ";
 
     for(auto partIt = P.begin(); partIt != P.end(); partIt++)
     {
-        printVColl(*partIt);
-        cout << endl << (*partIt).size() << endl;
+  //      printVColl(*partIt);
+  //      cout << endl << (*partIt).size() << endl;
         vector<VD> currVD;
         for(auto setIt=partIt->begin(); setIt!=partIt->end(); setIt++)
         {
@@ -4968,7 +4694,7 @@ Textile NewDFAMinimization(Textile& T)
         printVVec(currVD);
         stateEquiv.push_back(currVD);
     }
-    cout << endl;
+  //  cout << endl;
 
 
     return Quotient(T,stateEquiv);
@@ -5051,4 +4777,194 @@ Partition Intersection(vColl P, vColl v)
 
 
     return Q;
+}
+
+template<typename name_e_type>
+class EtoRemove
+{
+public:
+    EtoRemove(const name_e_type& names,set<string> ss)
+    : g_names(names), setstr(ss) {}
+    
+    template<typename ED>
+    bool operator()(ED w) const { return setstr.find(g_names(w)) != setstr.end(); }
+
+private:
+    const name_e_type& g_names;
+    set<string>         setstr;
+};
+
+template<typename p_e_type,typename q_e_type>
+class PandQtoRemove
+{
+public:
+    PandQtoRemove(const p_e_type& plabels,const q_e_type& qlabels, set<string> ss)
+    : p_labels(plabels),q_labels(qlabels), setstr(ss) {}
+    
+    template<typename ED>
+    bool operator()(ED w) const { return (setstr.find(p_labels(w)) != setstr.end()  
+                                            || setstr.find(q_labels(w)) != setstr.end());}
+
+private:
+    const p_e_type& p_labels;
+    const q_e_type& q_labels;
+    set<string>         setstr;
+};
+
+/*
+* This version of trim uses the remove_edge_if command as opposed to the more naive looping
+* of the original trim.
+*/
+Textile Trim(Textile T)
+{
+    Textile Trimmed = T;
+
+    int j=0,N;
+    bool stable = true,done;
+
+    edge_p_type p_trimmed = get(edge_p_homom,Trimmed.first);
+    edge_q_type q_trimmed = get(edge_q_homom,Trimmed.first);
+    g_edge_name_type ge_trimmed = get(edge_name,Trimmed.second);
+    gamma_vertex_name_type gammav_trimmed = get(vertex_name,Trimmed.first);
+    g_vertex_name_type gv_trimmed = get(vertex_name,Trimmed.second);
+
+
+    time_t start,end;
+    double dif,average=0;
+
+    GammaEI ei,ei_end;
+    GammaVI vi,vi_end;
+    GVI gvi,gvi_end;
+    GEI gei,gei_end;
+
+    set<string> pset,qset,symdif,pqset,eset,sdtwo;
+
+    insert_iterator<set<string > > 
+    symdif_ins(symdif, symdif.begin()),sdtwo_ins(sdtwo,sdtwo.begin());
+
+ //   PorQtoRemove<edge_p_type> pqr(get(edge_p_homom,T.first),"AA");
+
+ //   remove_edge_if(pqr,Trimmed.first);
+
+    do{
+
+        j++;
+        if(j % 10 == 0)
+        {
+         time(&end);
+         dif = difftime(end,start);
+         time(&start);
+         N = j/10;
+         average = (((N-1)*average)+dif)/N;
+         cout << "On round " << j << " deleted at least " << num_edges(T.first) - num_edges(Trimmed.first) << " edges so far. The last round took " 
+                << dif << " seconds, and the average time is " << average << " seconds." <<  '\r';
+         cout.flush();
+        } 
+
+
+        stable = true;
+        symdif.clear();
+        pset.clear();
+        qset.clear();
+        pqset.clear();
+        eset.clear();
+        sdtwo.clear();
+        for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
+        {
+            pset.insert(p_trimmed(*ei));
+            qset.insert(q_trimmed(*ei));
+        }
+
+        set_symmetric_difference(pset.begin(),pset.end(),qset.begin(),qset.end(),symdif_ins);
+
+        if(symdif.size())
+        {
+            stable = false;
+            PandQtoRemove<edge_p_type,edge_q_type> pqr(p_trimmed,q_trimmed,symdif);
+            EtoRemove<g_edge_name_type> er(ge_trimmed,symdif);
+
+            remove_edge_if(pqr,Trimmed.first);
+            remove_edge_if(er,Trimmed.second);
+        cout << "We are removing " << endl;
+           copy(symdif.begin(),symdif.end(),ostream_iterator<string,char>(cout," "));
+           cout << endl;
+
+      //      PrintFullTextileInfo(Trimmed);
+        }
+        // Check for sinks and sources
+        do{
+            done = true;
+            for(tie(vi,vi_end)=vertices(Trimmed.first); vi!=vi_end && done; vi++)
+            {
+         //   cout << "We are checking " << gammav_trimmed(*vi) << endl;
+             if(out_degree(*vi,Trimmed.first)==0 || in_degree(*vi,Trimmed.first)==0)
+             {
+                //        cout << "The vertex " << gammav_trimmed(*vi) << " is a sink or a source" << endl;
+                 clear_vertex(*vi,Trimmed.first);
+                 remove_vertex(*vi,Trimmed.first);
+                 stable = false;
+                 done=false;
+                 break;
+             }
+      //    cout << "It's not." << endl;
+         }
+     } while(!done);
+
+
+     for(tie(ei,ei_end)=edges(Trimmed.first); ei!=ei_end; ei++)
+     {
+        pqset.insert(p_trimmed(*ei));
+    }
+
+    for(tie(gei,gei_end)=edges(Trimmed.second);gei!=gei_end;gei++)
+    {
+        eset.insert(ge_trimmed(*gei));
+    }
+
+
+    set_symmetric_difference(pqset.begin(),pqset.end(),eset.begin(),eset.end(),sdtwo_ins);
+
+    if(sdtwo.size()) {
+      //  cout << "sdtwo has size " << sdtwo.size() << endl;
+
+//            copy(sdtwo.begin(),sdtwo.end(),ostream_iterator<string,char>(cout," "));
+
+      //      PrintFullTextileInfo(Trimmed);
+
+        EtoRemove<g_edge_name_type> etwor(ge_trimmed,sdtwo);
+
+        remove_edge_if(etwor,Trimmed.second);
+
+        stable = false;
+    }
+
+ //   cout << "About to check the downstairs vertices" << endl;
+
+    do{
+        done =true;
+        for(tie(gvi,gvi_end)=vertices(Trimmed.second); gvi!=gvi_end && done; gvi++)
+        {
+//            cout << "We are checking " << gv_trimmed(*gvi) << " done is " << done << endl;
+            if(out_degree(*gvi,Trimmed.second)==0 || in_degree(*gvi,Trimmed.second)==0)
+            {
+//cout << "The vertex " << gv_trimmed(*gvi) << " is a sink or a source" << endl;
+                clear_vertex(*gvi,Trimmed.second);
+                remove_vertex(*gvi,Trimmed.second);
+                stable = false;
+                done=false;
+                break;
+            }
+        //    cout << "It's not." << endl;
+        }
+     //   cout << "Out of for loop, done is " << done <<  endl;
+
+
+    } while(!done);
+
+
+
+} while(!stable);
+
+return Trimmed;
+
 }

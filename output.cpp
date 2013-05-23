@@ -81,9 +81,7 @@ typedef set<graph_traits<GammaGraph>::vertex_descriptor> vColl;
 typedef std::tuple<int,int,int> PQOEIElement;
 
 void PrintRepMatrix(Textile T)
-{
-    bool found;
-    
+{    
     graph_traits<GammaGraph>::vertex_iterator vi,vi_end,wi,wi_end;
     graph_traits<GammaGraph>::edge_descriptor e;
     
@@ -131,8 +129,6 @@ void PrintRepMatrix(Textile T)
 
 void PrintFullTextileInfo(Textile T,ostream& os)
 {
-    bool found;
-    
     graph_traits<GammaGraph>::vertex_iterator vi,vi_end,wi,wi_end;
     graph_traits<GammaGraph>::edge_descriptor e;
     graph_traits<GammaGraph>::out_edge_iterator oei,oei_end;
@@ -463,7 +459,7 @@ void PrintGraph(Graph G,ostream& os)
 vector<string> StringSplitter(string s,vector<int> sizes)
 {
  
-  int i,j=0,n=sizes.size(),length = s.length();
+  int i,j=0,n=sizes.size();
   vector<string> split(n);
 
 //  cout << "Initial String: " << s << endl;
