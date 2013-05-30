@@ -194,7 +194,7 @@ int main(void)
 
   //  LookForConjugacy(TNOneOne,5,&found);
 
-    LookForConjugacy(TNTwoOne,5,&found);
+    LookForConjugacy(TNTwoOne,4,&found);
 
  //   LookForConjugacy(T,5,&found);
 

@@ -175,6 +175,7 @@ int main(void)
     
     put(bvname,0,string("Y"));
     put(bvname,1,string("Z"));
+    put(bvname,1,string("X"));
     
     
     Textile T(A,B);
@@ -185,16 +186,16 @@ int main(void)
 
     cout << "isLR(T) is " << IsLR(T) << endl;
     
-    Textile TNTwoOne = CreateNMTextile(T,-2,1);
+   // Textile TNTwoOne = CreateNMTextile(T,-2,1);
 
- //   Textile TNOneOne = CreateNMTextile(T,-1,1);
+    Textile TNOneOne = CreateNMTextile(T,-1,1);
 
- //   PrintFullTextileInfo(TNTwoOne);
+    PrintFullTextileInfo(TNOneOne);
 
 
-  //  LookForConjugacy(TNOneOne,5,&found);
+    LookForConjugacy(TNOneOne,5,&found);
 
-    LookForConjugacy(TNTwoOne,5,&found);
+  //  LookForConjugacy(TNTwoOne,4,&found);
 
  //   LookForConjugacy(T,5,&found);
 
