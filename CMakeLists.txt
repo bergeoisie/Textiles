@@ -34,6 +34,7 @@ endif ()
 
 add_library(textileHelper textileHelper.cpp)
 add_library(output output.cpp)
+#add_library(SSEGenerator SSEGenerator.cpp)
 
 # add the executable
 add_executable(FromSSE FromSSE.cpp)
@@ -46,6 +47,10 @@ add_executable(ThreeByThreeASquared ThreeByThreeASquared.cpp)
 add_executable(ThreeByThreeB ThreeByThreeB.cpp)
 add_executable(ThreeByThreeBSquared ThreeByThreeBSquared.cpp)
 add_executable(ThreeByThreeC ThreeByThreeC.cpp)
+#add_executable(Odense Odense.cpp)
+add_executable(MoreOdense MoreOdense.cpp)
+add_executable(ODFATesting ODFATesting.cpp)
+
 
 target_link_libraries(FromSSE output textileHelper)
 target_link_libraries(GMSquare output textileHelper)
@@ -57,3 +62,6 @@ target_link_libraries(ThreeByThreeB output textileHelper)
 target_link_libraries(ThreeByThreeASquared output textileHelper)
 target_link_libraries(ThreeByThreeBSquared output textileHelper)
 target_link_libraries(ThreeByThreeC output textileHelper)
+#target_link_libraries(Odense output textileHelper)
+target_link_libraries(MoreOdense output textileHelper)
+target_link_libraries(ODFATesting output textileHelper)

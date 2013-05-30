@@ -155,6 +155,8 @@ Textile NewDFAMinimization(Textile &);
 Partition InitialPartition(Textile &);
 Partition Intersection(vColl, vColl);
 vColl deltaInv(vColl, string, GammaGraph &);
+Textile OverallMinimization(Textile &);
+vColl PQdeltaInv(vColl,string,GammaGraph &);
 //Textile TrimByREI(Textile &);
 
 #endif

@@ -3189,7 +3189,7 @@ Textile CreateNMTextile(Textile T, int n, int m)
 {
     int newn = n, newm = -n + m;
     
-    cout << "New N is " << n << " and new M is " << newm << endl;
+//    cout << "New N is " << n << " and new M is " << newm << endl;
     
     Textile Toneone = CreateOneOneTextile(T);
   
@@ -4967,4 +4967,138 @@ Textile Trim(Textile T)
 
 return Trimmed;
 
+}
+
+Textile OverallMinimization(Textile& T)
+{
+    Partition P=InitialPartition(T);
+    stack<vColl> toCheck;
+    set<string> codex;
+
+    GEI gei,gei_end;
+    GammaEI ei,ei_end;
+
+    property_map<Graph,edge_name_t>::type
+    G_ename = get(edge_name,T.second);
+
+    edge_p_type Gamma_phom = get(edge_p_homom,T.first);
+    edge_q_type Gamma_qhom = get(edge_q_homom,T.first);
+
+    // Let's add the full partition to the stack of things to check
+    cout << "We are pushing the full partition ";
+    printVColl(P[0]);
+    cout << endl;
+    toCheck.push(P[0]);
+
+    // Let us create the codex from the top graph's p and q homoms (we're going to get a subset of all the pairs)
+    for(tie(ei,ei_end)=edges(T.first); ei!=ei_end; ei++)
+    {
+        codex.insert(Gamma_phom(*ei)+Gamma_qhom(*ei));
+    }
+
+    while(!toCheck.empty())
+    {
+        vColl current = toCheck.top();
+        toCheck.pop();
+
+        // For each symbol in our codex, let's generate a finer partition.
+        for(auto codexIt = codex.begin(); codexIt != codex.end(); codexIt++)
+        {
+            string s = *codexIt;
+            vColl gen = PQdeltaInv(current,s,T.first);
+            cout << "Using " << s << " ";
+            cout << "We have generated ";
+            printVColl(gen);
+            cout << endl;
+            if(gen.size()>0){
+            bool goodSplits = true;
+            auto partIt = P.begin();
+            while(goodSplits && partIt != P.end())
+            {
+                Partition Q = Intersection(*partIt,gen);
+                if(Q[0].size() > 0 && Q[1].size() > 0)
+                {
+                    cout << "We are going to push on to the stack";
+                    if(Q[0].size() < Q[1].size()) {
+                        printVColl(Q[0]);
+                    toCheck.push(Q[0]);
+                    }
+                    else{
+                        printVColl(Q[1]);
+                        toCheck.push(Q[1]);
+                    }
+                    cout << endl;
+                cout << "We are erasing ";
+                printVColl(*partIt);
+                cout << endl;
+                P.erase(partIt);
+                goodSplits = false;
+                cout << "We are adding ";
+                printVColl(Q[0]);
+                cout << " and ";
+                printVColl(Q[1]);
+                cout << endl;
+
+                P.push_back(Q[0]);
+                P.push_back(Q[1]);
+                }
+                partIt++;
+
+            }
+        }
+
+        }
+    }
+
+
+    vector< vector< VD > > stateEquiv;
+
+//    cout << "Final partition is ";
+
+    for(auto partIt = P.begin(); partIt != P.end(); partIt++)
+    {
+  //      printVColl(*partIt);
+  //      cout << endl << (*partIt).size() << endl;
+        vector<VD> currVD;
+        for(auto setIt=partIt->begin(); setIt!=partIt->end(); setIt++)
+        {
+            currVD.push_back(*setIt);
+        }
+        printVVec(currVD);
+        stateEquiv.push_back(currVD);
+    }
+  //  cout << endl;
+
+
+    return Quotient(T,stateEquiv);
+
+
+}
+
+vColl PQdeltaInv(vColl v, string a, GammaGraph & Gamma)
+{
+    vColl Generated;
+    bool found;
+    
+    edge_p_type Gamma_phom = get(edge_p_homom,Gamma);
+    edge_q_type Gamma_qhom = get(edge_q_homom,Gamma);
+
+    graph_traits<GammaGraph>::in_edge_iterator iei,iei_end;
+
+    for(auto vCollIt = v.begin(); vCollIt != v.end(); vCollIt++)
+    {
+        found = false;
+        tie(iei,iei_end)=in_edges(*vCollIt,Gamma);
+        while(!found && iei!=iei_end)
+          {
+              if((Gamma_phom(*iei)+Gamma_qhom(*iei)) == a)
+              {
+                    found = true;
+                    Generated.insert(source(*iei,Gamma));
+              }
+              iei++;
+          }  
+    }
+
+    return Generated;
 }
