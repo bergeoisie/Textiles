@@ -73,7 +73,7 @@ int main(void)
 {
     bool found;
     int i,j,k,l;
-    
+
     GammaGraph A(3);
     
     
@@ -132,10 +132,23 @@ int main(void)
     cout << "Our original T is" << endl;
 
     PrintFullTextileInfo(T);
-    
+ 
+    EdgeRenamer(T);
 
-    Textile Tone = CreateNMTextile(T,-1,2);
+    PrintFullTextileInfo(T);
 
+    Textile Ttwo = Trim(HigherNBlock(T,2));
+
+    PrintFullTextileInfo(Ttwo);
+
+
+
+    Textile Tone = CreateNMTextile(T,1,1);
+
+//    EdgeRenamer(Tone);
+
+    PrintFullTextileInfo(Tone);
+/*
     Textile ToneAH = AutoHomom(Tone);
 
     Textile ToneDFAed = OverallMinimization(Tone);

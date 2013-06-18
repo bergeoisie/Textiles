@@ -148,30 +148,35 @@ int main(void)
 //    PrintFullTextileInfo(T);
 
     vector<graph_traits<Graph>::edge_descriptor> permTest(num_edges(MP));
+    vector<pair<int,int> > intervals(num_vertices(MP));
+
 
     for(tie(ei,ei_end)=edges(PM),i=0;ei!=ei_end;ei++,i++)
     {
         permTest[i]=*ei;
     }
 
+    for(tie(vi,vi_end)=vertices(PM),i=0;vi!=vi_end;vi++)
+    {
+        intervals[i]=pair<int,int>(i,i+out_degree(*vi,PM));
+        cout << "Pair is " << i << " and " << i+out_degree(*vi,PM) << endl;
+        i += out_degree(*vi,PM);
+    } 
 
+    int p =0;
     auto start = permTest.begin(),finish = permTest.end();
     do {
-        bool goodSE = true;
+        p= p+1 % num_vertices(PM);
         for(tie(ei,ei_end)=edges(MP),tie(fi,fi_end)=edges(PM),i=0;ei!=ei_end;ei++,i++,fi++)
         {
       //  cout<< MP_ename(*ei) << " and " << PM_ename(*fi) << " and " << PM_ename(permTest[i]) << endl;
             sequiv[MP_ename(*ei)]=PM_ename(permTest[i]);
     //      cout << MP_ename(*ei) << " -> " << sequiv[MP_ename(*ei)] << endl;
-
-            if(source(permTest[i],PM) != source(*ei,MP)) {
-                goodSE = false;
-            }
         } 
 
     //  cout << endl;
 
-        if(!goodSE || SEquivChecker(MP,PM,sequiv))
+        if(SEquivChecker(MP,PM,sequiv))
         {
            /* if(j==5046)
             { */
@@ -225,7 +230,7 @@ int main(void)
     }
 
 j++;
-} while(std::next_permutation(start,finish));
+} while(std::next_permutation(start+intervals[p].first,start+intervals[p].second));
 
 
     return 0;

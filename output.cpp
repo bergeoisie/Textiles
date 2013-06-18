@@ -329,19 +329,20 @@ string ssVVec(VVec a)
 }
 
 // This is a helper function that produces shortened strings based on
-// a given length. You can also change the starting point.
-string Namer(int i, int len, int start)
+// a given length. You can also change the starting point and the alphabet size.
+string Namer(int i, int len, int start, int alphasize)
 {
     int div,j,curr;
+    double asdoub(alphasize);
     string name;
     char * temp = new char[len+1];
     
     for(j=0;j<len;j++)
     {
-        div = i / pow(26.0,j);
+        div = i / pow(asdoub,j);
         if(div > 0)
         {
-            curr = div % 26;
+            curr = div % alphasize;
         }
         else {
             curr = 0;

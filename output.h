@@ -95,7 +95,7 @@ void SmartPrintTextileInfo(Textile, ostream& os = cout);
 void printVVec(VVec);
 void printVColl(vColl);
 string ssVVec(VVec);
-string Namer(int,int,int=65);
+string Namer(int,int,int=65,int=26);
 void OctaveOutput(Textile,string);
 void PrintGraph(Graph,ostream& os = cout);
 vector<string> StringSplitter(string,vector<int>);

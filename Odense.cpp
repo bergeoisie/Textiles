@@ -76,7 +76,10 @@ int main(void)
     
     GammaGraph A(6);
     
-    
+    ofstream grid("gridOdense.txt");
+
+
+
     ofstream os("Odense.txt");
 
     add_edge(0, 0, PQ_Homoms(string("a"),Q_Homom(string("a"),string("01"))),A); // aa -(a/a)-> aa 
@@ -184,16 +187,43 @@ int main(void)
 
     PrintFullTextileInfo(T);
 
-    cout << "isLR(T) is " << IsLR(T) << endl;
+
+        for(k=-3; k>-4;k--)
+        {
+            for(l=1; l<2; l++)
+            {
+                Textile Tkl = AutoHomom(CreateNMTextile(T,k,l));
+                if(IsLR(Tkl))
+                {
+                    grid << "We are LR at SE " << " where k = " << k << " and l = "  << l << endl;
+                }
+                else{
+                    grid << "We are NOT LR at SE " << " where k = " << k << " and l = "  << l << endl;
+                }
+                cout << "CHECKING CONJUGACY FOR k = " << k << " and l = " << l << endl;
+                Textile Tconj = LookForConjugacy(Tkl,3,&found);
+                cout << "Found = " <<  found << endl;
+                if(found){
+                    grid << "PRINTING IJ CONJUGACY FOR SE" << " where k = " <<  k  << " and l = " << l << endl;
+                    PrintFullTextileInfo(Tkl,grid);
+                    PrintFullTextileInfo(Tconj,grid);
+                    stringstream filename;
+                    filename << "OdenseCONJUGACY" << k << l;
+                    OctaveOutput(Tconj,filename.str());
+                }
+            } // l for loop
+        } // k for loop  
+
+//    cout << "isLR(T) is " << IsLR(T) << endl;
     
    // Textile TNTwoOne = CreateNMTextile(T,-2,1);
 
-    Textile TNOneOne = CreateNMTextile(T,-1,1);
+  //  Textile TNOneOne = CreateNMTextile(T,-1,1);
 
-    PrintFullTextileInfo(TNOneOne);
+    //PrintFullTextileInfo(TNOneOne);
 
 
-    LookForConjugacy(TNOneOne,5,&found);
+   // LookForConjugacy(TNOneOne,5,&found);
 
   //  LookForConjugacy(TNTwoOne,4,&found);
 

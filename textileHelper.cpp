@@ -119,6 +119,7 @@ typedef graph_traits<GammaGraph>::vertex_descriptor VD;
 
 typedef property_map<GammaGraph,edge_p_homom_t>::type edge_p_type;
 typedef property_map<GammaGraph,edge_q_homom_t>::type edge_q_type;
+typedef property_map<GammaGraph,edge_name_t>::type gamma_edge_name_type;
 typedef property_map<Graph,edge_name_t>::type g_edge_name_type;
 typedef property_map<GammaGraph,vertex_name_t>::type gamma_vertex_name_type;
 typedef property_map<Graph,vertex_name_t>::type g_vertex_name_type;
@@ -5101,4 +5102,21 @@ vColl PQdeltaInv(vColl v, string a, GammaGraph & Gamma)
     }
 
     return Generated;
+}
+
+void EdgeRenamer(Textile & T)
+{
+    gamma_edge_name_type Gamma_ename = get(edge_name,T.first);
+
+    int i,len;
+
+    GammaEI ei,ei_end;
+
+    len = (int) ceil(log(num_edges(T.first))/log(10));
+
+
+    for(tie(ei,ei_end)=edges(T.first),i=0;ei!=ei_end;ei++,i++)
+    {
+        put(Gamma_ename,*ei,Namer(i,len,48,10));
+    }
 }
