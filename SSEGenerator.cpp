@@ -3,6 +3,10 @@
 #include "output.h"
 
 typedef unordered_map<string,string> specequiv;
+typedef graph_traits<Graph> vertex_descriptor;
+typedef graph_traits<Graph> edge_descriptor;
+typedef property_map<Graph,edge_name_t>::type g_edge_name_type;
+
 
 
 SSEGenerator::SSEGenerator(Graph G,Graph H) : ggraph(G),hgraph(H),ghproduct(ProductGraph(G,H)),hgproduct(ProductGraph(H,G))
@@ -28,16 +32,30 @@ void SSETree::MakeSSE()
 stack<string> SSETree::createAssociationStack(SSENode* node)
 {
 	set<string> seenEdges;
+	stack<string> assocStack;
 
 	int convertedLevel = node->getLevel() - 1;
 
+	SSENode* parent =node.getParent();
+
+	g_edge_name_type hg_e_name = get(edge_name,*hg);
+
+	// 
+	ED e = edVector[convertedLevel];
+	VD tar = target(e,*gh);
+
+	while(parent != null)
+	{
+		seenEdges.insert(parent->getAssoc());
+		parent = parent->getParent();
+	}
 
 	// We want to iterate through the out edges of HG to 
 	for(tie(oei,oei_end)=out_edges(source(e,*gh),*hg);oei!=oei_end;oei++)
 	{
-		if(target(*oei,*hg)==tar)
+		if(target(*oei,*hg)==tar && seenEdges.find(hg_e_name(*oei)))
 		{
-
+			assocStack.push(hg_e_name(*oei));
 		}
 	}
 
@@ -96,4 +114,14 @@ SSENode::SSENode(SSENode* p,int l,string a) : parent_(p), level_(l), assoc_(a),c
 const int SSENode::getLevel()
 {
 	return level_;
+}
+
+string SSENode::getAssoc()
+{
+	return assoc_;
+}
+
+SSENode* SSENode::getParent()
+{
+	return parent_;
 }

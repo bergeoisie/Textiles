@@ -2,6 +2,8 @@
 #define _ssegenerator_h
 
 typedef unordered_map<string,string> specequiv;
+typedef graph_traits<Graph> vertex_descriptor;
+typedef graph_traits<Graph> edge_descriptor;
 
 enum colors { White, Gray, Black };
 
@@ -45,6 +47,8 @@ public:
 	bool NoChildren();
 	void addChild(SSENode*);
 	const int getLevel();
+	SSENode* getParent();
+	string getAssoc();
 
 private:
 	SSENode* parent_;
