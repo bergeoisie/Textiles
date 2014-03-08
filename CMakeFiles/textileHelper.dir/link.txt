@@ -1,0 +1,2 @@
+/usr/bin/ar cr libtextileHelper.a  CMakeFiles/textileHelper.dir/textileHelper.cpp.o
+/usr/bin/ranlib libtextileHelper.a

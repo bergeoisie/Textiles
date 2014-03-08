@@ -1,0 +1,15 @@
+/home/brendan/Projects/Textiles/CMakeFiles/FromSSE.dir
+/home/brendan/Projects/Textiles/CMakeFiles/GMSSEs.dir
+/home/brendan/Projects/Textiles/CMakeFiles/GMSquare.dir
+/home/brendan/Projects/Textiles/CMakeFiles/MoreOdense.dir
+/home/brendan/Projects/Textiles/CMakeFiles/ODFATesting.dir
+/home/brendan/Projects/Textiles/CMakeFiles/Odense.dir
+/home/brendan/Projects/Textiles/CMakeFiles/OneOneFour.dir
+/home/brendan/Projects/Textiles/CMakeFiles/OneOneTwo.dir
+/home/brendan/Projects/Textiles/CMakeFiles/ThreeByThreeA.dir
+/home/brendan/Projects/Textiles/CMakeFiles/ThreeByThreeASquared.dir
+/home/brendan/Projects/Textiles/CMakeFiles/ThreeByThreeB.dir
+/home/brendan/Projects/Textiles/CMakeFiles/ThreeByThreeBSquared.dir
+/home/brendan/Projects/Textiles/CMakeFiles/ThreeByThreeC.dir
+/home/brendan/Projects/Textiles/CMakeFiles/output.dir
+/home/brendan/Projects/Textiles/CMakeFiles/textileHelper.dir

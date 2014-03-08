@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "textileHelper.h"
+#include "output.h"
 
 using namespace std;
 
@@ -33,12 +34,11 @@ typedef property<vertex_p_vhomom_t, int, Q_VHomom> PQ_VHomoms;
 // space efficient than the STL list structure.
 typedef adjacency_list<vecS,vecS, bidirectionalS, VName, Name> Graph;
 
-typedef adjacency_list<vecS,vecS, bidirectionalS, PQ_VHomoms,
-PQ_Homoms> GammaGraph;
+typedef adjacency_list<vecS,vecS, bidirectionalS, PQ_VHomoms, PQ_Homoms> GammaGraph;
 
 // Define two types of unordered_maps
-typedef std::tr1::unordered_map<string,graph_traits<Graph>::vertex_descriptor> VertexMap;
-typedef std::tr1::unordered_map<string,Edge> EdgeMap;
+typedef std::unordered_map<string,graph_traits<Graph>::vertex_descriptor> VertexMap;
+typedef std::unordered_map<string,Edge> EdgeMap;
 
 typedef pair<GammaGraph,Graph> Textile;
 
@@ -55,7 +55,7 @@ typedef graph_traits<GammaGraph>::vertex_descriptor VD;
 // A vertex collection is a set of vertex descriptors
 typedef set<graph_traits<GammaGraph>::vertex_descriptor> vColl;
 
-typedef tuple<int,int,int> PQOEIElement;
+typedef std::tuple<int,int,int> PQOEIElement;
 
 
 

@@ -13,3 +13,6 @@ build/CMakeFiles/*
 *.cmake
 progress.make
 *.o
+TNT/
+JAMA/
+boost_1_55_0/

@@ -1,0 +1,2 @@
+/usr/bin/ar cr liboutput.a  CMakeFiles/output.dir/output.cpp.o
+/usr/bin/ranlib liboutput.a

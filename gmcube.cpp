@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "textileHelper.h"
+#include "output.h"
 
 using namespace std;
 

@@ -1,6 +1,10 @@
 cmake_minimum_required (VERSION 2.6)
 project (textiles)
- 
+
+include(cmake/internal_utils.cmake)
+
+config_compiler_and_linker()
+
 #find_package(armadillo)
 find_package(Boost)
 
@@ -11,12 +15,22 @@ find_package(Boost)
 #  "${PROJECT_BINARY_DIR}/caentConfig.h"
 #  )
  
+include_directories(
+  ${gtest_SOURCE_DIR}/include
+  ${gtest_SOURCE_DIR})
+link_directories(${gtest_BINARY_DIR}/src)
+
+
 # add the binary tree to the search path for include files
 # so that we will find TutorialConfig.h
 include_directories("${PROJECT_BINARY_DIR}")
 
 
 set(CMAKE_CXX_FLAGS "-g -Wall -std=c++11 -O3")
+
+cxx_library(gtest "${cxx_strict}" src/gtest-all.cc)
+cxx_library(gtest_main "${cxx_strict}" src/gtest_main.cc)
+target_link_libraries(gtest_main gtest)
 
 
 # Compiler-specific C++11 activation.
@@ -65,3 +79,6 @@ target_link_libraries(ThreeByThreeC output textileHelper)
 target_link_libraries(Odense output textileHelper)
 target_link_libraries(MoreOdense output textileHelper)
 target_link_libraries(ODFATesting output textileHelper)
+
+
+cxx_executable(th_unittests samples gtest_main)

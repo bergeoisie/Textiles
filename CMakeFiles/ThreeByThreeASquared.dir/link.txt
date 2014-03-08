@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -Wall -std=c++11 -O3    CMakeFiles/ThreeByThreeASquared.dir/ThreeByThreeASquared.cpp.o  -o ThreeByThreeASquared -rdynamic liboutput.a libtextileHelper.a 
